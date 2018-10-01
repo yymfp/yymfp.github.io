@@ -7,7 +7,7 @@
 		
 
 <head>
-	<title>&#39;常见的排序算法&#39;</title>
+	<title>常见的排序算法</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
@@ -49,7 +49,7 @@
 	
 	
 		
-			<p class="page-name">&#39;常见的排序算法&#39;</p>
+			<p class="page-name">常见的排序算法</p>
 		
 		
 	
@@ -111,7 +111,7 @@
 					
 	
 		<a href="/2018/10/01/常见的排序算法/" itemprop="url">		
-			&#39;常见的排序算法&#39;		
+			常见的排序算法		
 		</a>
 	
 
@@ -142,7 +142,8 @@
 
 			<div class="am-article-bd">
 				<div class="content">
-					<h1 id="运用js实现简单的几种排序算法"><a href="#运用js实现简单的几种排序算法" class="headerlink" title="运用js实现简单的几种排序算法"></a>运用js实现简单的几种排序算法</h1><h3 id="二分查找-折半查找"><a href="#二分查找-折半查找" class="headerlink" title="二分查找(折半查找)"></a>二分查找(折半查找)</h3><blockquote>
+					<h1 id="运用js实现简单的几种排序算法"><a href="#运用js实现简单的几种排序算法" class="headerlink" title="运用js实现简单的几种排序算法"></a>运用js实现简单的几种排序算法</h1><h4 id="时间复杂度排序："><a href="#时间复杂度排序：" class="headerlink" title="时间复杂度排序："></a>时间复杂度排序：</h4><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/01/9a8c68df405b4ae980c7a100d9395d26.png" alt=""></p>
+<h3 id="二分查找-折半查找"><a href="#二分查找-折半查找" class="headerlink" title="二分查找(折半查找)"></a>二分查找(折半查找)</h3><blockquote>
 <p>#####算法思想：<br>    搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。<br><strong><em>注意：查找必须是大小排好序的</em></strong></p>
 </blockquote>
 <h4 id="时间复杂度：O-log2n"><a href="#时间复杂度：O-log2n" class="headerlink" title="时间复杂度：O(log2n)"></a>时间复杂度：O(log2n)</h4><h5 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">erfen</span>(<span class="params">arr,val</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">let</span> left=<span class="number">0</span>;</span><br><span class="line"> 	<span class="keyword">let</span> right=arr.length<span class="number">-1</span>;</span><br><span class="line"> 	<span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line"> 		<span class="keyword">let</span> mid=<span class="built_in">parseInt</span>((left+right)/<span class="number">2</span>);</span><br><span class="line"> 		<span class="keyword">if</span>(val&gt;arr[mid])&#123;</span><br><span class="line"> 			left=mid+<span class="number">1</span>;</span><br><span class="line"> 		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&lt;arr[mid])&#123;</span><br><span class="line"> 			right=mid<span class="number">-1</span>;</span><br><span class="line"> 		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> 			<span class="keyword">return</span> mid;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> res=erfen(arr,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'二分查找：'</span>,res);</span><br></pre></td></tr></table></figure>
