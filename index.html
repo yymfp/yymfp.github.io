@@ -1,672 +1,1101 @@
-<!--There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!-->
+<!DOCTYPE html>
 
 
 
-	<!DOCTYPE html>
-	<html>
-		
 
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
 <head>
-	<title>pjy</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="author" content="pjy">
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-   	<!-- css -->
-	<link rel="stylesheet" href="/css/style.css">	
-	<!-- code -->
-	<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">	
-	<!-- favicon -->
-	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
-	<!-- font-awesome -->
-	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="pjy">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="pjy">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pjy">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>pjy</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
+  
+  
+    
+  
 
-	<body>	
-		<!--Preloader-->
-<div id="preloader">
-	<div id="status">
-		<img alt="preloader" src="/img/logo.png">
-	</div>
-</div>
-<!--Preloader end-->
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-	<header style="background-image: url( https://source.unsplash.com/collection/954550/1920x1080 );">	
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">pjy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
 
-	
-		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
-	
-		
-		
- 		<p class="motto"></p>
-	
-	
-	
-		
-			<p class="page-name"></p>
-		
-		
-	
-</header>
-
-<div id="cd-nav">
-	<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
-
-	<nav id="cd-main-nav">
-		<ul>
-			
-      		<li class="fa fa-/">
-           		<a href="/" title="主页">主页</a>	
-      		</li>
-    		
-      		<li class="fa fa-/archives">
-           		<a href="/archives" title="归档">归档</a>	
-      		</li>
-    		
-      		<li class="fa fa-/categories">
-           		<a href="/categories" title="分类">分类</a>	
-      		</li>
-    		
-      		<li class="fa fa-/tags">
-           		<a href="/tags" title="标签">标签</a>	
-      		</li>
-    		
-      		<li class="fa fa-/about">
-           		<a href="/about" title="关于">关于</a>	
-      		</li>
-    		
-      		<li class="fa fa-/gallery">
-           		<a href="/gallery" title="相册">相册</a>	
-      		</li>
-    		
-    		
-        	
-            	<li><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
-        	
-		</ul>
-	</nav>
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 
-		<main>
-		<div class="page-container">
-		
-	<!-- content srart -->
-<div class="am-g am-g-fixed blog-fixed">
-	<div class="am-u-md-12 am-u-sm-12">
 
-		
-			<article class="am-g blog-entry-article">
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
 
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
-				</div>	
+      
+      
+    </ul>
+  
 
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<a href="/2018/10/01/常见的排序算法/" itemprop="url">
-	<time datetime="2018-10-01T10:23:22.000Z" itemprop="datePublished">
-  		2018-10-01
-  </time>
-</a>    
+  
+    
 
-					
-	
-		<a href="/2018/10/01/常见的排序算法/" itemprop="url">		
-			常见的排序算法		
-		</a>
-	
+  
 
-
-
-
-					
-						<p>
-							
-								运用js实现简单的几种排序算法时间复杂度排序：
-二分查找(折半查找)
-#####算法思想：    搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。注意：查找必须是大小排好序的	
-							  
-						</p> 
-					
-
-					
-						<span class="continue-read">      	
-							<a href="/2018/10/01/常见的排序算法/" class="pull-right">
-								read more
-							</a>		
-						</span>
-					         		
-				</div>
-			</article>
-		
-			<article class="am-g blog-entry-article">
-
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
-				</div>	
-
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<a href="/2018/09/27/px、em、rem区别/" itemprop="url">
-	<time datetime="2018-09-27T09:19:59.000Z" itemprop="datePublished">
-  		2018-09-27
-  </time>
-</a>    
-
-					
-	
-		<a href="/2018/09/27/px、em、rem区别/" itemprop="url">		
-			px、em、rem区别		
-		</a>
-	
+  
+</nav>
 
 
 
-
-					
-						<p>
-							
-								px、em、rem之间的区别PXpx：像素。是相对长度单位，相对于当前显示器屏幕分辨率而言的。
-px特点
-大部分浏览器无法做到调整使用px作为单位的字体大小。
-国外大部分网站使用em或者rem作为字体单位。
-
-EMem：是相对长度单位。相对于当前对象内文本的字体尺寸，如当前对行内文本的尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
-em特点
-em的值并不是固定的。
-em会继承父元素的字体大小。
-	
-							  
-						</p> 
-					
-
-					
-						<span class="continue-read">      	
-							<a href="/2018/09/27/px、em、rem区别/" class="pull-right">
-								read more
-							</a>		
-						</span>
-					         		
-				</div>
-			</article>
-		
-			<article class="am-g blog-entry-article">
-
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
-				</div>	
-
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<a href="/2018/09/25/你好，潘君毅/" itemprop="url">
-	<time datetime="2018-09-25T09:11:08.000Z" itemprop="datePublished">
-  		2018-09-25
-  </time>
-</a>    
-
-					
-	
-		<a href="/2018/09/25/你好，潘君毅/" itemprop="url">		
-			使用Hexo+Github搭建属于自己的博客		
-		</a>
-	
+  
 
 
 
+</div>
+    </header>
 
-					
-						<p>
-							
-								使用Hexo+Github搭建属于自己的博客1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功node -vnpm -v
-2.安装Git环境注意:一般为了安全考虑，只有在Git Bash Here中才能进行Git的相关操作。git --version查看是否配置成功
-3.登陆Github账号，新建项目：账户名.github.io项目建好后，可以访问ht	
-							  
-						</p> 
-					
+    
 
-					
-						<span class="continue-read">      	
-							<a href="/2018/09/25/你好，潘君毅/" class="pull-right">
-								read more
-							</a>		
-						</span>
-					         		
-				</div>
-			</article>
-		     
 
-		
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/01/常见的排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
 
         
-  
-  
-	
-	</div>
-</div>
-<!-- content end -->
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/01/常见的排序算法/" itemprop="url">
+                  常见的排序算法
+                </a>
+              
+            
+          </h1>
+        
 
-	<!--图文风格-->
+        <div class="post-meta">
+          <span class="post-time">
 
-		</div>
-		<footer>
-	<div class="blog-text-center">
-		<div class="social">
-				
-				
-					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
-				
-				
-					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
-					
-				
-					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
-						
-				
-		</div>
-	</div>
+            
+            
+            
 
-	<div  class="blog-text-center">
-		<div class="copyright">
-			
-				&copy; 2017 - 2018, content by pjy. All Rights Reserved.			       	
-			
-		</div>
-	</div>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
 
-	<div class="blog-text-center">
-		<div class="copyright">
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
-		</div>
-	</div>
-</footer>
+              
+                
+              
 
+              <time title="Post created: 2018-10-01 18:23:22 / Updated at: 19:19:15" itemprop="dateCreated datePublished" datetime="2018-10-01T18:23:22+08:00">2018-10-01</time>
+            
 
+            
+              
 
+              
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
 
+                
+                
+              
+            </span>
+          
 
-		</main>
+          
+            
+          
 
-		
+          
+          
 
-<script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+          
 
-<script>window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')</script>
+          
 
-<script src="/js/main.js"></script> 
+          
 
-<style>
-	.motto {
-		color: #000000;
-		font-size: 20px;
-		margin: 60px 20px 0 20px;
-		line-height: 1.4;
-		font-family: 'Fang Song', 'Song', 'STSong', sans-serif;
-		text-align: center;
-	}
-</style>
-
-
-	<script src="/js/motto.js"></script>
-	<script>
-		$(".motto").html(getMingYanContent());
-	</script>	
-
-
-
-    <div class="popup search-popup local-search-popup">
-    <span class="popup-btn-close">
-      ESC
-    </span>
-    <div class="container">
-      <div class="col-md-8 col-md-offset-2">
-
-        <div class="local-search-header clearfix">
-            <span class="search-icon"></span>
-            <div class="local-search-input-wrapper">
-              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
-            </div>
         </div>
+      </header>
+    
 
-        <div id="local-search-result"></div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-      </div>
+      
+      
+
+      
+        
+          
+            <h1 id="运用js实现简单的几种排序算法"><a href="#运用js实现简单的几种排序算法" class="headerlink" title="运用js实现简单的几种排序算法"></a>运用js实现简单的几种排序算法</h1><h4 id="时间复杂度排序："><a href="#时间复杂度排序：" class="headerlink" title="时间复杂度排序："></a>时间复杂度排序：</h4><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/01/9a8c68df405b4ae980c7a100d9395d26.png" alt=""></p>
+<h3 id="二分查找-折半查找"><a href="#二分查找-折半查找" class="headerlink" title="二分查找(折半查找)"></a>二分查找(折半查找)</h3><blockquote>
+<p>#####算法思想：<br>    搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。<br><strong><em>注意：查找必须是大小排好序的</em></strong></p>
+</blockquote>
+<h4 id="时间复杂度：O-log2n"><a href="#时间复杂度：O-log2n" class="headerlink" title="时间复杂度：O(log2n)"></a>时间复杂度：O(log2n)</h4><h5 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">erfen</span>(<span class="params">arr,val</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">let</span> left=<span class="number">0</span>;</span><br><span class="line"> 	<span class="keyword">let</span> right=arr.length<span class="number">-1</span>;</span><br><span class="line"> 	<span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line"> 		<span class="keyword">let</span> mid=<span class="built_in">parseInt</span>((left+right)/<span class="number">2</span>);</span><br><span class="line"> 		<span class="keyword">if</span>(val&gt;arr[mid])&#123;</span><br><span class="line"> 			left=mid+<span class="number">1</span>;</span><br><span class="line"> 		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&lt;arr[mid])&#123;</span><br><span class="line"> 			right=mid<span class="number">-1</span>;</span><br><span class="line"> 		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> 			<span class="keyword">return</span> mid;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> res=erfen(arr,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'二分查找：'</span>,res);</span><br></pre></td></tr></table></figure>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
+<p>#####算法思想：</p>
+<pre><code>1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+2. 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+3. 针对所有的元素重复以上的步骤，除了最后一个。
+4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 
+</code></pre></blockquote>
+<h4 id="时间复杂度：O-n-2"><a href="#时间复杂度：O-n-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-1"><a href="#代码实现：-1" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mp</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;</span><br><span class="line"> 		<span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;arr.length-i<span class="number">-1</span>;j++)&#123;</span><br><span class="line"> 			<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line"> 				<span class="keyword">let</span> tmp=arr[j];</span><br><span class="line"> 				arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line"> 				arr[j+<span class="number">1</span>]=tmp;</span><br><span class="line"> 			&#125;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line"> 	<span class="keyword">return</span> arr;</span><br><span class="line"> &#125;</span><br><span class="line"> res=mp(array);</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'冒泡排序：'</span>,res);</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
+<p>#####算法思想：</p>
+<pre><code>1. 选出一个基准数，一般为第一个元素。
+2. 比较后边的所有数值，大的放右边，小的放左边（也就是一趟之后，将排序的数据分成两块，一部分是比基准数都小的，一部分是比基准数都大的）。
+3. 最后分别对两块数据进行重复1、2步骤。（递归进行）。
+</code></pre></blockquote>
+<h4 id="时间复杂度：O-nlogn"><a href="#时间复杂度：O-nlogn" class="headerlink" title="时间复杂度：O(nlogn)"></a>时间复杂度：O(nlogn)</h4><h5 id="代码实现：-2"><a href="#代码实现：-2" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">kp</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">		<span class="keyword">let</span> mid=q(arr,left,right);</span><br><span class="line">		kp(arr,mid+<span class="number">1</span>,right);</span><br><span class="line">		kp(arr,left,mid<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">q</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> tmp=arr[left];</span><br><span class="line">	<span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">		<span class="keyword">while</span>(left&lt;right&amp;&amp;tmp&lt;=arr[right])&#123;	<span class="comment">//从右开始找</span></span><br><span class="line">			right=right<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[left]=arr[right];	<span class="comment">//找到比基准数小的放到左边</span></span><br><span class="line">		<span class="keyword">while</span>(left&lt;right&amp;&amp;tmp&gt;=arr[left])&#123;	<span class="comment">//从左开始找</span></span><br><span class="line">			left++;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[right]=arr[left];	<span class="comment">//找到比基准数大的放到右边</span></span><br><span class="line">	&#125;</span><br><span class="line">	arr[left]=tmp;		<span class="comment">//将基准数放到中间</span></span><br><span class="line">	<span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br><span class="line">kp(array,<span class="number">0</span>,array.length<span class="number">-1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'快速排序：'</span>,array);</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><blockquote>
+<p>#####算法思想：<br>    每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，直到全部待排序的数据元素排完。 选择排序是不稳定的排序方法。</p>
+</blockquote>
+<h4 id="时间复杂度：O-n-2-1"><a href="#时间复杂度：O-n-2-1" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-3"><a href="#代码实现：-3" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xz</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">		<span class="keyword">let</span> min = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[j]&lt;arr[min])&#123;</span><br><span class="line">				min=j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(min!=i)&#123;</span><br><span class="line">			<span class="keyword">let</span> tmp=arr[i];</span><br><span class="line">			arr[i]=arr[min];</span><br><span class="line">			arr[min]=tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xz(array);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'选择排序：'</span>,array);</span><br></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
+<p>#####算法思想：<br>    输入一个元素，检查数组列表中的每个元素，将其插入到一个已经排好序的数列中的适当位置，使数列依然有序，当最后一个元素放入合适位置时，该数组排序完毕。</p>
+</blockquote>
+<h4 id="时间复杂度：O-n-2-2"><a href="#时间复杂度：O-n-2-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-4"><a href="#代码实现：-4" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cr</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">		<span class="keyword">let</span> tmp=arr[i];</span><br><span class="line">		<span class="keyword">let</span> j=i<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">while</span>(j&gt;=<span class="number">0</span>&amp;&amp;tmp&lt;arr[j])&#123;</span><br><span class="line">			arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[j+<span class="number">1</span>]=tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cr(array);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'插入排序：'</span>,array);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/px、em、rem区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/27/px、em、rem区别/" itemprop="url">
+                  px、em、rem区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-27 17:19:59 / Updated at: 18:23:50" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="px、em、rem之间的区别"><a href="#px、em、rem之间的区别" class="headerlink" title="px、em、rem之间的区别"></a>px、em、rem之间的区别</h1><h3 id="PX"><a href="#PX" class="headerlink" title="PX"></a>PX</h3><p>px：像素。是相对长度单位，相对于当前显示器屏幕分辨率而言的。</p>
+<h5 id="px特点"><a href="#px特点" class="headerlink" title="px特点"></a>px特点</h5><ol>
+<li>大部分浏览器无法做到调整使用px作为单位的字体大小。</li>
+<li>国外大部分网站使用em或者rem作为字体单位。</li>
+</ol>
+<h3 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h3><p>em：是相对长度单位。相对于当前对象内文本的字体尺寸，如当前对行内文本的尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
+<h5 id="em特点"><a href="#em特点" class="headerlink" title="em特点"></a>em特点</h5><ol>
+<li>em的值并不是固定的。</li>
+<li>em会继承父元素的字体大小。</li>
+</ol>
+<blockquote>
+<p><em>注意：任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px\</em>62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。*<br>所以我们在写CSS的时候，需要注意两点：   </p>
+<ol>
+<li>body选择器中声明Font-size=62.5%;</li>
+<li>将你的原来的px数值除以10，然后换上em作为单位;</li>
+<li>重新计算那些被放大的字体的em数值，避免字体大小的重复声明。<br><em>也就是避免1.2\</em>1.2=1.44的现象。（因为em汇集成父元素的字体大小）举个例子来说：比如说你在父元素中声明了字体大小为1.2em，那么在声明父元素内部的字体大小时，只能使用1em，而不是1.2em，以为当前的1em就代表的父元素声明的1.2em，也就是1em=1.2px。*</li>
+</ol>
+</blockquote>
+<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;<span class="attribute">font-size</span>: <span class="number">62.5%</span>;<span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span>&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">1.4rem</span>;<span class="comment">/*1.4 × 10px = 14px */</span>&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123; <span class="attribute">font-size</span>: <span class="number">2.4rem</span>;<span class="comment">/*2.4 × 10px = 24px*/</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="如何选择字体单位"><a href="#如何选择字体单位" class="headerlink" title="如何选择字体单位"></a>如何选择字体单位</h4><ol>
+<li>对于一般的只需要适配少部分设备的网页来说，使用px就可以解决。</li>
+<li>对于需要适配多种设备的网页，使用rem，特别是分辨率差别比较大的。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/你好，潘君毅/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/25/你好，潘君毅/" itemprop="url">
+                  使用Hexo+Github搭建属于自己的博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-09-27 18:24:33" itemprop="dateModified" datetime="2018-09-27T18:24:33+08:00">2018-09-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="使用Hexo-Github搭建属于自己的博客"><a href="#使用Hexo-Github搭建属于自己的博客" class="headerlink" title="使用Hexo+Github搭建属于自己的博客"></a>使用Hexo+Github搭建属于自己的博客</h1><h5 id="1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功"><a href="#1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功" class="headerlink" title="1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功"></a>1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功</h5><p><code>node -v</code><br><code>npm -v</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/b8d6706040d9ab598087e7c4a291315c.png" alt=""></p>
+<h5 id="2-安装Git环境"><a href="#2-安装Git环境" class="headerlink" title="2.安装Git环境"></a>2.安装Git环境</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1c358a084065a55f8028d9539dc1c22d.png" alt=""><br><strong><em>注意:</em></strong>一般为了安全考虑，只有在Git Bash Here中才能进行Git的相关操作。<br><code>git --version</code>查看是否配置成功</p>
+<h5 id="3-登陆Github账号，新建项目：账户名-github-io"><a href="#3-登陆Github账号，新建项目：账户名-github-io" class="headerlink" title="3.登陆Github账号，新建项目：账户名.github.io"></a>3.登陆Github账号，新建项目：账户名.github.io</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/87c8b71a404cbce3800d7150d62e3572.png" alt=""><br>项目建好后，可以访问<a href="#">https://用户名.github.io/</a></p>
+<h5 id="4-安装Hexo，新建blog目录，在当前目录下命令行中执行："><a href="#4-安装Hexo，新建blog目录，在当前目录下命令行中执行：" class="headerlink" title="4.安装Hexo，新建blog目录，在当前目录下命令行中执行："></a>4.安装Hexo，新建blog目录，在当前目录下命令行中执行：</h5><p><code>npm install hexo -g</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/0a07ba0c40de774980cb892145452fea.png" alt=""><br>之后输入:<code>hexo -v</code>查看版本<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/7b48d7ea40865e3d801a612431c2226f.png" alt=""><br>初始化该文件夹<code>hexo init</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/437fc07240469c578002a18d7c179695.png" alt=""><br>接着<code>npm install</code>，安装相关组件<br>输入<code>hexo g</code><br>输入<code>hexo s</code>，开启服务器，访问该网址，正式体验Hexo<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/5c56223d40e8e14e80409b9863cc9563.png" alt=""><br>如果成功，则显示：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/76e9c5364021748380332bcda0314c0e.png" alt=""></p>
+<h5 id="5-接下来配置ssh，首先配置Git，打开Git-Bash-Here"><a href="#5-接下来配置ssh，首先配置Git，打开Git-Bash-Here" class="headerlink" title="5.接下来配置ssh，首先配置Git，打开Git Bash Here"></a>5.接下来配置ssh，首先配置Git，打开Git Bash Here</h5><ol>
+<li>设置用户名：<br><code>git config --global user.name &#39;用户名&#39;</code></li>
+<li>设置用户邮箱<br><code>git config --global user.email &#39;user@163.com&#39;</code></li>
+<li>查看设置<br><code>git config --list</code><br>查看C:\Users\Administrator.ssh是否存在<br>不存在输入：<code>ssh-keygen -t rsa -C &quot;user@163.com&quot;</code>回车生成密钥<br><code>cd ~/.ssh</code><br><code>ls</code><br>可以看到两个文件：id_rsa和id_rsa.pub<br>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>,添加密钥到ssh-agent<br>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的ssh key到ssh-agent<br>之后登录Github，点击头像，选择头像下的settings，添加ssh<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/6ba821354070efd88095cc946e5f084f.png" alt=""><br>新建一个new ssh key，将id_rsa.pub文件里的内容复制到Key中<br>输入<code>ssh -T git@github.com</code>，测试添加的ssh是否成功，如果看到Hi你的用户名，则表示成功了。<br>如果出错ssh: connect to host github.com port 22: Connection timed out<br>需要在C:\Users\Administrator.ssh目录下配置config文件，输入<br><code>touch config</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/d082fa4140ed737780aa3a6599da6a8f.png" alt=""><br>内容为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com  </span><br><span class="line">User user@163.com  </span><br><span class="line">Hostname ssh.github.com  </span><br><span class="line">PreferredAuthentications publickey  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa  </span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong><em>user为用户邮箱</em></strong><br>在项目目录下找到_config.yml文件，在末尾修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   type: git</span><br><span class="line">   repository: 你自己的github项目里的ssh</span><br><span class="line">   branch: master</span><br></pre></td></tr></table></figure></p>
+<p>repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1be67f4740ae60fa8083591da8f65bfa.png" alt=""></p>
+<h5 id="6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot"><a href="#6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot" class="headerlink" title="6.新建一篇博客，在cmd执行命令：hexo new post &quot;博客名&quot;"></a>6.新建一篇博客，在cmd执行命令：<code>hexo new post &quot;博客名&quot;</code></h5><p>在文件夹——posts目录下可以看到</p>
+<p>在生成以及部署文章之前，需要安装一个扩展：<code>npm install hexo-deployer-git --save</code><br>使用编辑器编好文章，那么就可以使用命令：<code>hexo d -g</code>，生成以及部署了<br>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pjy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pjy</span>
+
+  
+
+  
 </div>
 
-<script src="/js/ziploader.js"></script>
 
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.json";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    // monitor main search box;
 
-    var onPopupClose = function (e) {
-      $('.popup').fadeOut(300);
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $('body').css('overflow', '');
-    }
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
-    function proceedsearch() {
-      $('.popup').fadeIn(300);
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
 
-    // get search zip version
-    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
-      if (localStorage.getItem('searchVersion') !== res) {
-        localStorage.setItem('searchVersion', res);
-        initSearchJson();
-      }
-    });
 
-    function initSearchJson () {
-      initLoad(['/search.zip'], {
-        loadOptions: {
-          success: function(obj) {
-            localStorage.setItem('searchJson', obj['search.json'])
-          },
-          error: function(e) {
-            return console.log(e)
-          }
-        },
-        returnOptions: {
-          'json': TYPE_TEXT
-        },
-        mimeOptions:{
-          'json':'application/json'
-        }
-      })
-    }
+  <span class="post-meta-divider">|</span>
 
-    // search function;
-    var searchFunc = function(search_id, content_id) {
-      'use strict';
 
-      isfetched = true;
-      var datas = JSON.parse(localStorage.getItem('searchJson'));
-      console.log(search_id)
-      var input = document.getElementById(search_id);
-      var resultContent = document.getElementById(content_id);
-      var inputEventFunction = function() {
-        var searchText = input.value.trim().toLowerCase();
-        var keywords = searchText.split(/[\s\-]+/);
-        if (keywords.length > 1) {
-          keywords.push(searchText);
-        }
-        var resultItems = [];
-        if (searchText.length > 0) {
-          // perform local searching
-          datas.forEach(function(data) {
-            var isMatch = false;
-            var hitCount = 0;
-            var searchTextCount = 0;
-            var title = data.title ? data.title.trim() : '';
-            var titleInLowerCase = title.toLowerCase();
-            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
-            var contentInLowerCase = content.toLowerCase();
-            var articleUrl = decodeURIComponent(data.url);
-            var indexOfTitle = [];
-            var indexOfContent = [];
-            // only match articles with not empty titles
-            keywords.forEach(function(keyword) {
-              function getIndexByWord(word, text, caseSensitive) {
-                var wordLen = word.length;
-                if (wordLen === 0) {
-                  return [];
-                }
-                var startPosition = 0, position = [], index = [];
-                if (!caseSensitive) {
-                  text = text.toLowerCase();
-                  word = word.toLowerCase();
-                }
-                while ((position = text.indexOf(word, startPosition)) > -1) {
-                  index.push({position: position, word: word});
-                  startPosition = position + wordLen;
-                }
-                return index;
-              }
 
-              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-            });
-            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-              isMatch = true;
-              hitCount = indexOfTitle.length + indexOfContent.length;
-            }
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
-            // show search results
 
-            if (isMatch) {
-              // sort index by position of keyword
 
-              [indexOfTitle, indexOfContent].forEach(function (index) {
-                index.sort(function (itemLeft, itemRight) {
-                  if (itemRight.position !== itemLeft.position) {
-                    return itemRight.position - itemLeft.position;
-                  } else {
-                    return itemLeft.word.length - itemRight.word.length;
-                  }
-                });
-              });
 
-              // merge hits into slices
-
-              function mergeIntoSlice(text, start, end, index) {
-                var item = index[index.length - 1];
-                var position = item.position;
-                var word = item.word;
-                var hits = [];
-                var searchTextCountInSlice = 0;
-                while (position + word.length <= end && index.length != 0) {
-                  if (word === searchText) {
-                    searchTextCountInSlice++;
-                  }
-                  hits.push({position: position, length: word.length});
-                  var wordEnd = position + word.length;
-
-                  // move to next position of hit
-
-                  index.pop();
-                  while (index.length != 0) {
-                    item = index[index.length - 1];
-                    position = item.position;
-                    word = item.word;
-                    if (wordEnd > position) {
-                      index.pop();
-                    } else {
-                      break;
-                    }
-                  }
-                }
-                searchTextCount += searchTextCountInSlice;
-                return {
-                  hits: hits,
-                  start: start,
-                  end: end,
-                  searchTextCount: searchTextCountInSlice
-                };
-              }
-
-              var slicesOfTitle = [];
-              if (indexOfTitle.length != 0) {
-                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-              }
-
-              var slicesOfContent = [];
-              while (indexOfContent.length != 0) {
-                var item = indexOfContent[indexOfContent.length - 1];
-                var position = item.position;
-                var word = item.word;
-                // cut out 100 characters
-                var start = position - 20;
-                var end = position + 80;
-                if(start < 0){
-                  start = 0;
-                }
-                if (end < position + word.length) {
-                  end = position + word.length;
-                }
-                if(end > content.length){
-                  end = content.length;
-                }
-                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-              }
-
-              // sort slices in content by search text's count and hits' count
-
-              slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                  return sliceRight.hits.length - sliceLeft.hits.length;
-                } else {
-                  return sliceLeft.start - sliceRight.start;
-                }
-              });
-
-              // select top N slices in content
-
-              var upperBound = parseInt('2');
-              if (upperBound >= 0) {
-                slicesOfContent = slicesOfContent.slice(0, upperBound);
-              }
-
-              // highlight title and content
-
-              function highlightKeyword(text, slice) {
-                var result = '';
-                var prevEnd = slice.start;
-                slice.hits.forEach(function (hit) {
-                  result += text.substring(prevEnd, hit.position);
-                  var end = hit.position + hit.length;
-                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                  prevEnd = end;
-                });
-                result += text.substring(prevEnd, slice.end);
-                return result;
-              }
-
-              var resultItem = '';
-
-              if (slicesOfTitle.length != 0) {
-                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-              } else {
-                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-              }
-
-              slicesOfContent.forEach(function (slice) {
-                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
-              });
-
-              resultItem += "</li>";
-              resultItems.push({
-                item: resultItem,
-                searchTextCount: searchTextCount,
-                hitCount: hitCount,
-                id: resultItems.length
-              });
-            }
-          })
-        };
-        if (keywords.length === 1 && keywords[0] === "") {
-          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-        } else if (resultItems.length === 0) {
-          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
-        } else {
-          resultItems.sort(function (resultLeft, resultRight) {
-            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-              return resultRight.searchTextCount - resultLeft.searchTextCount;
-            } else if (resultLeft.hitCount !== resultRight.hitCount) {
-              return resultRight.hitCount - resultLeft.hitCount;
-            } else {
-              return resultRight.id - resultLeft.id;
-            }
-          });
-          var searchResultList = '<ul class=\"search-result-list\">';
-          resultItems.forEach(function (result) {
-            searchResultList += result.item;
-          })
-          searchResultList += "</ul>";
-          resultContent.innerHTML = searchResultList;
-        }
-      }
-
-      if ('auto' === 'auto') {
-        input.addEventListener('input', inputEventFunction);
-      } else {
-        $('.search-icon').click(inputEventFunction);
-        input.addEventListener('keypress', function (event) {
-          if (event.keyCode === 13) {
-            inputEventFunction();
-          }
-        });
-      }
-
-      // remove loading animation
-      $('body').css('overflow', '');
-
-      proceedsearch();
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        $('.sb-close').click();
-        searchFunc('local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
+        
 
 
 
 
 
 
-<script src="/js/code.js"></script>
 
 
-	</body>
-	</html>
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
