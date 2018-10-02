@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -316,14 +316,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-27 17:19:59 / Modified: 18:23:50" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
+              <time title="Post created: 2018-09-27 17:19:59 / Updated at: 18:23:50" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
             
 
             
@@ -342,7 +342,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -397,11 +397,7 @@
 <li>重新计算那些被放大的字体的em数值，避免字体大小的重复声明。<br><em>也就是避免1.2\</em>1.2=1.44的现象。（因为em汇集成父元素的字体大小）举个例子来说：比如说你在父元素中声明了字体大小为1.2em，那么在声明父元素内部的字体大小时，只能使用1em，而不是1.2em，以为当前的1em就代表的父元素声明的1.2em，也就是1em=1.2px。*</li>
 </ol>
 </blockquote>
-<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code></p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">html </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">62.5%</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*10 ÷ 16 × 100% = 62.5%*/</span><span class="token punctuation">}</span>
-<span class="token selector">body </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">1.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*1.4 × 10px = 14px */</span><span class="token punctuation">}</span>
-<span class="token selector">h1 </span><span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">2.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*2.4 × 10px = 24px*/</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;<span class="attribute">font-size</span>: <span class="number">62.5%</span>;<span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span>&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">1.4rem</span>;<span class="comment">/*1.4 × 10px = 14px */</span>&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123; <span class="attribute">font-size</span>: <span class="number">2.4rem</span>;<span class="comment">/*2.4 × 10px = 24px*/</span>&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="如何选择字体单位"><a href="#如何选择字体单位" class="headerlink" title="如何选择字体单位"></a>如何选择字体单位</h4><ol>
 <li>对于一般的只需要适配少部分设备的网页来说，使用px就可以解决。</li>
 <li>对于需要适配多种设备的网页，使用rem，特别是分辨率差别比较大的。</li>
@@ -498,10 +494,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -522,7 +518,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -541,7 +537,7 @@
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -560,7 +556,7 @@
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -629,7 +625,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

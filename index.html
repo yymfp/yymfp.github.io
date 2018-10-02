@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -316,14 +316,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-01 18:23:22 / Modified: 19:19:15" itemprop="dateCreated datePublished" datetime="2018-10-01T18:23:22+08:00">2018-10-01</time>
+              <time title="Post created: 2018-10-01 18:23:22 / Updated at: 19:19:15" itemprop="dateCreated datePublished" datetime="2018-10-01T18:23:22+08:00">2018-10-01</time>
             
 
             
@@ -342,7 +342,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
@@ -385,24 +385,7 @@
 <h3 id="二分查找-折半查找"><a href="#二分查找-折半查找" class="headerlink" title="二分查找(折半查找)"></a>二分查找(折半查找)</h3><blockquote>
 <p>#####算法思想：<br>    搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。<br><strong><em>注意：查找必须是大小排好序的</em></strong></p>
 </blockquote>
-<h4 id="时间复杂度：O-log2n"><a href="#时间复杂度：O-log2n" class="headerlink" title="时间复杂度：O(log2n)"></a>时间复杂度：O(log2n)</h4><h5 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">let</span> arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">function</span> <span class="token function">erfen</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
-         <span class="token keyword">let</span> left<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-         <span class="token keyword">let</span> right<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">;</span>
-         <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
-             <span class="token keyword">let</span> mid<span class="token operator">=</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-             <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token operator">></span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                 left<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-             <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                 right<span class="token operator">=</span>mid<span class="token number">-1</span><span class="token punctuation">;</span>
-             <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-                 <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
-             <span class="token punctuation">}</span>
-         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> res<span class="token operator">=</span><span class="token function">erfen</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'二分查找：'</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="时间复杂度：O-log2n"><a href="#时间复杂度：O-log2n" class="headerlink" title="时间复杂度：O(log2n)"></a>时间复杂度：O(log2n)</h4><h5 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">erfen</span>(<span class="params">arr,val</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">let</span> left=<span class="number">0</span>;</span><br><span class="line"> 	<span class="keyword">let</span> right=arr.length<span class="number">-1</span>;</span><br><span class="line"> 	<span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line"> 		<span class="keyword">let</span> mid=<span class="built_in">parseInt</span>((left+right)/<span class="number">2</span>);</span><br><span class="line"> 		<span class="keyword">if</span>(val&gt;arr[mid])&#123;</span><br><span class="line"> 			left=mid+<span class="number">1</span>;</span><br><span class="line"> 		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(val&lt;arr[mid])&#123;</span><br><span class="line"> 			right=mid<span class="number">-1</span>;</span><br><span class="line"> 		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> 			<span class="keyword">return</span> mid;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> res=erfen(arr,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'二分查找：'</span>,res);</span><br></pre></td></tr></table></figure>
 <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
 <p>#####算法思想：</p>
 <pre><code>1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
@@ -410,90 +393,22 @@
 3. 针对所有的元素重复以上的步骤，除了最后一个。
 4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 
 </code></pre></blockquote>
-<h4 id="时间复杂度：O-n-2"><a href="#时间复杂度：O-n-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-1"><a href="#代码实现：-1" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">mp</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-             <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span>i<span class="token number">-1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                 <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                     <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                     arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                     arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
-                 <span class="token punctuation">}</span>
-             <span class="token punctuation">}</span>
-         <span class="token punctuation">}</span>
-         <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     res<span class="token operator">=</span><span class="token function">mp</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'冒泡排序：'</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="时间复杂度：O-n-2"><a href="#时间复杂度：O-n-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-1"><a href="#代码实现：-1" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mp</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;</span><br><span class="line"> 		<span class="keyword">for</span>(<span class="keyword">let</span> j=<span class="number">0</span>;j&lt;arr.length-i<span class="number">-1</span>;j++)&#123;</span><br><span class="line"> 			<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line"> 				<span class="keyword">let</span> tmp=arr[j];</span><br><span class="line"> 				arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line"> 				arr[j+<span class="number">1</span>]=tmp;</span><br><span class="line"> 			&#125;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line"> 	<span class="keyword">return</span> arr;</span><br><span class="line"> &#125;</span><br><span class="line"> res=mp(array);</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'冒泡排序：'</span>,res);</span><br></pre></td></tr></table></figure>
 <h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
 <p>#####算法思想：</p>
 <pre><code>1. 选出一个基准数，一般为第一个元素。
 2. 比较后边的所有数值，大的放右边，小的放左边（也就是一趟之后，将排序的数据分成两块，一部分是比基准数都小的，一部分是比基准数都大的）。
 3. 最后分别对两块数据进行重复1、2步骤。（递归进行）。
 </code></pre></blockquote>
-<h4 id="时间复杂度：O-nlogn"><a href="#时间复杂度：O-nlogn" class="headerlink" title="时间复杂度：O(nlogn)"></a>时间复杂度：O(nlogn)</h4><h5 id="代码实现：-2"><a href="#代码实现：-2" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">kp</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">let</span> mid<span class="token operator">=</span><span class="token function">q</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">kp</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">kp</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>mid<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">function</span> <span class="token function">q</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token operator">&amp;&amp;</span>tmp<span class="token operator">&lt;=</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//从右开始找</span>
-                right<span class="token operator">=</span>right<span class="token number">-1</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//找到比基准数小的放到左边</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token operator">&amp;&amp;</span>tmp<span class="token operator">>=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//从左开始找</span>
-                left<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//找到比基准数大的放到右边</span>
-        <span class="token punctuation">}</span>
-        arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//将基准数放到中间</span>
-        <span class="token keyword">return</span> left<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">kp</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>array<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'快速排序：'</span><span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="时间复杂度：O-nlogn"><a href="#时间复杂度：O-nlogn" class="headerlink" title="时间复杂度：O(nlogn)"></a>时间复杂度：O(nlogn)</h4><h5 id="代码实现：-2"><a href="#代码实现：-2" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">kp</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">		<span class="keyword">let</span> mid=q(arr,left,right);</span><br><span class="line">		kp(arr,mid+<span class="number">1</span>,right);</span><br><span class="line">		kp(arr,left,mid<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">q</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> tmp=arr[left];</span><br><span class="line">	<span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">		<span class="keyword">while</span>(left&lt;right&amp;&amp;tmp&lt;=arr[right])&#123;	<span class="comment">//从右开始找</span></span><br><span class="line">			right=right<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[left]=arr[right];	<span class="comment">//找到比基准数小的放到左边</span></span><br><span class="line">		<span class="keyword">while</span>(left&lt;right&amp;&amp;tmp&gt;=arr[left])&#123;	<span class="comment">//从左开始找</span></span><br><span class="line">			left++;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[right]=arr[left];	<span class="comment">//找到比基准数大的放到右边</span></span><br><span class="line">	&#125;</span><br><span class="line">	arr[left]=tmp;		<span class="comment">//将基准数放到中间</span></span><br><span class="line">	<span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br><span class="line">kp(array,<span class="number">0</span>,array.length<span class="number">-1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'快速排序：'</span>,array);</span><br></pre></td></tr></table></figure>
 <h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><blockquote>
 <p>#####算法思想：<br>    每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，直到全部待排序的数据元素排完。 选择排序是不稳定的排序方法。</p>
 </blockquote>
-<h4 id="时间复杂度：O-n-2-1"><a href="#时间复杂度：O-n-2-1" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-3"><a href="#代码实现：-3" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">xz</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">let</span> min <span class="token operator">=</span> i<span class="token punctuation">;</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    min<span class="token operator">=</span>j<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>min<span class="token operator">!=</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">xz</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'选择排序：'</span><span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="时间复杂度：O-n-2-1"><a href="#时间复杂度：O-n-2-1" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-3"><a href="#代码实现：-3" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xz</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">		<span class="keyword">let</span> min = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[j]&lt;arr[min])&#123;</span><br><span class="line">				min=j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(min!=i)&#123;</span><br><span class="line">			<span class="keyword">let</span> tmp=arr[i];</span><br><span class="line">			arr[i]=arr[min];</span><br><span class="line">			arr[min]=tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">xz(array);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'选择排序：'</span>,array);</span><br></pre></td></tr></table></figure>
 <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
 <p>#####算法思想：<br>    输入一个元素，检查数组列表中的每个元素，将其插入到一个已经排好序的数列中的适当位置，使数列依然有序，当最后一个元素放入合适位置时，该数组排序完毕。</p>
 </blockquote>
-<h4 id="时间复杂度：O-n-2-2"><a href="#时间复杂度：O-n-2-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-4"><a href="#代码实现：-4" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">cr</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">let</span> j<span class="token operator">=</span>i<span class="token number">-1</span><span class="token punctuation">;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">>=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>tmp<span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                j<span class="token operator">--</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">cr</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'插入排序：'</span><span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="时间复杂度：O-n-2-2"><a href="#时间复杂度：O-n-2-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-4"><a href="#代码实现：-4" class="headerlink" title="代码实现："></a>代码实现：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cr</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">		<span class="keyword">let</span> tmp=arr[i];</span><br><span class="line">		<span class="keyword">let</span> j=i<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">while</span>(j&gt;=<span class="number">0</span>&amp;&amp;tmp&lt;arr[j])&#123;</span><br><span class="line">			arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[j+<span class="number">1</span>]=tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cr(array);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'插入排序：'</span>,array);</span><br></pre></td></tr></table></figure>
 
           
         
@@ -586,14 +501,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-27 17:19:59 / Modified: 18:23:50" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
+              <time title="Post created: 2018-09-27 17:19:59 / Updated at: 18:23:50" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
             
 
             
@@ -612,7 +527,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -669,11 +584,7 @@
 <li>重新计算那些被放大的字体的em数值，避免字体大小的重复声明。<br><em>也就是避免1.2\</em>1.2=1.44的现象。（因为em汇集成父元素的字体大小）举个例子来说：比如说你在父元素中声明了字体大小为1.2em，那么在声明父元素内部的字体大小时，只能使用1em，而不是1.2em，以为当前的1em就代表的父元素声明的1.2em，也就是1em=1.2px。*</li>
 </ol>
 </blockquote>
-<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code></p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">html </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">62.5%</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*10 ÷ 16 × 100% = 62.5%*/</span><span class="token punctuation">}</span>
-<span class="token selector">body </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">1.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*1.4 × 10px = 14px */</span><span class="token punctuation">}</span>
-<span class="token selector">h1 </span><span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">2.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*2.4 × 10px = 24px*/</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;<span class="attribute">font-size</span>: <span class="number">62.5%</span>;<span class="comment">/*10 ÷ 16 × 100% = 62.5%*/</span>&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">1.4rem</span>;<span class="comment">/*1.4 × 10px = 14px */</span>&#125;</span><br><span class="line"><span class="selector-tag">h1</span> &#123; <span class="attribute">font-size</span>: <span class="number">2.4rem</span>;<span class="comment">/*2.4 × 10px = 24px*/</span>&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="如何选择字体单位"><a href="#如何选择字体单位" class="headerlink" title="如何选择字体单位"></a>如何选择字体单位</h4><ol>
 <li>对于一般的只需要适配少部分设备的网页来说，使用px就可以解决。</li>
 <li>对于需要适配多种设备的网页，使用rem，特别是分辨率差别比较大的。</li>
@@ -770,14 +681,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
+              <time title="Post created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
             
 
             
@@ -794,7 +705,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-27 18:24:33" itemprop="dateModified" datetime="2018-09-27T18:24:33+08:00">2018-09-27</time>
+                <time title="Updated at: 2018-09-27 18:24:33" itemprop="dateModified" datetime="2018-09-27T18:24:33+08:00">2018-09-27</time>
               
             
           </span>
@@ -808,7 +719,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
@@ -854,20 +765,11 @@
 <h5 id="5-接下来配置ssh，首先配置Git，打开Git-Bash-Here"><a href="#5-接下来配置ssh，首先配置Git，打开Git-Bash-Here" class="headerlink" title="5.接下来配置ssh，首先配置Git，打开Git Bash Here"></a>5.接下来配置ssh，首先配置Git，打开Git Bash Here</h5><ol>
 <li>设置用户名：<br><code>git config --global user.name &#39;用户名&#39;</code></li>
 <li>设置用户邮箱<br><code>git config --global user.email &#39;user@163.com&#39;</code></li>
-<li>查看设置<br><code>git config --list</code><br>查看C:\Users\Administrator.ssh是否存在<br>不存在输入：<code>ssh-keygen -t rsa -C &quot;user@163.com&quot;</code>回车生成密钥<br><code>cd ~/.ssh</code><br><code>ls</code><br>可以看到两个文件：id_rsa和id_rsa.pub<br>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>,添加密钥到ssh-agent<br>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的ssh key到ssh-agent<br>之后登录Github，点击头像，选择头像下的settings，添加ssh<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/6ba821354070efd88095cc946e5f084f.png" alt=""><br>新建一个new ssh key，将id_rsa.pub文件里的内容复制到Key中<br>输入<code>ssh -T git@github.com</code>，测试添加的ssh是否成功，如果看到Hi你的用户名，则表示成功了。<br>如果出错ssh: connect to host github.com port 22: Connection timed out<br>需要在C:\Users\Administrator.ssh目录下配置config文件，输入<br><code>touch config</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/d082fa4140ed737780aa3a6599da6a8f.png" alt=""><br>内容为：<pre class="line-numbers language-javascipt"><code class="language-javascipt">Host github.com  
-User user@163.com  
-Hostname ssh.github.com  
-PreferredAuthentications publickey  
-IdentityFile ~/.ssh/id_rsa  
-Port 443
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<strong><em>user为用户邮箱</em></strong><br>在项目目录下找到_config.yml文件，在末尾修改<pre class="line-numbers language-javascipt"><code class="language-javascipt">deploy:
-type: git
-repository: 你自己的github项目里的ssh
-branch: master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1be67f4740ae60fa8083591da8f65bfa.png" alt=""></li>
+<li>查看设置<br><code>git config --list</code><br>查看C:\Users\Administrator.ssh是否存在<br>不存在输入：<code>ssh-keygen -t rsa -C &quot;user@163.com&quot;</code>回车生成密钥<br><code>cd ~/.ssh</code><br><code>ls</code><br>可以看到两个文件：id_rsa和id_rsa.pub<br>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>,添加密钥到ssh-agent<br>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的ssh key到ssh-agent<br>之后登录Github，点击头像，选择头像下的settings，添加ssh<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/6ba821354070efd88095cc946e5f084f.png" alt=""><br>新建一个new ssh key，将id_rsa.pub文件里的内容复制到Key中<br>输入<code>ssh -T git@github.com</code>，测试添加的ssh是否成功，如果看到Hi你的用户名，则表示成功了。<br>如果出错ssh: connect to host github.com port 22: Connection timed out<br>需要在C:\Users\Administrator.ssh目录下配置config文件，输入<br><code>touch config</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/d082fa4140ed737780aa3a6599da6a8f.png" alt=""><br>内容为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com  </span><br><span class="line">User user@163.com  </span><br><span class="line">Hostname ssh.github.com  </span><br><span class="line">PreferredAuthentications publickey  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa  </span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<p><strong><em>user为用户邮箱</em></strong><br>在项目目录下找到_config.yml文件，在末尾修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">   type: git</span><br><span class="line">   repository: 你自己的github项目里的ssh</span><br><span class="line">   branch: master</span><br></pre></td></tr></table></figure></p>
+<p>repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1be67f4740ae60fa8083591da8f65bfa.png" alt=""></p>
 <h5 id="6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot"><a href="#6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot" class="headerlink" title="6.新建一篇博客，在cmd执行命令：hexo new post &quot;博客名&quot;"></a>6.新建一篇博客，在cmd执行命令：<code>hexo new post &quot;博客名&quot;</code></h5><p>在文件夹——posts目录下可以看到</p>
 <p>在生成以及部署文章之前，需要安装一个扩展：<code>npm install hexo-deployer-git --save</code><br>使用编辑器编好文章，那么就可以使用命令：<code>hexo d -g</code>，生成以及部署了<br>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章</p>
 
@@ -951,7 +853,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -970,7 +872,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -989,7 +891,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -1042,7 +944,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
