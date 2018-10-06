@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Informazioni su</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categorie</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archivi</a>
   </li>
 
       
@@ -285,6 +285,185 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/06/js的prototype总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/06/js的prototype总结/" itemprop="url">
+                  js的prototype总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Scritto il</span>
+              
+
+              
+                
+              
+
+              <time title="Post creato: 2018-10-06 17:40:45 / Post modificato: 18:24:39" itemprop="dateCreated datePublished" datetime="2018-10-06T17:40:45+08:00">2018-10-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="js的prototype总结"><a href="#js的prototype总结" class="headerlink" title="js的prototype总结"></a>js的prototype总结</h3><p><strong>1. 每一个函数都有一个<code>prototype</code>，即原型</strong>。</p>
+<p><strong>2. 每个对象都有一个<code>__proto__</code>，可称为隐式原型，指向创建该对象的函数的<code>prototype</code>。</strong></p>
+<blockquote>
+<p><strong><code>Object.prototype</code>却是一个特例——它的<code>__proto__</code>指向的是<code>null</code>。</strong></p>
+</blockquote>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/3ed52e91409ae13e805e9ea9c771c66c.png" alt=""></p>
+<p><strong>3. 自定义函数<code>Foo.__proto__</code>指向<code>Function.prototype</code>,<code>Object.__proto__</code>指向<code>Function.prototype</code>，而<code>Function.__proto__</code>指向<code>Function.prototype</code>,从而形成一个环形结构。<code>Function</code>也是一个函数，函数是一种对象，而<code>Function</code>是被自身所创建的一种函数，所以它的<code>__proto__</code>指向了自身的<code>prototype</code>。</strong></p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/672e52454044214b80a9d2f140417535.png" alt=""></p>
+<p><strong>4. <code>Function.prototype</code>是一个对象，它的<code>__proto__</code>也指向<code>Object.prototype</code>。</strong></p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/fc61390740d130488051d1089074ba12.png" alt=""></p>
+<p><strong>5. <code>Instanceof</code>运算符：</strong></p>
+<blockquote>
+<p><code>instanceof</code>运算符的左边的变量是一个对象，暂时称为A；右边的变量为一个函数，暂时称为B。</p>
+<p><strong><code>instanceof</code>的判断规则：沿着A的<code>__proto__</code>这条线来找，同时沿着B的<code>prototype</code>这条线来找，如果两条线能够找到同一个引用，也就是同一个对象的话，返回<code>true</code>，如果找到终点还未重合，则返回<code>false</code>。</strong></p>
+</blockquote>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> f1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1 <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1 <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/ad023c9f40a1e17f803967a5a402683e.png" alt=""></p>
+<p><strong><em><code>instanceof</code>表示的就是一种继承关系，或者原型链的结构。</em></strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -340,14 +519,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Scritto il</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-05 16:55:01 / Updated at: 19:03:29" itemprop="dateCreated datePublished" datetime="2018-10-05T16:55:01+08:00">2018-10-05</time>
+              <time title="Post creato: 2018-10-05 16:55:01 / Post modificato: 19:03:29" itemprop="dateCreated datePublished" datetime="2018-10-05T16:55:01+08:00">2018-10-05</time>
             
 
             
@@ -366,7 +545,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -573,19 +752,31 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Scritto il</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-05 15:46:12 / Updated at: 19:33:10" itemprop="dateCreated datePublished" datetime="2018-10-05T15:46:12+08:00">2018-10-05</time>
+              <time title="Post creato: 2018-10-05 15:46:12" itemprop="dateCreated datePublished" datetime="2018-10-05T15:46:12+08:00">2018-10-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Post modificato: 2018-10-06 17:38:48" itemprop="dateModified" datetime="2018-10-06T17:38:48+08:00">2018-10-06</time>
               
             
           </span>
@@ -599,7 +790,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -648,7 +839,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如何让Dog继承Animal呢？</p>
 <ol>
-<li><p>对构造函数进行绑定（通过使用function的call、apply方法，将父对象的构造函数绑定在子对象上）</p>
+<li><p><strong>对构造函数进行绑定（通过使用function的`call、apply方法，将父对象的构造函数绑定在子对象上）</strong></p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Dog</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>food<span class="token punctuation">)</span><span class="token punctuation">{</span>
     Animal<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//this的指向属于dog</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>
@@ -668,6 +859,25 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
+<p>​     2.<strong>利用prototype</strong></p>
+<p>实现方式：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">Dog<span class="token punctuation">.</span>prototype<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//通过修改Dog的prototype对象，让其指向Animal的实例。</span>
+Dog<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor<span class="token operator">=</span>Dog<span class="token punctuation">;</span> 
+<span class="token keyword">let</span> dog<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token string">'小黄'</span><span class="token punctuation">,</span><span class="token string">'骨头'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//对象dog的__proto__指向Dog的prototype(也就是Animal)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dog<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//animal</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>上述代码中,第一行将Dog原来的<code>prototype</code>整体替换成了Animal,由于任何一个<code>prototype</code>对象都有一个<code>constructor</code>属性,而这个属性指向它的构造函数.也就是说:</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Dog<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor<span class="token operator">==</span>Dog<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>而第一行代码将原本指向Dog的<code>constructor</code>属性改成了指向Animal:</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">Dog<span class="token punctuation">.</span>prototype<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Dog<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor<span class="token operator">==</span>Animal<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这样就会造成一种现象:dog明明是被构造函数Dog生成的,而<code>constructor</code>却指向了构造函数Animal,这显然不是我们想要的,所以需要对<code>constructor</code>的指向重新赋值:</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">Dog<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor<span class="token operator">=</span>Dog<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
 
           
         
@@ -760,14 +970,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Scritto il</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-01 18:23:22 / Updated at: 19:19:15" itemprop="dateCreated datePublished" datetime="2018-10-01T18:23:22+08:00">2018-10-01</time>
+              <time title="Post creato: 2018-10-01 18:23:22 / Post modificato: 19:19:15" itemprop="dateCreated datePublished" datetime="2018-10-01T18:23:22+08:00">2018-10-01</time>
             
 
             
@@ -786,7 +996,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
@@ -1030,14 +1240,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Scritto il</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-27 17:19:59" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
+              <time title="Post creato: 2018-09-27 17:19:59" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
             
 
             
@@ -1054,7 +1264,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-05 15:48:09" itemprop="dateModified" datetime="2018-10-05T15:48:09+08:00">2018-10-05</time>
+                <time title="Post modificato: 2018-10-05 15:48:09" itemprop="dateModified" datetime="2018-10-05T15:48:09+08:00">2018-10-05</time>
               
             
           </span>
@@ -1068,7 +1278,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1226,14 +1436,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Scritto il</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
+              <time title="Post creato: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
             
 
             
@@ -1250,7 +1460,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-09-27 18:24:33" itemprop="dateModified" datetime="2018-09-27T18:24:33+08:00">2018-09-27</time>
+                <time title="Post modificato: 2018-09-27 18:24:33" itemprop="dateModified" datetime="2018-09-27T18:24:33+08:00">2018-09-27</time>
               
             
           </span>
@@ -1264,7 +1474,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
@@ -1406,8 +1616,8 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1426,7 +1636,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categorie</span>
                   </a>
                 </div>
               
@@ -1448,8 +1658,10 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Tags</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -1502,7 +1714,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -1510,7 +1722,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Tema – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
 
 
