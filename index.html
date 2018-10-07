@@ -347,12 +347,24 @@
                 
               
 
-              <time title="Created: 2018-10-06 18:25:53 / Modified: 18:33:00" itemprop="dateCreated datePublished" datetime="2018-10-06T18:25:53+08:00">2018-10-06</time>
+              <time title="Created: 2018-10-06 18:25:53" itemprop="dateCreated datePublished" datetime="2018-10-06T18:25:53+08:00">2018-10-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-07 16:15:02" itemprop="dateModified" datetime="2018-10-07T16:15:02+08:00">2018-10-07</time>
               
             
           </span>
@@ -408,8 +420,36 @@
             <h3 id="js类型检测总结"><a href="#js类型检测总结" class="headerlink" title="js类型检测总结"></a>js类型检测总结</h3><p><strong>检测规则：</strong></p>
 <p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/5e35a8e04062aeeb805a82c051a9560d.png" alt=""></p>
 <ol>
-<li><strong>typeof：</strong></li>
-<li><strong>instanceof：</strong></li>
+<li><p><strong>typeof：操作符返回一个字符串，表示未经计算的操作数的类型</strong></p>
+<p>语法：typeof运算符后跟操作数。</p>
+<blockquote>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">typeof</span> operand
+or
+<span class="token keyword">typeof</span> <span class="token punctuation">(</span>operand<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>operand是一个表达式，表示对象或原始值，其类型将被返回。</strong></p>
+<p>| 类型                                        | 结果                       |<br>| ——————————————- | ————————– |<br>| Undefined                                   | <code>&quot;undefined&quot;</code>              |<br>| Null                                        | <code>&quot;object&quot;</code>                 |<br>| Boolean                                     | <code>&quot;boolean&quot;</code>                |<br>| Number                                      | <code>&quot;number&quot;</code>                 |<br>| String                                      | <code>&quot;string&quot;</code>                 |<br>| Symbol （ECMAScript 6 新增）                | <code>&quot;symbol&quot;</code>                 |<br>| 宿主对象（由JS环境提供）                    | <em>Implementation-dependent</em> |<br>| 函数对象（[[Call]] 在ECMA-262条款中实现了） | <code>&quot;function&quot;</code>               |<br>| 任何其他对象                                | <code>&quot;object&quot;</code>                 |</p>
+</blockquote>
+<h5 id="使用new操作符："><a href="#使用new操作符：" class="headerlink" title="使用new操作符："></a>使用<code>new</code>操作符：</h5><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> str<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> num<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">typeof</span> str<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'object'</span>
+<span class="token keyword">typeof</span> num<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'object'</span>
+<span class="token keyword">let</span> func<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">typeof</span> func<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'function'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="语法中需要括号："><a href="#语法中需要括号：" class="headerlink" title="语法中需要括号："></a>语法中需要括号：</h5><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> num<span class="token operator">=</span><span class="token number">99</span><span class="token punctuation">;</span>
+<span class="token keyword">typeof</span> num <span class="token operator">+</span> <span class="token string">' str'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//it will return 'number str'</span>
+<span class="token keyword">typeof</span> <span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token string">' str'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//string</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="暂存死区："><a href="#暂存死区：" class="headerlink" title="暂存死区："></a>暂存死区：</h5><blockquote>
+<p>在 ECMAScript 2015 之前，<code>typeof</code>总是保证为任何操作数返回一个字符串。但是，除了非提升，块作用域的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="noopener">let</a>和<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="noopener">const</a>之外，在声明之前对块中的<code>let</code>和<code>const</code>变量使用<code>typeof</code>会抛出一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError" target="_blank" rel="noopener">ReferenceError</a>。这与未声明的变量形成对比，<code>typeof</code>会返回“undefined”。块作用域变量在块的头部处于“<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let" target="_blank" rel="noopener">暂时死区</a>”，直到被初始化，在这期间，如果变量被访问将会引发错误。</p>
+<pre><code>typeof undeclaredVariable === &#39;undefined&#39;;
+typeof newLetVariable; let newLetVariable; // ReferenceError
+typeof newConstVariable; const newConstVariable = &#39;hello&#39;; // ReferenceError
+</code></pre></blockquote>
+</li>
+<li><p><strong>instanceof：用于测试构造函数的prototype属性是否出现在对象的原型链中的任何位置</strong></p>
+</li>
 </ol>
 
           
