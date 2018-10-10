@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Post created: 2018-10-10 17:04:18 / Updated at: 17:24:37" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
+              <time title="Post created: 2018-10-10 17:04:18 / Updated at: 17:50:04" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
             
 
             
@@ -418,10 +418,36 @@
 </ol>
 <p>   [参考]: <a href="https://www.zhihu.com/question/32090605" target="_blank" rel="noopener">https://www.zhihu.com/question/32090605</a></p>
 </li>
-<li><h5 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h5></li>
-<li><h5 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h5></li>
-<li><h5 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h5></li>
-<li><h5 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h5></li>
+<li><h5 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h5><ol>
+<li><p>特点：页面元素宽度按照屏幕分辨率进行适配调整，但整体布局不变。（例如：栅格系统）。</p>
+</li>
+<li><p>设计方法：使用%百分比定义宽度，高度大都使用px固定，配合max-width、min-width使用，避免出现类似图片被拉伸过度而失真的情况，尽可能适应各种分辨率。</p>
+<p>无法满足设备跨度太大的情况，在这种情况下，往往会出现元素被拉伸导致页面看起来不合理。（因为高度、文字大小始终是固定的）</p>
+</li>
+</ol>
+</li>
+<li><h5 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h5><ol>
+<li>特点：页面采用em、rem作为单位，对于这两个单位不了解的可以去看</li>
+</ol>
+<p>   [em、rem、px]: <a href="https://yymfp.github.io/2018/09/27/px%E3%80%81em%E3%80%81rem%E5%8C%BA%E5%88%AB/" target="_blank" rel="noopener">https://yymfp.github.io/2018/09/27/px%E3%80%81em%E3%80%81rem%E5%8C%BA%E5%88%AB/</a></p>
+<ol start="2">
+<li>设计方法：包裹文字的各个元素采用em、rem作为单位，而页面整体的划分区域的地方仍然采用百分比或px作为单位。<strong>早期浏览器不支持整个页面按比例缩放</strong>，仅支持网页内文字尺寸的放大，这种情况下。使用em/rem做单位，可以使包裹文字的元素随着文字的缩放而缩放。</li>
+</ol>
+</li>
+<li><h5 id="自适应布局"><a href="#自适应布局" class="headerlink" title="自适应布局"></a>自适应布局</h5><ol>
+<li>特点：分别为不同屏幕设置布局格式，随着屏幕大小而改变布局格式，可以看成是由多个静态布局组成。</li>
+<li>设计方法：采用@media媒体查询给不同尺寸的设备进行切换。</li>
+</ol>
+</li>
+<li><h5 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h5><ol>
+<li><p>特点：流式布局和自适应布局相结合，配合媒体查询，实现不同设备，元素的大小位置均发生改变。</p>
+</li>
+<li><p>设计方法：媒体查询+自适应布局+流式布局。结合多种技术，实现页面适配多种设备。</p>
+</li>
+<li><p>优点：能够适配PC、移动端。</p>
+</li>
+</ol>
+</li>
 </ol>
 
           
