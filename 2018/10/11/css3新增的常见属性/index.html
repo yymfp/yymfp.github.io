@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="css性能调优 通过style标签的相关调优使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。  避免使用表达式避免使用expression相关表达式。  css缩写例如：margin:20px;（上下左右都设置20px）  css声明.div1{     width:20">
+  <meta name="description" content="css3新增属性 css3 边框 border-radius：该属性允许为元素添加圆角边框  语法： border-radius:1-4 length;  1-4：四个方向，可以只设置一个所有都生效。   box-shadow：为方框添加一个或多个阴影  语法： box-shadow: h-shadow v-shadow blur spread color inset;  h-shadow：水平阴">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css性能调优">
-<meta property="og:url" content="http://yoursite.com/2018/10/11/css性能调优/index.html">
+<meta property="og:title" content="css3新增的常见属性">
+<meta property="og:url" content="http://yoursite.com/2018/10/11/css3新增的常见属性/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="css性能调优 通过style标签的相关调优使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。  避免使用表达式避免使用expression相关表达式。  css缩写例如：margin:20px;（上下左右都设置20px）  css声明.div1{     width:20">
+<meta property="og:description" content="css3新增属性 css3 边框 border-radius：该属性允许为元素添加圆角边框  语法： border-radius:1-4 length;  1-4：四个方向，可以只设置一个所有都生效。   box-shadow：为方框添加一个或多个阴影  语法： box-shadow: h-shadow v-shadow blur spread color inset;  h-shadow：水平阴">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-11T09:37:34.267Z">
+<meta property="og:updated_time" content="2018-10-11T11:17:35.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css性能调优">
-<meta name="twitter:description" content="css性能调优 通过style标签的相关调优使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。  避免使用表达式避免使用expression相关表达式。  css缩写例如：margin:20px;（上下左右都设置20px）  css声明.div1{     width:20">
+<meta name="twitter:title" content="css3新增的常见属性">
+<meta name="twitter:description" content="css3新增属性 css3 边框 border-radius：该属性允许为元素添加圆角边框  语法： border-radius:1-4 length;  1-4：四个方向，可以只设置一个所有都生效。   box-shadow：为方框添加一个或多个阴影  语法： box-shadow: h-shadow v-shadow blur spread color inset;  h-shadow：水平阴">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/11/css性能调优/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/11/css3新增的常见属性/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>css性能调优 | pjy</title>
+  <title>css3新增的常见属性 | pjy</title>
   
 
 
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css性能调优/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css3新增的常见属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">css性能调优
+          <h1 class="post-title" itemprop="name headline">css3新增的常见属性
               
             
           </h1>
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Post created: 2018-10-11 11:27:12 / Updated at: 17:37:34" itemprop="dateCreated datePublished" datetime="2018-10-11T11:27:12+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 18:51:38 / Updated at: 19:17:35" itemprop="dateCreated datePublished" datetime="2018-10-11T18:51:38+08:00">2018-10-11</time>
             
 
             
@@ -403,46 +403,55 @@
       
 
       
-        <h3 id="css性能调优"><a href="#css性能调优" class="headerlink" title="css性能调优"></a>css性能调优</h3><ol>
-<li><h5 id="通过style标签的相关调优"><a href="#通过style标签的相关调优" class="headerlink" title="通过style标签的相关调优"></a>通过style标签的相关调优</h5><p>使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。</p>
-</li>
-<li><h5 id="避免使用表达式"><a href="#避免使用表达式" class="headerlink" title="避免使用表达式"></a>避免使用表达式</h5><p>避免使用expression相关表达式。</p>
-</li>
-<li><h5 id="css缩写"><a href="#css缩写" class="headerlink" title="css缩写"></a>css缩写</h5><p>例如：margin:20px;（上下左右都设置20px）</p>
-</li>
-<li><h5 id="css声明"><a href="#css声明" class="headerlink" title="css声明"></a>css声明</h5><pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div1</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div2</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*声明优化*/</span>
-<span class="token selector"><span class="token class">.div1</span> <span class="token class">.div2</span> <span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><h5 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h5><ol>
-<li><p>浏览器的匹配规则是：从右到左匹配查找。</p>
-</li>
-<li><p>避免过长的规则例如：div&gt;table&gt;tr&gt;td .classname等等。</p>
-</li>
-<li>避免使用：[hidden=”true”]。</li>
-<li>尽量使用继承，避免重复的样式。</li>
-</ol>
+        <h3 id="css3新增属性"><a href="#css3新增属性" class="headerlink" title="css3新增属性"></a>css3新增属性</h3><ol>
+<li><h5 id="css3-边框"><a href="#css3-边框" class="headerlink" title="css3 边框"></a>css3 边框</h5><ul>
+<li><p>border-radius：该属性允许为元素添加圆角边框</p>
 <blockquote>
-<p>参考其他资料得到的一个效率排序：</p>
-<p>1.id选择器（#myid）<br>2.类选择器（.myclassname）<br>3.标签选择器（div,h1,p）<br>4.相邻选择器（h1+p）<br>5.子选择器（ul &lt; li）<br>6.后代选择器（li a）<br>7.通配符选择器（*）<br>8.属性选择器（a[rel=”external”]）<br>9.伪类选择器（a:hover,li:nth-child）</p>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token property">border-radius</span><span class="token punctuation">:</span><span class="token number">1</span>-<span class="token number">4</span> length<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>1-4：四个方向，可以只设置一个所有都生效。</p>
 </blockquote>
 </li>
+<li><p>box-shadow：为方框添加一个或多个阴影</p>
+<blockquote>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token property">box-shadow</span><span class="token punctuation">:</span> h-shadow v-shadow blur spread color inset<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>h-shadow：水平阴影的位置。（必需）</p>
+<p>v-shadow：垂直阴影的位置。（必需）</p>
+<p>blur：模糊距离。（可选）</p>
+<p>spread：阴影的尺寸。（可选）</p>
+<p>color：阴影的颜色。（可选）</p>
+<p>inset：将外部阴影改为内部阴影。（可选）</p>
+</blockquote>
+</li>
+<li><p>border-image：该属性规定用于边框的图片</p>
+<blockquote>
+<p>定义和用法：</p>
+<p>border-image 属性是一个简写属性，用于设置以下属性：</p>
+<ul>
+<li>border-image-source：用在边框的图片的路径</li>
+<li>border-image-slice：图片边框向内偏移。</li>
+<li>border-image-width：图片边框的宽度。</li>
+<li>border-image-outset：边框图像区域超出边框的量。</li>
+<li>border-image-repeat：图像边框是否应平铺(repeated)、铺满(rounded)或拉伸(stretched)。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><h5 id="css3-背景"><a href="#css3-背景" class="headerlink" title="css3 背景"></a>css3 背景</h5></li>
+<li><h5 id="css3-文本效果"><a href="#css3-文本效果" class="headerlink" title="css3 文本效果"></a>css3 文本效果</h5></li>
+<li><h5 id="css3-字体"><a href="#css3-字体" class="headerlink" title="css3 字体"></a>css3 字体</h5></li>
+<li><h5 id="css3-2D转换"><a href="#css3-2D转换" class="headerlink" title="css3 2D转换"></a>css3 2D转换</h5></li>
+<li><h5 id="css3-3D转换"><a href="#css3-3D转换" class="headerlink" title="css3 3D转换"></a>css3 3D转换</h5></li>
+<li><h5 id="css3-过渡"><a href="#css3-过渡" class="headerlink" title="css3 过渡"></a>css3 过渡</h5></li>
+<li><h5 id="css3-动画"><a href="#css3-动画" class="headerlink" title="css3 动画"></a>css3 动画</h5></li>
+<li><h5 id="css3多列"><a href="#css3多列" class="headerlink" title="css3多列"></a>css3多列</h5></li>
+<li><h5 id="css3-用户界面"><a href="#css3-用户界面" class="headerlink" title="css3 用户界面"></a>css3 用户界面</h5></li>
 </ol>
+<p>### </p>
 
       
     </div>
@@ -476,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/11/html块级元素、内联元素/" rel="next" title="html块级元素、内联元素">
-                <i class="fa fa-chevron-left"></i> html块级元素、内联元素
+              <a href="/2018/10/11/css盒模型/" rel="next" title="css盒模型">
+                <i class="fa fa-chevron-left"></i> css盒模型
               </a>
             
           </div>
@@ -485,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/11/浏览器渲染流程/" rel="prev" title="浏览器渲染流程">
-                浏览器渲染流程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -640,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css性能调优"><span class="nav-number">1.</span> <span class="nav-text">css性能调优</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过style标签的相关调优"><span class="nav-number">1.0.1.</span> <span class="nav-text">通过style标签的相关调优</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#避免使用表达式"><span class="nav-number">1.0.2.</span> <span class="nav-text">避免使用表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css缩写"><span class="nav-number">1.0.3.</span> <span class="nav-text">css缩写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css声明"><span class="nav-number">1.0.4.</span> <span class="nav-text">css声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css选择器"><span class="nav-number">1.0.5.</span> <span class="nav-text">css选择器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css3新增属性"><span class="nav-number">1.</span> <span class="nav-text">css3新增属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-边框"><span class="nav-number">1.0.1.</span> <span class="nav-text">css3 边框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-背景"><span class="nav-number">1.0.2.</span> <span class="nav-text">css3 背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-文本效果"><span class="nav-number">1.0.3.</span> <span class="nav-text">css3 文本效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-字体"><span class="nav-number">1.0.4.</span> <span class="nav-text">css3 字体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-2D转换"><span class="nav-number">1.0.5.</span> <span class="nav-text">css3 2D转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-3D转换"><span class="nav-number">1.0.6.</span> <span class="nav-text">css3 3D转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-过渡"><span class="nav-number">1.0.7.</span> <span class="nav-text">css3 过渡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-动画"><span class="nav-number">1.0.8.</span> <span class="nav-text">css3 动画</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3多列"><span class="nav-number">1.0.9.</span> <span class="nav-text">css3多列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css3-用户界面"><span class="nav-number">1.0.10.</span> <span class="nav-text">css3 用户界面</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

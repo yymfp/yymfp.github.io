@@ -108,25 +108,28 @@
 
 
 
-  <meta name="description" content="css性能调优 通过style标签的相关调优使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。  避免使用表达式避免使用expression相关表达式。  css缩写例如：margin:20px;（上下左右都设置20px）  css声明.div1{     width:20">
+  <meta name="description" content="css盒模型css盒模型组成：content区域+margin+padding+border。  css3的box-sizing： 语法box-sizing: content-box|border-box|inherit;     值 描述     content-box 这是由 CSS2.1 规定的宽度高度行为。宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。   bo">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css性能调优">
-<meta property="og:url" content="http://yoursite.com/2018/10/11/css性能调优/index.html">
+<meta property="og:title" content="css盒模型">
+<meta property="og:url" content="http://yoursite.com/2018/10/11/css盒模型/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="css性能调优 通过style标签的相关调优使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。  避免使用表达式避免使用expression相关表达式。  css缩写例如：margin:20px;（上下左右都设置20px）  css声明.div1{     width:20">
+<meta property="og:description" content="css盒模型css盒模型组成：content区域+margin+padding+border。  css3的box-sizing： 语法box-sizing: content-box|border-box|inherit;     值 描述     content-box 这是由 CSS2.1 规定的宽度高度行为。宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。   bo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-11T09:37:34.267Z">
+<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/0754b65440c0fe40808b6481d881c0d2.png">
+<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/7018d20d4024c8748094ee6c656cbc13.png">
+<meta property="og:updated_time" content="2018-10-11T10:49:55.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css性能调优">
-<meta name="twitter:description" content="css性能调优 通过style标签的相关调优使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。  避免使用表达式避免使用expression相关表达式。  css缩写例如：margin:20px;（上下左右都设置20px）  css声明.div1{     width:20">
+<meta name="twitter:title" content="css盒模型">
+<meta name="twitter:description" content="css盒模型css盒模型组成：content区域+margin+padding+border。  css3的box-sizing： 语法box-sizing: content-box|border-box|inherit;     值 描述     content-box 这是由 CSS2.1 规定的宽度高度行为。宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。   bo">
+<meta name="twitter:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/0754b65440c0fe40808b6481d881c0d2.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/11/css性能调优/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/11/css盒模型/"/>
 
 
 
@@ -136,7 +139,7 @@
   };
 </script>
 
-  <title>css性能调优 | pjy</title>
+  <title>css盒模型 | pjy</title>
   
 
 
@@ -305,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css性能调优/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css盒模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
@@ -322,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">css性能调优
+          <h1 class="post-title" itemprop="name headline">css盒模型
               
             
           </h1>
@@ -347,7 +350,7 @@
                 
               
 
-              <time title="Post created: 2018-10-11 11:27:12 / Updated at: 17:37:34" itemprop="dateCreated datePublished" datetime="2018-10-11T11:27:12+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 17:58:23 / Updated at: 18:49:55" itemprop="dateCreated datePublished" datetime="2018-10-11T17:58:23+08:00">2018-10-11</time>
             
 
             
@@ -403,46 +406,62 @@
       
 
       
-        <h3 id="css性能调优"><a href="#css性能调优" class="headerlink" title="css性能调优"></a>css性能调优</h3><ol>
-<li><h5 id="通过style标签的相关调优"><a href="#通过style标签的相关调优" class="headerlink" title="通过style标签的相关调优"></a>通过style标签的相关调优</h5><p>使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。</p>
-</li>
-<li><h5 id="避免使用表达式"><a href="#避免使用表达式" class="headerlink" title="避免使用表达式"></a>避免使用表达式</h5><p>避免使用expression相关表达式。</p>
-</li>
-<li><h5 id="css缩写"><a href="#css缩写" class="headerlink" title="css缩写"></a>css缩写</h5><p>例如：margin:20px;（上下左右都设置20px）</p>
-</li>
-<li><h5 id="css声明"><a href="#css声明" class="headerlink" title="css声明"></a>css声明</h5><pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div1</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div2</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*声明优化*/</span>
-<span class="token selector"><span class="token class">.div1</span> <span class="token class">.div2</span> <span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><h5 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h5><ol>
-<li><p>浏览器的匹配规则是：从右到左匹配查找。</p>
-</li>
-<li><p>避免过长的规则例如：div&gt;table&gt;tr&gt;td .classname等等。</p>
-</li>
-<li>避免使用：[hidden=”true”]。</li>
-<li>尽量使用继承，避免重复的样式。</li>
-</ol>
+        <h3 id="css盒模型"><a href="#css盒模型" class="headerlink" title="css盒模型"></a>css盒模型</h3><p><strong>css盒模型组成：content区域+margin+padding+border。</strong></p>
 <blockquote>
-<p>参考其他资料得到的一个效率排序：</p>
-<p>1.id选择器（#myid）<br>2.类选择器（.myclassname）<br>3.标签选择器（div,h1,p）<br>4.相邻选择器（h1+p）<br>5.子选择器（ul &lt; li）<br>6.后代选择器（li a）<br>7.通配符选择器（*）<br>8.属性选择器（a[rel=”external”]）<br>9.伪类选择器（a:hover,li:nth-child）</p>
+<p><strong>css3的box-sizing：</strong></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre class="line-numbers language-css"><code class="language-css"><span class="token property">box-sizing</span><span class="token punctuation">:</span> content-box|border-box|inherit<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content-box</td>
+<td>这是由 CSS2.1 规定的宽度高度行为。宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。</td>
+</tr>
+<tr>
+<td>border-box</td>
+<td>为元素设定的宽度和高度决定了元素的边框盒。就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应从父元素继承 box-sizing 属性的值。</td>
+</tr>
+</tbody>
+</table>
 </blockquote>
+<h5 id="css的盒模型分为两种"><a href="#css的盒模型分为两种" class="headerlink" title="css的盒模型分为两种"></a>css的盒模型分为两种</h5><ol>
+<li>W3C标准盒模型</li>
+<li>IE标准盒模型</li>
+</ol>
+<p>市面上大多数浏览器都采用W3C标准的盒模型。</p>
+<p>由于标准不同，所以就产生了两种盒模型。</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.hz</span></span><span class="token punctuation">{</span>
+            <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span>
+            <span class="token property">box-sizing</span><span class="token punctuation">:</span> content-box<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/*标准模式：content-box  怪异模式：border-box*/</span>
+            <span class="token property">background</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+            <span class="token property">margin</span><span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>
+            <span class="token property">padding</span><span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>
+            <span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid <span class="token hexcode">#ccc</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hz<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>        
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li><h5 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h5><p>一个块元素的总宽度/总高度=width/height+padding+margin+border</p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/0754b65440c0fe40808b6481d881c0d2.png" alt=""></p>
+</li>
+<li><h5 id="怪异盒模型"><a href="#怪异盒模型" class="headerlink" title="怪异盒模型"></a>怪异盒模型</h5><p>一个块元素的总宽度/总高度=width/height+margin=内容区宽度/高度+padding+margin+border</p>
 </li>
 </ol>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/7018d20d4024c8748094ee6c656cbc13.png" alt=""></p>
 
       
     </div>
@@ -476,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/11/html块级元素、内联元素/" rel="next" title="html块级元素、内联元素">
-                <i class="fa fa-chevron-left"></i> html块级元素、内联元素
+              <a href="/2018/10/11/HTML5/" rel="next" title="HTML5">
+                <i class="fa fa-chevron-left"></i> HTML5
               </a>
             
           </div>
@@ -486,8 +505,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/11/浏览器渲染流程/" rel="prev" title="浏览器渲染流程">
-                浏览器渲染流程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/11/css3新增的常见属性/" rel="prev" title="css3新增的常见属性">
+                css3新增的常见属性 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css性能调优"><span class="nav-number">1.</span> <span class="nav-text">css性能调优</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过style标签的相关调优"><span class="nav-number">1.0.1.</span> <span class="nav-text">通过style标签的相关调优</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#避免使用表达式"><span class="nav-number">1.0.2.</span> <span class="nav-text">避免使用表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css缩写"><span class="nav-number">1.0.3.</span> <span class="nav-text">css缩写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css声明"><span class="nav-number">1.0.4.</span> <span class="nav-text">css声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css选择器"><span class="nav-number">1.0.5.</span> <span class="nav-text">css选择器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#css盒模型"><span class="nav-number">1.</span> <span class="nav-text">css盒模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number"></span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#css的盒模型分为两种"><span class="nav-number">0.0.1.</span> <span class="nav-text">css的盒模型分为两种</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准盒模型"><span class="nav-number">0.0.2.</span> <span class="nav-text">标准盒模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#怪异盒模型"><span class="nav-number">0.0.3.</span> <span class="nav-text">怪异盒模型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
