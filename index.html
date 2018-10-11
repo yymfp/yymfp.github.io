@@ -301,6 +301,386 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css性能调优/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/css性能调优/" itemprop="url">
+                  css性能调优
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-11 11:27:12 / Updated at: 11:53:43" itemprop="dateCreated datePublished" datetime="2018-10-11T11:27:12+08:00">2018-10-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="css性能调优"><a href="#css性能调优" class="headerlink" title="css性能调优"></a>css性能调优</h3><ol>
+<li><h5 id="通过style标签的相关调优"><a href="#通过style标签的相关调优" class="headerlink" title="通过style标签的相关调优"></a>通过style标签的相关调优</h5><p>使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。</p>
+</li>
+<li><h5 id="避免使用表达式"><a href="#避免使用表达式" class="headerlink" title="避免使用表达式"></a>避免使用表达式</h5><p>避免使用expression相关表达式。</p>
+</li>
+<li><h5 id="css缩写"><a href="#css缩写" class="headerlink" title="css缩写"></a>css缩写</h5><p>例如：margin:20px;（上下左右都设置20px）</p>
+</li>
+<li><h5 id="css声明"><a href="#css声明" class="headerlink" title="css声明"></a>css声明</h5><pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div1</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.div2</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.div3</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*声明优化*/</span>
+<span class="token selector"><span class="token class">.div1</span> <span class="token class">.div2</span> <span class="token class">.div3</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h5><ol>
+<li><p>浏览器的匹配规则是：从右到左匹配查找。</p>
+</li>
+<li><p>避免过长的规则例如：div&gt;table&gt;tr&gt;td .classname等等。</p>
+</li>
+<li>避免使用：[hidden=”true”]。</li>
+<li>尽量使用继承，避免重复的样式。</li>
+</ol>
+<blockquote>
+<p>参考其他资料得到的一个效率排序：</p>
+<p>1.id选择器（#myid）<br>2.类选择器（.myclassname）<br>3.标签选择器（div,h1,p）<br>4.相邻选择器（h1+p）<br>5.子选择器（ul &lt; li）<br>6.后代选择器（li a）<br>7.通配符选择器（*）<br>8.属性选择器（a[rel=”external”]）<br>9.伪类选择器（a:hover,li:nth-child）</p>
+</blockquote>
+</li>
+</ol>
+<p>### </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/html块级元素、内联元素/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/html块级元素、内联元素/" itemprop="url">
+                  html块级元素、内联元素
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-11 10:39:05 / Updated at: 10:54:07" itemprop="dateCreated datePublished" datetime="2018-10-11T10:39:05+08:00">2018-10-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="html块级元素、内联元素"><a href="#html块级元素、内联元素" class="headerlink" title="html块级元素、内联元素"></a>html块级元素、内联元素</h3><p><strong>html中的元素分为两种：块级元素和内联元素。</strong></p>
+<h5 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h5><p>特点：显示在一块内，可以自动换行，元素从上到下垂直排列，各占一行。</p>
+<ol>
+<li>总是在新行上开始</li>
+<li>高度、行高、外边距、内边距可控</li>
+<li>宽度缺省，默认100%</li>
+<li>可以容纳其他的内联元素或块级元素</li>
+</ol>
+<p>常见的标签：p、ul、form、div、address等标签。</p>
+<p>块级元素一般可嵌套块级元素或者行内元素，一般作为容器出现，用来组织结构，但并不全如此。元素都有属性<code>display:block;</code></p>
+<h5 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h5><p>特点：元素在一行内水平排列，高度由元素的内容决定，height不起作用（可以设置line-height控制高度）。</p>
+<ol>
+<li>在同一行上边显示</li>
+<li>高度、行高、垂直方向外边距、垂直方向内边距不可改变</li>
+<li>宽度是文字或者图片的宽度，不可以改变</li>
+<li>内联元素只能容纳内联元素或文本</li>
+</ol>
+<p>常见的标签：span、input、a、sub、sup等。</p>
+<p>行内元素一般都是语义化的基本元素，内能容纳文本或其他的内联元素，元素设置属性<code>display:inline;</code></p>
+<h5 id="两者间区别："><a href="#两者间区别：" class="headerlink" title="两者间区别："></a>两者间区别：</h5><ol>
+<li>块级元素独占一行，行内不会</li>
+<li>块级元素可以设置宽高，行内不可以</li>
+<li>块级元素可以设置margin、padding，行内只能设置水平方向上的</li>
+<li>块级元素显示display:block，行内display:inline。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/常见的几种布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2039,397 +2419,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/px、em、rem区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/27/px、em、rem区别/" itemprop="url">
-                  px、em、rem区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-27 17:19:59" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-10-05 15:48:09" itemprop="dateModified" datetime="2018-10-05T15:48:09+08:00">2018-10-05</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="px、em、rem之间的区别"><a href="#px、em、rem之间的区别" class="headerlink" title="px、em、rem之间的区别"></a>px、em、rem之间的区别</h1><h3 id="PX"><a href="#PX" class="headerlink" title="PX"></a>PX</h3><p>px：像素。是相对长度单位，相对于当前显示器屏幕分辨率而言的。</p>
-<h5 id="px特点"><a href="#px特点" class="headerlink" title="px特点"></a>px特点</h5><ol>
-<li>大部分浏览器无法做到调整使用px作为单位的字体大小。</li>
-<li>国外大部分网站使用em或者rem作为字体单位。</li>
-</ol>
-<h3 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h3><p>em：是相对长度单位。相对于当前对象内文本的字体尺寸，如当前对行内文本的尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
-<h5 id="em特点"><a href="#em特点" class="headerlink" title="em特点"></a>em特点</h5><ol>
-<li>em的值并不是固定的。</li>
-<li>em会继承父元素的字体大小。</li>
-</ol>
-<blockquote>
-<p><em>注意：任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px\</em>62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。*<br>所以我们在写CSS的时候，需要注意两点：   </p>
-<ol>
-<li>body选择器中声明Font-size=62.5%;</li>
-<li>将你的原来的px数值除以10，然后换上em作为单位;</li>
-<li>重新计算那些被放大的字体的em数值，避免字体大小的重复声明。<br><em>也就是避免1.2\</em>1.2=1.44的现象。（因为em汇集成父元素的字体大小）举个例子来说：比如说你在父元素中声明了字体大小为1.2em，那么在声明父元素内部的字体大小时，只能使用1em，而不是1.2em，以为当前的1em就代表的父元素声明的1.2em，也就是1em=1.2px。*</li>
-</ol>
-</blockquote>
-<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code></p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">html </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">62.5%</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*10 ÷ 16 × 100% = 62.5%*/</span><span class="token punctuation">}</span>
-<span class="token selector">body </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">1.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*1.4 × 10px = 14px */</span><span class="token punctuation">}</span>
-<span class="token selector">h1 </span><span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">2.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*2.4 × 10px = 24px*/</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="如何选择字体单位"><a href="#如何选择字体单位" class="headerlink" title="如何选择字体单位"></a>如何选择字体单位</h4><ol>
-<li>对于一般的只需要适配少部分设备的网页来说，使用px就可以解决。</li>
-<li>对于需要适配多种设备的网页，使用rem，特别是分辨率差别比较大的。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/你好，潘君毅/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/25/你好，潘君毅/" itemprop="url">
-                  使用Hexo+Github搭建属于自己的博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-09-27 18:24:33" itemprop="dateModified" datetime="2018-09-27T18:24:33+08:00">2018-09-27</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="使用Hexo-Github搭建属于自己的博客"><a href="#使用Hexo-Github搭建属于自己的博客" class="headerlink" title="使用Hexo+Github搭建属于自己的博客"></a>使用Hexo+Github搭建属于自己的博客</h1><h5 id="1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功"><a href="#1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功" class="headerlink" title="1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功"></a>1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功</h5><p><code>node -v</code><br><code>npm -v</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/b8d6706040d9ab598087e7c4a291315c.png" alt=""></p>
-<h5 id="2-安装Git环境"><a href="#2-安装Git环境" class="headerlink" title="2.安装Git环境"></a>2.安装Git环境</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1c358a084065a55f8028d9539dc1c22d.png" alt=""><br><strong><em>注意:</em></strong>一般为了安全考虑，只有在Git Bash Here中才能进行Git的相关操作。<br><code>git --version</code>查看是否配置成功</p>
-<h5 id="3-登陆Github账号，新建项目：账户名-github-io"><a href="#3-登陆Github账号，新建项目：账户名-github-io" class="headerlink" title="3.登陆Github账号，新建项目：账户名.github.io"></a>3.登陆Github账号，新建项目：账户名.github.io</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/87c8b71a404cbce3800d7150d62e3572.png" alt=""><br>项目建好后，可以访问<a href="#">https://用户名.github.io/</a></p>
-<h5 id="4-安装Hexo，新建blog目录，在当前目录下命令行中执行："><a href="#4-安装Hexo，新建blog目录，在当前目录下命令行中执行：" class="headerlink" title="4.安装Hexo，新建blog目录，在当前目录下命令行中执行："></a>4.安装Hexo，新建blog目录，在当前目录下命令行中执行：</h5><p><code>npm install hexo -g</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/0a07ba0c40de774980cb892145452fea.png" alt=""><br>之后输入:<code>hexo -v</code>查看版本<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/7b48d7ea40865e3d801a612431c2226f.png" alt=""><br>初始化该文件夹<code>hexo init</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/437fc07240469c578002a18d7c179695.png" alt=""><br>接着<code>npm install</code>，安装相关组件<br>输入<code>hexo g</code><br>输入<code>hexo s</code>，开启服务器，访问该网址，正式体验Hexo<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/5c56223d40e8e14e80409b9863cc9563.png" alt=""><br>如果成功，则显示：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/76e9c5364021748380332bcda0314c0e.png" alt=""></p>
-<h5 id="5-接下来配置ssh，首先配置Git，打开Git-Bash-Here"><a href="#5-接下来配置ssh，首先配置Git，打开Git-Bash-Here" class="headerlink" title="5.接下来配置ssh，首先配置Git，打开Git Bash Here"></a>5.接下来配置ssh，首先配置Git，打开Git Bash Here</h5><ol>
-<li>设置用户名：<br><code>git config --global user.name &#39;用户名&#39;</code></li>
-<li>设置用户邮箱<br><code>git config --global user.email &#39;user@163.com&#39;</code></li>
-<li>查看设置<br><code>git config --list</code><br>查看C:\Users\Administrator.ssh是否存在<br>不存在输入：<code>ssh-keygen -t rsa -C &quot;user@163.com&quot;</code>回车生成密钥<br><code>cd ~/.ssh</code><br><code>ls</code><br>可以看到两个文件：id_rsa和id_rsa.pub<br>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>,添加密钥到ssh-agent<br>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的ssh key到ssh-agent<br>之后登录Github，点击头像，选择头像下的settings，添加ssh<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/6ba821354070efd88095cc946e5f084f.png" alt=""><br>新建一个new ssh key，将id_rsa.pub文件里的内容复制到Key中<br>输入<code>ssh -T git@github.com</code>，测试添加的ssh是否成功，如果看到Hi你的用户名，则表示成功了。<br>如果出错ssh: connect to host github.com port 22: Connection timed out<br>需要在C:\Users\Administrator.ssh目录下配置config文件，输入<br><code>touch config</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/d082fa4140ed737780aa3a6599da6a8f.png" alt=""><br>内容为：<pre class="line-numbers language-javascipt"><code class="language-javascipt">Host github.com  
-User user@163.com  
-Hostname ssh.github.com  
-PreferredAuthentications publickey  
-IdentityFile ~/.ssh/id_rsa  
-Port 443
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<strong><em>user为用户邮箱</em></strong><br>在项目目录下找到_config.yml文件，在末尾修改<pre class="line-numbers language-javascipt"><code class="language-javascipt">deploy:
-type: git
-repository: 你自己的github项目里的ssh
-branch: master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1be67f4740ae60fa8083591da8f65bfa.png" alt=""></li>
-</ol>
-<h5 id="6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot"><a href="#6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot" class="headerlink" title="6.新建一篇博客，在cmd执行命令：hexo new post &quot;博客名&quot;"></a>6.新建一篇博客，在cmd执行命令：<code>hexo new post &quot;博客名&quot;</code></h5><p>在文件夹——posts目录下可以看到</p>
-<p>在生成以及部署文章之前，需要安装一个扩展：<code>npm install hexo-deployer-git --save</code><br>使用编辑器编好文章，那么就可以使用命令：<code>hexo d -g</code>，生成以及部署了<br>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2469,7 +2465,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -2521,7 +2517,11 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
