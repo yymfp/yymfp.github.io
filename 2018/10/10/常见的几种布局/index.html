@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="几种常见的布局方式 固定布局（静态布局）特点：采用px作为单位，固定宽高大小。 适用于设备较少的页面设计，当页面内容显示不全时，会采用滚动条的方式显示。 如果需要在移动设备上显示，一般需要设计两套页面，一个适配PC端，一个用来在移动端使用显示。 移动端开发：  需要设置在viewport meta标签上设置相关属性，例如：width=320，页面的各个元素采用px作为大小单位，通过用JS动态修改标">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-10T09:51:35.802Z">
+<meta property="og:updated_time" content="2018-10-11T05:48:26.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见的几种布局">
 <meta name="twitter:description" content="几种常见的布局方式 固定布局（静态布局）特点：采用px作为单位，固定宽高大小。 适用于设备较少的页面设计，当页面内容显示不全时，会采用滚动条的方式显示。 如果需要在移动设备上显示，一般需要设计两套页面，一个适配PC端，一个用来在移动端使用显示。 移动端开发：  需要设置在viewport meta标签上设置相关属性，例如：width=320，页面的各个元素采用px作为大小单位，通过用JS动态修改标">
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -340,19 +340,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-10 17:04:18 / Modified: 17:51:35" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
+              <time title="Post created: 2018-10-10 17:04:18" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-11 13:48:26" itemprop="dateModified" datetime="2018-10-11T13:48:26+08:00">2018-10-11</time>
               
             
           </span>
@@ -366,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -443,6 +455,9 @@
 <li><p>设计方法：媒体查询+自适应布局+流式布局。结合多种技术，实现页面适配多种设备。</p>
 </li>
 <li><p>优点：能够适配PC、移动端。</p>
+<p>设置meta标签：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width,initial-scale<span class="token punctuation">=</span>1.0,maximum-scale<span class="token punctuation">=</span>1.0,minimum-scale<span class="token punctuation">=</span>1.0,user-scalable<span class="token punctuation">=</span>no<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ol>
 </li>
@@ -539,10 +554,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -563,7 +578,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">13</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -582,7 +597,7 @@
                       
                     
                     <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -621,7 +636,7 @@
                       
                     
                     <span class="site-state-item-count">13</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -690,7 +705,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
