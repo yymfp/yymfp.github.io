@@ -808,13 +808,13 @@
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
+  <script src="/js/src/md5.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: 'c9b2f05dad097ee5b6ba',
           clientSecret: 'bf178df7df3cc33d55fa2fca1865aed34da9d022 ',
           repo: 'yymfp.github.io',
-          id: window.location.pathname,
+          id: md5(window.location.pathname),
           owner: 'yymfp',
           admin: ['yymfp'],
           labels: '',
