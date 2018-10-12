@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Post created: 2018-10-12 13:17:17 / Updated at: 14:46:30" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
+              <time title="Post created: 2018-10-12 13:17:17 / Updated at: 16:56:09" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
             
 
             
@@ -506,6 +506,50 @@
 <li>stretch（默认值）：轴线占满整个交叉轴。</li>
 </ul>
 <p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png" alt=""></p>
+<h5 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h5><ol>
+<li><p>order属性：定义项目的排列顺序。数值越小排列越靠前，默认0。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">order</span><span class="token punctuation">:</span>&lt;integer><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/59e399c72daafcfcc20ede36bf32f266.png" alt="参考菜鸟教程"></p>
+</li>
+<li><p>flex-grow属性：定义项目的放大比例，默认0。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-grow</span><span class="token punctuation">:</span>&lt;number><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default 0*/</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*如果项目的值相同，则均分。*/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png" alt="参考菜鸟教程"></p>
+</li>
+<li><p>flex-shrink属性：定义项目的缩小比例，默认1。(负值对该属性无效)</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-shrink</span><span class="token punctuation">:</span>&lt;number><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default 1*/</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/240d3e960043a729bb3ff5e34987904f.jpg" alt="参考菜鸟教程"></p>
+</li>
+<li><p>flex-basis属性：定义再分配多余空间时，项目占据的主轴空间。默认auto。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-basis</span><span class="token punctuation">:</span>&lt;length> | auto<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default auto*/</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>flex属性：该属性时flex-grow、flex-shrink、flex-basis属性的简写。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span>none | [ &lt;<span class="token string">'flex-grow'</span>> &lt;<span class="token string">'flex-shrink'</span>>? || &lt;<span class="token string">'flex-basis'</span>> ]
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</strong></p>
+</li>
+<li><p>align-self属性：允许单个项目与其他项目不一样的对齐方式，可覆盖align-items属性。默认值auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">align-self</span><span class="token punctuation">:</span>auto| flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</strong></p>
+</li>
+</ol>
 
           
         
