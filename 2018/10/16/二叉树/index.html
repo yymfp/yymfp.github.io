@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/16/2153c29240544948808c3bd9081b6a74.png">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/16/f8f24bb14013ad4f806d1ec8bec299bd.jpg">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/17/31c90baf409ce7088051e95c118005e1.png">
-<meta property="og:updated_time" content="2018-10-17T08:23:25.434Z">
+<meta property="og:updated_time" content="2018-10-18T04:47:11.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二叉树">
 <meta name="twitter:description" content="二叉树二叉树是一种典型的数据结构，是树的特殊一种。 特点： 每个结点最多有两个子树，结点的度最大为2。  结点有左右之分，不能颠倒。  相关概念： 度：子树就是二叉树的分支，度就是分支的个数。 结点层：根结点的层定义为1，以此类推。 树的深度：树中最大的结点层。 叶子结点：度为0的结点。  二叉树又分为几种特殊情况： 完全二叉树：假设二叉树高度为h，从1~（h-1）层的结点个数达到最大，第h层有叶">
@@ -227,7 +227,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -251,7 +251,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -259,7 +259,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -345,14 +345,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-16 17:53:00" itemprop="dateCreated datePublished" datetime="2018-10-16T17:53:00+08:00">2018-10-16</time>
+              <time title="Created: 2018-10-16 17:53:00" itemprop="dateCreated datePublished" datetime="2018-10-16T17:53:00+08:00">2018-10-16</time>
             
 
             
@@ -369,7 +369,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-17 16:23:25" itemprop="dateModified" datetime="2018-10-17T16:23:25+08:00">2018-10-17</time>
+                <time title="Modified: 2018-10-18 12:47:11" itemprop="dateModified" datetime="2018-10-18T12:47:11+08:00">2018-10-18</time>
               
             
           </span>
@@ -383,7 +383,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
@@ -493,6 +493,75 @@
                     <span class="token function">hxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> min<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//求最小值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>left<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> max<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//求最大值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>right<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> select<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//查找值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token operator">></span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> <span class="token function">select</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token operator">&lt;</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> <span class="token function">select</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> getmin<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>left<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> remove<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//删除值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>key<span class="token operator">&lt;</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    node<span class="token punctuation">.</span>left<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>key<span class="token operator">></span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    node<span class="token punctuation">.</span>right<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token operator">===</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>node<span class="token punctuation">.</span>right<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token operator">===</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>node<span class="token punctuation">.</span>right<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token operator">===</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>node<span class="token punctuation">.</span>left<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        <span class="token keyword">var</span> zx<span class="token operator">=</span><span class="token function">getmin</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        node<span class="token punctuation">.</span>key<span class="token operator">=</span>zx<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                        node<span class="token punctuation">.</span>right<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>zx<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>    
             <span class="token punctuation">}</span>
             <span class="token keyword">this</span><span class="token punctuation">.</span>insert<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
                 <span class="token keyword">var</span> newNode<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -515,8 +584,24 @@
             <span class="token keyword">this</span><span class="token punctuation">.</span>hxSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
                 <span class="token function">hxSortSelect</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//查找最小值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>minKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">min</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//查找最大值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>maxKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">max</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//查询指定值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>selectKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">select</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//删除值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>removeKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                root<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>调用</strong></p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> tree<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">getTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -526,7 +611,11 @@ arr<span class="token punctuation">.</span><span class="token function">forEach<
 tree<span class="token punctuation">.</span><span class="token function">zxSelect</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1,3,4,6,7,8,10,13,14</span>
 tree<span class="token punctuation">.</span><span class="token function">qxSelect</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//8,3,1,6,4,7,10,14,13</span>
 tree<span class="token punctuation">.</span><span class="token function">hxSelect</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1，4，7，6，3，13，14，10，8</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'最小值：'</span><span class="token punctuation">,</span>tree<span class="token punctuation">.</span><span class="token function">minKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'最大值：'</span><span class="token punctuation">,</span>tree<span class="token punctuation">.</span><span class="token function">maxKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'查找值：'</span><span class="token punctuation">,</span>tree<span class="token punctuation">.</span><span class="token function">selectKey</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tree<span class="token punctuation">.</span><span class="token function">removeKey</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>构建好的二叉树：</strong></p>
 <p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/17/31c90baf409ce7088051e95c118005e1.png" alt=""></p>
 
@@ -617,10 +706,10 @@ tree<span class="token punctuation">.</span><span class="token function">hxSelec
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -641,7 +730,7 @@ tree<span class="token punctuation">.</span><span class="token function">hxSelec
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -664,7 +753,7 @@ tree<span class="token punctuation">.</span><span class="token function">hxSelec
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -699,7 +788,7 @@ tree<span class="token punctuation">.</span><span class="token function">hxSelec
                       
                     
                     <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -768,7 +857,7 @@ tree<span class="token punctuation">.</span><span class="token function">hxSelec
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
