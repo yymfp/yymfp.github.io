@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="跨域相关总结为什么会产生跨域： 浏览器的一种安全策略。（同源策略） 域名、端口、协议任何一方如果不相同，都会产生跨域问题。  解决方法： 使用jsonp 实现原理：通过动态创建script标签，来进行跨域数据获取。 //原生js方法 function getMsg(jsonData){     //jsonData为请求返回的json数据     console.log(jsonData); }">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T11:53:40.572Z">
+<meta property="og:updated_time" content="2018-10-18T05:16:24.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域问题">
 <meta name="twitter:description" content="跨域相关总结为什么会产生跨域： 浏览器的一种安全策略。（同源策略） 域名、端口、协议任何一方如果不相同，都会产生跨域问题。  解决方法： 使用jsonp 实现原理：通过动态创建script标签，来进行跨域数据获取。 //原生js方法 function getMsg(jsonData){     //jsonData为请求返回的json数据     console.log(jsonData); }">
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -340,14 +340,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-16 17:11:56" itemprop="dateCreated datePublished" datetime="2018-10-16T17:11:56+08:00">2018-10-16</time>
+              <time title="Post created: 2018-10-16 17:11:56" itemprop="dateCreated datePublished" datetime="2018-10-16T17:11:56+08:00">2018-10-16</time>
             
 
             
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-17 19:53:40" itemprop="dateModified" datetime="2018-10-17T19:53:40+08:00">2018-10-17</time>
+                <time title="Updated at: 2018-10-18 13:16:24" itemprop="dateModified" datetime="2018-10-18T13:16:24+08:00">2018-10-18</time>
               
             
           </span>
@@ -378,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -506,10 +506,16 @@ $<span class="token punctuation">.</span><span class="token function">getJSON</s
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>通过CORS解决AJAX跨域</strong></p>
-</li>
-<li><p><strong>通过设置Access-Control-Allow-Origin</strong></p>
+<p>特点：服务端设置头信息，浏览器端不需要处理。</p>
+<pre class="line-numbers language-js"><code class="language-js">res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//针对哪个域名可以访问，*表示所有</span>
+
+res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Credentials'</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//是否可以携带cookie</span>
+
+res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Methods'</span><span class="token punctuation">,</span> <span class="token string">'POST, GET, PUT, DELETE, OPTIONS'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>通过Nginx反向代理</strong></p>
+<p>Nginx解决跨域问题通过Nginx反向代理将对真实服务器的请求转移到本机服务器来避免浏览器的”同源策略限制”。</p>
 </li>
 </ol>
 
@@ -604,10 +610,10 @@ $<span class="token punctuation">.</span><span class="token function">getJSON</s
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -628,7 +634,7 @@ $<span class="token punctuation">.</span><span class="token function">getJSON</s
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -651,7 +657,7 @@ $<span class="token punctuation">.</span><span class="token function">getJSON</s
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -686,7 +692,7 @@ $<span class="token punctuation">.</span><span class="token function">getJSON</s
                       
                     
                     <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -755,7 +761,7 @@ $<span class="token punctuation">.</span><span class="token function">getJSON</s
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
