@@ -108,19 +108,19 @@
 
 
 
-  <meta name="description" content="vue组件生命周期">
+  <meta name="description" content="vue组件生命周期参考自Vue官方：https://cn.vuejs.org/v2/api/ 需要注意的是：  所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法。这是因为箭头函数绑定了父上下文，因此this与你期待的Vue实例不同。    beforeCreate：在实例初始化之后，数据观测（data ob">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue组件生命周期">
 <meta property="og:url" content="http://yoursite.com/2018/10/21/vue组件生命周期/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="vue组件生命周期">
+<meta property="og:description" content="vue组件生命周期参考自Vue官方：https://cn.vuejs.org/v2/api/ 需要注意的是：  所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法。这是因为箭头函数绑定了父上下文，因此this与你期待的Vue实例不同。    beforeCreate：在实例初始化之后，数据观测（data ob">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
-<meta property="og:updated_time" content="2018-10-21T08:33:37.532Z">
+<meta property="og:updated_time" content="2018-10-22T11:03:51.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue组件生命周期">
-<meta name="twitter:description" content="vue组件生命周期">
+<meta name="twitter:description" content="vue组件生命周期参考自Vue官方：https://cn.vuejs.org/v2/api/ 需要注意的是：  所有的生命周期钩子自动绑定this上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法。这是因为箭头函数绑定了父上下文，因此this与你期待的Vue实例不同。    beforeCreate：在实例初始化之后，数据观测（data ob">
 <meta name="twitter:image" content="https://cn.vuejs.org/images/lifecycle.png">
 
 
@@ -349,12 +349,24 @@
                 
               
 
-              <time title="Post created: 2018-10-21 16:30:32 / Updated at: 16:33:37" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
+              <time title="Post created: 2018-10-21 16:30:32" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-22 19:03:51" itemprop="dateModified" datetime="2018-10-22T19:03:51+08:00">2018-10-22</time>
               
             
           </span>
@@ -405,7 +417,46 @@
       
 
       
-        <h3 id="vue组件生命周期"><a href="#vue组件生命周期" class="headerlink" title="vue组件生命周期"></a>vue组件生命周期</h3><p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="参考：https://cn.vuejs.org/v2/guide/instance.html"></p>
+        <h3 id="vue组件生命周期"><a href="#vue组件生命周期" class="headerlink" title="vue组件生命周期"></a>vue组件生命周期</h3><p>参考自Vue官方：<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/</a></p>
+<p><strong>需要注意的是：</strong></p>
+<blockquote>
+<p>所有的生命周期钩子自动绑定<code>this</code>上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法。这是因为箭头函数绑定了父上下文，因此<code>this</code>与你期待的Vue实例不同。</p>
+</blockquote>
+<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="参考：https://cn.vuejs.org/v2/guide/instance.html"></p>
+<ol>
+<li><p>beforeCreate：在实例初始化之后，数据观测（data observer）和event/watcher事件配置之前被调用。</p>
+</li>
+<li><p>create：在实例创建完成后被立即调用。在这一步，实例已经完成以下的配置：数据观测（data observer），属性和方法的运算，watch/event事件回调。然而，挂载阶段还没开始，<code>$el</code>属性目前不可见。</p>
+</li>
+<li><p>beforeMount：在挂载开始之前被调用：相关的<code>render</code>函数首次被调用。</p>
+</li>
+<li><p>mounted：<code>el</code>被新创建的<code>vm.$el</code>替换，并挂载到实例上去之后调用该钩子。如果root实例挂载了一个文档内元素，当<code>mounted</code>被调用时<code>vm.$el</code>也在文档内。<strong>需要注意的是：<code>mounted</code>不会承诺所有的子组件也都一起被加载，如果你希望等到整个视图都渲染完毕，可以用<code>vm.$nextTick</code>替换掉<code>mounted</code></strong></p>
+<pre class="line-numbers language-js"><code class="language-js">mounted<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//等到整个视图加载完成后的操作</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>beforeUpdate：数据更新时的调用，发生在虚拟DOM打补丁之前，这里适合在更新之前访问现有的DOM，比如手动移除已经添加的事件监听器。</p>
+</li>
+<li><p>updated：由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用<a href="https://cn.vuejs.org/v2/api/#computed" target="_blank" rel="noopener">计算属性</a>或 <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watcher</a> 取而代之。</p>
+<p><strong>注意 <code>updated</code> 不会承诺所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick" target="_blank" rel="noopener">vm.$nextTick</a> 替换掉 <code>updated</code></strong>：</p>
+<pre class="line-numbers language-js"><code class="language-js">updated<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Code that will run only after the</span>
+    <span class="token comment" spellcheck="true">// entire view has been re-rendered</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>activated：<code>keep-alive</code>组件激活时调用。</p>
+</li>
+<li>deactivated：<code>keep-alive</code>组件停用时调用。</li>
+<li>beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+<li>destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+</ol>
 
       
     </div>
