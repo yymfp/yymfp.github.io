@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Post created: 2018-10-23 16:20:52 / Updated at: 17:16:14" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
+              <time title="Post created: 2018-10-23 16:20:52 / Updated at: 18:05:55" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
             
 
             
@@ -458,8 +458,60 @@ Person<span class="token punctuation">.</span>prototype<span class="token punctu
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> person1<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="Object-create-和new的异同"><a href="#Object-create-和new的异同" class="headerlink" title="Object.create()和new的异同"></a>Object.create()和new的异同</h5><ol>
+<li><p>new：</p>
+<ul>
+<li>创建新对象</li>
+<li>将相关属性和this绑定到新对象上</li>
+<li>将新创建的对象的原型(<code>__proto__</code>)指向构造函数的原型(<code>prototype</code>)</li>
+</ul>
+</li>
+<li><p>Object.create()：</p>
+<blockquote>
+<p>语法：<code>Object.create(proto, [propertiesObject])</code></p>
+</blockquote>
+<ul>
+<li>创建一个空对象</li>
+<li>如果[propertiesObject]存在，则是要添加到新创建对象的可枚举属性（即其自身定义的属性，而不是其原型链上的枚举属性）对象的属性描述符以及相应的属性名称</li>
+<li>将新创建的对象的原型(<code>__proto__</code>)指向参数proto本身。（这里是参数proto，而不是proto.prototype）</li>
+</ul>
 </li>
 </ol>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>比较</th>
+<th>new</th>
+<th>Object.create</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>构造函数</td>
+<td>保留原构造函数属性</td>
+<td>丢失原构造函数属性</td>
+</tr>
+<tr>
+<td>原型链</td>
+<td>原构造函数prototype属性</td>
+<td>原构造函数/（对象）本身</td>
+</tr>
+<tr>
+<td>作用对象</td>
+<td>function</td>
+<td>function和object</td>
+</tr>
+</tbody>
+</table>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">o</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> a<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">o</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> b<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>__proto__<span class="token operator">===</span>o<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true    new创建的对象的原型指向构造函数的原型</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>__proto__<span class="token operator">===</span>o<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true Object.create创建的对象的原型指向构造函数o本身</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//f o(){}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
           
         
