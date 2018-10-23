@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="js包装对象在js中，对于基本的string、number、Boolean类型，在对其进行类似对象的操作时，会将这些基本类型包装成一个临时对象类型，例如： let srt=&quot;string&quot;; console.log(str);    //&quot;string&quot; console.log(str.length); //6  说明：定义一个变量，赋值为字符串’string’，本身是一个基本的string类型，">
+  <meta name="description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js包装对象">
-<meta property="og:url" content="http://yoursite.com/2018/10/08/js包装对象/index.html">
+<meta property="og:title" content="js对象">
+<meta property="og:url" content="http://yoursite.com/2018/10/23/js对象/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="js包装对象在js中，对于基本的string、number、Boolean类型，在对其进行类似对象的操作时，会将这些基本类型包装成一个临时对象类型，例如： let srt=&quot;string&quot;; console.log(str);    //&quot;string&quot; console.log(str.length); //6  说明：定义一个变量，赋值为字符串’string’，本身是一个基本的string类型，">
+<meta property="og:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-11T09:37:46.098Z">
+<meta property="og:updated_time" content="2018-10-23T09:16:14.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js包装对象">
-<meta name="twitter:description" content="js包装对象在js中，对于基本的string、number、Boolean类型，在对其进行类似对象的操作时，会将这些基本类型包装成一个临时对象类型，例如： let srt=&quot;string&quot;; console.log(str);    //&quot;string&quot; console.log(str.length); //6  说明：定义一个变量，赋值为字符串’string’，本身是一个基本的string类型，">
+<meta name="twitter:title" content="js对象">
+<meta name="twitter:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/08/js包装对象/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/23/js对象/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>js包装对象 | pjy</title>
+  <title>js对象 | pjy</title>
   
 
 
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/js包装对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/js对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js包装对象
+          <h1 class="post-title" itemprop="name headline">js对象
               
             
           </h1>
@@ -347,24 +347,12 @@
                 
               
 
-              <time title="Post created: 2018-10-08 16:34:14" itemprop="dateCreated datePublished" datetime="2018-10-08T16:34:14+08:00">2018-10-08</time>
+              <time title="Post created: 2018-10-23 16:20:52 / Updated at: 17:16:14" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-10-11 17:37:46" itemprop="dateModified" datetime="2018-10-11T17:37:46+08:00">2018-10-11</time>
               
             
           </span>
@@ -415,17 +403,61 @@
       
 
       
-        <h3 id="js包装对象"><a href="#js包装对象" class="headerlink" title="js包装对象"></a>js包装对象</h3><p>在js中，对于基本的string、number、Boolean类型，在对其进行类似对象的操作时，会将这些基本类型包装成一个临时对象类型，例如：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> srt<span class="token operator">=</span><span class="token string">"string"</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//"string"</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//6</span>
+        <h3 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h3><h5 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h5><ol>
+<li><p>通过字面量方式创建</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//相当于var Person=new Object()</span>
+<span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span><span class="token number">20</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>通过Object构造函数</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Person<span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">"张三"</span><span class="token punctuation">;</span>
+Person<span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong><em>说明：</em></strong>定义一个变量，赋值为字符串’string’，本身是一个基本的string类型，在调用它的length时，会将其包装成一个临时的对象，用来获取相关属性。调用length属性之后，这个临时的对象会被立即销毁。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//string</span>
-str<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//undefined</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>给str添加a属性，添加完毕，包装对象立即被销毁，再去访问，得到undefined。</strong></p>
+</li>
+<li><p>工厂模式</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">cretPerson</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> o<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    o<span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>
+    o<span class="token punctuation">.</span>age<span class="token operator">=</span>age<span class="token punctuation">;</span>
+    o<span class="token punctuation">.</span>say<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">': '</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> o<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> person1<span class="token operator">=</span><span class="token function">cretPerson</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>构造函数</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">=</span>age<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>say<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">': '</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> person1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>原型模式</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">'张三'</span><span class="token punctuation">;</span>
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>say<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">': '</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> person1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用ES5的Object.create()</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person1<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ol>
 
       
     </div>
@@ -459,8 +491,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/06/js类型检测总结/" rel="next" title="js类型检测总结">
-                <i class="fa fa-chevron-left"></i> js类型检测总结
+              <a href="/2018/10/22/js的this指向问题/" rel="next" title="js的this指向问题">
+                <i class="fa fa-chevron-left"></i> js的this指向问题
               </a>
             
           </div>
@@ -468,10 +500,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/08/js闭包/" rel="prev" title="js闭包">
-                js闭包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +669,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js包装对象"><span class="nav-number">1.</span> <span class="nav-text">js包装对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js对象"><span class="nav-number">1.</span> <span class="nav-text">js对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建对象的方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建对象的方式</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
