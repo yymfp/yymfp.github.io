@@ -1501,12 +1501,24 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
               
 
-              <time title="Post created: 2018-10-20 14:41:41 / Updated at: 18:18:02" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
+              <time title="Post created: 2018-10-20 14:41:41" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-23 18:41:52" itemprop="dateModified" datetime="2018-10-23T18:41:52+08:00">2018-10-23</time>
               
             
           </span>
@@ -1627,16 +1639,16 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>定义完成后，可以再组件内通过 <code>this.$router</code> 访问路由器，也可以通过 <code>this.$route</code> 访问当前路由：</strong></p>
-<pre class="line-numbers language-vue"><code class="language-vue">//Foo.vue
-export default{
-    methods:{
-        myRouter(){
-            this.router.push({
-                path:'/', //要跳转的路由位置
-            })
-        }
-    }
-}
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//Foo.vue</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token function">myRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//要跳转的路由位置</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="动态路由匹配"><a href="#动态路由匹配" class="headerlink" title="动态路由匹配"></a>动态路由匹配</h5><p><strong>路由传参：</strong></p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> User<span class="token operator">=</span><span class="token punctuation">{</span>
@@ -1697,7 +1709,64 @@ export default{
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>匹配优先级</strong></p>
 <p>有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。</p>
-<h5 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h5>
+<h5 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h5><p>app：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><em>app这里的<code>&lt;router-view&gt;</code>是最顶层的出口。一个被渲染的组件同样可以包含自己嵌套的<code>&lt;router-view&gt;</code>。例如在<code>User</code>模板中添加<code>&lt;router-view&gt;</code>：</em></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> User<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+        &lt;div class="user">
+            &lt;h2>User {{$route.params.id}}&lt;/h2>
+            &lt;router-link to="/user/:id/posts">UserPosts&lt;/router-link>
+            &lt;router-link to="/user/:id/profile">UserProfile&lt;/router-link>
+            &lt;router-view>&lt;/router-view>
+        &lt;/div>
+    `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//实现嵌套路由的话，需要在配置项中添加children属性。</span>
+<span class="token keyword">const</span> route<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    routes<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            path<span class="token punctuation">:</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span>User<span class="token punctuation">,</span>
+            children<span class="token punctuation">:</span><span class="token punctuation">[</span>
+                <span class="token comment" spellcheck="true">// 当 /user/:id/profile匹配成功</span>
+                <span class="token comment" spellcheck="true">//UserProfile会被渲染在User的&lt;router-view>中</span>
+                <span class="token punctuation">{</span>
+                    path<span class="token punctuation">:</span><span class="token string">'profile'</span><span class="token punctuation">,</span>
+                    component<span class="token punctuation">:</span>UserProfile
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token comment" spellcheck="true">// 当 /user/:id/posts匹配成功</span>
+                <span class="token comment" spellcheck="true">//UserPosts会被渲染在User的&lt;router-view>中</span>
+                <span class="token punctuation">{</span>
+                    path<span class="token punctuation">:</span><span class="token string">'posts'</span><span class="token punctuation">,</span>
+                    component<span class="token punctuation">:</span>UserPosts
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>注意：以<code>/</code>开头的匹配，会被当作根路径。<code>children</code>的配置类似于routes的配置，可以进行多层嵌套。</em></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> UserProfile<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`
+        &lt;div class="userprofile">
+            userprofile
+        &lt;/div>
+    `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> UserPosts<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`
+        &lt;div class="UserPosts">
+            UserPosts
+        &lt;/div>
+    `</span></span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
           
         
       
