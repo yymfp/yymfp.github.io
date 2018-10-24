@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -285,6 +285,373 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/16/二叉树/" itemprop="url">
+                  二叉树
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-16 17:53:00" itemprop="dateCreated datePublished" datetime="2018-10-16T17:53:00+08:00">2018-10-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-18 14:00:28" itemprop="dateModified" datetime="2018-10-18T14:00:28+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><p><strong>二叉树是一种典型的数据结构，是树的特殊一种。</strong></p>
+<h5 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h5><ol>
+<li><p>每个结点最多有两个子树，结点的度最大为2。</p>
+</li>
+<li><h5 id="结点有左右之分，不能颠倒。"><a href="#结点有左右之分，不能颠倒。" class="headerlink" title="结点有左右之分，不能颠倒。"></a>结点有左右之分，不能颠倒。</h5></li>
+</ol>
+<h5 id="相关概念："><a href="#相关概念：" class="headerlink" title="相关概念："></a>相关概念：</h5><ol>
+<li><strong>度：子树就是二叉树的分支，度就是分支的个数。</strong></li>
+<li><strong>结点层：根结点的层定义为1，以此类推。</strong></li>
+<li><strong>树的深度：树中最大的结点层。</strong></li>
+<li><strong>叶子结点：度为0的结点。</strong></li>
+</ol>
+<h5 id="二叉树又分为几种特殊情况："><a href="#二叉树又分为几种特殊情况：" class="headerlink" title="二叉树又分为几种特殊情况："></a>二叉树又分为几种特殊情况：</h5><ul>
+<li><p>完全二叉树：假设二叉树高度为h，从1~（h-1）层的结点个数达到最大，第h层有叶子结点，且从左到右依次排列，称为完全二叉树。</p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/16/f2b1e4ea4075a3078066c8279e3b8028.png" alt="参考https://www.cnblogs.com/polly333/p/4740355.html"></p>
+</li>
+<li><p>满二叉树：除了叶子结点外，所有结点都有左右子树，且所有叶子结点都处在最底层，称为满二叉树。</p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/16/2153c29240544948808c3bd9081b6a74.png" alt="参考https://www.cnblogs.com/polly333/p/4740355.html"></p>
+</li>
+<li><p>平衡二叉树（AVL树）：它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是平衡二叉树。</p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/16/f8f24bb14013ad4f806d1ec8bec299bd.jpg" alt=""></p>
+</li>
+</ul>
+<h5 id="二叉树的三种遍历方式："><a href="#二叉树的三种遍历方式：" class="headerlink" title="二叉树的三种遍历方式："></a>二叉树的三种遍历方式：</h5><ol>
+<li>中序遍历：左根右。</li>
+<li>前序遍历：根左右。</li>
+<li>后序遍历：左右根。</li>
+</ol>
+<p><strong>代码实现</strong></p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//构建排序二叉树</span>
+        <span class="token keyword">function</span> <span class="token function">getTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//创建结点方法</span>
+            <span class="token keyword">var</span> node <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>key<span class="token operator">=</span>key<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>left<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>right<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> root<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//初始化根节点</span>
+            <span class="token keyword">var</span> insertTrees<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>newNode<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//插入结点</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token operator">></span>newNode<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token punctuation">.</span>left<span class="token operator">=</span>newNode<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        <span class="token function">insertTrees</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>newNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token punctuation">.</span>right<span class="token operator">=</span>newNode<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        <span class="token function">insertTrees</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>newNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> zxSortSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//中序遍历方法</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token function">zxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">zxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> qxSortSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//前序遍历</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">qxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">qxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> hxSortSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//后序遍历</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token function">hxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">hxSortSelect</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> min<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//求最小值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>left<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> max<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//求最大值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>right<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> select<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//查找值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token operator">></span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> <span class="token function">select</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token operator">&lt;</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> <span class="token function">select</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> getmin<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">while</span><span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>left<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> remove<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//删除值</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>key<span class="token operator">&lt;</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    node<span class="token punctuation">.</span>left<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>key<span class="token operator">></span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    node<span class="token punctuation">.</span>right<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token operator">===</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>node<span class="token punctuation">.</span>right<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token operator">===</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>node<span class="token punctuation">.</span>right<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token operator">===</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>node<span class="token punctuation">.</span>left<span class="token operator">!==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        node<span class="token operator">=</span>node<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                        <span class="token keyword">var</span> zx<span class="token operator">=</span><span class="token function">getmin</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        node<span class="token punctuation">.</span>key<span class="token operator">=</span>zx<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                        node<span class="token punctuation">.</span>right<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span>zx<span class="token punctuation">.</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>    
+            <span class="token punctuation">}</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>insert<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">var</span> newNode<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    root<span class="token operator">=</span>newNode<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    <span class="token function">insertTrees</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>newNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment" spellcheck="true">// console.log(root);</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//中序遍历</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>zxSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">zxSortSelect</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//前序遍历</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>qxSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">qxSortSelect</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//后序遍历</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>hxSelect<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">hxSortSelect</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//查找最小值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>minKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">min</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//查找最大值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>maxKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">max</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//查询指定值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>selectKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">select</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">//删除值</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>removeKey<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                root<span class="token operator">=</span><span class="token function">remove</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>调用</strong></p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> tree<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">getTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">//构建二叉树</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tree<span class="token punctuation">.</span><span class="token function">zxSelect</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1,3,4,6,7,8,10,13,14</span>
+tree<span class="token punctuation">.</span><span class="token function">qxSelect</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//8,3,1,6,4,7,10,14,13</span>
+tree<span class="token punctuation">.</span><span class="token function">hxSelect</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1，4，7，6，3，13，14，10，8</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'最小值：'</span><span class="token punctuation">,</span>tree<span class="token punctuation">.</span><span class="token function">minKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'最大值：'</span><span class="token punctuation">,</span>tree<span class="token punctuation">.</span><span class="token function">maxKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'查找值：'</span><span class="token punctuation">,</span>tree<span class="token punctuation">.</span><span class="token function">selectKey</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tree<span class="token punctuation">.</span><span class="token function">removeKey</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>构建好的二叉树：</strong></p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/17/31c90baf409ce7088051e95c118005e1.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -340,14 +707,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-16 17:11:56" itemprop="dateCreated datePublished" datetime="2018-10-16T17:11:56+08:00">2018-10-16</time>
+              <time title="Post created: 2018-10-16 17:11:56" itemprop="dateCreated datePublished" datetime="2018-10-16T17:11:56+08:00">2018-10-16</time>
             
 
             
@@ -364,7 +731,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-18 13:17:33" itemprop="dateModified" datetime="2018-10-18T13:17:33+08:00">2018-10-18</time>
+                <time title="Updated at: 2018-10-18 13:17:33" itemprop="dateModified" datetime="2018-10-18T13:17:33+08:00">2018-10-18</time>
               
             
           </span>
@@ -378,7 +745,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -612,14 +979,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-16 12:43:15" itemprop="dateCreated datePublished" datetime="2018-10-16T12:43:15+08:00">2018-10-16</time>
+              <time title="Post created: 2018-10-16 12:43:15" itemprop="dateCreated datePublished" datetime="2018-10-16T12:43:15+08:00">2018-10-16</time>
             
 
             
@@ -636,7 +1003,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-24 15:35:44" itemprop="dateModified" datetime="2018-10-24T15:35:44+08:00">2018-10-24</time>
+                <time title="Updated at: 2018-10-24 15:35:44" itemprop="dateModified" datetime="2018-10-24T15:35:44+08:00">2018-10-24</time>
               
             
           </span>
@@ -650,7 +1017,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
@@ -880,14 +1247,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-12 13:17:17" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
+              <time title="Post created: 2018-10-12 13:17:17" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
             
 
             
@@ -904,7 +1271,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-18 13:59:53" itemprop="dateModified" datetime="2018-10-18T13:59:53+08:00">2018-10-18</time>
+                <time title="Updated at: 2018-10-18 13:59:53" itemprop="dateModified" datetime="2018-10-18T13:59:53+08:00">2018-10-18</time>
               
             
           </span>
@@ -918,7 +1285,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1196,14 +1563,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 18:51:38" itemprop="dateCreated datePublished" datetime="2018-10-11T18:51:38+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 18:51:38" itemprop="dateCreated datePublished" datetime="2018-10-11T18:51:38+08:00">2018-10-11</time>
             
 
             
@@ -1220,7 +1587,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-17 18:34:44" itemprop="dateModified" datetime="2018-10-17T18:34:44+08:00">2018-10-17</time>
+                <time title="Updated at: 2018-10-17 18:34:44" itemprop="dateModified" datetime="2018-10-17T18:34:44+08:00">2018-10-17</time>
               
             
           </span>
@@ -1234,7 +1601,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1768,14 +2135,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 17:58:23 / Modified: 18:49:55" itemprop="dateCreated datePublished" datetime="2018-10-11T17:58:23+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 17:58:23 / Updated at: 18:49:55" itemprop="dateCreated datePublished" datetime="2018-10-11T17:58:23+08:00">2018-10-11</time>
             
 
             
@@ -1794,7 +2161,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1981,14 +2348,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 14:01:39" itemprop="dateCreated datePublished" datetime="2018-10-11T14:01:39+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 14:01:39" itemprop="dateCreated datePublished" datetime="2018-10-11T14:01:39+08:00">2018-10-11</time>
             
 
             
@@ -2005,7 +2372,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-22 18:21:55" itemprop="dateModified" datetime="2018-10-22T18:21:55+08:00">2018-10-22</time>
+                <time title="Updated at: 2018-10-22 18:21:55" itemprop="dateModified" datetime="2018-10-22T18:21:55+08:00">2018-10-22</time>
               
             
           </span>
@@ -2019,7 +2386,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2176,14 +2543,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 12:12:15 / Modified: 17:39:00" itemprop="dateCreated datePublished" datetime="2018-10-11T12:12:15+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 12:12:15 / Updated at: 17:39:00" itemprop="dateCreated datePublished" datetime="2018-10-11T12:12:15+08:00">2018-10-11</time>
             
 
             
@@ -2202,7 +2569,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2423,14 +2790,14 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 11:27:12 / Modified: 17:37:34" itemprop="dateCreated datePublished" datetime="2018-10-11T11:27:12+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 11:27:12 / Updated at: 17:37:34" itemprop="dateCreated datePublished" datetime="2018-10-11T11:27:12+08:00">2018-10-11</time>
             
 
             
@@ -2449,7 +2816,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2620,14 +2987,14 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 10:39:05 / Modified: 17:40:34" itemprop="dateCreated datePublished" datetime="2018-10-11T10:39:05+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 10:39:05 / Updated at: 17:40:34" itemprop="dateCreated datePublished" datetime="2018-10-11T10:39:05+08:00">2018-10-11</time>
             
 
             
@@ -2646,7 +3013,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2748,222 +3115,6 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/常见的几种布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/10/常见的几种布局/" itemprop="url">
-                  常见的几种布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-10 17:04:18" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-10-11 14:01:41" itemprop="dateModified" datetime="2018-10-11T14:01:41+08:00">2018-10-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="几种常见的布局方式"><a href="#几种常见的布局方式" class="headerlink" title="几种常见的布局方式"></a>几种常见的布局方式</h3><ol>
-<li><h5 id="固定布局（静态布局）"><a href="#固定布局（静态布局）" class="headerlink" title="固定布局（静态布局）"></a>固定布局（静态布局）</h5><p>特点：采用px作为单位，固定宽高大小。</p>
-<p>适用于设备较少的页面设计，当页面内容显示不全时，会采用滚动条的方式显示。</p>
-<p>如果需要在移动设备上显示，一般需要设计两套页面，一个适配PC端，一个用来在移动端使用显示。</p>
-<p>移动端开发：</p>
-<ol>
-<li><p>需要设置在viewport meta标签上设置相关属性，例如：width=320，页面的各个元素采用px作为大小单位，通过用JS动态修改标签的initial-scale使得页面等比缩放，从而刚好占满整个屏幕。</p>
-</li>
-<li><p>在viewport meta标签上content”width=640,user-scalable=no”。</p>
-</li>
-</ol>
-<p>   [参考]: <a href="https://www.zhihu.com/question/32090605" target="_blank" rel="noopener">https://www.zhihu.com/question/32090605</a></p>
-</li>
-<li><h5 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h5><ol>
-<li><p>特点：页面元素宽度按照屏幕分辨率进行适配调整，但整体布局不变。（例如：栅格系统）。</p>
-</li>
-<li><p>设计方法：使用%百分比定义宽度，高度大都使用px固定，配合max-width、min-width使用，避免出现类似图片被拉伸过度而失真的情况，尽可能适应各种分辨率。</p>
-<p>无法满足设备跨度太大的情况，在这种情况下，往往会出现元素被拉伸导致页面看起来不合理。（因为高度、文字大小始终是固定的）</p>
-</li>
-</ol>
-</li>
-<li><h5 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h5><ol>
-<li>特点：页面采用em、rem作为单位，对于这两个单位不了解的可以去看</li>
-</ol>
-<p>   [参考]: <a href="https://yymfp.github.io/2018/09/27/px%E3%80%81em%E3%80%81rem%E5%8C%BA%E5%88%AB/" target="_blank" rel="noopener">https://yymfp.github.io/2018/09/27/px%E3%80%81em%E3%80%81rem%E5%8C%BA%E5%88%AB/</a></p>
-<ol start="2">
-<li>设计方法：包裹文字的各个元素采用em、rem作为单位，而页面整体的划分区域的地方仍然采用百分比或px作为单位。<strong>早期浏览器不支持整个页面按比例缩放</strong>，仅支持网页内文字尺寸的放大，这种情况下。使用em/rem做单位，可以使包裹文字的元素随着文字的缩放而缩放。</li>
-</ol>
-</li>
-<li><h5 id="自适应布局"><a href="#自适应布局" class="headerlink" title="自适应布局"></a>自适应布局</h5><ol>
-<li>特点：分别为不同屏幕设置布局格式，随着屏幕大小而改变布局格式，可以看成是由多个静态布局组成。</li>
-<li>设计方法：采用@media媒体查询给不同尺寸的设备进行切换。</li>
-</ol>
-</li>
-<li><h5 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h5><ol>
-<li><p>特点：流式布局和自适应布局相结合，配合媒体查询，实现不同设备，元素的大小位置均发生改变。</p>
-</li>
-<li><p>设计方法：媒体查询+自适应布局+流式布局。结合多种技术，实现页面适配多种设备。</p>
-</li>
-<li><p>优点：能够适配PC、移动端。</p>
-<p>设置meta标签：</p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width,initial-scale<span class="token punctuation">=</span>1.0,maximum-scale<span class="token punctuation">=</span>1.0,minimum-scale<span class="token punctuation">=</span>1.0,user-scalable<span class="token punctuation">=</span>no<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3010,8 +3161,8 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -3034,7 +3185,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -3074,8 +3225,10 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">tags</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -3128,7 +3281,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
