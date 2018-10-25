@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Accueil</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />A propos</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -285,6 +285,188 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/html块级元素、内联元素/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/html块级元素、内联元素/" itemprop="url">
+                  html块级元素、内联元素
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-11 10:39:05 / Updated at: 17:40:34" itemprop="dateCreated datePublished" datetime="2018-10-11T10:39:05+08:00">2018-10-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="html块级元素、内联元素"><a href="#html块级元素、内联元素" class="headerlink" title="html块级元素、内联元素"></a>html块级元素、内联元素</h3><p><strong>html中的元素分为两种：块级元素和内联元素。</strong></p>
+<h5 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h5><p>特点：显示在一块内，可以自动换行，元素从上到下垂直排列，各占一行。</p>
+<ol>
+<li>总是在新行上开始</li>
+<li>高度、行高、外边距、内边距可控</li>
+<li>宽度缺省，默认100%</li>
+<li>可以容纳其他的内联元素或块级元素</li>
+</ol>
+<p>常见的标签：p、ul、form、div、address等标签。</p>
+<p>块级元素一般可嵌套块级元素或者行内元素，一般作为容器出现，用来组织结构，但并不全如此。元素都有属性<code>display:block;</code></p>
+<h5 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h5><p>特点：元素在一行内水平排列，高度由元素的内容决定，height不起作用（可以设置line-height控制高度）。</p>
+<ol>
+<li>在同一行上边显示</li>
+<li>高度、行高、垂直方向外边距、垂直方向内边距不可改变</li>
+<li>宽度是文字或者图片的宽度，不可以改变</li>
+<li>内联元素只能容纳内联元素或文本</li>
+</ol>
+<p>常见的标签：span、input、a、sub、sup等。</p>
+<p>行内元素一般都是语义化的基本元素，内能容纳文本或其他的内联元素，元素设置属性<code>display:inline;</code></p>
+<h5 id="两者间区别："><a href="#两者间区别：" class="headerlink" title="两者间区别："></a>两者间区别：</h5><ol>
+<li>块级元素独占一行，行内不会</li>
+<li>块级元素可以设置宽高，行内不可以</li>
+<li>块级元素可以设置margin、padding，行内只能设置水平方向上的</li>
+<li>块级元素显示display:block，行内display:inline。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -340,7 +522,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -378,7 +560,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -556,7 +738,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -594,7 +776,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -780,7 +962,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -818,7 +1000,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -960,7 +1142,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -998,7 +1180,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1220,7 +1402,7 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -1258,7 +1440,7 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1412,7 +1594,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -1450,7 +1632,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1657,7 +1839,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -1695,7 +1877,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1891,7 +2073,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -1929,7 +2111,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
@@ -2173,7 +2355,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -2211,7 +2393,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2315,203 +2497,11 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/你好，潘君毅/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/25/你好，潘君毅/" itemprop="url">
-                  使用Hexo+Github搭建属于自己的博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-10-11 17:38:25" itemprop="dateModified" datetime="2018-10-11T17:38:25+08:00">2018-10-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="使用Hexo-Github搭建属于自己的博客"><a href="#使用Hexo-Github搭建属于自己的博客" class="headerlink" title="使用Hexo+Github搭建属于自己的博客"></a>使用Hexo+Github搭建属于自己的博客</h1><h5 id="1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功"><a href="#1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功" class="headerlink" title="1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功"></a>1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功</h5><p><code>node -v</code><br><code>npm -v</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/b8d6706040d9ab598087e7c4a291315c.png" alt=""></p>
-<h5 id="2-安装Git环境"><a href="#2-安装Git环境" class="headerlink" title="2.安装Git环境"></a>2.安装Git环境</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1c358a084065a55f8028d9539dc1c22d.png" alt=""><br><strong><em>注意:</em></strong>一般为了安全考虑，只有在Git Bash Here中才能进行Git的相关操作。<br><code>git --version</code>查看是否配置成功</p>
-<h5 id="3-登陆Github账号，新建项目：账户名-github-io"><a href="#3-登陆Github账号，新建项目：账户名-github-io" class="headerlink" title="3.登陆Github账号，新建项目：账户名.github.io"></a>3.登陆Github账号，新建项目：账户名.github.io</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/87c8b71a404cbce3800d7150d62e3572.png" alt=""><br>项目建好后，可以访问<a href="#">https://用户名.github.io/</a></p>
-<h5 id="4-安装Hexo，新建blog目录，在当前目录下命令行中执行："><a href="#4-安装Hexo，新建blog目录，在当前目录下命令行中执行：" class="headerlink" title="4.安装Hexo，新建blog目录，在当前目录下命令行中执行："></a>4.安装Hexo，新建blog目录，在当前目录下命令行中执行：</h5><p><code>npm install hexo -g</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/0a07ba0c40de774980cb892145452fea.png" alt=""><br>之后输入:<code>hexo -v</code>查看版本<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/7b48d7ea40865e3d801a612431c2226f.png" alt=""><br>初始化该文件夹<code>hexo init</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/437fc07240469c578002a18d7c179695.png" alt=""><br>接着<code>npm install</code>，安装相关组件<br>输入<code>hexo g</code><br>输入<code>hexo s</code>，开启服务器，访问该网址，正式体验Hexo<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/5c56223d40e8e14e80409b9863cc9563.png" alt=""><br>如果成功，则显示：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/76e9c5364021748380332bcda0314c0e.png" alt=""></p>
-<h5 id="5-接下来配置ssh，首先配置Git，打开Git-Bash-Here"><a href="#5-接下来配置ssh，首先配置Git，打开Git-Bash-Here" class="headerlink" title="5.接下来配置ssh，首先配置Git，打开Git Bash Here"></a>5.接下来配置ssh，首先配置Git，打开Git Bash Here</h5><ol>
-<li>设置用户名：<br><code>git config --global user.name &#39;用户名&#39;</code></li>
-<li>设置用户邮箱<br><code>git config --global user.email &#39;user@163.com&#39;</code></li>
-<li>查看设置<br><code>git config --list</code><br>查看C:\Users\Administrator.ssh是否存在<br>不存在输入：<code>ssh-keygen -t rsa -C &quot;user@163.com&quot;</code>回车生成密钥<br><code>cd ~/.ssh</code><br><code>ls</code><br>可以看到两个文件：id_rsa和id_rsa.pub<br>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>,添加密钥到ssh-agent<br>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的ssh key到ssh-agent<br>之后登录Github，点击头像，选择头像下的settings，添加ssh<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/6ba821354070efd88095cc946e5f084f.png" alt=""><br>新建一个new ssh key，将id_rsa.pub文件里的内容复制到Key中<br>输入<code>ssh -T git@github.com</code>，测试添加的ssh是否成功，如果看到Hi你的用户名，则表示成功了。<br>如果出错ssh: connect to host github.com port 22: Connection timed out<br>需要在C:\Users\Administrator.ssh目录下配置config文件，输入<br><code>touch config</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/d082fa4140ed737780aa3a6599da6a8f.png" alt=""><br>内容为：<pre class="line-numbers language-javascipt"><code class="language-javascipt">Host github.com  
-User user@163.com  
-Hostname ssh.github.com  
-PreferredAuthentications publickey  
-IdentityFile ~/.ssh/id_rsa  
-Port 443
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<strong><em>user为用户邮箱</em></strong><br>在项目目录下找到_config.yml文件，在末尾修改<pre class="line-numbers language-javascipt"><code class="language-javascipt">deploy:
-type: git
-repository: 你自己的github项目里的ssh
-branch: master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1be67f4740ae60fa8083591da8f65bfa.png" alt=""></li>
-</ol>
-<h5 id="6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot"><a href="#6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot" class="headerlink" title="6.新建一篇博客，在cmd执行命令：hexo new post &quot;博客名&quot;"></a>6.新建一篇博客，在cmd执行命令：<code>hexo new post &quot;博客名&quot;</code></h5><p>在文件夹——posts目录下可以看到</p>
-<p>在生成以及部署文章之前，需要安装一个扩展：<code>npm install hexo-deployer-git --save</code><br>使用编辑器编好文章，那么就可以使用命令：<code>hexo d -g</code>，生成以及部署了<br>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2553,8 +2543,8 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">articles</span>
                   </a>
                 </div>
               
@@ -2577,7 +2567,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -2619,8 +2609,10 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
-                    <span class="site-state-item-name">Tags</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -2673,7 +2665,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -2681,7 +2673,7 @@ repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Thème – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
 
 
