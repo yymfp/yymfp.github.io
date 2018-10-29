@@ -117,7 +117,7 @@
 <meta property="og:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
-<meta property="og:updated_time" content="2018-10-28T07:41:15.785Z">
+<meta property="og:updated_time" content="2018-10-29T06:36:23.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
@@ -224,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Accueil</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />A propos</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -342,14 +342,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
+              <time title="Created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
             
 
             
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-28 15:41:15" itemprop="dateModified" datetime="2018-10-28T15:41:15+08:00">2018-10-28</time>
+                <time title="Modified: 2018-10-29 14:36:23" itemprop="dateModified" datetime="2018-10-29T14:36:23+08:00">2018-10-29</time>
               
             
           </span>
@@ -599,6 +599,47 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="token punctuation">{</span>arrstr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&lt;</span>h5<span class="token operator">></span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h5<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">}</span>
                 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"app"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="创建组件的方式："><a href="#创建组件的方式：" class="headerlink" title="创建组件的方式："></a>创建组件的方式：</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//导入包</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+
+<span class="token comment" spellcheck="true">//第一种创建组件的方式 (是一个构造函数，首字母大写)</span>
+<span class="token keyword">function</span> <span class="token function">Hello</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>这是Hello组件 <span class="token operator">--</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">--</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//定义参数变量</span>
+<span class="token keyword">const</span> dog<span class="token operator">=</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">'阿旺'</span><span class="token punctuation">,</span>
+    gender<span class="token punctuation">:</span><span class="token string">'雄'</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//调用render函数渲染 jsx xml 比HTML严格的多</span>
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>Hello name<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">}</span> gender<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Hello<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="组件抽离为jsx文件"><a href="#组件抽离为jsx文件" class="headerlink" title="组件抽离为jsx文件"></a>组件抽离为jsx文件</h5><pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token comment" spellcheck="true">// components/Hello.jsx</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Hello</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//定义组件并导出</span>
+    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>这是一个Hello组件 <span class="token operator">--</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">--</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//导入包</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+
+<span class="token comment" spellcheck="true">//导入组件</span>
+<span class="token comment" spellcheck="true">//默认，如果不做单独的配置的话，不能省略.jsx后缀名</span>
+<span class="token keyword">import</span> Hello <span class="token keyword">from</span> <span class="token string">'./components/Hello.jsx'</span>
+
+<span class="token comment" spellcheck="true">//定义参数变量</span>
+<span class="token keyword">const</span> dog<span class="token operator">=</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">'阿旺'</span><span class="token punctuation">,</span>
+    gender<span class="token punctuation">:</span><span class="token string">'雄'</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//调用render函数渲染 jsx xml 比HTML严格的多</span>
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>Hello name<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">}</span> gender<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Hello<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -691,10 +732,10 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table Des Matières
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Ensemble
+            Overview
           </li>
         </ul>
       
@@ -715,7 +756,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">31</span>
-                    <span class="site-state-item-name">articles</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -818,7 +859,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">这是一个h1标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">0.0.1.</span> <span class="nav-text">配置babel配置文件</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">这是一个h1标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">0.0.1.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式："><span class="nav-number">0.0.2.</span> <span class="nav-text">创建组件的方式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为jsx文件"><span class="nav-number">0.0.3.</span> <span class="nav-text">组件抽离为jsx文件</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -860,7 +901,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 
 
 
-  <div class="theme-info">Thème – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
 
 
