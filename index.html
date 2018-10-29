@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -340,14 +340,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
+              <time title="Post created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
             
 
             
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-28 15:11:53" itemprop="dateModified" datetime="2018-10-28T15:11:53+08:00">2018-10-28</time>
+                <time title="Updated at: 2018-10-28 15:11:53" itemprop="dateModified" datetime="2018-10-28T15:11:53+08:00">2018-10-28</time>
               
             
           </span>
@@ -378,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -567,14 +567,14 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
+              <time title="Post created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
             
 
             
@@ -591,7 +591,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-29 14:36:23" itemprop="dateModified" datetime="2018-10-29T14:36:23+08:00">2018-10-29</time>
+                <time title="Updated at: 2018-10-29 16:55:00" itemprop="dateModified" datetime="2018-10-29T16:55:00+08:00">2018-10-29</time>
               
             
           </span>
@@ -605,7 +605,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -780,9 +780,15 @@ module<span class="token punctuation">.</span>exports<span class="token operator
         rules<span class="token punctuation">:</span><span class="token punctuation">[</span> <span class="token comment" spellcheck="true">//第三方匹配规则</span>
             <span class="token punctuation">{</span> test<span class="token punctuation">:</span> <span class="token regex">/\.js|jsx$/</span><span class="token punctuation">,</span>use<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//test匹配规则 use 使用插件 exclude 排除项</span>
         <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    resolve<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        extensions<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span><span class="token string">'jsx'</span><span class="token punctuation">,</span><span class="token string">'.json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//表示，这几个文件的后缀名可以省略不写</span>
+        alias<span class="token punctuation">:</span><span class="token punctuation">{</span>
+            <span class="token string">'@'</span><span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//这样，@表示项目根目录中src的这一层路径</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -826,7 +832,9 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="token punctuation">{</span>arrstr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&lt;</span>h5<span class="token operator">></span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h5<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">}</span>
                 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"app"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="创建组件的方式："><a href="#创建组件的方式：" class="headerlink" title="创建组件的方式："></a>创建组件的方式：</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//导入包</span>
+<h5 id="创建组件的方式"><a href="#创建组件的方式" class="headerlink" title="创建组件的方式"></a>创建组件的方式</h5><ol>
+<li><p>第一种：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//导入包</span>
 <span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
 
@@ -844,11 +852,25 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="token operator">&lt;</span>Hello name<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">}</span> gender<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Hello<span class="token operator">></span>
                 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第二种：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//如果要使用class定义组件，必需让自己的组件，继承自React.Component</span>
+<span class="token keyword">class</span> <span class="token string">'组件名称'</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//在组件内部，必须有render函数</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//render函数中必需返回合法的jsx虚拟dom结构</span>
+        <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>这是一个div<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
 <h5 id="组件抽离为jsx文件"><a href="#组件抽离为jsx文件" class="headerlink" title="组件抽离为jsx文件"></a>组件抽离为jsx文件</h5><pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token comment" spellcheck="true">// components/Hello.jsx</span>
+<span class="token comment" spellcheck="true">//需要导入React</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Hello</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//定义组件并导出</span>
     <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>这是一个Hello组件 <span class="token operator">--</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">--</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//导入包</span>
 <span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 <span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
@@ -959,19 +981,31 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-23 16:20:52 / Modified: 18:09:48" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
+              <time title="Post created: 2018-10-23 16:20:52" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-29 15:22:05" itemprop="dateModified" datetime="2018-10-29T15:22:05+08:00">2018-10-29</time>
               
             
           </span>
@@ -985,7 +1019,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1074,9 +1108,12 @@ Person<span class="token punctuation">.</span>prototype<span class="token punctu
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>使用ES5的Object.create()</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> person1<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>使用Class关键字</p>
+<pre class="line-numbers language-js"><code class="language-js">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="Object-create-和new的异同"><a href="#Object-create-和new的异同" class="headerlink" title="Object.create()和new的异同"></a>Object.create()和new的异同</h5><ol>
 <li><p>new：</p>
 <ul>
@@ -1135,6 +1172,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">var</span> b<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Function {name: "张三"}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>​    </p>
 
           
         
@@ -1227,14 +1265,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-22 19:22:01" itemprop="dateCreated datePublished" datetime="2018-10-22T19:22:01+08:00">2018-10-22</time>
+              <time title="Post created: 2018-10-22 19:22:01" itemprop="dateCreated datePublished" datetime="2018-10-22T19:22:01+08:00">2018-10-22</time>
             
 
             
@@ -1251,7 +1289,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-23 15:14:57" itemprop="dateModified" datetime="2018-10-23T15:14:57+08:00">2018-10-23</time>
+                <time title="Updated at: 2018-10-23 15:14:57" itemprop="dateModified" datetime="2018-10-23T15:14:57+08:00">2018-10-23</time>
               
             
           </span>
@@ -1265,7 +1303,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1507,14 +1545,14 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-21 16:30:32" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
+              <time title="Post created: 2018-10-21 16:30:32" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
             
 
             
@@ -1531,7 +1569,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-22 19:03:51" itemprop="dateModified" datetime="2018-10-22T19:03:51+08:00">2018-10-22</time>
+                <time title="Updated at: 2018-10-22 19:03:51" itemprop="dateModified" datetime="2018-10-22T19:03:51+08:00">2018-10-22</time>
               
             
           </span>
@@ -1545,7 +1583,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1716,14 +1754,14 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-21 12:25:33 / Modified: 16:07:59" itemprop="dateCreated datePublished" datetime="2018-10-21T12:25:33+08:00">2018-10-21</time>
+              <time title="Post created: 2018-10-21 12:25:33 / Updated at: 16:07:59" itemprop="dateCreated datePublished" datetime="2018-10-21T12:25:33+08:00">2018-10-21</time>
             
 
             
@@ -1742,7 +1780,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2113,14 +2151,14 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-20 14:41:41" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
+              <time title="Post created: 2018-10-20 14:41:41" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
             
 
             
@@ -2137,7 +2175,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-27 11:44:44" itemprop="dateModified" datetime="2018-10-27T11:44:44+08:00">2018-10-27</time>
+                <time title="Updated at: 2018-10-27 11:44:44" itemprop="dateModified" datetime="2018-10-27T11:44:44+08:00">2018-10-27</time>
               
             
           </span>
@@ -2151,7 +2189,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2477,14 +2515,14 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
+              <time title="Post created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
             
 
             
@@ -2501,7 +2539,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-27 11:54:50" itemprop="dateModified" datetime="2018-10-27T11:54:50+08:00">2018-10-27</time>
+                <time title="Updated at: 2018-10-27 11:54:50" itemprop="dateModified" datetime="2018-10-27T11:54:50+08:00">2018-10-27</time>
               
             
           </span>
@@ -2515,7 +2553,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2784,14 +2822,14 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-19 11:38:39 / Modified: 14:34:44" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
+              <time title="Post created: 2018-10-19 11:38:39 / Updated at: 14:34:44" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
             
 
             
@@ -2810,7 +2848,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
@@ -3022,14 +3060,14 @@ git push -u origin master
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
+              <time title="Post created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
             
 
             
@@ -3046,7 +3084,7 @@ git push -u origin master
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-22 12:37:37" itemprop="dateModified" datetime="2018-10-22T12:37:37+08:00">2018-10-22</time>
+                <time title="Updated at: 2018-10-22 12:37:37" itemprop="dateModified" datetime="2018-10-22T12:37:37+08:00">2018-10-22</time>
               
             
           </span>
@@ -3060,7 +3098,7 @@ git push -u origin master
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3271,7 +3309,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">31</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -3294,7 +3332,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -3339,7 +3377,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                       
                     
                     <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -3392,7 +3430,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-23T10:09:48.225Z">
+<meta property="og:updated_time" content="2018-10-29T07:22:05.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js对象">
 <meta name="twitter:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -340,19 +340,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-23 16:20:52 / Modified: 18:09:48" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
+              <time title="Post created: 2018-10-23 16:20:52" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-29 15:22:05" itemprop="dateModified" datetime="2018-10-29T15:22:05+08:00">2018-10-29</time>
               
             
           </span>
@@ -366,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -453,9 +465,12 @@ Person<span class="token punctuation">.</span>prototype<span class="token punctu
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>使用ES5的Object.create()</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> person1<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>使用Class关键字</p>
+<pre class="line-numbers language-js"><code class="language-js">
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="Object-create-和new的异同"><a href="#Object-create-和new的异同" class="headerlink" title="Object.create()和new的异同"></a>Object.create()和new的异同</h5><ol>
 <li><p>new：</p>
 <ul>
@@ -514,6 +529,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">var</span> b<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Function {name: "张三"}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>​    </p>
 
       
     </div>
@@ -606,10 +622,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -630,7 +646,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">31</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -653,7 +669,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -698,7 +714,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -767,7 +783,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
