@@ -591,7 +591,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-29 17:22:11" itemprop="dateModified" datetime="2018-10-29T17:22:11+08:00">2018-10-29</time>
+                <time title="Updated at: 2018-10-29 18:40:10" itemprop="dateModified" datetime="2018-10-29T18:40:10+08:00">2018-10-29</time>
               
             
           </span>
@@ -779,6 +779,10 @@ module<span class="token punctuation">.</span>exports<span class="token operator
     module<span class="token punctuation">:</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//所有第三放模块的配置规则</span>
         rules<span class="token punctuation">:</span><span class="token punctuation">[</span> <span class="token comment" spellcheck="true">//第三方匹配规则</span>
             <span class="token punctuation">{</span> test<span class="token punctuation">:</span> <span class="token regex">/\.js|jsx$/</span><span class="token punctuation">,</span>use<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//test匹配规则 use 使用插件 exclude 排除项</span>
+            <span class="token comment" spellcheck="true">//可以在 css-loader之后，通过? 追加参数</span>
+            <span class="token comment" spellcheck="true">//其中由两个固定的参数，叫做modules，表示为普通的css样式表，启用模块化</span>
+            <span class="token comment" spellcheck="true">//注意:css模块化只针对类选择器和ID选择器生效 不会将标签选择器模块化</span>
+            <span class="token punctuation">{</span> test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span> use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader?modules'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//打包处理css样式表的第三方loader</span>
         <span class="token punctuation">]</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     resolve<span class="token punctuation">:</span><span class="token punctuation">{</span>
@@ -788,7 +792,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -885,6 +889,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 <li>有状态组件和无状态组件的本指区别就是：有无state属性</li>
 </ol>
 </blockquote>
+<p>组件中的<code>props</code>和<code>state/data</code>之间的区别：</p>
+<ul>
+<li><code>porps</code>中的数据都是外界传递过来的；</li>
+<li><code>state/data</code>中的数据，都是组件的私有数据（通过Ajax传递过来的）；</li>
+<li><code>props</code>中的数据都是只读的，不能被重新赋值；</li>
+<li><code>state/data</code>中的数据，都是可读可写的；</li>
+</ul>
 </li>
 </ol>
 <h5 id="组件抽离为jsx文件"><a href="#组件抽离为jsx文件" class="headerlink" title="组件抽离为jsx文件"></a>组件抽离为jsx文件</h5><pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token comment" spellcheck="true">// components/Hello.jsx</span>
@@ -912,6 +923,23 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="token operator">&lt;</span>Hello name<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>name<span class="token punctuation">}</span> gender<span class="token operator">=</span><span class="token punctuation">{</span>dog<span class="token punctuation">.</span>gender<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Hello<span class="token operator">></span>
                 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="在组件中使用style"><a href="#在组件中使用style" class="headerlink" title="在组件中使用style"></a>在组件中使用style</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token string">'组件名称'</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token operator">=</span><span class="token punctuation">{</span> 
+            msg<span class="token punctuation">:</span><span class="token string">'hello'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//注意 在jsx语法中不能识别行内样式，不能为style设置字符串的值。</span>
+    <span class="token comment" spellcheck="true">//正确的写法： style={ {color:'red'} }</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+        <span class="token keyword">return</span> <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token punctuation">{</span> <span class="token punctuation">{</span>color<span class="token punctuation">:</span><span class="token string">'red'</span> fontSize<span class="token punctuation">:</span><span class="token string">'20px'</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token operator">></span>
+            这是一个div 
+        <span class="token operator">&lt;</span>h3<span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>msg<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
           
         
