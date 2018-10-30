@@ -117,7 +117,7 @@
 <meta property="og:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
-<meta property="og:updated_time" content="2018-10-29T11:07:42.480Z">
+<meta property="og:updated_time" content="2018-10-30T10:14:39.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-29 19:07:42" itemprop="dateModified" datetime="2018-10-29T19:07:42+08:00">2018-10-29</time>
+                <time title="Modified: 2018-10-30 18:14:39" itemprop="dateModified" datetime="2018-10-30T18:14:39+08:00">2018-10-30</time>
               
             
           </span>
@@ -556,6 +556,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
             <span class="token comment" spellcheck="true">//其中由两个固定的参数，叫做modules，表示为普通的css样式表，启用模块化</span>
             <span class="token comment" spellcheck="true">//注意:css模块化只针对类选择器和ID选择器生效 不会将标签选择器模块化</span>
             <span class="token punctuation">{</span> test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span> use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader?modules&amp;localIdentName=[path][name]-[local]-[hash:5]'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//打包处理css样式表的第三方loader</span>
+            <span class="token punctuation">{</span>test<span class="token punctuation">:</span> <span class="token regex">/\.ttf|woff|woff2|eot|svg$/</span><span class="token punctuation">,</span> use<span class="token punctuation">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//打包处理 字体文件的loader</span>
         <span class="token punctuation">]</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     resolve<span class="token punctuation">:</span><span class="token punctuation">{</span>
@@ -565,7 +566,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -730,6 +731,36 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 <li><code>:local()</code>包裹的类名，是被模块化选中的。（默认）<code>className={cssObj.类名}</code></li>
 <li><code>:global()</code>包裹的类名，是全局生效的，不会被模块化（<code>css-modules</code>）控制，定义的类名是什么，就使用定义的类名<code>className=&quot;类名&quot;</code></li>
 </ul>
+<h5 id="在项目中使用模块化并同时使用bootstrap"><a href="#在项目中使用模块化并同时使用bootstrap" class="headerlink" title="在项目中使用模块化并同时使用bootstrap"></a>在项目中使用模块化并同时使用bootstrap</h5><ol>
+<li><p>把自己的样式表，定义为<code>.scss</code>文件</p>
+</li>
+<li><p>第三方的样式表还是以<code>.css</code>结尾</p>
+</li>
+<li><p>只为自己定义的<code>.scss</code>文件启用模块化即可</p>
+</li>
+<li><p>运行<code>npm i sass-loader node-sass -D</code> 安装能够解析<code>scss</code>文件的loader</p>
+<p>例子：<code>{test: /\.scss$/, use: [&#39;style-loader&#39;,&#39;css-loader&#39;,&#39;sass-loader&#39;]}</code> 打包处理<code>.scss</code>文件的<code>loader</code></p>
+</li>
+</ol>
+<h5 id="React中绑定事件的注意点"><a href="#React中绑定事件的注意点" class="headerlink" title="React中绑定事件的注意点"></a>React中绑定事件的注意点</h5><ol>
+<li><p>事件的名称都是React提供的，首字母大写<code>onClick</code>、<code>onMouseOver</code></p>
+</li>
+<li><p>为事件提供的处理函数，必须是如下格式</p>
+</li>
+<li><pre class="line-numbers language-js"><code class="language-js">onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">function</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>用的最多的事件绑定形式为：</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">'参数'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span></span><span class="token punctuation">></span></span>按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">//事件的处理函数，需要定义为一个箭头函数，然后赋值给函数名称</span>
+show <span class="token operator">=</span> <span class="token punctuation">(</span>arg1<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'show方法'</span><span class="token operator">+</span>arg1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>再React中，如果想要修改state中的数据，推荐使用<code>this.setState({ })</code></p>
+</li>
+</ol>
 
       
     </div>
@@ -949,7 +980,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">创建组件的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为jsx文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">组件抽离为jsx文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用style"><span class="nav-number">1.0.6.</span> <span class="nav-text">在组件中使用style</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">创建组件的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为jsx文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">组件抽离为jsx文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用style"><span class="nav-number">1.0.6.</span> <span class="nav-text">在组件中使用style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用模块化并同时使用bootstrap"><span class="nav-number">1.0.7.</span> <span class="nav-text">在项目中使用模块化并同时使用bootstrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React中绑定事件的注意点"><span class="nav-number">1.0.8.</span> <span class="nav-text">React中绑定事件的注意点</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
