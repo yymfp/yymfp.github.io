@@ -117,7 +117,7 @@
 <meta property="og:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
-<meta property="og:updated_time" content="2018-10-30T10:14:39.492Z">
+<meta property="og:updated_time" content="2018-10-31T06:30:40.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
@@ -224,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -342,14 +342,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
+              <time title="Post created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
             
 
             
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-30 18:14:39" itemprop="dateModified" datetime="2018-10-30T18:14:39+08:00">2018-10-30</time>
+                <time title="Updated at: 2018-10-31 14:30:40" itemprop="dateModified" datetime="2018-10-31T14:30:40+08:00">2018-10-31</time>
               
             
           </span>
@@ -380,7 +380,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -758,9 +758,52 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>再React中，如果想要修改state中的数据，推荐使用<code>this.setState({ })</code></p>
+<li><p>再React中，如果想要修改state中的数据，推荐使用<code>this.setState({ })</code>，此方法是<strong>异步的</strong>。</p>
 </li>
 </ol>
+<p>用法:</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    msg<span class="token punctuation">:</span><span class="token string">''</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//回调函数，若想得到最新的state值，需要再回调函数内部获取</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="5">
+<li><p>实现文本框数据双向更新</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>msg<span class="token punctuation">}</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">changeTxt</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>txt<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
+
+textChange<span class="token operator">=</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> newText<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>refs<span class="token punctuation">.</span>value<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//或者等于e.target.value</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        msg<span class="token punctuation">:</span> newText
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h5 id="React组件的生命周期分为三部分："><a href="#React组件的生命周期分为三部分：" class="headerlink" title="React组件的生命周期分为三部分："></a>React组件的生命周期分为三部分：</h5><ul>
+<li><p><strong>组件的创建阶段</strong>：特点，只会执行一次</p>
+<blockquote>
+<p>componentWillMount:</p>
+<p>render:</p>
+<p>componentDidMount:</p>
+</blockquote>
+</li>
+<li><p><strong>组件的运行阶段</strong>：按需，根据props属性或state状态的改变，有选择性的执行0到多次</p>
+<blockquote>
+<p>componentWillReceiveProps:</p>
+<p>shouldComponentUpdateL</p>
+<p>componentWillUpdate:</p>
+<p>render:</p>
+<p>componentDidUpdate:</p>
+</blockquote>
+</li>
+<li><p><strong>组件的销毁阶段</strong>：只执行一次</p>
+<blockquote>
+<p>componentWillUnmount:</p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -853,10 +896,10 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -877,7 +920,7 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">31</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -900,7 +943,7 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -945,7 +988,7 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
                       
                     
                     <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -980,7 +1023,7 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">创建组件的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为jsx文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">组件抽离为jsx文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用style"><span class="nav-number">1.0.6.</span> <span class="nav-text">在组件中使用style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用模块化并同时使用bootstrap"><span class="nav-number">1.0.7.</span> <span class="nav-text">在项目中使用模块化并同时使用bootstrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React中绑定事件的注意点"><span class="nav-number">1.0.8.</span> <span class="nav-text">React中绑定事件的注意点</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">创建组件的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为jsx文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">组件抽离为jsx文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用style"><span class="nav-number">1.0.6.</span> <span class="nav-text">在组件中使用style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用模块化并同时使用bootstrap"><span class="nav-number">1.0.7.</span> <span class="nav-text">在项目中使用模块化并同时使用bootstrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React中绑定事件的注意点"><span class="nav-number">1.0.8.</span> <span class="nav-text">React中绑定事件的注意点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React组件的生命周期分为三部分："><span class="nav-number">1.0.9.</span> <span class="nav-text">React组件的生命周期分为三部分：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1014,7 +1057,7 @@ show <span class="token operator">=</span> <span class="token punctuation">(</sp
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
