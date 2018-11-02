@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-29T07:22:05.028Z">
+<meta property="og:updated_time" content="2018-11-02T10:27:40.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js对象">
 <meta name="twitter:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-29 15:22:05" itemprop="dateModified" datetime="2018-10-29T15:22:05+08:00">2018-10-29</time>
+                <time title="Updated at: 2018-11-02 18:27:40" itemprop="dateModified" datetime="2018-11-02T18:27:40+08:00">2018-11-02</time>
               
             
           </span>
@@ -465,12 +465,26 @@ Person<span class="token punctuation">.</span>prototype<span class="token punctu
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>使用ES5的Object.create()</p>
-<pre class="line-numbers language-js"><code class="language-js">
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> Person <span class="token operator">=</span> <span class="token punctuation">{</span>
+      name<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span><span class="token number">20</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person1 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>使用Class关键字</p>
-<pre class="line-numbers language-js"><code class="language-js">
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">=</span>age<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>say<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">': '</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> person1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="Object-create-和new的异同"><a href="#Object-create-和new的异同" class="headerlink" title="Object.create()和new的异同"></a>Object.create()和new的异同</h5><ol>
 <li><p>new：</p>
 <ul>
