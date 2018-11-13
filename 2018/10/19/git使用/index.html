@@ -117,7 +117,7 @@
 <meta property="og:description" content="git使用安装完成后打开命令行窗口或（终端） 设置用户名 git config --global user.name &apos;username&apos;  设置用户邮箱 git config --global user.email &apos;user@163.com&apos;  查看设置 git config --list  注意：git config --global参数设置后，表明这台机器上的所有Git仓库都会使用这个配置">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/19/d3c801894031d80480e26efe7008a949.png">
-<meta property="og:updated_time" content="2018-10-19T06:34:44.696Z">
+<meta property="og:updated_time" content="2018-11-13T01:24:46.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git使用">
 <meta name="twitter:description" content="git使用安装完成后打开命令行窗口或（终端） 设置用户名 git config --global user.name &apos;username&apos;  设置用户邮箱 git config --global user.email &apos;user@163.com&apos;  查看设置 git config --list  注意：git config --global参数设置后，表明这台机器上的所有Git仓库都会使用这个配置">
@@ -224,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -342,19 +342,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-19 11:38:39 / Updated at: 14:34:44" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
+              <time title="Created: 2018-10-19 11:38:39" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-13 09:24:46" itemprop="dateModified" datetime="2018-11-13T09:24:46+08:00">2018-11-13</time>
               
             
           </span>
@@ -368,7 +380,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
@@ -486,6 +498,16 @@ git push -u origin master
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><em>GitHub给出的地址不止一个，还可以用<code>https://github.com/michaelliao/gitskills.git</code>这样的地址。实际上，Git支持多种协议，默认的<code>git://</code>使用ssh，但也可以使用<code>https</code>等其他协议。</em></p>
 <p><em>使用<code>https</code>除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用<code>ssh</code>协议而只能用<code>https</code>。</em></p>
+<h5 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h5><p>创建新的分支：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git checkout -b dev 
+Switched to a new branch 'dev'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>git checkout</code>命令加上<code>-b</code>表示创建并切换，相当于以下两条命令：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git branch dev
+git checkout dev
+Switched to branch 'dev'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>然后<code>git branch</code>查看当前分支</p>
 
       
     </div>
@@ -578,10 +600,10 @@ git push -u origin master
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -602,7 +624,7 @@ git push -u origin master
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">31</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -625,7 +647,7 @@ git push -u origin master
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -670,7 +692,7 @@ git push -u origin master
                       
                     
                     <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -705,7 +727,7 @@ git push -u origin master
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git使用"><span class="nav-number">1.</span> <span class="nav-text">git使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装完成后"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装完成后</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建仓库（repository）"><span class="nav-number">1.0.2.</span> <span class="nav-text">创建仓库（repository）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退"><span class="nav-number">1.0.3.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#撤销修改"><span class="nav-number">1.0.4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#远程仓库"><span class="nav-number">1.0.6.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将本地仓库内容推送到GitHub仓库中"><span class="nav-number">1.0.7.</span> <span class="nav-text">将本地仓库内容推送到GitHub仓库中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">1.0.8.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git使用"><span class="nav-number">1.</span> <span class="nav-text">git使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装完成后"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装完成后</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建仓库（repository）"><span class="nav-number">1.0.2.</span> <span class="nav-text">创建仓库（repository）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#版本回退"><span class="nav-number">1.0.3.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#撤销修改"><span class="nav-number">1.0.4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除文件"><span class="nav-number">1.0.5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#远程仓库"><span class="nav-number">1.0.6.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将本地仓库内容推送到GitHub仓库中"><span class="nav-number">1.0.7.</span> <span class="nav-text">将本地仓库内容推送到GitHub仓库中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">1.0.8.</span> <span class="nav-text">从远程库克隆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">1.0.9.</span> <span class="nav-text">创建与合并分支</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -739,7 +761,7 @@ git push -u origin master
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
