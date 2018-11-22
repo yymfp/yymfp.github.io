@@ -117,7 +117,7 @@
 <meta property="og:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
-<meta property="og:updated_time" content="2018-11-02T10:17:46.111Z">
+<meta property="og:updated_time" content="2018-11-22T10:01:22.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
@@ -224,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -342,14 +342,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
+              <time title="Post created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
             
 
             
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-02 18:17:46" itemprop="dateModified" datetime="2018-11-02T18:17:46+08:00">2018-11-02</time>
+                <time title="Updated at: 2018-11-22 18:01:22" itemprop="dateModified" datetime="2018-11-22T18:01:22+08:00">2018-11-22</time>
               
             
           </span>
@@ -380,7 +380,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -781,26 +781,42 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<h5 id="React组件的生命周期分为三部分："><a href="#React组件的生命周期分为三部分：" class="headerlink" title="React组件的生命周期分为三部分："></a>React组件的生命周期分为三部分：</h5><ul>
+<h5 id="React组件的生命周期分为三部分："><a href="#React组件的生命周期分为三部分：" class="headerlink" title="React组件的生命周期分为三部分："></a>React组件的生命周期分为三部分：</h5><blockquote>
+<p>这里只是列举了常用的生命周期，不包括所有的，如需了解其他的，请参考官方文档。</p>
+</blockquote>
+<p><em>在了解生命周期之前，先介绍什么是挂载：</em></p>
+<p><strong>组件的挂载：React.js将组件渲染，并且构造DOM元素然后塞入页面的过程称为组件的挂载。</strong></p>
+<p><strong>React.js会在组件的<code>render</code>之前调用<code>componentWillMount</code>，在DOM元素塞入页面以后调用<code>componentDidMount</code></strong></p>
+<p><strong>一般来说，所有关于组件自身的状态的初始化工作都会放在<code>constructor</code>里面（比如React.js组件中的状态state就是在这个阶段初始化）</strong></p>
+<hr>
+<ul>
 <li><p><strong>组件的创建阶段</strong>：特点，只会执行一次</p>
 <blockquote>
-<p>componentWillMount:</p>
-<p>render:</p>
-<p>componentDidMount:</p>
+<p>componentWillMount:（<strong>常用来做一些组件启动的动作，包括像Ajax数据的拉取操作、一些定时器的启动等，就可以放在这个阶段去进行</strong>）</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//写一个Ajax</span>
+<span class="token function">componentWillMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    ajax<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'http://json-api.com/user'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>userData<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>userData<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>render:（<strong>react.js最重要的步骤，用来创建虚拟dom，进行Diff算法，更新dom树都在此进行，此时不能更改state</strong>）</p>
+<p><strong>render之后会将虚拟dom渲染并插入到页面的根节点中</strong></p>
+<p>componentDidMount:（<strong>此阶段组件已经渲染完毕，可以获取dom结点</strong>）</p>
 </blockquote>
 </li>
 <li><p><strong>组件的运行阶段</strong>：按需，根据props属性或state状态的改变，有选择性的执行0到多次</p>
 <blockquote>
-<p>componentWillReceiveProps:</p>
-<p>shouldComponentUpdateL</p>
-<p>componentWillUpdate:</p>
-<p>render:</p>
-<p>componentDidUpdate:</p>
+<p>componentWillReceiveProps:（<strong>组件在接收新的props时调用，组件初始化时不调用</strong>）</p>
+<p>shouldComponentUpdateL:（<strong>react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在次对比前后两个props以及state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就可以避免创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，特别是在dom结构相对复杂的时候</strong>）</p>
+<p>componentWillUpdate:（<strong>组件初始化时不调用，组建更新调用</strong>）</p>
+<p>render:（<strong>组件再次渲染</strong>）</p>
+<p>componentDidUpdate:（<strong>此阶段类似<code>componentDidMount</code>，此时可以获取dom结点</strong>）</p>
 </blockquote>
 </li>
 <li><p><strong>组件的销毁阶段</strong>：只执行一次</p>
 <blockquote>
-<p>componentWillUnmount:</p>
+<p>componentWillUnmount:（<strong>它的作用主要是用来销毁一些数据事件监听以及定时器的</strong>）</p>
 </blockquote>
 </li>
 </ul>
@@ -896,10 +912,10 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -919,8 +935,8 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -943,7 +959,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -987,8 +1003,10 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">tags</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -1057,7 +1075,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
