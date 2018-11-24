@@ -118,7 +118,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/231d414640b509d980203a5ab45a3c4e.png">
-<meta property="og:updated_time" content="2018-11-24T07:04:29.459Z">
+<meta property="og:updated_time" content="2018-11-24T07:12:11.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
@@ -367,7 +367,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-11-24 15:04:29" itemprop="dateModified" datetime="2018-11-24T15:04:29+08:00">2018-11-24</time>
+                <time title="Updated at: 2018-11-24 15:12:11" itemprop="dateModified" datetime="2018-11-24T15:12:11+08:00">2018-11-24</time>
               
             
           </span>
@@ -941,6 +941,15 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
 </ol>
 </li>
 </ol>
+<p><strong>路由嵌套</strong>(子组件<route>可以作为父<route>的component属性值)</route></route></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>parent<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>Parent<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Route</span><span class="token punctuation">></span></span>
+<span class="token keyword">const</span> Parent<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>child<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>Child<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Route</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>other<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>Other<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Route</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>最后需要注意的是：<code>HashRouter</code>以及<code>BrowserRouter</code>使用时，其孩子节点只能有一个，例如：</strong></p>
 <pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>HashRouter</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
