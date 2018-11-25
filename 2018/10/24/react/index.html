@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/35cc29484072961d801e4de7f94c3b65.png">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/231d414640b509d980203a5ab45a3c4e.png">
-<meta property="og:updated_time" content="2018-11-24T08:34:40.112Z">
+<meta property="og:updated_time" content="2018-11-25T07:30:17.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Accueil</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -234,7 +234,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />A propos</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -344,14 +344,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
+              <time title="Created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
             
 
             
@@ -368,7 +368,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-11-24 16:34:40" itemprop="dateModified" datetime="2018-11-24T16:34:40+08:00">2018-11-24</time>
+                <time title="Modified: 2018-11-25 15:30:17" itemprop="dateModified" datetime="2018-11-25T15:30:17+08:00">2018-11-25</time>
               
             
           </span>
@@ -1063,6 +1063,66 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>自定义组件都必须要大写字母开头，普通的HTML标题都用小写字母开头</strong></p>
+<h5 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h5><p><strong>状态提升：</strong>当某个状态被多个组件依赖或者影响的时候，就把该状态提升到这些组件的最近公共父组件中去管理，用<code>props</code>传递数据或函数来管理这种依赖或者影响的关系。</p>
+<p><strong>组件的内容编写顺序如下：</strong></p>
+<ol>
+<li><code>static</code>开头的类属性，如<code>defaultProps</code>、<code>propTypes</code>。</li>
+<li>构造函数，<code>constructor</code>。</li>
+<li><code>getter/setter</code>。</li>
+<li>组件的生命周期。</li>
+<li><code>_</code>开头的私有方法。</li>
+<li>事件监听方法，<code>handle</code>。</li>
+<li><code>render</code>开头的方法，有时候<code>render()</code>方法里面的内容会被分开到不同的函数里边进行，这些函数都以<code>render</code>开头。</li>
+<li><code>render()</code>方法。</li>
+</ol>
+<h5 id="高阶组件："><a href="#高阶组件：" class="headerlink" title="高阶组件："></a><strong>高阶组件：</strong></h5><p>什么是高阶组件：<em>高阶组件就是一个函数，传给它一个组件，返回一个新的组件。</em></p>
+<p>重要的事情再重复一次，高阶组件是一个函数（而不是组件），它接受一个组件作为参数，返回一个新的组件。这个新的组件会使用你传给它的组件作为子组件，我们看看一个很简单的高阶组件</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span>WrappedComponent<span class="token punctuation">,</span> name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">class</span> <span class="token class-name">NewComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    constructor <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span> <span class="token keyword">null</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    componentWillMount <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> data <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>WrappedComponent</span> <span class="token attr-name">data</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>data<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> NewComponent
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>高阶组件的主要作用就是用来封装一些组件，提取出多个组件中代码逻辑相同的部分，编写一个高阶组件函数，可以提高代码的复用性。</strong></p>
+<h5 id="propTypes组件参数验证"><a href="#propTypes组件参数验证" class="headerlink" title="propTypes组件参数验证"></a>propTypes组件参数验证</h5><p>使用：<code>npm install prop-types --save</code></p>
+<p>它可以帮助我们验证<code>props</code>的参数类型，例如：</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">'prop-types'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Comment</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+    comment<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object
+  <span class="token punctuation">}</span>
+
+  render <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> comment <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>comment<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>comment-user<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>comment<span class="token punctuation">.</span>username<span class="token punctuation">}</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>：
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>comment<span class="token punctuation">.</span>content<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意我们在文件头部引入了 <code>PropTypes</code>，并且给 <code>Comment</code> 组件类添加了类属性 <code>propTypes</code>，里面的内容的意思就是你传入的 <code>comment</code> 类型必须为 <code>object</code>（对象）。<em>它可以帮助我们更好地去定位出现的错误，将控制台的错误信息展示的更加友好。</em></p>
 
       
     </div>
@@ -1155,10 +1215,10 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table Des Matières
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Ensemble
+            Overview
           </li>
         </ul>
       
@@ -1178,8 +1238,8 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
-                    <span class="site-state-item-name">articles</span>
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1248,7 +1308,9 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1284,7 +1346,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">创建组件的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件的props"><span class="nav-number">1.0.5.</span> <span class="nav-text">组件的props</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为JSX文件"><span class="nav-number">1.0.6.</span> <span class="nav-text">组件抽离为JSX文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用style"><span class="nav-number">1.0.7.</span> <span class="nav-text">在组件中使用style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用模块化并同时使用bootstrap"><span class="nav-number">1.0.8.</span> <span class="nav-text">在项目中使用模块化并同时使用bootstrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React中绑定事件的注意点"><span class="nav-number">1.0.9.</span> <span class="nav-text">React中绑定事件的注意点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React组件的生命周期分为三部分："><span class="nav-number">1.0.10.</span> <span class="nav-text">React组件的生命周期分为三部分：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React路由"><span class="nav-number">1.0.11.</span> <span class="nav-text">React路由</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件的Render方法"><span class="nav-number">1.0.12.</span> <span class="nav-text">组件的Render方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#React中的几个核心概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">React中的几个核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用react"><span class="nav-number">1.0.2.</span> <span class="nav-text">在项目中使用react</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置babel配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置babel配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建组件的方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">创建组件的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件的props"><span class="nav-number">1.0.5.</span> <span class="nav-text">组件的props</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件抽离为JSX文件"><span class="nav-number">1.0.6.</span> <span class="nav-text">组件抽离为JSX文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在组件中使用style"><span class="nav-number">1.0.7.</span> <span class="nav-text">在组件中使用style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中使用模块化并同时使用bootstrap"><span class="nav-number">1.0.8.</span> <span class="nav-text">在项目中使用模块化并同时使用bootstrap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React中绑定事件的注意点"><span class="nav-number">1.0.9.</span> <span class="nav-text">React中绑定事件的注意点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React组件的生命周期分为三部分："><span class="nav-number">1.0.10.</span> <span class="nav-text">React组件的生命周期分为三部分：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#React路由"><span class="nav-number">1.0.11.</span> <span class="nav-text">React路由</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件的Render方法"><span class="nav-number">1.0.12.</span> <span class="nav-text">组件的Render方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#状态提升"><span class="nav-number">1.0.13.</span> <span class="nav-text">状态提升</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#高阶组件："><span class="nav-number">1.0.14.</span> <span class="nav-text">高阶组件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#propTypes组件参数验证"><span class="nav-number">1.0.15.</span> <span class="nav-text">propTypes组件参数验证</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1326,7 +1388,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
 
 
 
-  <div class="theme-info">Thème – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
 
 
