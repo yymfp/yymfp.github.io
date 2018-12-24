@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Vue的计算属性和侦听器 在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。 对于任何的复杂逻辑，你都应当使用计算属性。              Original message: &quot;{{ message }}&quot;       Computed reversed message: &quot;{{ reversedMessage }}&quot;            export default({">
+  <meta name="description" content="Vue的计算属性和侦听器 在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。 对于任何的复杂逻辑，你都应当使用计算属性。  &amp;lt;template&amp;gt;     &amp;lt;div id=&quot;example&quot;&amp;gt;       &amp;lt;p&amp;gt;Original message: &quot;{{ message }}&quot;&amp;lt;/p&amp;gt;       &amp;lt;p&amp;gt;Computed reversed message">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue计算属性和侦听器">
 <meta property="og:url" content="http://yoursite.com/2018/12/09/vue计算属性和侦听器/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="Vue的计算属性和侦听器 在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。 对于任何的复杂逻辑，你都应当使用计算属性。              Original message: &quot;{{ message }}&quot;       Computed reversed message: &quot;{{ reversedMessage }}&quot;            export default({">
+<meta property="og:description" content="Vue的计算属性和侦听器 在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。 对于任何的复杂逻辑，你都应当使用计算属性。  &amp;lt;template&amp;gt;     &amp;lt;div id=&quot;example&quot;&amp;gt;       &amp;lt;p&amp;gt;Original message: &quot;{{ message }}&quot;&amp;lt;/p&amp;gt;       &amp;lt;p&amp;gt;Computed reversed message">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T04:35:06.760Z">
+<meta property="og:updated_time" content="2018-12-24T07:03:16.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue计算属性和侦听器">
-<meta name="twitter:description" content="Vue的计算属性和侦听器 在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。 对于任何的复杂逻辑，你都应当使用计算属性。              Original message: &quot;{{ message }}&quot;       Computed reversed message: &quot;{{ reversedMessage }}&quot;            export default({">
+<meta name="twitter:description" content="Vue的计算属性和侦听器 在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。 对于任何的复杂逻辑，你都应当使用计算属性。  &amp;lt;template&amp;gt;     &amp;lt;div id=&quot;example&quot;&amp;gt;       &amp;lt;p&amp;gt;Original message: &quot;{{ message }}&quot;&amp;lt;/p&amp;gt;       &amp;lt;p&amp;gt;Computed reversed message">
 
 
 
@@ -347,12 +347,24 @@
                 
               
 
-              <time title="Post created: 2018-12-09 12:32:11 / Updated at: 12:35:06" itemprop="dateCreated datePublished" datetime="2018-12-09T12:32:11+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:32:11" itemprop="dateCreated datePublished" datetime="2018-12-09T12:32:11+08:00">2018-12-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-12-24 15:03:16" itemprop="dateModified" datetime="2018-12-24T15:03:16+08:00">2018-12-24</time>
               
             
           </span>
@@ -407,26 +419,26 @@
 <p>在模板中使用表达式以及相关的逻辑，会使得模板看起来过重且难以维护。</p>
 <p>对于任何的复杂逻辑，你都应当使用计算属性。</p>
 </blockquote>
-<pre class="line-numbers language-vue"><code class="language-vue"><template>
-    <div id="example">
-      <p>Original message: "{{ message }}"</p>
-      <p>Computed reversed message: "{{ reversedMessage }}"</p>
-    </div>
-</template>
-<script>
-    export default({
-        data: {
-            message: 'Hello'
-        },
-        computed: {
-            // 计算属性的 getter
-            reversedMessage: function () {
-                // `this` 指向 vm 实例
-                return this.message.split('').reverse().join('')
-            }
-        }
-    })
-</script>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>example<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Original message<span class="token punctuation">:</span> <span class="token string">"{{ message }}"</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Computed reversed message<span class="token punctuation">:</span> <span class="token string">"{{ reversedMessage }}"</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span>
+    <span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            message<span class="token punctuation">:</span> <span class="token string">'Hello'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 计算属性的 getter</span>
+            reversedMessage<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// `this` 指向 vm 实例</span>
+                <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用计算属性时，直接使用相关的方法名，就可以得到相关的返回结果。</p>
 <h5 id="计算属性vs方法"><a href="#计算属性vs方法" class="headerlink" title="计算属性vs方法"></a>计算属性vs方法</h5><p>计算属性跟调用方法非常的类似</p>
