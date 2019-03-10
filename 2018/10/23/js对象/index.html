@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
+  <meta name="description" content="js对象 创建对象的方式   通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function c">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js对象">
 <meta property="og:url" content="http://yoursite.com/2018/10/23/js对象/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
+<meta property="og:description" content="js对象 创建对象的方式   通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-02T10:27:40.707Z">
+<meta property="og:updated_time" content="2019-03-10T14:05:25.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js对象">
-<meta name="twitter:description" content="js对象创建对象的方式 通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function cret">
+<meta name="twitter:description" content="js对象 创建对象的方式   通过字面量方式创建 var Person={}; //相当于var Person=new Object() var Person={     name:&apos;张三&apos;,     age:20 }   通过Object构造函数 var Person=new Object(); Person.name=&quot;张三&quot;; Person.age=20;   工厂模式 function c">
 
 
 
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-11-02 18:27:40" itemprop="dateModified" datetime="2018-11-02T18:27:40+08:00">2018-11-02</time>
+                <time title="Updated at: 2019-03-10 22:05:25" itemprop="dateModified" datetime="2019-03-10T22:05:25+08:00">2019-03-10</time>
               
             
           </span>
@@ -415,7 +415,10 @@
       
 
       
-        <h3 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h3><h5 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h5><ol>
+        <h3 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h3><ul>
+<li><h5 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h5></li>
+</ul>
+<ol>
 <li><p>通过字面量方式创建</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//相当于var Person=new Object()</span>
 <span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token punctuation">{</span>
@@ -543,7 +546,44 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">var</span> b<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Function {name: "张三"}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>​    </p>
+<ul>
+<li><p><strong>对象枚举</strong></p>
+<p>for in 语句可以用来遍历一个对象中所有的属性名，该枚举过程将会列出所有的属性—包括函数和你可能不关心的原型中的属性—所以有必要过滤掉那些你不想要的值。通常使用的过滤器是<code>hasOwnProperty</code>方法，以及使用<code>typeof</code>来排除函数。</p>
+<p>原型链中的任何属性通过typeof判断：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>toString    <span class="token comment" spellcheck="true">// 'function'</span>
+<span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>constructor  <span class="token comment" spellcheck="true">// 'function'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> name<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//通过typeof来排除原型中的属性</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>name <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//执行其他</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//通过hasOwnProperty来排除原型中的属性</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>name <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//执行其他</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在使用for in 遍历对象时，属性名出现的顺序是不确定的。如果想要确保属性以特定的顺序出现，最好的办法就是避免使用for in 语句，而是创建一个数组，在其中以正确的顺序包含属性名。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> i<span class="token punctuation">;</span>
+<span class="token keyword">var</span> properties <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'first-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'middle-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'last-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'profession'</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> properties<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    obj<span class="token punctuation">[</span>properties<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>删除对象中的属性</p>
+<p><code>delete</code>运算符可以用来删除对象的属性。它将会移除对象中确定包含的属性，它不会触及原型链中的任何对象。删除对象的属性可能会让来自原型链中的属性浮现出来。</p>
+</li>
+</ul>
 
       
     </div>
@@ -659,7 +699,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -735,7 +775,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
@@ -791,7 +835,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

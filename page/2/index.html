@@ -301,6 +301,869 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/CommonJS规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/09/CommonJS规范/" itemprop="url">
+                  CommonJS规范
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-12-09 12:12:08 / Updated at: 12:37:42" itemprop="dateCreated datePublished" datetime="2018-12-09T12:12:08+08:00">2018-12-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a><strong>CommonJS规范</strong></h3><p><strong>CommonJS对模块的定义十分简单，主要分为模块引用、模块定义和模块标识3部分。</strong></p>
+<ol>
+<li><p>模块引用</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在CommonJS规范中，存在<code>require()</code>方法，这个方法接受模块标识，以此引入一个模块得API到当前上下文中。</p>
+</li>
+<li><p>模块定义</p>
+<p>上下文提供了exports对象用于导出当前模块的方法或者变量，并且它是唯一导出的出口。在模块中还存在一个<code>module</code>对象，它代表模块自身，而<code>exports</code>是<code>module</code>的属性。在Node中，一个文件就是一个模块，将方法挂载在<code>exports</code>对象上作为属性即可定义导出的方式。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//math.js</span>
+exports<span class="token punctuation">.</span>add<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+        i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+        args<span class="token operator">=</span>arguments<span class="token punctuation">,</span>
+        l<span class="token operator">=</span>args<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>l<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        sum<span class="token operator">+</span><span class="token operator">=</span>args<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在另一个文件中，我们可以通过<code>require()</code>方法引入模块后，就能调用定义的属性或方法。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//program.js</span>
+<span class="token keyword">var</span> math<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span>increment<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> math<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>模块标识</p>
+<p>模块标识其实就是传递给<code>require()</code>方法的参数，它必须是符合小驼峰命名的字符串，或者是.、..开头的相对路径，或者绝对路径。可以没有文件的后缀名.js。</p>
+<p>模块的定义十分简单，接口十分简洁。它的意义在于将方法和变量等限定在私有的作用域中，同时支持引入和导出功能，每个模块具有独立的空间，它们互不干扰。</p>
+</li>
+</ol>
+<h5 id="包规范"><a href="#包规范" class="headerlink" title="包规范"></a>包规范</h5><ol>
+<li><p>包结构</p>
+<p>主要用于组织包中的各种文件。</p>
+</li>
+<li><p>包描述文件与NPM</p>
+<p>用于描述包的相关信息，以供外部读取分析。</p>
+</li>
+</ol>
+<p>如果要输出一个键值对象<code>{}</code>，可以利用<code>exports</code>这个已存在的空对象<code>{}</code>，并继续在上面添加新的键值；</p>
+<p>如果要输出一个函数或数组，必须直接对<code>module.exports</code>对象赋值。</p>
+<p>所以我们可以得出结论：直接对<code>module.exports</code>赋值，可以应对任何情况：</p>
+<pre class="line-numbers language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    foo<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">'foo'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>或者：</p>
+<pre class="line-numbers language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">'foo'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>最终，我们<em>强烈建议</em>使用<code>module.exports = xxx</code>的方式来输出模块变量，这样，你只需要记忆一种方法。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/25/组件编写命名规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/25/组件编写命名规范/" itemprop="url">
+                  组件编写命名规范
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-25 15:24:57" itemprop="dateCreated datePublished" datetime="2018-11-25T15:24:57+08:00">2018-11-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-12-09 12:42:30" itemprop="dateModified" datetime="2018-12-09T12:42:30+08:00">2018-12-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="组件编写规范"><a href="#组件编写规范" class="headerlink" title="组件编写规范"></a>组件编写规范</h3><p>文件名大写：如果一个文件导出的是一个类，那么这个文件名就用大写字母开头。</p>
+<p>组件的私有方法都用<code>_</code>开头，所有事件监听的方法都用<code>handle</code>开头。</p>
+<p>把事件监听的方法传递给组件的时候，属性名用<code>on</code>开头。例如：</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CommentInput</span>
+  <span class="token attr-name">onSubmit</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleSubmitComment<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/22/redux/" itemprop="url">
+                  redux
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-22 17:14:55" itemprop="dateCreated datePublished" datetime="2018-11-22T17:14:55+08:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-12-09 12:41:02" itemprop="dateModified" datetime="2018-12-09T12:41:02+08:00">2018-12-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h3><h5 id="使用方式："><a href="#使用方式：" class="headerlink" title="使用方式："></a>使用方式：</h5><p>安装：<code>npm install redux react-redux --save</code></p>
+<ol>
+<li><p>首先需要引入</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span>createStore<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'redux'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Provider<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>创建<code>action</code></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">const</span> changeColor<span class="token operator">=</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span>action<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">{</span>
+        themeColor<span class="token punctuation">:</span><span class="token string">'red'</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token string">'CHANGE_COLOR'</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token operator">...</span>state<span class="token punctuation">,</span>themeColor<span class="token punctuation">:</span>action<span class="token punctuation">.</span>themeColor<span class="token punctuation">}</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> state
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>创建生成<code>store</code></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span>changeColor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>使用<code>Provider</code>组件作为根组件将<code>store</code>作为<code>props</code>传入</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span> <span class="token attr-name">store</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Index</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Footer</span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Provider</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>子组件使用</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">'prop-types'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>connect<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Header</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token punctuation">{</span>
+    state contentType<span class="token operator">=</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//必须添加类型验证才能拿到state数据</span>
+        store<span class="token punctuation">:</span>PropTypes<span class="token punctuation">.</span>object
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span>
+    <span class="token comment" spellcheck="true">//子组件使用数据，this.props.themeColor</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> mapStateTopProps<span class="token operator">=</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//通过connect高阶组件讲themeColor属性添加进去&lt;Header themeColor={state.themeColor}>&lt;/Header></span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        themeColor<span class="token punctuation">:</span>state<span class="token punctuation">.</span>themeColor
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> mapDispatchToProps<span class="token operator">=</span><span class="token punctuation">(</span>dispatch<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//通过connect高阶组件将onSwitchColor属性方法添加进去&lt;Header onSwitchColor={(color)=>{dispatch({type:'CHANGE_COLOR',themeColor:color})}}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        onSwitchColor<span class="token punctuation">:</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token punctuation">:</span><span class="token string">'CHANGE_COLOR'</span><span class="token punctuation">,</span>themeColor<span class="token punctuation">:</span>color<span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+Header<span class="token operator">=</span><span class="token function">connect</span><span class="token punctuation">(</span>mapStateTopProps<span class="token punctuation">,</span>mapDispatchToProps<span class="token punctuation">)</span><span class="token punctuation">(</span>Header<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Header
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<p><strong><code>createStore</code>的原理类似这样：</strong></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">function</span> createStore <span class="token punctuation">(</span>reducer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">const</span> listeners <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> listeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> getState <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> state
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    state <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    listeners<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 初始化 state</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch<span class="token punctuation">,</span> subscribe <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li><code>dispatch</code>：分发<code>action</code></li>
+<li><code>subscribe</code>：注册<code>listener</code>，监听<code>state</code>变化</li>
+<li><code>getState</code>：读取<code>store tree</code>中所有<code>state</code></li>
+<li><code>replaceReucer</code>：替换<code>reducer</code>，改变<code>state</code>更新逻辑</li>
+<li><code>reducer</code>就是类似上边<code>action</code>步骤的<code>changeColor</code></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/webpack/" itemprop="url">
+                  webpack
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-02 18:17:59" itemprop="dateModified" datetime="2018-11-02T18:17:59+08:00">2018-11-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><h5 id="创建基本的webpack4-x项目"><a href="#创建基本的webpack4-x项目" class="headerlink" title="创建基本的webpack4.x项目"></a>创建基本的webpack4.x项目</h5><ol>
+<li>运行<code>npm init -y</code>快速初始化项目</li>
+<li>在项目根目录创建<code>src</code>源代码目录和<code>dist</code>产品目录</li>
+<li>在<code>src</code>目录下创建<code>index.html</code></li>
+<li><p>使用npm安装webpack，运行<code>cnpm i webpack webpack-cli -D</code></p>
+<ul>
+<li>全局运行<code>npm i cnpm -g</code></li>
+</ul>
+</li>
+<li><p>注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的体积</p>
+<ul>
+<li>默认约定了：</li>
+<li>打包入口是<code>src</code>-&gt;<code>index.js</code></li>
+<li>打包的输出文件是<code>dist</code>-&gt;<code>main.js</code></li>
+<li>4.x中新增了<code>mode</code>选项（<strong>必需</strong>），可选的值为：<code>development</code>和<code>production</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>webpack的配置文件：</strong><code>webpack.config.js</code>:</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
+module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
+    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="安装webpack-dev-server"><a href="#安装webpack-dev-server" class="headerlink" title="安装webpack-dev-server"></a>安装webpack-dev-server</h5><p><strong>命令：</strong><code>npm i webpack-dev-server -D</code></p>
+<p>在<code>package.json</code>中的<code>scripts</code>中添加<code>dev</code>选项：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+    ...
+   <span class="token property">"scripts"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        ...
+        <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server --open --port 3000"</span>  //--open 自动打开浏览器 --port 指定端口
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置好之后，运行：<code>npm run dev</code></p>
+<p><strong>webpack-dev-server</strong>打包好的<code>main.js</code>是托管到内存中的，所以在项目根目录中找不到。</p>
+<h5 id="安装相关插件："><a href="#安装相关插件：" class="headerlink" title="安装相关插件："></a>安装相关插件：</h5><p><strong>命令：</strong><code>npm i html-webpack-plugin -D</code></p>
+<p><strong>作用：</strong>将主页面生成到内存中去。</p>
+<p>配置<code>webpack.config.js</code>文件：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> HtmlWebPackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//导入 在内存中自动生成index页面的插件</span>
+
+<span class="token comment" spellcheck="true">//创建一个插件实例对象</span>
+<span class="token keyword">const</span> htmlPlugin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlWebPackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//源文件</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span> <span class="token comment" spellcheck="true">//生成的内存中首页名称</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
+module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
+    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        htmlPlugin
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/react/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1237,7 +2100,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-11-02 18:27:40" itemprop="dateModified" datetime="2018-11-02T18:27:40+08:00">2018-11-02</time>
+                <time title="Updated at: 2019-03-10 22:05:25" itemprop="dateModified" datetime="2019-03-10T22:05:25+08:00">2019-03-10</time>
               
             
           </span>
@@ -1290,7 +2153,10 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
       
         
           
-            <h3 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h3><h5 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h5><ol>
+            <h3 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h3><ul>
+<li><h5 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h5></li>
+</ul>
+<ol>
 <li><p>通过字面量方式创建</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//相当于var Person=new Object()</span>
 <span class="token keyword">var</span> Person<span class="token operator">=</span><span class="token punctuation">{</span>
@@ -1418,7 +2284,44 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">var</span> b<span class="token operator">=</span>Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Function {name: "张三"}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>​    </p>
+<ul>
+<li><p><strong>对象枚举</strong></p>
+<p>for in 语句可以用来遍历一个对象中所有的属性名，该枚举过程将会列出所有的属性—包括函数和你可能不关心的原型中的属性—所以有必要过滤掉那些你不想要的值。通常使用的过滤器是<code>hasOwnProperty</code>方法，以及使用<code>typeof</code>来排除函数。</p>
+<p>原型链中的任何属性通过typeof判断：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>toString    <span class="token comment" spellcheck="true">// 'function'</span>
+<span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>constructor  <span class="token comment" spellcheck="true">// 'function'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> name<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//通过typeof来排除原型中的属性</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>name <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//执行其他</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//通过hasOwnProperty来排除原型中的属性</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>name <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//执行其他</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在使用for in 遍历对象时，属性名出现的顺序是不确定的。如果想要确保属性以特定的顺序出现，最好的办法就是避免使用for in 语句，而是创建一个数组，在其中以正确的顺序包含属性名。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> i<span class="token punctuation">;</span>
+<span class="token keyword">var</span> properties <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'first-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'middle-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'last-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'profession'</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> properties<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    obj<span class="token punctuation">[</span>properties<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>删除对象中的属性</p>
+<p><code>delete</code>运算符可以用来删除对象的属性。它将会移除对象中确定包含的属性，它不会触及原型链中的任何对象。删除对象的属性可能会让来自原型链中的属性浮现出来。</p>
+</li>
+</ul>
 
           
         
@@ -2708,1002 +3611,11 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/CommonJS、AMD、CMD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/20/CommonJS、AMD、CMD/" itemprop="url">
-                  CommonJS、AMD、CMD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-10-27 11:54:50" itemprop="dateModified" datetime="2018-10-27T11:54:50+08:00">2018-10-27</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="CommonJS、AMD、CMD"><a href="#CommonJS、AMD、CMD" class="headerlink" title="CommonJS、AMD、CMD"></a>CommonJS、AMD、CMD</h3><h5 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h5><p>浏览器不兼容CommonJS的根本原因，在于其缺少四个Node.js环境的变量</p>
-<ul>
-<li><p>module</p>
-</li>
-<li><p>exports</p>
-</li>
-<li><p>require</p>
-</li>
-<li><p>global</p>
-<p><strong>如果提供以上四个变量，浏览器就可以加载CommonJS模块</strong></p>
-<p>Browserify是CommonJS格式转换的工具，语法：</p>
-<blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// foo.js</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// main.js</span>
-<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./foo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">"Hi"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>使用下面的命令，就能将main.js转为浏览器可用的格式。</p>
-</li>
-</ul>
-<blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">$ browserify main.js <span class="token operator">></span> compiled.js
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<p>  Browserify到底做了什么？安装一下<a href="https://www.npmjs.com/package/browser-unpack" target="_blank" rel="noopener">browser-unpack</a>，就能看清楚了。</p>
-<blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> browser-unpack -g
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<p>  然后，将前面生成的compile.js解包。</p>
-<blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">$ browser-unpack <span class="token operator">&lt;</span> compiled.js
-
-<span class="token punctuation">[</span>
-  <span class="token punctuation">{</span>
-    <span class="token string">"id"</span>:1,
-    <span class="token string">"source"</span><span class="token keyword">:</span><span class="token string">"module.exports = function(x) {\n  console.log(x);\n};"</span>,
-    <span class="token string">"deps"</span>:<span class="token punctuation">{</span><span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>,
-  <span class="token punctuation">{</span>
-    <span class="token string">"id"</span>:2,
-    <span class="token string">"source"</span><span class="token keyword">:</span><span class="token string">"var foo = require(\"./foo\");\nfoo(\"Hi\");"</span>,
-    <span class="token string">"deps"</span>:<span class="token punctuation">{</span><span class="token string">"./foo"</span>:1<span class="token punctuation">}</span>,
-    <span class="token string">"entry"</span>:true
-  <span class="token punctuation">}</span>
-<span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>  可以看到，browerify 将所有模块放入一个数组，<code>id</code> 属性是模块的编号，<code>source</code> 属性是模块的源码，<code>deps</code> 属性是模块的依赖。</p>
-<p>  因为 <code>main.js</code> 里面加载了 <code>foo.js</code>，所以<code>deps</code> 属性就指定 <code>./foo</code> 对应1号模块。执行的时候，浏览器遇到 <code>require(&#39;./foo&#39;)</code>语句，就自动执行1号模块的 <code>source</code> 属性，并将执行后的<code>module.exports</code> 属性值输出。</p>
-<p>   使用CommonJS的不足之处在于同步加载。</p>
-<pre class="line-numbers language-js"><code class="language-js">  <span class="token keyword">var</span> math<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  math<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>  第二行的<code>math.add</code>依赖于<code>math</code>文件，需要等到<code>require(&#39;math&#39;)</code>执行之后，才能继续执行。也就是说，如果加载的文件过大的话，就会出现页面停在那里。</p>
-<p>  这在服务器端不会存在问题，因为所有的模块都是存在本地的，读取可以同步加载完成，等待时间就是读取本地文件的时间，而在浏览器端就不同了，由于模块都是存放在服务器端的，如果网速过慢，或者文件过大，都会导致加载文件时浏览器产生”假死”状态。</p>
-<p>  <em>CommonJS主要是为了JS在后端开发定制的，并不适用于前端，AMD（异步模块定义）主要为前端JS的表现定制的一套规范。</em></p>
-<h5 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h5><p>特点：它采用异步加载方式加载模块，模块的加载不会影响到它后边的语句的执行，所有依赖当前模块的语句，都定义在一个回掉函数中，等加载完成后，才会执行回掉函数的内容。</p>
-<p>require语法：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span>module<span class="token punctuation">]</span><span class="token punctuation">,</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//接受两个参数</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>参数<code>[module]</code>：是一个数组作为第一个参数，里边的成员就是要加载的模块；参数<code>callback</code>：加载成功后的回掉函数。</em></p>
-<p>目前主要有两个javascript库实现AMD规范：<code>require.js</code>和<code>curl.js</code>。</p>
-<h5 id="define函数："><a href="#define函数：" class="headerlink" title="define函数："></a>define函数：</h5><blockquote>
-<p>语法：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span>id<span class="token operator">?</span><span class="token punctuation">,</span>dependencies<span class="token punctuation">,</span>factory<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>id:</strong>第一个参数，id，是个字符串。它指的是定义中模块的名字，这个参数是可选的。如果没有提供该参数，模块的名字应该默认为模块加载器请求的指定脚本的名字。如果提供了该参数，模块名<strong>必须</strong>是“顶级”的和绝对的（不允许相对名字）。</p>
-<p><strong>依赖：</strong>第二个参数，dependencies，是个定义中模块所依赖模块的数组。依赖模块必须根据模块的工厂方法优先级执行，并且执行的结果应该按照依赖数组中的位置顺序以参数的形式传入（定义中模块的）工厂方法中。</p>
-<p><strong>工厂方法：</strong>第三个参数，factory，为模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值。如果工厂方法返回一个值（对象，函数，或任意强制类型转换为true的值），应该为设置为模块的输出值。</p>
-<ul>
-<li><p>模块名是由一个或多个单词以正斜杠为分隔符拼接成的字符串</p>
-</li>
-<li><p>单词须为驼峰形式，或者”.”，”..”</p>
-</li>
-<li><p>模块名不允许文件扩展名的形式，如”.js”</p>
-</li>
-<li><p>模块名可以为 “相对的” 或 “顶级的”。如果首字符为”.”或”..”则为”相对的”模块名</p>
-</li>
-<li><p>顶级的模块名从根命名空间的概念模块解析</p>
-</li>
-<li><p>相对的模块名从 “require” 书写和调用的模块解析</p>
-<p>相对模块名解析示例：</p>
-<ul>
-<li><p>如果模块 <code>&quot;a/b/c&quot;</code> 请求 <code>&quot;../d&quot;</code>, 则解析为<code>&quot;a/d&quot;</code></p>
-</li>
-<li><p>如果模块 <code>&quot;a/b/c&quot;</code> 请求 <code>&quot;./e&quot;</code>, 则解析为<code>&quot;a/b/e&quot;</code></p>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h5 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h5><blockquote>
-<p>参考：</p>
-</blockquote>
-<p>在CMD规范中，一个模块就是一个文件。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>define</code>接受<code>factory</code>参数，<code>factory</code>可以是一个函数，也可以是一个对象或字符串。</p>
-<p><code>factory</code>为对象、字符串时，表示模块的接口就是该对象、字符串，比如为一个json数据模块：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"foo"</span><span class="token punctuation">:</span><span class="token string">"bar"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>也可以通过字符串定义模板模块：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'I am a template. My name is {{name}}.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>factory</code> 为函数时，表示是模块的构造方法。执行该构造方法，可以得到模块向外提供的接口。<code>factory</code> 方法在执行时，默认会传入三个参数：<code>require</code>、<code>exports</code> 和 <code>module</code>：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-  <span class="token comment" spellcheck="true">// 模块代码</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="define-define-id-deps-factory"><a href="#define-define-id-deps-factory" class="headerlink" title="define define(id?, deps?, factory)"></a>define <code>define(id?, deps?, factory)</code></h3><p><code>define</code> 也可以接受两个以上参数。字符串 <code>id</code> 表示模块标识，数组 <code>deps</code> 是模块依赖。比如：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'jquery'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-  <span class="token comment" spellcheck="true">// 模块代码</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>id</code> 和 <code>deps</code> 参数可以省略。省略时，可以通过构建工具自动生成。</p>
-<p><strong>注意</strong>：带 <code>id</code> 和 <code>deps</code> 参数的 <code>define</code> 用法不属于 CMD 规范，而属于 <a href="https://github.com/cmdjs/specification/blob/master/draft/transport.md" target="_blank" rel="noopener">Modules/Transport</a> 规范。</p>
-<h5 id="AMD和CMD异同"><a href="#AMD和CMD异同" class="headerlink" title="AMD和CMD异同"></a>AMD和CMD异同</h5><ol>
-<li>相同之处：都是倡导模块化开发理念，核心价值是让JavaScript的模块化开发变得简单自然。</li>
-<li>不同之处：<ul>
-<li><strong>定位有差异</strong>。RequireJS 想成为浏览器端的模块加载器，同时也想成为 Rhino / Node 等环境的模块加载器。Sea.js 则专注于 Web 浏览器端，同时通过 Node 扩展的方式可以很方便跑在 Node 环境中。</li>
-<li><strong>遵循的规范不同</strong>。RequireJS 遵循 AMD（异步模块定义）规范，Sea.js 遵循 CMD （通用模块定义）规范。规范的不同，导致了两者 API 不同。Sea.js 更贴近 CommonJS Modules/1.1 和 Node Modules 规范。</li>
-<li><strong>推广理念有差异</strong>。RequireJS 在尝试让第三方类库修改自身来支持 RequireJS，目前只有少数社区采纳。Sea.js 不强推，采用自主封装的方式来“海纳百川”，目前已有较成熟的封装策略。</li>
-<li><strong>对开发调试的支持有差异</strong>。Sea.js 非常关注代码的开发调试，有 nocache、debug 等用于调试的插件。RequireJS 无这方面的明显支持。</li>
-<li><strong>插件机制不同</strong>。RequireJS 采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js 采取的是通用事件机制，插件类型更丰富。</li>
-</ul>
-</li>
-</ol>
-<p><strong>最后：SeaJS对模块的态度是懒执行（用到时再请求）, 而RequireJS对模块的态度是预执行（使用前请求模块）</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/git使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/19/git使用/" itemprop="url">
-                  git使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-19 11:38:39" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-13 09:24:46" itemprop="dateModified" datetime="2018-11-13T09:24:46+08:00">2018-11-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h3><h5 id="安装完成后"><a href="#安装完成后" class="headerlink" title="安装完成后"></a>安装完成后</h5><p>打开命令行窗口或（终端）</p>
-<p><strong>设置用户名</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.name 'username'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>设置用户邮箱</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.email 'user@163.com'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>查看设置</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --list
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>注意：<code>git config --global</code>参数设置后，表明这台机器上的所有Git仓库都会使用这个配置，当然也可以指定某个仓库设置不同的用户名邮箱</em></p>
-<h5 id="创建仓库（repository）"><a href="#创建仓库（repository）" class="headerlink" title="创建仓库（repository）"></a>创建仓库（repository）</h5><p>什么是仓库：你可以将其理解为一个简单的目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除、Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以还原。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">mkdir newRep
-cd newRep
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>创建完仓库后</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git init //将这个目录变成Git可以管理的仓库
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>将需要上传的文件放到当前文件夹下</strong></p>
-<ol>
-<li><p>工作区：就是当前的文件目录，在工作去有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库。</p>
-<p>git的版本库</p>
-</li>
-<li><p>暂存区</p>
-</li>
-<li><p>仓库</p>
-</li>
-</ol>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/19/d3c801894031d80480e26efe7008a949.png" alt=""></p>
-<p><strong>将文件添加到暂存区</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git add filename1.txt
-git add filename2.txt filename3.txt
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>将文件提交到仓库</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git commit -m '描述信息'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>多次使用<code>add</code>添加多个文件，<code>commit</code>可以一次提交多个文件</em></p>
-<p><strong>查看仓库当前状态</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git status    //可以查看需要上传的文件是否修改了
-git diff filename.txt  //查看修改后的文件与之前的文件的不同之处
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><em>修改后的文件上传的话，需要重新进行<code>add</code>和<code>commit</code></em></p>
-<h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><p><strong>查看提交历史</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git log
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>在git中，用<code>HEAD</code>表示当前版本，上一个版本就是    <code>HEAD^</code>，上上个版本就是<code>HEAD^^</code>，当然往上100个版本不可能写100个^，可以写成<code>HEAD~100</code></em></p>
-<p><strong>回到上个版本中</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git reset --hard HEAD^    //使用git reset命令可以回退版本
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em><code>HEAD</code>也可以是通过<code>git log</code>命令查看到的每次提交的id，这样就可以在不同的版本之间来回的切换了。</em></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git reflog //用来记录你的每一次命令
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h5><pre class="line-numbers language-shell"><code class="language-shell">git checkout -- readme.txt
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>意思就是，把<code>readme.txt</code>文件在工作区的修改全部撤销，这里有两种情况：</p>
-<p>一种是<code>readme.txt</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
-<p>一种是<code>readme.txt</code>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
-<p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
-<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
-<h5 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h5><pre class="line-numbers language-shell"><code class="language-shell">git rm filename.txt 
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h5><p><strong>首先创建SSH Key。</strong></p>
-<p>在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">ssh-keygen -t rsa -C "youremail@example.com"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。</p>
-<p>如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
-<p>第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：</p>
-<p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容</p>
-<h5 id="将本地仓库内容推送到GitHub仓库中"><a href="#将本地仓库内容推送到GitHub仓库中" class="headerlink" title="将本地仓库内容推送到GitHub仓库中"></a>将本地仓库内容推送到GitHub仓库中</h5><pre class="line-numbers language-shell"><code class="language-shell">git remote add origin git@github.com:yymfp/blog.git  //关联远程库  yymfp改成自己的GitHub用户名
-git push -u origin master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><em>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</em></p>
-<p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p>
-<p>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；</p>
-<p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
-<p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！</p>
-<h5 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h5><pre class="line-numbers language-shell"><code class="language-shell">git clone git@github.com:yymfp/仓库名.git
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>GitHub给出的地址不止一个，还可以用<code>https://github.com/michaelliao/gitskills.git</code>这样的地址。实际上，Git支持多种协议，默认的<code>git://</code>使用ssh，但也可以使用<code>https</code>等其他协议。</em></p>
-<p><em>使用<code>https</code>除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用<code>ssh</code>协议而只能用<code>https</code>。</em></p>
-<h5 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h5><p>创建新的分支：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout -b dev 
-Switched to a new branch 'dev'
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><code>git checkout</code>命令加上<code>-b</code>表示创建并切换，相当于以下两条命令：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git branch dev
-git checkout dev
-Switched to branch 'dev'
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>然后<code>git branch</code>查看当前分支</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/事件捕获和事件冒泡/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/18/事件捕获和事件冒泡/" itemprop="url">
-                  事件捕获和事件冒泡
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-10-22 12:37:37" itemprop="dateModified" datetime="2018-10-22T12:37:37+08:00">2018-10-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="事件捕获和事件冒泡"><a href="#事件捕获和事件冒泡" class="headerlink" title="事件捕获和事件冒泡"></a>事件捕获和事件冒泡</h3><p>在介绍两者之前首先需要了解监听器:</p>
-<blockquote>
-<p><code>EventTarget.addEventListener()</code>：方法将指定的监听器注册到<code>EventTarget</code>上，当该对象触发指定的事件时，指定的回掉函数就会被执行。事件的目标可以是一个文档上的元素<code>Element,Document</code>和<code>Window</code>或者任何其他支持事件的对象（比如<code>XMLHttpRequest</code>）。</p>
-<p>语法：</p>
-<pre class="line-numbers language-js"><code class="language-js">element<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">,</span>useCapture<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li><p>event（必需）：字符串，指定事件名。<em>注意不要使用”on”前缀，例如”onclick”应该使用”click”</em></p>
-</li>
-<li><p>function（必需）：指定被监听的事件触发时所要执行的回掉函数。</p>
-</li>
-<li><p>useCapture（可选）：布尔值，指定事件是否在捕获或冒泡阶段执行。可能值：true :事件句柄在捕获阶段执行。false:默认。事件句柄在冒泡阶段执行。</p>
-</li>
-</ul>
-</blockquote>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span>callfunction<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//事件捕获</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span>callfunction<span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//事件冒泡</span>
-    <span class="token keyword">function</span> <span class="token function">callfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"hello world!"</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myBtn<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        点击
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>一个完整的事件流：从window开始，最后回到window的过程。</strong></p>
-<ol>
-<li><h5 id="事件捕获：window-gt-document-gt-body-gt-button（从window开始一层一层到真正触发事件的元素）"><a href="#事件捕获：window-gt-document-gt-body-gt-button（从window开始一层一层到真正触发事件的元素）" class="headerlink" title="事件捕获：window&gt; document&gt;body&gt;button（从window开始一层一层到真正触发事件的元素）"></a>事件捕获：window&gt; document&gt;body&gt;button（从window开始一层一层到真正触发事件的元素）</h5></li>
-<li><h5 id="事件冒泡：button-gt-body-gt-document-gt-window（从当前触发事件的元素开始，一层一层冒泡到window）"><a href="#事件冒泡：button-gt-body-gt-document-gt-window（从当前触发事件的元素开始，一层一层冒泡到window）" class="headerlink" title="事件冒泡：button&gt;body&gt;document&gt;window（从当前触发事件的元素开始，一层一层冒泡到window）"></a>事件冒泡：button&gt;body&gt;document&gt;window（从当前触发事件的元素开始，一层一层冒泡到window）</h5></li>
-<li><h5 id="两者刚好相反"><a href="#两者刚好相反" class="headerlink" title="两者刚好相反"></a>两者刚好相反</h5></li>
-</ol>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/18/b2a98b1d408c0923807704ad7ac95fde.png" alt=""></p>
-<h5 id="如何阻止事件冒泡-捕获和默认行为"><a href="#如何阻止事件冒泡-捕获和默认行为" class="headerlink" title="如何阻止事件冒泡/捕获和默认行为"></a>如何阻止事件冒泡/捕获和默认行为</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//jquery阻止默认行为和冒泡</span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//js</span>
-<span class="token keyword">let</span> Obtn<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Obtn<span class="token punctuation">.</span>onclick<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> e<span class="token operator">=</span>ev<span class="token operator">||</span>event<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//阻止事件冒泡  </span>
-    e<span class="token punctuation">.</span>cancelBubble<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
-    e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    e<span class="token punctuation">.</span><span class="token function">stopImmediatePropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//阻止默认行为，但不阻止冒泡</span>
-    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><em>stoppropagation属于W3C标准，试用于Firefox等浏览器，但是不支持IE浏览器相反cancelBubble不符合W3C标准，而且只支持IE浏览器。所以很多时候，我们都要结合起来用。不过，cancelBubble在新版本chrome,opera浏览器中已经支持。</em></p>
-<p><strong>也可以使用新增事件stopImmediatePropagation()方法来阻止事件捕获和事件冒泡</strong></p>
-<p>那么 stopImmediatePropagation() 和 stopPropagation()的区别在哪儿呢？</p>
-<p>　　后者只会阻止冒泡或者是捕获。 但是前者除此之外还会阻止该元素的其他事件发生，但是后者就不会阻止其他事件的发生</p>
-<h5 id="事件代理（事件委托）"><a href="#事件代理（事件委托）" class="headerlink" title="事件代理（事件委托）"></a>事件代理（事件委托）</h5><p><strong>原理：利用事件的冒泡原理来实现的。处在深层的元素触发的事件，最终会冒泡到其父层上，在绑定事件时，利用这个原理，对其父级进行事件绑定。</strong></p>
-<p><strong>举例：实现鼠标滑过，改变背景</strong></p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>li1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>li2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>li3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>不使用事件代理：</strong></p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"li"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"mouseover"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">siblings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"white"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>使用事件代理：</strong></p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"ul"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"mouseover"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> e<span class="token operator">=</span>e<span class="token operator">||</span>event<span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">siblings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"white"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>事件委托与事件不委托之间区别：</strong></p>
-<ol>
-<li>事件委托不需要遍历要操作的元素结点，事件不委托需要遍历要操作的元素结点</li>
-<li>事件委托减少操作dom的次数，对性能优化，事件不委托操作的dom次数较多</li>
-<li>事件委托所定义的事件，对新创建的元素结点也可起到作用，而不使用事件委托，对新添加的结点，需要重新为其绑定相关事件。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/position属性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/18/position属性/" itemprop="url">
-                  position属性
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-18 13:19:20 / Updated at: 17:40:00" itemprop="dateCreated datePublished" datetime="2018-10-18T13:19:20+08:00">2018-10-18</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="position属性"><a href="#position属性" class="headerlink" title="position属性"></a>position属性</h3><p><strong>该属性规定元素的定位类型</strong></p>
-<blockquote>
-<p>语法：<code>position:absolute | relative | fixed | static | interit;</code></p>
-<ul>
-<li>absolute：生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。（left、top、right、bottom）</li>
-<li>fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。（left、top、right、bottom）</li>
-<li>relative：生成相对定位的元素，相对于其正常位置进行定位。</li>
-<li>static：默认值。没有定位，元素出现在正常的流中。（忽略 top, bottom, left, right 或者 z-index 声明）</li>
-<li>inherit：规定应该从元素继承position属性的值。</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -3745,7 +3657,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -3821,7 +3733,11 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
@@ -3861,7 +3777,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
