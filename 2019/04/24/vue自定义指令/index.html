@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="webpack创建基本的webpack4.x项目 运行npm init -y快速初始化项目 在项目根目录创建src源代码目录和dist产品目录 在src目录下创建index.html 使用npm安装webpack，运行cnpm i webpack webpack-cli -D  全局运行npm i cnpm -g   注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的">
-<meta name="keywords" content="webpack使用">
+  <meta name="description" content="vue自定义指令用法可以通过Vue.directive来定义全局指令// 注册一个全局自定义指令 `v-focus` Vue.directive(&apos;focus&apos;, {   // 当被绑定的元素插入到 DOM 中时……   inserted: function (el) {     // 聚焦元素     el.focus()   } })  如果想注册局部指令，组件中也接受directives选项">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack">
-<meta property="og:url" content="http://yoursite.com/2018/10/25/webpack/index.html">
+<meta property="og:title" content="vue自定义指令">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/vue自定义指令/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="webpack创建基本的webpack4.x项目 运行npm init -y快速初始化项目 在项目根目录创建src源代码目录和dist产品目录 在src目录下创建index.html 使用npm安装webpack，运行cnpm i webpack webpack-cli -D  全局运行npm i cnpm -g   注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的">
+<meta property="og:description" content="vue自定义指令用法可以通过Vue.directive来定义全局指令// 注册一个全局自定义指令 `v-focus` Vue.directive(&apos;focus&apos;, {   // 当被绑定的元素插入到 DOM 中时……   inserted: function (el) {     // 聚焦元素     el.focus()   } })  如果想注册局部指令，组件中也接受directives选项">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-02T10:17:59.134Z">
+<meta property="og:updated_time" content="2019-04-24T04:49:19.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack">
-<meta name="twitter:description" content="webpack创建基本的webpack4.x项目 运行npm init -y快速初始化项目 在项目根目录创建src源代码目录和dist产品目录 在src目录下创建index.html 使用npm安装webpack，运行cnpm i webpack webpack-cli -D  全局运行npm i cnpm -g   注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的">
+<meta name="twitter:title" content="vue自定义指令">
+<meta name="twitter:description" content="vue自定义指令用法可以通过Vue.directive来定义全局指令// 注册一个全局自定义指令 `v-focus` Vue.directive(&apos;focus&apos;, {   // 当被绑定的元素插入到 DOM 中时……   inserted: function (el) {     // 聚焦元素     el.focus()   } })  如果想注册局部指令，组件中也接受directives选项">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/25/webpack/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/24/vue自定义指令/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>webpack | pjy</title>
+  <title>vue自定义指令 | pjy</title>
   
 
 
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/vue自定义指令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack
+          <h1 class="post-title" itemprop="name headline">vue自定义指令
               
             
           </h1>
@@ -347,24 +347,12 @@
                 
               
 
-              <time title="Post created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
+              <time title="Post created: 2019-04-24 12:34:43 / Updated at: 12:49:19" itemprop="dateCreated datePublished" datetime="2019-04-24T12:34:43+08:00">2019-04-24</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-02 18:17:59" itemprop="dateModified" datetime="2018-11-02T18:17:59+08:00">2018-11-02</time>
               
             
           </span>
@@ -415,64 +403,76 @@
       
 
       
-        <h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><h5 id="创建基本的webpack4-x项目"><a href="#创建基本的webpack4-x项目" class="headerlink" title="创建基本的webpack4.x项目"></a>创建基本的webpack4.x项目</h5><ol>
-<li>运行<code>npm init -y</code>快速初始化项目</li>
-<li>在项目根目录创建<code>src</code>源代码目录和<code>dist</code>产品目录</li>
-<li>在<code>src</code>目录下创建<code>index.html</code></li>
-<li><p>使用npm安装webpack，运行<code>cnpm i webpack webpack-cli -D</code></p>
-<ul>
-<li>全局运行<code>npm i cnpm -g</code></li>
-</ul>
+        <h3 id="vue自定义指令用法"><a href="#vue自定义指令用法" class="headerlink" title="vue自定义指令用法"></a>vue自定义指令用法</h3><h5 id="可以通过Vue-directive来定义全局指令"><a href="#可以通过Vue-directive来定义全局指令" class="headerlink" title="可以通过Vue.directive来定义全局指令"></a>可以通过<code>Vue.directive</code>来定义全局指令</h5><pre class="line-numbers language-javaScript"><code class="language-javaScript">// 注册一个全局自定义指令 `v-focus`
+Vue.directive('focus', {
+  // 当被绑定的元素插入到 DOM 中时……
+  inserted: function (el) {
+    // 聚焦元素
+    el.focus()
+  }
+})
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="如果想注册局部指令，组件中也接受directives选项"><a href="#如果想注册局部指令，组件中也接受directives选项" class="headerlink" title="如果想注册局部指令，组件中也接受directives选项"></a>如果想注册局部指令，组件中也接受<code>directives</code>选项</h5><pre class="line-numbers language-javaScript"><code class="language-javaScript">directives: {
+  focus: {
+    // 指令的定义
+    inserted: function (el) {
+      el.focus()
+    }
+  }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="可以在模板中任何元素上使用v-focus"><a href="#可以在模板中任何元素上使用v-focus" class="headerlink" title="可以在模板中任何元素上使用v-focus"></a>可以在模板中任何元素上使用<code>v-focus</code></h5><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-focus</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="提供的钩子函数"><a href="#提供的钩子函数" class="headerlink" title="提供的钩子函数"></a>提供的钩子函数</h5><ul>
+<li><p>bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
 </li>
-<li><p>注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的体积</p>
-<ul>
-<li>默认约定了：</li>
-<li>打包入口是<code>src</code>-&gt;<code>index.js</code></li>
-<li>打包的输出文件是<code>dist</code>-&gt;<code>main.js</code></li>
-<li>4.x中新增了<code>mode</code>选项（<strong>必需</strong>），可选的值为：<code>development</code>和<code>production</code></li>
+<li><p>inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
+</li>
+<li><p>update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。</p>
+</li>
+<li><p>componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用。</p>
+</li>
+<li><p>unbind：只调用一次，指令与元素解绑时调用。</p>
+</li>
+<li><p>接下来我们来看一下钩子函数的参数 (即 el、binding、vnode 和 oldVnode)。</p>
+</li>
 </ul>
+<h5 id="钩子函数参数"><a href="#钩子函数参数" class="headerlink" title="钩子函数参数"></a>钩子函数参数</h5><ul>
+<li><p>el：指令所绑定的元素，可以用来直接操作 DOM 。</p>
+</li>
+<li><p>binding：一个对象，包含以下属性：<br>  name：指令名，不包括 v- 前缀。</p>
+<ol>
+<li><p>value：指令的绑定值，例如：v-my-directive=”1 + 1” 中，绑定值为 2。</p>
+</li>
+<li><p>oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</p>
+</li>
+<li><p>expression：字符串形式的指令表达式。例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。</p>
+</li>
+<li><p>arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 “foo”。</p>
+</li>
+<li><p>modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。</p>
 </li>
 </ol>
-<p><strong>webpack的配置文件：</strong><code>webpack.config.js</code>:</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
-module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
-    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
-    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="安装webpack-dev-server"><a href="#安装webpack-dev-server" class="headerlink" title="安装webpack-dev-server"></a>安装webpack-dev-server</h5><p><strong>命令：</strong><code>npm i webpack-dev-server -D</code></p>
-<p>在<code>package.json</code>中的<code>scripts</code>中添加<code>dev</code>选项：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-    ...
-   <span class="token property">"scripts"</span><span class="token operator">:</span><span class="token punctuation">{</span>
-        ...
-        <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server --open --port 3000"</span>  //--open 自动打开浏览器 --port 指定端口
-    <span class="token punctuation">}</span> 
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>配置好之后，运行：<code>npm run dev</code></p>
-<p><strong>webpack-dev-server</strong>打包好的<code>main.js</code>是托管到内存中的，所以在项目根目录中找不到。</p>
-<h5 id="安装相关插件："><a href="#安装相关插件：" class="headerlink" title="安装相关插件："></a>安装相关插件：</h5><p><strong>命令：</strong><code>npm i html-webpack-plugin -D</code></p>
-<p><strong>作用：</strong>将主页面生成到内存中去。</p>
-<p>配置<code>webpack.config.js</code>文件：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> HtmlWebPackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//导入 在内存中自动生成index页面的插件</span>
+</li>
+<li><p>vnode：Vue 编译生成的虚拟节点。</p>
+</li>
+<li><p>oldVnode：上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。</p>
+</li>
+</ul>
+<blockquote>
+<p>除了 el 之外，其它参数都应该是只读的，切勿进行修改。如果需要在钩子之间共享数据，建议通过元素的 dataset 来进行。</p>
+</blockquote>
+<h5 id="通过全局指令实现img默认图片"><a href="#通过全局指令实现img默认图片" class="headerlink" title="通过全局指令实现img默认图片"></a>通过全局指令实现img默认图片</h5><pre class="line-numbers language-javaScript"><code class="language-javaScript">//默认图片
+Vue.directive('defaultImg', {
+    bind: function(el) {
+        //在图片加载失败时执行onerror
+        el.onerror = function(){
+            el.src = require('../src/assets/images/pic_small.png');
+        }
+    }
+})
 
-<span class="token comment" spellcheck="true">//创建一个插件实例对象</span>
-<span class="token keyword">const</span> htmlPlugin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlWebPackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//源文件</span>
-    filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span> <span class="token comment" spellcheck="true">//生成的内存中首页名称</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
-module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
-    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
-    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
-    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
-        htmlPlugin
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -493,7 +493,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
       
         <div class="post-tags">
           
-            <a href="/tags/webpack使用/" rel="tag"># webpack使用</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -506,8 +506,8 @@ module<span class="token punctuation">.</span>exports<span class="token operator
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/24/react/" rel="next" title="react">
-                <i class="fa fa-chevron-left"></i> react
+              <a href="/2019/03/10/数据结构/" rel="next" title="数据结构">
+                <i class="fa fa-chevron-left"></i> 数据结构
               </a>
             
           </div>
@@ -516,8 +516,8 @@ module<span class="token punctuation">.</span>exports<span class="token operator
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/22/redux/" rel="prev" title="redux">
-                redux <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/24/package中的devdependencies和dependencies/" rel="prev" title="package中的devdependencies和dependencies">
+                package中的devdependencies和dependencies <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -704,7 +704,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack"><span class="nav-number">1.</span> <span class="nav-text">webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建基本的webpack4-x项目"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建基本的webpack4.x项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装webpack-dev-server"><span class="nav-number">1.0.2.</span> <span class="nav-text">安装webpack-dev-server</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装相关插件："><span class="nav-number">1.0.3.</span> <span class="nav-text">安装相关插件：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue自定义指令用法"><span class="nav-number">1.</span> <span class="nav-text">vue自定义指令用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以通过Vue-directive来定义全局指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">可以通过Vue.directive来定义全局指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果想注册局部指令，组件中也接受directives选项"><span class="nav-number">1.0.2.</span> <span class="nav-text">如果想注册局部指令，组件中也接受directives选项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可以在模板中任何元素上使用v-focus"><span class="nav-number">1.0.3.</span> <span class="nav-text">可以在模板中任何元素上使用v-focus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提供的钩子函数"><span class="nav-number">1.0.4.</span> <span class="nav-text">提供的钩子函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#钩子函数参数"><span class="nav-number">1.0.5.</span> <span class="nav-text">钩子函数参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过全局指令实现img默认图片"><span class="nav-number">1.0.6.</span> <span class="nav-text">通过全局指令实现img默认图片</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
