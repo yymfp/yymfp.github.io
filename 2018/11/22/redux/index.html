@@ -116,10 +116,12 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="redux使用方式：安装：npm install redux react-redux --save  首先需要引入 import {createStore} from &apos;redux&apos;; import {Provider} from &apos;react-redux&apos;;   创建action const changeColor=(state,action)=&amp;gt;{     if(!state) return{">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T04:41:02.006Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/22/redux/C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1556439362926.png">
+<meta property="og:updated_time" content="2019-04-28T08:16:49.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux">
 <meta name="twitter:description" content="redux使用方式：安装：npm install redux react-redux --save  首先需要引入 import {createStore} from &apos;redux&apos;; import {Provider} from &apos;react-redux&apos;;   创建action const changeColor=(state,action)=&amp;gt;{     if(!state) return{">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/22/redux/C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1556439362926.png">
 
 
 
@@ -222,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -230,7 +232,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -246,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -254,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -340,14 +342,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-11-22 17:14:55" itemprop="dateCreated datePublished" datetime="2018-11-22T17:14:55+08:00">2018-11-22</time>
+              <time title="Created: 2018-11-22 17:14:55" itemprop="dateCreated datePublished" datetime="2018-11-22T17:14:55+08:00">2018-11-22</time>
             
 
             
@@ -364,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-12-09 12:41:02" itemprop="dateModified" datetime="2018-12-09T12:41:02+08:00">2018-12-09</time>
+                <time title="Modified: 2019-04-28 16:16:49" itemprop="dateModified" datetime="2019-04-28T16:16:49+08:00">2019-04-28</time>
               
             
           </span>
@@ -378,7 +380,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -459,7 +461,7 @@
     <span class="token operator">...</span>
     <span class="token comment" spellcheck="true">//子组件使用数据，this.props.themeColor</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">const</span> mapStateTopProps<span class="token operator">=</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//通过connect高阶组件讲themeColor属性添加进去&lt;Header themeColor={state.themeColor}>&lt;/Header></span>
+<span class="token keyword">const</span> mapStateTopProps<span class="token operator">=</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//通过connect高阶组件将themeColor属性添加进去&lt;Header themeColor={state.themeColor}>&lt;/Header></span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
         themeColor<span class="token punctuation">:</span>state<span class="token punctuation">.</span>themeColor
     <span class="token punctuation">}</span>
@@ -497,6 +499,7 @@ Header<span class="token operator">=</span><span class="token function">connect<
 <li><code>replaceReucer</code>：替换<code>reducer</code>，改变<code>state</code>更新逻辑</li>
 <li><code>reducer</code>就是类似上边<code>action</code>步骤的<code>changeColor</code></li>
 </ol>
+<h5 id="Redux基本原理图："><a href="#Redux基本原理图：" class="headerlink" title="Redux基本原理图："></a>Redux基本原理图：</h5><p><img src="/2018/11/22/redux/C:/Users\Administrator\AppData\Roaming\Typora\typora-user-images\1556439362926.png" alt="1556439362926"></p>
 
       
     </div>
@@ -589,10 +592,10 @@ Header<span class="token operator">=</span><span class="token function">connect<
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -612,8 +615,8 @@ Header<span class="token operator">=</span><span class="token function">connect<
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -636,7 +639,7 @@ Header<span class="token operator">=</span><span class="token function">connect<
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -693,7 +696,7 @@ Header<span class="token operator">=</span><span class="token function">connect<
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -728,7 +731,7 @@ Header<span class="token operator">=</span><span class="token function">connect<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#redux"><span class="nav-number">1.</span> <span class="nav-text">redux</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方式："><span class="nav-number">1.0.1.</span> <span class="nav-text">使用方式：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#redux"><span class="nav-number">1.</span> <span class="nav-text">redux</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方式："><span class="nav-number">1.0.1.</span> <span class="nav-text">使用方式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redux基本原理图："><span class="nav-number">1.0.2.</span> <span class="nav-text">Redux基本原理图：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -762,7 +765,7 @@ Header<span class="token operator">=</span><span class="token function">connect<
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

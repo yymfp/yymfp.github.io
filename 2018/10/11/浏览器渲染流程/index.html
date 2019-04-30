@@ -118,7 +118,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/5aa1c0da40be870480eef4f2f8b77931.png">
 <meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/f339212b403299f1802345e04edc3c3e.png">
-<meta property="og:updated_time" content="2018-10-11T09:39:00.245Z">
+<meta property="og:updated_time" content="2019-04-27T03:14:29.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器渲染流程">
 <meta name="twitter:description" content="浏览器渲染流程浏览器内核：主要分成两部分：渲染引擎和JS引擎。 渲染引擎：负责取得网页的内容（HTML、XML、图像等）、整理讯息（例如加入css等），以及计算机网页的显示方式，然后输出至显示器或打印机。浏览器的内核的不同对网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其他需要编辑、显示网络内容的应用程序都需要内核。 JS引擎：解析和执行javascript来实">
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -233,7 +233,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -257,7 +257,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -343,19 +343,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-11 12:12:15 / Updated at: 17:39:00" itemprop="dateCreated datePublished" datetime="2018-10-11T12:12:15+08:00">2018-10-11</time>
+              <time title="Created: 2018-10-11 12:12:15" itemprop="dateCreated datePublished" datetime="2018-10-11T12:12:15+08:00">2018-10-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-27 11:14:29" itemprop="dateModified" datetime="2019-04-27T11:14:29+08:00">2019-04-27</time>
               
             
           </span>
@@ -369,7 +381,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -496,6 +508,52 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
 <p>渲染的三个阶段 Layout ,Paint,Composite Layers。</p>
 <p>修改不同的css属性会触发不同阶段。</p>
 <p>触发的阶段越前，渲染的代价越高。</p>
+<h5 id="从url输入网址到浏览器页面加载成功所经历的完整过程"><a href="#从url输入网址到浏览器页面加载成功所经历的完整过程" class="headerlink" title="从url输入网址到浏览器页面加载成功所经历的完整过程"></a>从url输入网址到浏览器页面加载成功所经历的完整过程</h5><ol>
+<li>DNS解析：将域名地址解析为ip地址<ul>
+<li>浏览器DNS缓存</li>
+<li>系统DNS缓存</li>
+<li>路由器DNS缓存</li>
+<li>网络运营商DNS缓存</li>
+<li>递归搜索：<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><ol>
+<li>.com域名下查找DNS解析</li>
+<li>.baidu域名下查找DNS解析</li>
+<li>www域名下查找DNS解析</li>
+<li>如果都没有解析出来，则报错</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>TCP连接：TCP三次握手<ul>
+<li>第一次握手：由浏览器发起请求到服务器，告诉服务器我将要发送请求了</li>
+<li>第二次握手：由服务器发起，告诉浏览器我准备好了，你开始发送吧</li>
+<li>第三次我握手普：由浏览器发起，告诉服务器，我准备好发送了，你准备接收吧</li>
+</ul>
+</li>
+<li>发送请求<ul>
+<li>请求报文：HTTP协议的通信内容</li>
+</ul>
+</li>
+<li>接收响应<ul>
+<li>响应报文</li>
+</ul>
+</li>
+<li>渲染页面<ul>
+<li>遇见HTML标签，浏览器调用HTML解析器解析成Token并构建DOM树</li>
+<li>遇见Style/link标记：浏览器调用css解析器，处理css标记并构建cssom树</li>
+<li>遇到script标记：调用javaScript解析器，处理script代码（绑定事件，修改dom树/cssom树）</li>
+<li>将dom树和cssom树合并成一个渲染树</li>
+<li>根据渲染树计算布局，计算每个节点的几何信息（布局）</li>
+<li>将各个节点颜色绘制到屏幕上（渲染）</li>
+</ul>
+</li>
+<li>断开连接：TCP四次挥手<ul>
+<li>第一次挥手：由浏览器发起，告诉服务器我发送结束了（请求报文），你准备关闭吧</li>
+<li>第二次挥手：由服务器发起，告诉浏览器我接收完了（请求报文），我准备关闭</li>
+<li>第三次挥手：由服务器发起，告诉浏览器我发送完了（响应报文），你准备关闭吧</li>
+<li>第四次挥手：由浏览器发起，告诉服务器我接收完了（响应报文），我准备关闭，你也关闭吧</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -588,10 +646,10 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -611,8 +669,8 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -635,7 +693,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -692,7 +750,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -727,7 +785,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器渲染流程"><span class="nav-number">1.</span> <span class="nav-text">浏览器渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器内核："><span class="nav-number">1.0.1.</span> <span class="nav-text">浏览器内核：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的浏览器内核："><span class="nav-number">1.0.2.</span> <span class="nav-text">常见的浏览器内核：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渲染前："><span class="nav-number">1.0.3.</span> <span class="nav-text">渲染前：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器加载html页面内容的顺序："><span class="nav-number">1.0.4.</span> <span class="nav-text">浏览器加载html页面内容的顺序：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器渲染页面流程："><span class="nav-number">1.0.5.</span> <span class="nav-text">浏览器渲染页面流程：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器的重绘和重排："><span class="nav-number">1.0.6.</span> <span class="nav-text">浏览器的重绘和重排：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何减少重排"><span class="nav-number">1.0.7.</span> <span class="nav-text">如何减少重排</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器渲染流程"><span class="nav-number">1.</span> <span class="nav-text">浏览器渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器内核："><span class="nav-number">1.0.1.</span> <span class="nav-text">浏览器内核：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的浏览器内核："><span class="nav-number">1.0.2.</span> <span class="nav-text">常见的浏览器内核：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渲染前："><span class="nav-number">1.0.3.</span> <span class="nav-text">渲染前：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器加载html页面内容的顺序："><span class="nav-number">1.0.4.</span> <span class="nav-text">浏览器加载html页面内容的顺序：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器渲染页面流程："><span class="nav-number">1.0.5.</span> <span class="nav-text">浏览器渲染页面流程：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器的重绘和重排："><span class="nav-number">1.0.6.</span> <span class="nav-text">浏览器的重绘和重排：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何减少重排"><span class="nav-number">1.0.7.</span> <span class="nav-text">如何减少重排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从url输入网址到浏览器页面加载成功所经历的完整过程"><span class="nav-number">1.0.8.</span> <span class="nav-text">从url输入网址到浏览器页面加载成功所经历的完整过程</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -761,7 +819,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

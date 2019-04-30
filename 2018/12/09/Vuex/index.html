@@ -116,10 +116,12 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="vuex 使用 Vuex 并不意味着你需要将所有的状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。   每一个应用的核心就是store（仓库）。”store”基本上就是一个容器，它包含着应用中的大部分状态（state）。  Vuex 的状">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T04:34:07.481Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/Vuex/C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1556440784735.png">
+<meta property="og:updated_time" content="2019-04-28T08:39:49.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex">
 <meta name="twitter:description" content="vuex 使用 Vuex 并不意味着你需要将所有的状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。   每一个应用的核心就是store（仓库）。”store”基本上就是一个容器，它包含着应用中的大部分状态（state）。  Vuex 的状">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/09/Vuex/C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1556440784735.png">
 
 
 
@@ -222,7 +224,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -230,7 +232,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -246,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -254,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -340,19 +342,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-12-09 12:16:43 / Updated at: 12:34:07" itemprop="dateCreated datePublished" datetime="2018-12-09T12:16:43+08:00">2018-12-09</time>
+              <time title="Created: 2018-12-09 12:16:43" itemprop="dateCreated datePublished" datetime="2018-12-09T12:16:43+08:00">2018-12-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-28 16:39:49" itemprop="dateModified" datetime="2019-04-28T16:39:49+08:00">2019-04-28</time>
               
             
           </span>
@@ -366,7 +380,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1005,7 +1019,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 </ol>
 <p>只要你遵守以上规则，如何组织代码随你便。如果你的 store 文件太大，只需将 action、mutation 和 getter 分割到单独的文件。</p>
 <p>对于大型应用，我们会希望把 Vuex 相关代码分割到模块中。下面是项目结构示例：</p>
-<pre class="line-numbers language-ba&amp;#39;sh"><code class="language-ba&amp;#39;sh">├── index.html
+<pre class="line-numbers language-shell"><code class="language-shell">├── index.html
 ├── main.js
 ├── api
 │   └── ... # 抽取出API请求
@@ -1020,6 +1034,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
         ├── cart.js       # 购物车模块
         └── products.js   # 产品模块
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><p><img src="/2018/12/09/Vuex/C:/Users\Administrator\AppData\Roaming\Typora\typora-user-images\1556440784735.png" alt="1556440784735"></p>
 
       
     </div>
@@ -1112,10 +1127,10 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -1135,8 +1150,8 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1159,7 +1174,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -1216,7 +1231,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -1251,7 +1266,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">1.</span> <span class="nav-text">vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#State"><span class="nav-number">1.0.1.</span> <span class="nav-text">State</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#在模块化开发模式中使用"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">在模块化开发模式中使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mapState辅助函数"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">mapState辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Getter"><span class="nav-number">1.0.2.</span> <span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#mapGetters辅助函数"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">mapGetters辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mutation"><span class="nav-number">1.0.3.</span> <span class="nav-text">Mutation</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提交载荷（Payload）"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">提交载荷（Payload）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对象风格的提交方式"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">对象风格的提交方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用常量替代Mutation事件类型"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">使用常量替代Mutation事件类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Mutation必须是同步函数"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">Mutation必须是同步函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中提交Mutation"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">在组件中提交Mutation</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action"><span class="nav-number">1.0.4.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分发action"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中分发action"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">在组件中分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#组合action"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">组合action</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Module"><span class="nav-number">1.0.5.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模块的局部状态"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">模块的局部状态</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#命名空间"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块重用"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">模块重用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#项目结构"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">项目结构</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">1.</span> <span class="nav-text">vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#State"><span class="nav-number">1.0.1.</span> <span class="nav-text">State</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#在模块化开发模式中使用"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">在模块化开发模式中使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mapState辅助函数"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">mapState辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Getter"><span class="nav-number">1.0.2.</span> <span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#mapGetters辅助函数"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">mapGetters辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mutation"><span class="nav-number">1.0.3.</span> <span class="nav-text">Mutation</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提交载荷（Payload）"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">提交载荷（Payload）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对象风格的提交方式"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">对象风格的提交方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用常量替代Mutation事件类型"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">使用常量替代Mutation事件类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Mutation必须是同步函数"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">Mutation必须是同步函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中提交Mutation"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">在组件中提交Mutation</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action"><span class="nav-number">1.0.4.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分发action"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中分发action"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">在组件中分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#组合action"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">组合action</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Module"><span class="nav-number">1.0.5.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模块的局部状态"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">模块的局部状态</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#命名空间"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块重用"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">模块重用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#项目结构"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">项目结构</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原理"><span class="nav-number">1.0.6.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1285,7 +1300,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
