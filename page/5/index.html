@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -285,702 +285,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/浏览器渲染流程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/11/浏览器渲染流程/" itemprop="url">
-                  浏览器渲染流程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-11 12:12:15" itemprop="dateCreated datePublished" datetime="2018-10-11T12:12:15+08:00">2018-10-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-04-27 11:14:29" itemprop="dateModified" datetime="2019-04-27T11:14:29+08:00">2019-04-27</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="浏览器渲染流程"><a href="#浏览器渲染流程" class="headerlink" title="浏览器渲染流程"></a>浏览器渲染流程</h3><h5 id="浏览器内核："><a href="#浏览器内核：" class="headerlink" title="浏览器内核："></a>浏览器内核：</h5><p>主要分成两部分：渲染引擎和JS引擎。</p>
-<p>渲染引擎：负责取得网页的内容（HTML、XML、图像等）、整理讯息（例如加入css等），以及计算机网页的显示方式，然后输出至显示器或打印机。浏览器的内核的不同对网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其他需要编辑、显示网络内容的应用程序都需要内核。</p>
-<p>JS引擎：解析和执行javascript来实现网页的动态效果。</p>
-<blockquote>
-<p>在最开始的时候渲染引擎和JS引擎并没有区分的很明显，后来JS引擎越来越独立，内核就倾向于指渲染引擎。</p>
-</blockquote>
-<h5 id="常见的浏览器内核："><a href="#常见的浏览器内核：" class="headerlink" title="常见的浏览器内核："></a>常见的浏览器内核：</h5><p>Trident内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称MSHTML]</p>
-<p>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等</p>
-<p>Presto内核：Opera7及以上。 [Opera内核原为：Presto，现为：Blink;]</p>
-<p>Webkit内核：Safari,Chrome等。 [ Chrome的：Blink（WebKit的分支）]</p>
-<h5 id="渲染前："><a href="#渲染前：" class="headerlink" title="渲染前："></a>渲染前：</h5><ol>
-<li>浏览器通过dns查找到域名映射的ip地址，成功后取得连接。</li>
-<li>浏览器通过HTTP协议向web服务器发起请求，服务器等待处理，并响应。</li>
-<li>浏览器接收到服务器返回的html页面代码，并获取服务器端静态资源相关文件如：图片等。</li>
-<li>最终渲染显示页面。</li>
-</ol>
-<h5 id="浏览器加载html页面内容的顺序："><a href="#浏览器加载html页面内容的顺序：" class="headerlink" title="浏览器加载html页面内容的顺序："></a>浏览器加载html页面内容的顺序：</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/5aa1c0da40be870480eef4f2f8b77931.png" alt=""></p>
-<p><strong>js的加载：</strong></p>
-<p>js不能并行下载和解析（阻塞下载）。</p>
-<p>当引用js的时候，浏览器发送一个js request就会一直等待该request的返回。因为浏览器需要一个稳定的DOM树结构，而js中很可能出现直接改变DOM树结构的代码，比如添加一个节点等，所以会出现加载js文件时，阻塞其他的下载和呈现。</p>
-<h5 id="浏览器渲染页面流程："><a href="#浏览器渲染页面流程：" class="headerlink" title="浏览器渲染页面流程："></a>浏览器渲染页面流程：</h5><ol>
-<li><p>解析HTML文件，创建DOM树。自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）</p>
-</li>
-<li><p>解析CSS。优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式</p>
-</li>
-<li><p>将CSS与DOM合并，构建渲染树（Render Tree）</p>
-</li>
-<li><p>布局和绘制，重绘（repaint）和重排（reflow）</p>
-</li>
-</ol>
-<h5 id="浏览器的重绘和重排："><a href="#浏览器的重绘和重排：" class="headerlink" title="浏览器的重绘和重排："></a>浏览器的重绘和重排：</h5><p>一个页面由两部分组成：</p>
-<p>DOM：描述该页面的结构</p>
-<p>render：描述 DOM 节点 (nodes) 在页面上如何呈现</p>
-<p>当 DOM 元素的属性发生变化 (如 color) 时, 浏览器会通知 render 重新描绘相应的元素, 此过程称为 repaint（重绘）。</p>
-<p>如果该次变化涉及元素布局 (如 width), 浏览器则抛弃原有属性, 重新计算并把结果传递给 render 以重新描绘页面元素, 此过程称为 reflow（重排）。</p>
-<p>这两个过程是很耗费浏览器性能的, 从 IE 系列和 Chrome 渲染页面速度上的差距即可看出渲染引擎计算对应值和呈现并不一定高效, 而每次对元素的操作都会发生 repaint 或 reflow, 因此编写 DOM 交互时如果不注意就会导致页面性能低下。</p>
-<p>页面的渲染过程如下：</p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/f339212b403299f1802345e04edc3c3e.png" alt=""></p>
-<p><strong>不管页面发生了重绘还是重排，它们都会影响性能（最可怕的是重排 ，应尽量避免）</strong></p>
-<p>下列情况会发生重排</p>
-<ul>
-<li>页面初始渲染</li>
-<li>添加/删除可见DOM元素</li>
-<li>改变元素位置</li>
-<li>改变元素尺寸（宽、高、内外边距、边框等）</li>
-<li>改变元素内容（文本或图片等）</li>
-<li>改变窗口尺寸</li>
-</ul>
-<h5 id="如何减少重排"><a href="#如何减少重排" class="headerlink" title="如何减少重排"></a>如何减少重排</h5><ol>
-<li><p>分离读写操作</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> mdiv<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>mydiv<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> dLeft<span class="token operator">=</span>mdiv<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
-mdiv<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left<span class="token operator">=</span>dLeft<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span><span class="token string">'px'</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<ol start="2">
-<li><p>样式集中改变</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div1</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div2</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*集中改变样式*/</span>
-<span class="token selector"><span class="token class">.div1</span> <span class="token class">.div2</span> <span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="3">
-<li>可以使用absolute脱离文档流</li>
-<li>使用<code>display:none</code>，不使用visibility，也不要改变它的z-index</li>
-<li>动画尽量使用css3实现</li>
-</ol>
-</li>
-</ol>
-<p><strong>重排重绘这些步骤都是在cpu中发生的。</strong></p>
-<p>在compostite Layers阶段，cpu 把生成的 BitMap（位图）传输到GPU，渲染到屏幕。 css3就是在GPU发生的：transform  opacity。</p>
-<p>在 GPU发生的属性比较高效。所以css3性能比较高。</p>
-<p>小结：</p>
-<p>渲染的三个阶段 Layout ,Paint,Composite Layers。</p>
-<p>修改不同的css属性会触发不同阶段。</p>
-<p>触发的阶段越前，渲染的代价越高。</p>
-<h5 id="从url输入网址到浏览器页面加载成功所经历的完整过程"><a href="#从url输入网址到浏览器页面加载成功所经历的完整过程" class="headerlink" title="从url输入网址到浏览器页面加载成功所经历的完整过程"></a>从url输入网址到浏览器页面加载成功所经历的完整过程</h5><ol>
-<li>DNS解析：将域名地址解析为ip地址<ul>
-<li>浏览器DNS缓存</li>
-<li>系统DNS缓存</li>
-<li>路由器DNS缓存</li>
-<li>网络运营商DNS缓存</li>
-<li>递归搜索：<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><ol>
-<li>.com域名下查找DNS解析</li>
-<li>.baidu域名下查找DNS解析</li>
-<li>www域名下查找DNS解析</li>
-<li>如果都没有解析出来，则报错</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>TCP连接：TCP三次握手<ul>
-<li>第一次握手：由浏览器发起请求到服务器，告诉服务器我将要发送请求了</li>
-<li>第二次握手：由服务器发起，告诉浏览器我准备好了，你开始发送吧</li>
-<li>第三次我握手普：由浏览器发起，告诉服务器，我准备好发送了，你准备接收吧</li>
-</ul>
-</li>
-<li>发送请求<ul>
-<li>请求报文：HTTP协议的通信内容</li>
-</ul>
-</li>
-<li>接收响应<ul>
-<li>响应报文</li>
-</ul>
-</li>
-<li>渲染页面<ul>
-<li>遇见HTML标签，浏览器调用HTML解析器解析成Token并构建DOM树</li>
-<li>遇见Style/link标记：浏览器调用css解析器，处理css标记并构建cssom树</li>
-<li>遇到script标记：调用javaScript解析器，处理script代码（绑定事件，修改dom树/cssom树）</li>
-<li>将dom树和cssom树合并成一个渲染树</li>
-<li>根据渲染树计算布局，计算每个节点的几何信息（布局）</li>
-<li>将各个节点颜色绘制到屏幕上（渲染）</li>
-</ul>
-</li>
-<li>断开连接：TCP四次挥手<ul>
-<li>第一次挥手：由浏览器发起，告诉服务器我发送结束了（请求报文），你准备关闭吧</li>
-<li>第二次挥手：由服务器发起，告诉浏览器我接收完了（请求报文），我准备关闭</li>
-<li>第三次挥手：由服务器发起，告诉浏览器我发送完了（响应报文），你准备关闭吧</li>
-<li>第四次挥手：由浏览器发起，告诉服务器我接收完了（响应报文），我准备关闭，你也关闭吧</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css性能调优/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/11/css性能调优/" itemprop="url">
-                  css性能调优
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-11 11:27:12" itemprop="dateCreated datePublished" datetime="2018-10-11T11:27:12+08:00">2018-10-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-03-10 22:21:25" itemprop="dateModified" datetime="2019-03-10T22:21:25+08:00">2019-03-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="css性能调优"><a href="#css性能调优" class="headerlink" title="css性能调优"></a>css性能调优</h3><ol>
-<li><h5 id="通过style标签的相关调优"><a href="#通过style标签的相关调优" class="headerlink" title="通过style标签的相关调优"></a>通过style标签的相关调优</h5><p>使用link标签引入css文件，而不是用@import，原因是link标签放在head标签中，在页面加载前将相关css样式渲染到浏览器，@import则在页面加载之后进行渲染。</p>
-</li>
-<li><h5 id="避免使用表达式"><a href="#避免使用表达式" class="headerlink" title="避免使用表达式"></a>避免使用表达式</h5><p>避免使用expression相关表达式。</p>
-</li>
-<li><h5 id="css缩写"><a href="#css缩写" class="headerlink" title="css缩写"></a>css缩写</h5><p>例如：margin:20px;（上下左右都设置20px）</p>
-</li>
-<li><h5 id="css声明"><a href="#css声明" class="headerlink" title="css声明"></a>css声明</h5><pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div1</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div2</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector"><span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*声明优化*/</span>
-<span class="token selector"><span class="token class">.div1</span> <span class="token class">.div2</span> <span class="token class">.div3</span></span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><h5 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h5><ol>
-<li><p>浏览器的匹配规则是：从右到左匹配查找。</p>
-</li>
-<li><p>避免过长的规则例如：div&gt;table&gt;tr&gt;td .classname等等。</p>
-</li>
-<li>避免使用：[hidden=”true”]。</li>
-<li>尽量使用继承，避免重复的样式。</li>
-</ol>
-<blockquote>
-<p>参考其他资料得到的一个效率排序：</p>
-<p>1.id选择器（#myid）<br>2.类选择器（.myclassname）<br>3.标签选择器（div,h1,p）<br>4.相邻选择器（h1+p）<br>5.子选择器（ul &lt; li）<br>6.后代选择器（li a）<br>7.通配符选择器（*）<br>8.属性选择器（a[rel=”external”]）<br>9.伪类选择器（a:hover,li:nth-child）</p>
-</blockquote>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/html块级元素、内联元素/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/11/html块级元素、内联元素/" itemprop="url">
-                  html块级元素、内联元素
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-11 10:39:05 / Updated at: 17:40:34" itemprop="dateCreated datePublished" datetime="2018-10-11T10:39:05+08:00">2018-10-11</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="html块级元素、内联元素"><a href="#html块级元素、内联元素" class="headerlink" title="html块级元素、内联元素"></a>html块级元素、内联元素</h3><p><strong>html中的元素分为两种：块级元素和内联元素。</strong></p>
-<h5 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h5><p>特点：显示在一块内，可以自动换行，元素从上到下垂直排列，各占一行。</p>
-<ol>
-<li>总是在新行上开始</li>
-<li>高度、行高、外边距、内边距可控</li>
-<li>宽度缺省，默认100%</li>
-<li>可以容纳其他的内联元素或块级元素</li>
-</ol>
-<p>常见的标签：p、ul、form、div、address等标签。</p>
-<p>块级元素一般可嵌套块级元素或者行内元素，一般作为容器出现，用来组织结构，但并不全如此。元素都有属性<code>display:block;</code></p>
-<h5 id="内联元素"><a href="#内联元素" class="headerlink" title="内联元素"></a>内联元素</h5><p>特点：元素在一行内水平排列，高度由元素的内容决定，height不起作用（可以设置line-height控制高度）。</p>
-<ol>
-<li>在同一行上边显示</li>
-<li>高度、行高、垂直方向外边距、垂直方向内边距不可改变</li>
-<li>宽度是文字或者图片的宽度，不可以改变</li>
-<li>内联元素只能容纳内联元素或文本</li>
-</ol>
-<p>常见的标签：span、input、a、sub、sup等。</p>
-<p>行内元素一般都是语义化的基本元素，内能容纳文本或其他的内联元素，元素设置属性<code>display:inline;</code></p>
-<h5 id="两者间区别："><a href="#两者间区别：" class="headerlink" title="两者间区别："></a>两者间区别：</h5><ol>
-<li>块级元素独占一行，行内不会</li>
-<li>块级元素可以设置宽高，行内不可以</li>
-<li>块级元素可以设置margin、padding，行内只能设置水平方向上的</li>
-<li>块级元素显示display:block，行内display:inline。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -1036,14 +340,14 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-10 17:04:18" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
+              <time title="Created: 2018-10-10 17:04:18" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
             
 
             
@@ -1060,7 +364,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-11 14:01:41" itemprop="dateModified" datetime="2018-10-11T14:01:41+08:00">2018-10-11</time>
+                <time title="Modified: 2018-10-11 14:01:41" itemprop="dateModified" datetime="2018-10-11T14:01:41+08:00">2018-10-11</time>
               
             
           </span>
@@ -1074,7 +378,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1252,14 +556,14 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-08 17:19:00" itemprop="dateCreated datePublished" datetime="2018-10-08T17:19:00+08:00">2018-10-08</time>
+              <time title="Created: 2018-10-08 17:19:00" itemprop="dateCreated datePublished" datetime="2018-10-08T17:19:00+08:00">2018-10-08</time>
             
 
             
@@ -1276,7 +580,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-04-27 11:18:09" itemprop="dateModified" datetime="2019-04-27T11:18:09+08:00">2019-04-27</time>
+                <time title="Modified: 2019-04-27 11:18:09" itemprop="dateModified" datetime="2019-04-27T11:18:09+08:00">2019-04-27</time>
               
             
           </span>
@@ -1290,7 +594,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1480,14 +784,14 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-08 16:34:14" itemprop="dateCreated datePublished" datetime="2018-10-08T16:34:14+08:00">2018-10-08</time>
+              <time title="Created: 2018-10-08 16:34:14" itemprop="dateCreated datePublished" datetime="2018-10-08T16:34:14+08:00">2018-10-08</time>
             
 
             
@@ -1504,7 +808,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-11 17:37:46" itemprop="dateModified" datetime="2018-10-11T17:37:46+08:00">2018-10-11</time>
+                <time title="Modified: 2018-10-11 17:37:46" itemprop="dateModified" datetime="2018-10-11T17:37:46+08:00">2018-10-11</time>
               
             
           </span>
@@ -1518,7 +822,7 @@ mdiv<span class="token punctuation">.</span>style<span class="token punctuation"
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1660,14 +964,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-06 18:25:53" itemprop="dateCreated datePublished" datetime="2018-10-06T18:25:53+08:00">2018-10-06</time>
+              <time title="Created: 2018-10-06 18:25:53" itemprop="dateCreated datePublished" datetime="2018-10-06T18:25:53+08:00">2018-10-06</time>
             
 
             
@@ -1684,7 +988,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-11 17:37:56" itemprop="dateModified" datetime="2018-10-11T17:37:56+08:00">2018-10-11</time>
+                <time title="Modified: 2018-10-11 17:37:56" itemprop="dateModified" datetime="2018-10-11T17:37:56+08:00">2018-10-11</time>
               
             
           </span>
@@ -1698,7 +1002,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1920,14 +1224,14 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-06 17:40:45" itemprop="dateCreated datePublished" datetime="2018-10-06T17:40:45+08:00">2018-10-06</time>
+              <time title="Created: 2018-10-06 17:40:45" itemprop="dateCreated datePublished" datetime="2018-10-06T17:40:45+08:00">2018-10-06</time>
             
 
             
@@ -1944,7 +1248,7 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-19 10:39:42" itemprop="dateModified" datetime="2018-10-19T10:39:42+08:00">2018-10-19</time>
+                <time title="Modified: 2018-10-19 10:39:42" itemprop="dateModified" datetime="2018-10-19T10:39:42+08:00">2018-10-19</time>
               
             
           </span>
@@ -1958,7 +1262,7 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2112,14 +1416,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-05 16:55:01" itemprop="dateCreated datePublished" datetime="2018-10-05T16:55:01+08:00">2018-10-05</time>
+              <time title="Created: 2018-10-05 16:55:01" itemprop="dateCreated datePublished" datetime="2018-10-05T16:55:01+08:00">2018-10-05</time>
             
 
             
@@ -2136,7 +1440,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-11 17:37:29" itemprop="dateModified" datetime="2018-10-11T17:37:29+08:00">2018-10-11</time>
+                <time title="Modified: 2018-10-11 17:37:29" itemprop="dateModified" datetime="2018-10-11T17:37:29+08:00">2018-10-11</time>
               
             
           </span>
@@ -2150,7 +1454,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2357,14 +1661,14 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-05 15:46:12" itemprop="dateCreated datePublished" datetime="2018-10-05T15:46:12+08:00">2018-10-05</time>
+              <time title="Created: 2018-10-05 15:46:12" itemprop="dateCreated datePublished" datetime="2018-10-05T15:46:12+08:00">2018-10-05</time>
             
 
             
@@ -2381,7 +1685,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-12-09 12:39:36" itemprop="dateModified" datetime="2018-12-09T12:39:36+08:00">2018-12-09</time>
+                <time title="Modified: 2018-12-09 12:39:36" itemprop="dateModified" datetime="2018-12-09T12:39:36+08:00">2018-12-09</time>
               
             
           </span>
@@ -2395,7 +1699,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2537,11 +1841,698 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/01/常见的排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/01/常见的排序算法/" itemprop="url">
+                  常见的排序算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-01 18:23:22" itemprop="dateCreated datePublished" datetime="2018-10-01T18:23:22+08:00">2018-10-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-10 22:33:38" itemprop="dateModified" datetime="2019-03-10T22:33:38+08:00">2019-03-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运用js实现简单的几种排序算法"><a href="#运用js实现简单的几种排序算法" class="headerlink" title="运用js实现简单的几种排序算法"></a>运用js实现简单的几种排序算法</h1><h4 id="时间复杂度排序："><a href="#时间复杂度排序：" class="headerlink" title="时间复杂度排序："></a>时间复杂度排序：</h4><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/01/9a8c68df405b4ae980c7a100d9395d26.png" alt=""></p>
+<h5 id="如何分析时间复杂度"><a href="#如何分析时间复杂度" class="headerlink" title="如何分析时间复杂度"></a>如何分析时间复杂度</h5><ol>
+<li><p>只关注循环执行次数最多的一段代码。</p>
+<blockquote>
+<p>大o这种复杂度表示方法只是表示一种变化趋势，我们通常会忽略掉公式中的常量、低阶、系数，只需要记录一个最大阶的量级就可以了。</p>
+</blockquote>
+</li>
+<li><p>加法法则：总复杂度等于量级最大的那段代码的复杂度。</p>
+</li>
+<li><p>乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积。</p>
+</li>
+</ol>
+<h5 id="最好、最坏、平均、均摊时间复杂度"><a href="#最好、最坏、平均、均摊时间复杂度" class="headerlink" title="最好、最坏、平均、均摊时间复杂度"></a>最好、最坏、平均、均摊时间复杂度</h5><ol>
+<li>最好时间复杂度：在最理想的情况下所执行代码的时间复杂度。</li>
+<li>最坏时间复杂度：在最糟糕的情况下所执行代码的时间复杂度。</li>
+<li>平均时间复杂度：加权平均时间复杂度。</li>
+<li>均摊时间复杂度：看能否将最高时间复杂度的那次操作平摊到其他那些时间复杂度比较低的操作上。一般均摊时间复杂度就等于最好情况时间复杂度。</li>
+</ol>
+<h3 id="二分查找-折半查找"><a href="#二分查找-折半查找" class="headerlink" title="二分查找(折半查找)"></a>二分查找(折半查找)</h3><blockquote>
+<p>#####算法思想：<br>    搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。<br><strong><em>注意：查找必须是大小排好序的</em></strong></p>
+</blockquote>
+<h4 id="时间复杂度：O-log2n"><a href="#时间复杂度：O-log2n" class="headerlink" title="时间复杂度：O(log2n)"></a>时间复杂度：O(log2n)</h4><h5 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">let</span> arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">erfen</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token keyword">let</span> left<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+         <span class="token keyword">let</span> right<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">;</span>
+         <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;=</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+             <span class="token keyword">let</span> mid<span class="token operator">=</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token operator">></span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 left<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 right<span class="token operator">=</span>mid<span class="token number">-1</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                 <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> res<span class="token operator">=</span><span class="token function">erfen</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'二分查找：'</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
+<p>#####算法思想：</p>
+<pre><code>1. 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+2. 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+3. 针对所有的元素重复以上的步骤，除了最后一个。
+4. 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。 
+</code></pre></blockquote>
+<h4 id="时间复杂度：O-n-2"><a href="#时间复杂度：O-n-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-1"><a href="#代码实现：-1" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">mp</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+             <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span>i<span class="token number">-1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                     <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                     arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                     arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
+                 <span class="token punctuation">}</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+         <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     res<span class="token operator">=</span><span class="token function">mp</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'冒泡排序：'</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
+<p>#####算法思想：</p>
+<pre><code>1. 选出一个基准数，一般为第一个元素。
+2. 比较后边的所有数值，大的放右边，小的放左边（也就是一趟之后，将排序的数据分成两块，一部分是比基准数都小的，一部分是比基准数都大的）。
+3. 最后分别对两块数据进行重复1、2步骤。（递归进行）。
+</code></pre></blockquote>
+<h4 id="时间复杂度：O-nlogn"><a href="#时间复杂度：O-nlogn" class="headerlink" title="时间复杂度：O(nlogn)"></a>时间复杂度：O(nlogn)</h4><h5 id="代码实现：-2"><a href="#代码实现：-2" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">kp</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">let</span> mid<span class="token operator">=</span><span class="token function">q</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">kp</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">kp</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>mid<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">q</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token operator">&amp;&amp;</span>tmp<span class="token operator">&lt;=</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//从右开始找</span>
+                right<span class="token operator">=</span>right<span class="token number">-1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//找到比基准数小的放到左边</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span>right<span class="token operator">&amp;&amp;</span>tmp<span class="token operator">>=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">//从左开始找</span>
+                left<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//找到比基准数大的放到右边</span>
+        <span class="token punctuation">}</span>
+        arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//将基准数放到中间</span>
+        <span class="token keyword">return</span> left<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">kp</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>array<span class="token punctuation">.</span>length<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'快速排序：'</span><span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><blockquote>
+<p>#####算法思想：<br>    每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，直到全部待排序的数据元素排完。 选择排序是不稳定的排序方法。</p>
+</blockquote>
+<h4 id="时间复杂度：O-n-2-1"><a href="#时间复杂度：O-n-2-1" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-3"><a href="#代码实现：-3" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">xz</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">let</span> min <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    min<span class="token operator">=</span>j<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>min<span class="token operator">!=</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">xz</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'选择排序：'</span><span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
+<p>#####算法思想：<br>    输入一个元素，检查数组列表中的每个元素，将其插入到一个已经排好序的数列中的适当位置，使数列依然有序，当最后一个元素放入合适位置时，该数组排序完毕。</p>
+</blockquote>
+<h4 id="时间复杂度：O-n-2-2"><a href="#时间复杂度：O-n-2-2" class="headerlink" title="时间复杂度：O(n^2)"></a>时间复杂度：O(n^2)</h4><h5 id="代码实现：-4"><a href="#代码实现：-4" class="headerlink" title="代码实现："></a>代码实现：</h5><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">function</span> <span class="token function">cr</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">let</span> tmp<span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">let</span> j<span class="token operator">=</span>i<span class="token number">-1</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">>=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>tmp<span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                j<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>tmp<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">cr</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'插入排序：'</span><span class="token punctuation">,</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/px、em、rem区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/27/px、em、rem区别/" itemprop="url">
+                  px、em、rem区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-27 17:19:59" itemprop="dateCreated datePublished" datetime="2018-09-27T17:19:59+08:00">2018-09-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-11 17:38:12" itemprop="dateModified" datetime="2018-10-11T17:38:12+08:00">2018-10-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="px、em、rem之间的区别"><a href="#px、em、rem之间的区别" class="headerlink" title="px、em、rem之间的区别"></a>px、em、rem之间的区别</h1><h3 id="PX"><a href="#PX" class="headerlink" title="PX"></a>PX</h3><p>px：像素。是相对长度单位，相对于当前显示器屏幕分辨率而言的。</p>
+<h5 id="px特点"><a href="#px特点" class="headerlink" title="px特点"></a>px特点</h5><ol>
+<li>大部分浏览器无法做到调整使用px作为单位的字体大小。</li>
+<li>国外大部分网站使用em或者rem作为字体单位。</li>
+</ol>
+<h3 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h3><p>em：是相对长度单位。相对于当前对象内文本的字体尺寸，如当前对行内文本的尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
+<h5 id="em特点"><a href="#em特点" class="headerlink" title="em特点"></a>em特点</h5><ol>
+<li>em的值并不是固定的。</li>
+<li>em会继承父元素的字体大小。</li>
+</ol>
+<blockquote>
+<p><em>注意：任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px\</em>62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。*<br>所以我们在写CSS的时候，需要注意两点：   </p>
+<ol>
+<li>body选择器中声明Font-size=62.5%;</li>
+<li>将你的原来的px数值除以10，然后换上em作为单位;</li>
+<li>重新计算那些被放大的字体的em数值，避免字体大小的重复声明。<br><em>也就是避免1.2\</em>1.2=1.44的现象。（因为em汇集成父元素的字体大小）举个例子来说：比如说你在父元素中声明了字体大小为1.2em，那么在声明父元素内部的字体大小时，只能使用1em，而不是1.2em，以为当前的1em就代表的父元素声明的1.2em，也就是1em=1.2px。*</li>
+</ol>
+</blockquote>
+<h3 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h3><p>rem：css3新增的一个相对单位(root em)，这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓是集相对大小与绝对大小的优点与一身，可以通过只是修改根元素就成比例的调整页面的所有字体大小，又可以避免字体大小逐层符合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。<br>例如：<code>p{font-size:14px;font-size:0.875rem;}</code></p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector">html </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">62.5%</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*10 ÷ 16 × 100% = 62.5%*/</span><span class="token punctuation">}</span>
+<span class="token selector">body </span><span class="token punctuation">{</span><span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">1.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*1.4 × 10px = 14px */</span><span class="token punctuation">}</span>
+<span class="token selector">h1 </span><span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">2.4</span>rem<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/*2.4 × 10px = 24px*/</span><span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="如何选择字体单位"><a href="#如何选择字体单位" class="headerlink" title="如何选择字体单位"></a>如何选择字体单位</h4><ol>
+<li>对于一般的只需要适配少部分设备的网页来说，使用px就可以解决。</li>
+<li>对于需要适配多种设备的网页，使用rem，特别是分辨率差别比较大的。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/你好，潘君毅/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/25/你好，潘君毅/" itemprop="url">
+                  使用Hexo+Github搭建属于自己的博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-25 17:11:08" itemprop="dateCreated datePublished" datetime="2018-09-25T17:11:08+08:00">2018-09-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-11 17:38:25" itemprop="dateModified" datetime="2018-10-11T17:38:25+08:00">2018-10-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="使用Hexo-Github搭建属于自己的博客"><a href="#使用Hexo-Github搭建属于自己的博客" class="headerlink" title="使用Hexo+Github搭建属于自己的博客"></a>使用Hexo+Github搭建属于自己的博客</h1><h5 id="1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功"><a href="#1-安装Node-js和配置好Node-js环境，打开cmd命令行，输入一下命令查看安装是否成功" class="headerlink" title="1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功"></a>1.安装Node.js和配置好Node.js环境，打开cmd命令行，输入一下命令查看安装是否成功</h5><p><code>node -v</code><br><code>npm -v</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/b8d6706040d9ab598087e7c4a291315c.png" alt=""></p>
+<h5 id="2-安装Git环境"><a href="#2-安装Git环境" class="headerlink" title="2.安装Git环境"></a>2.安装Git环境</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1c358a084065a55f8028d9539dc1c22d.png" alt=""><br><strong><em>注意:</em></strong>一般为了安全考虑，只有在Git Bash Here中才能进行Git的相关操作。<br><code>git --version</code>查看是否配置成功</p>
+<h5 id="3-登陆Github账号，新建项目：账户名-github-io"><a href="#3-登陆Github账号，新建项目：账户名-github-io" class="headerlink" title="3.登陆Github账号，新建项目：账户名.github.io"></a>3.登陆Github账号，新建项目：账户名.github.io</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/87c8b71a404cbce3800d7150d62e3572.png" alt=""><br>项目建好后，可以访问<a href="#">https://用户名.github.io/</a></p>
+<h5 id="4-安装Hexo，新建blog目录，在当前目录下命令行中执行："><a href="#4-安装Hexo，新建blog目录，在当前目录下命令行中执行：" class="headerlink" title="4.安装Hexo，新建blog目录，在当前目录下命令行中执行："></a>4.安装Hexo，新建blog目录，在当前目录下命令行中执行：</h5><p><code>npm install hexo -g</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/0a07ba0c40de774980cb892145452fea.png" alt=""><br>之后输入:<code>hexo -v</code>查看版本<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/7b48d7ea40865e3d801a612431c2226f.png" alt=""><br>初始化该文件夹<code>hexo init</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/437fc07240469c578002a18d7c179695.png" alt=""><br>接着<code>npm install</code>，安装相关组件<br>输入<code>hexo g</code><br>输入<code>hexo s</code>，开启服务器，访问该网址，正式体验Hexo<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/5c56223d40e8e14e80409b9863cc9563.png" alt=""><br>如果成功，则显示：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/76e9c5364021748380332bcda0314c0e.png" alt=""></p>
+<h5 id="5-接下来配置ssh，首先配置Git，打开Git-Bash-Here"><a href="#5-接下来配置ssh，首先配置Git，打开Git-Bash-Here" class="headerlink" title="5.接下来配置ssh，首先配置Git，打开Git Bash Here"></a>5.接下来配置ssh，首先配置Git，打开Git Bash Here</h5><ol>
+<li>设置用户名：<br><code>git config --global user.name &#39;用户名&#39;</code></li>
+<li>设置用户邮箱<br><code>git config --global user.email &#39;user@163.com&#39;</code></li>
+<li>查看设置<br><code>git config --list</code><br>查看C:\Users\Administrator.ssh是否存在<br>不存在输入：<code>ssh-keygen -t rsa -C &quot;user@163.com&quot;</code>回车生成密钥<br><code>cd ~/.ssh</code><br><code>ls</code><br>可以看到两个文件：id_rsa和id_rsa.pub<br>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>,添加密钥到ssh-agent<br>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的ssh key到ssh-agent<br>之后登录Github，点击头像，选择头像下的settings，添加ssh<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/6ba821354070efd88095cc946e5f084f.png" alt=""><br>新建一个new ssh key，将id_rsa.pub文件里的内容复制到Key中<br>输入<code>ssh -T git@github.com</code>，测试添加的ssh是否成功，如果看到Hi你的用户名，则表示成功了。<br>如果出错ssh: connect to host github.com port 22: Connection timed out<br>需要在C:\Users\Administrator.ssh目录下配置config文件，输入<br><code>touch config</code><br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/d082fa4140ed737780aa3a6599da6a8f.png" alt=""><br>内容为：<pre class="line-numbers language-javascipt"><code class="language-javascipt">Host github.com  
+User user@163.com  
+Hostname ssh.github.com  
+PreferredAuthentications publickey  
+IdentityFile ~/.ssh/id_rsa  
+Port 443
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<strong><em>user为用户邮箱</em></strong><br>在项目目录下找到_config.yml文件，在末尾修改<pre class="line-numbers language-javascipt"><code class="language-javascipt">deploy:
+type: git
+repository: 你自己的github项目里的ssh
+branch: master
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+repository的值：<br><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/09/25/1be67f4740ae60fa8083591da8f65bfa.png" alt=""></li>
+</ol>
+<h5 id="6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot"><a href="#6-新建一篇博客，在cmd执行命令：hexo-new-post-quot-博客名-quot" class="headerlink" title="6.新建一篇博客，在cmd执行命令：hexo new post &quot;博客名&quot;"></a>6.新建一篇博客，在cmd执行命令：<code>hexo new post &quot;博客名&quot;</code></h5><p>在文件夹——posts目录下可以看到</p>
+<p>在生成以及部署文章之前，需要安装一个扩展：<code>npm install hexo-deployer-git --save</code><br>使用编辑器编好文章，那么就可以使用命令：<code>hexo d -g</code>，生成以及部署了<br>部署成功后访问你的地址：http://用户名.github.io。那么将看到生成的文章</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
 
@@ -2583,8 +2574,8 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">53</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -2607,7 +2598,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -2664,7 +2655,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -2717,7 +2708,7 @@ Dog<span class="token punctuation">.</span>prototype<span class="token punctuati
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
