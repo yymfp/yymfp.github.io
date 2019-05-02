@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -285,266 +285,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/git使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/19/git使用/" itemprop="url">
-                  git使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-19 11:38:39" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-01 17:03:54" itemprop="dateModified" datetime="2019-05-01T17:03:54+08:00">2019-05-01</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h3><h5 id="安装完成后"><a href="#安装完成后" class="headerlink" title="安装完成后"></a>安装完成后</h5><p>打开命令行窗口或（终端）</p>
-<p><strong>设置用户名</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.name 'username'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>设置用户邮箱</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --global user.email 'user@163.com'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>查看设置</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git config --list
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>注意：<code>git config --global</code>参数设置后，表明这台机器上的所有Git仓库都会使用这个配置，当然也可以指定某个仓库设置不同的用户名邮箱</em></p>
-<h5 id="创建仓库（repository）"><a href="#创建仓库（repository）" class="headerlink" title="创建仓库（repository）"></a>创建仓库（repository）</h5><p>什么是仓库：你可以将其理解为一个简单的目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除、Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以还原。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">mkdir newRep
-cd newRep
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>创建完仓库后</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git init //将这个目录变成Git可以管理的仓库
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><strong>将需要上传的文件放到当前文件夹下</strong></p>
-<ol>
-<li><p>工作区：就是当前的文件目录，在工作去有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库。</p>
-<p>git的版本库</p>
-</li>
-<li><p>暂存区</p>
-</li>
-<li><p>仓库</p>
-</li>
-</ol>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/19/d3c801894031d80480e26efe7008a949.png" alt=""></p>
-<p><strong>将文件添加到暂存区</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git add filename1.txt
-git add filename2.txt filename3.txt
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>将文件提交到仓库</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git commit -m '描述信息'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>多次使用<code>add</code>添加多个文件，<code>commit</code>可以一次提交多个文件</em></p>
-<p><strong>查看仓库当前状态</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git status    //可以查看需要上传的文件是否修改了
-git diff filename.txt  //查看修改后的文件与之前的文件的不同之处
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><em>修改后的文件上传的话，需要重新进行<code>add</code>和<code>commit</code></em></p>
-<h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><p><strong>查看提交历史</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git log
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>在git中，用<code>HEAD</code>表示当前版本，上一个版本就是    <code>HEAD^</code>，上上个版本就是<code>HEAD^^</code>，当然往上100个版本不可能写100个^，可以写成<code>HEAD~100</code></em></p>
-<p><strong>回到上个版本中</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git reset --hard HEAD^    //使用git reset命令可以回退版本
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em><code>HEAD</code>也可以是通过<code>git log</code>命令查看到的每次提交的id，这样就可以在不同的版本之间来回的切换了。</em></p>
-<pre class="line-numbers language-shell"><code class="language-shell">git reflog //用来记录你的每一次命令
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h5><pre class="line-numbers language-shell"><code class="language-shell">git checkout -- readme.txt
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>意思就是，把<code>readme.txt</code>文件在工作区的修改全部撤销，这里有两种情况：</p>
-<p>一种是<code>readme.txt</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
-<p>一种是<code>readme.txt</code>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
-<p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
-<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
-<h5 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h5><pre class="line-numbers language-shell"><code class="language-shell">git rm filename.txt 
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h5><p><strong>首先创建SSH Key。</strong></p>
-<p>在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">ssh-keygen -t rsa -C "youremail@example.com"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。</p>
-<p>如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
-<p>第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：</p>
-<p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容</p>
-<h5 id="将本地仓库内容推送到GitHub仓库中"><a href="#将本地仓库内容推送到GitHub仓库中" class="headerlink" title="将本地仓库内容推送到GitHub仓库中"></a>将本地仓库内容推送到GitHub仓库中</h5><pre class="line-numbers language-shell"><code class="language-shell">git remote add origin git@github.com:yymfp/blog.git  //关联远程库  yymfp改成自己的GitHub用户名
-git push -u origin master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><em>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</em></p>
-<p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p>
-<p>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；</p>
-<p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
-<p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！</p>
-<h5 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h5><pre class="line-numbers language-shell"><code class="language-shell">git clone git@github.com:yymfp/仓库名.git
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em>GitHub给出的地址不止一个，还可以用<code>https://github.com/michaelliao/gitskills.git</code>这样的地址。实际上，Git支持多种协议，默认的<code>git://</code>使用ssh，但也可以使用<code>https</code>等其他协议。</em></p>
-<p><em>使用<code>https</code>除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用<code>ssh</code>协议而只能用<code>https</code>。</em></p>
-<h5 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h5><p>创建新的分支：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git checkout -b dev 
-Switched to a new branch 'dev'
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><code>git checkout</code>命令加上<code>-b</code>表示创建并切换，相当于以下两条命令：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git branch dev
-git checkout dev
-Switched to branch 'dev'
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>然后<code>git branch</code>查看当前分支</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -600,14 +340,14 @@ Switched to branch 'dev'
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
+              <time title="Post created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
             
 
             
@@ -624,7 +364,7 @@ Switched to branch 'dev'
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 17:07:06" itemprop="dateModified" datetime="2019-05-01T17:07:06+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 17:07:06" itemprop="dateModified" datetime="2019-05-01T17:07:06+08:00">2019-05-01</time>
               
             
           </span>
@@ -638,7 +378,7 @@ Switched to branch 'dev'
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -856,14 +596,14 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-18 13:19:20 / Modified: 17:40:00" itemprop="dateCreated datePublished" datetime="2018-10-18T13:19:20+08:00">2018-10-18</time>
+              <time title="Post created: 2018-10-18 13:19:20 / Updated at: 17:40:00" itemprop="dateCreated datePublished" datetime="2018-10-18T13:19:20+08:00">2018-10-18</time>
             
 
             
@@ -882,7 +622,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1024,14 +764,14 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-16 17:53:00" itemprop="dateCreated datePublished" datetime="2018-10-16T17:53:00+08:00">2018-10-16</time>
+              <time title="Post created: 2018-10-16 17:53:00" itemprop="dateCreated datePublished" datetime="2018-10-16T17:53:00+08:00">2018-10-16</time>
             
 
             
@@ -1048,7 +788,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-18 14:00:28" itemprop="dateModified" datetime="2018-10-18T14:00:28+08:00">2018-10-18</time>
+                <time title="Updated at: 2018-10-18 14:00:28" itemprop="dateModified" datetime="2018-10-18T14:00:28+08:00">2018-10-18</time>
               
             
           </span>
@@ -1062,7 +802,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
@@ -1391,14 +1131,14 @@ tree<span class="token punctuation">.</span><span class="token function">removeK
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-16 17:11:56" itemprop="dateCreated datePublished" datetime="2018-10-16T17:11:56+08:00">2018-10-16</time>
+              <time title="Post created: 2018-10-16 17:11:56" itemprop="dateCreated datePublished" datetime="2018-10-16T17:11:56+08:00">2018-10-16</time>
             
 
             
@@ -1415,7 +1155,7 @@ tree<span class="token punctuation">.</span><span class="token function">removeK
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-18 13:17:33" itemprop="dateModified" datetime="2018-10-18T13:17:33+08:00">2018-10-18</time>
+                <time title="Updated at: 2018-10-18 13:17:33" itemprop="dateModified" datetime="2018-10-18T13:17:33+08:00">2018-10-18</time>
               
             
           </span>
@@ -1429,7 +1169,7 @@ tree<span class="token punctuation">.</span><span class="token function">removeK
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1663,14 +1403,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-16 12:43:15" itemprop="dateCreated datePublished" datetime="2018-10-16T12:43:15+08:00">2018-10-16</time>
+              <time title="Post created: 2018-10-16 12:43:15" itemprop="dateCreated datePublished" datetime="2018-10-16T12:43:15+08:00">2018-10-16</time>
             
 
             
@@ -1687,7 +1427,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 17:06:49" itemprop="dateModified" datetime="2019-05-01T17:06:49+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 17:06:49" itemprop="dateModified" datetime="2019-05-01T17:06:49+08:00">2019-05-01</time>
               
             
           </span>
@@ -1701,7 +1441,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
@@ -1931,14 +1671,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-12 13:17:17" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
+              <time title="Post created: 2018-10-12 13:17:17" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
             
 
             
@@ -1955,7 +1695,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-18 13:59:53" itemprop="dateModified" datetime="2018-10-18T13:59:53+08:00">2018-10-18</time>
+                <time title="Updated at: 2018-10-18 13:59:53" itemprop="dateModified" datetime="2018-10-18T13:59:53+08:00">2018-10-18</time>
               
             
           </span>
@@ -1969,7 +1709,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2247,14 +1987,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 18:51:38" itemprop="dateCreated datePublished" datetime="2018-10-11T18:51:38+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 18:51:38" itemprop="dateCreated datePublished" datetime="2018-10-11T18:51:38+08:00">2018-10-11</time>
             
 
             
@@ -2271,7 +2011,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 17:03:25" itemprop="dateModified" datetime="2019-05-01T17:03:25+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 17:03:25" itemprop="dateModified" datetime="2019-05-01T17:03:25+08:00">2019-05-01</time>
               
             
           </span>
@@ -2285,7 +2025,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2819,14 +2559,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 17:58:23" itemprop="dateCreated datePublished" datetime="2018-10-11T17:58:23+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 17:58:23" itemprop="dateCreated datePublished" datetime="2018-10-11T17:58:23+08:00">2018-10-11</time>
             
 
             
@@ -2843,7 +2583,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 17:03:38" itemprop="dateModified" datetime="2019-05-01T17:03:38+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 17:03:38" itemprop="dateModified" datetime="2019-05-01T17:03:38+08:00">2019-05-01</time>
               
             
           </span>
@@ -2857,7 +2597,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3044,14 +2784,14 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-11 14:01:39" itemprop="dateCreated datePublished" datetime="2018-10-11T14:01:39+08:00">2018-10-11</time>
+              <time title="Post created: 2018-10-11 14:01:39" itemprop="dateCreated datePublished" datetime="2018-10-11T14:01:39+08:00">2018-10-11</time>
             
 
             
@@ -3068,7 +2808,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 17:04:03" itemprop="dateModified" datetime="2019-05-01T17:04:03+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 17:04:03" itemprop="dateModified" datetime="2019-05-01T17:04:03+08:00">2019-05-01</time>
               
             
           </span>
@@ -3082,7 +2822,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3302,6 +3042,311 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/浏览器渲染流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/浏览器渲染流程/" itemprop="url">
+                  浏览器渲染流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-11 12:12:15" itemprop="dateCreated datePublished" datetime="2018-10-11T12:12:15+08:00">2018-10-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-04-27 11:14:29" itemprop="dateModified" datetime="2019-04-27T11:14:29+08:00">2019-04-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="浏览器渲染流程"><a href="#浏览器渲染流程" class="headerlink" title="浏览器渲染流程"></a>浏览器渲染流程</h3><h5 id="浏览器内核："><a href="#浏览器内核：" class="headerlink" title="浏览器内核："></a>浏览器内核：</h5><p>主要分成两部分：渲染引擎和JS引擎。</p>
+<p>渲染引擎：负责取得网页的内容（HTML、XML、图像等）、整理讯息（例如加入css等），以及计算机网页的显示方式，然后输出至显示器或打印机。浏览器的内核的不同对网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其他需要编辑、显示网络内容的应用程序都需要内核。</p>
+<p>JS引擎：解析和执行javascript来实现网页的动态效果。</p>
+<blockquote>
+<p>在最开始的时候渲染引擎和JS引擎并没有区分的很明显，后来JS引擎越来越独立，内核就倾向于指渲染引擎。</p>
+</blockquote>
+<h5 id="常见的浏览器内核："><a href="#常见的浏览器内核：" class="headerlink" title="常见的浏览器内核："></a>常见的浏览器内核：</h5><p>Trident内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称MSHTML]</p>
+<p>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等</p>
+<p>Presto内核：Opera7及以上。 [Opera内核原为：Presto，现为：Blink;]</p>
+<p>Webkit内核：Safari,Chrome等。 [ Chrome的：Blink（WebKit的分支）]</p>
+<h5 id="渲染前："><a href="#渲染前：" class="headerlink" title="渲染前："></a>渲染前：</h5><ol>
+<li>浏览器通过dns查找到域名映射的ip地址，成功后取得连接。</li>
+<li>浏览器通过HTTP协议向web服务器发起请求，服务器等待处理，并响应。</li>
+<li>浏览器接收到服务器返回的html页面代码，并获取服务器端静态资源相关文件如：图片等。</li>
+<li>最终渲染显示页面。</li>
+</ol>
+<h5 id="浏览器加载html页面内容的顺序："><a href="#浏览器加载html页面内容的顺序：" class="headerlink" title="浏览器加载html页面内容的顺序："></a>浏览器加载html页面内容的顺序：</h5><p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/5aa1c0da40be870480eef4f2f8b77931.png" alt=""></p>
+<p><strong>js的加载：</strong></p>
+<p>js不能并行下载和解析（阻塞下载）。</p>
+<p>当引用js的时候，浏览器发送一个js request就会一直等待该request的返回。因为浏览器需要一个稳定的DOM树结构，而js中很可能出现直接改变DOM树结构的代码，比如添加一个节点等，所以会出现加载js文件时，阻塞其他的下载和呈现。</p>
+<h5 id="浏览器渲染页面流程："><a href="#浏览器渲染页面流程：" class="headerlink" title="浏览器渲染页面流程："></a>浏览器渲染页面流程：</h5><ol>
+<li><p>解析HTML文件，创建DOM树。自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）</p>
+</li>
+<li><p>解析CSS。优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式</p>
+</li>
+<li><p>将CSS与DOM合并，构建渲染树（Render Tree）</p>
+</li>
+<li><p>布局和绘制，重绘（repaint）和重排（reflow）</p>
+</li>
+</ol>
+<h5 id="浏览器的重绘和重排："><a href="#浏览器的重绘和重排：" class="headerlink" title="浏览器的重绘和重排："></a>浏览器的重绘和重排：</h5><p>一个页面由两部分组成：</p>
+<p>DOM：描述该页面的结构</p>
+<p>render：描述 DOM 节点 (nodes) 在页面上如何呈现</p>
+<p>当 DOM 元素的属性发生变化 (如 color) 时, 浏览器会通知 render 重新描绘相应的元素, 此过程称为 repaint（重绘）。</p>
+<p>如果该次变化涉及元素布局 (如 width), 浏览器则抛弃原有属性, 重新计算并把结果传递给 render 以重新描绘页面元素, 此过程称为 reflow（重排）。</p>
+<p>这两个过程是很耗费浏览器性能的, 从 IE 系列和 Chrome 渲染页面速度上的差距即可看出渲染引擎计算对应值和呈现并不一定高效, 而每次对元素的操作都会发生 repaint 或 reflow, 因此编写 DOM 交互时如果不注意就会导致页面性能低下。</p>
+<p>页面的渲染过程如下：</p>
+<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/f339212b403299f1802345e04edc3c3e.png" alt=""></p>
+<p><strong>不管页面发生了重绘还是重排，它们都会影响性能（最可怕的是重排 ，应尽量避免）</strong></p>
+<p>下列情况会发生重排</p>
+<ul>
+<li>页面初始渲染</li>
+<li>添加/删除可见DOM元素</li>
+<li>改变元素位置</li>
+<li>改变元素尺寸（宽、高、内外边距、边框等）</li>
+<li>改变元素内容（文本或图片等）</li>
+<li>改变窗口尺寸</li>
+</ul>
+<h5 id="如何减少重排"><a href="#如何减少重排" class="headerlink" title="如何减少重排"></a>如何减少重排</h5><ol>
+<li><p>分离读写操作</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> mdiv<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>mydiv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> dLeft<span class="token operator">=</span>mdiv<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+mdiv<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left<span class="token operator">=</span>dLeft<span class="token operator">+</span><span class="token number">1</span><span class="token operator">+</span><span class="token string">'px'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<ol start="2">
+<li><p>样式集中改变</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div1</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.div2</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.div3</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*集中改变样式*/</span>
+<span class="token selector"><span class="token class">.div1</span> <span class="token class">.div2</span> <span class="token class">.div3</span></span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">200</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>可以使用absolute脱离文档流</li>
+<li>使用<code>display:none</code>，不使用visibility，也不要改变它的z-index</li>
+<li>动画尽量使用css3实现</li>
+</ol>
+</li>
+</ol>
+<p><strong>重排重绘这些步骤都是在cpu中发生的。</strong></p>
+<p>在compostite Layers阶段，cpu 把生成的 BitMap（位图）传输到GPU，渲染到屏幕。 css3就是在GPU发生的：transform  opacity。</p>
+<p>在 GPU发生的属性比较高效。所以css3性能比较高。</p>
+<p>小结：</p>
+<p>渲染的三个阶段 Layout ,Paint,Composite Layers。</p>
+<p>修改不同的css属性会触发不同阶段。</p>
+<p>触发的阶段越前，渲染的代价越高。</p>
+<h5 id="从url输入网址到浏览器页面加载成功所经历的完整过程"><a href="#从url输入网址到浏览器页面加载成功所经历的完整过程" class="headerlink" title="从url输入网址到浏览器页面加载成功所经历的完整过程"></a>从url输入网址到浏览器页面加载成功所经历的完整过程</h5><ol>
+<li>DNS解析：将域名地址解析为ip地址<ul>
+<li>浏览器DNS缓存</li>
+<li>系统DNS缓存</li>
+<li>路由器DNS缓存</li>
+<li>网络运营商DNS缓存</li>
+<li>递归搜索：<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><ol>
+<li>.com域名下查找DNS解析</li>
+<li>.baidu域名下查找DNS解析</li>
+<li>www域名下查找DNS解析</li>
+<li>如果都没有解析出来，则报错</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>TCP连接：TCP三次握手<ul>
+<li>第一次握手：由浏览器发起请求到服务器，告诉服务器我将要发送请求了</li>
+<li>第二次握手：由服务器发起，告诉浏览器我准备好了，你开始发送吧</li>
+<li>第三次我握手普：由浏览器发起，告诉服务器，我准备好发送了，你准备接收吧</li>
+</ul>
+</li>
+<li>发送请求<ul>
+<li>请求报文：HTTP协议的通信内容</li>
+</ul>
+</li>
+<li>接收响应<ul>
+<li>响应报文</li>
+</ul>
+</li>
+<li>渲染页面<ul>
+<li>遇见HTML标签，浏览器调用HTML解析器解析成Token并构建DOM树</li>
+<li>遇见Style/link标记：浏览器调用css解析器，处理css标记并构建cssom树</li>
+<li>遇到script标记：调用javaScript解析器，处理script代码（绑定事件，修改dom树/cssom树）</li>
+<li>将dom树和cssom树合并成一个渲染树</li>
+<li>根据渲染树计算布局，计算每个节点的几何信息（布局）</li>
+<li>将各个节点颜色绘制到屏幕上（渲染）</li>
+</ul>
+</li>
+<li>断开连接：TCP四次挥手<ul>
+<li>第一次挥手：由浏览器发起，告诉服务器我发送结束了（请求报文），你准备关闭吧</li>
+<li>第二次挥手：由服务器发起，告诉浏览器我接收完了（请求报文），我准备关闭</li>
+<li>第三次挥手：由服务器发起，告诉浏览器我发送完了（响应报文），你准备关闭吧</li>
+<li>第四次挥手：由浏览器发起，告诉服务器我接收完了（响应报文），我准备关闭，你也关闭吧</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -3348,8 +3393,8 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">53</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -3372,7 +3417,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -3429,7 +3474,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -3482,7 +3527,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

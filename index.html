@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -340,14 +340,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-01 12:57:19 / Modified: 16:55:03" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:19+08:00">2019-05-01</time>
+              <time title="Post created: 2019-05-01 12:57:19 / Updated at: 16:55:03" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:19+08:00">2019-05-01</time>
             
 
             
@@ -366,7 +366,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -458,488 +458,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/ES6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/01/ES6/" itemprop="url">
-                  ES6
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-01 12:57:05" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:05+08:00">2019-05-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-02 20:23:37" itemprop="dateModified" datetime="2019-05-02T20:23:37+08:00">2019-05-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="ES6新增语法"><a href="#ES6新增语法" class="headerlink" title="ES6新增语法"></a>ES6新增语法</h3><ol>
-<li><p>新增关键字</p>
-<ul>
-<li><p>let：作用与var类似，用于声明变量。</p>
-<p>特点：</p>
-<ol>
-<li><p>在块级作用域内有效。</p>
-</li>
-<li><p>不能重复声明。</p>
-</li>
-<li><p>不会预处理，不存在变量提升。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">var</span> btn <span class="token operator">=</span> btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//属于回掉函数，在主线程执行结束后，点击触发时，此时i为btns.length-1</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//所有的打印结果都为btns.length-1</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//可以通过立即执行函数来解决（闭包的原理）</span>
-<span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> btn <span class="token operator">=</span> btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//打印出来为数组的下标对应</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//let有自己的块级作用域，可以通过let来控制循环</span>
-<span class="token keyword">let</span> btns <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>btns<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> btn <span class="token operator">=</span> btns<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    btn<span class="token punctuation">.</span>onclick <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>const：作用是定义一个常量。</p>
-<p>特点：</p>
-<ol>
-<li>不能修改</li>
-<li>其他的特点同let</li>
-</ol>
-<p>主要应用于保存不变的数据。</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>变量的解构赋值</p>
-<ul>
-<li><p>从对象或数组中提取数据，并赋值给变量（多个）。</p>
-</li>
-<li><p>对象的解构赋值。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> <span class="token punctuation">{</span>n<span class="token punctuation">,</span>a<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span>n<span class="token punctuation">:</span><span class="token string">'123'</span><span class="token punctuation">,</span>a<span class="token punctuation">:</span><span class="token string">'456'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'123'</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'456'</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>数组的解构赋值。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'aaa'</span><span class="token punctuation">,</span><span class="token string">'bbb'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'aaa'</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'bbb'</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>用途：给多个形参赋值。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>username<span class="token punctuation">:</span><span class="token string">'zhangsan'</span><span class="token punctuation">,</span>age<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>username<span class="token punctuation">,</span>age<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>username<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">foo</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-<li><p>模板字符串</p>
-<ul>
-<li><p>简化字符串的拼接</p>
-</li>
-<li><p>模板字符串必须用<code></code>包含</p>
-</li>
-<li><p>变量的部分使用${xxx}定义</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token string">`http://www.getUser.com?username=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-<li><p>简化的对象写法</p>
-<ul>
-<li><p>省略同名的属性值</p>
-</li>
-<li><p>省略方法的function</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
-    x<span class="token punctuation">,</span>
-    y<span class="token punctuation">,</span>
-    getX <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-<li><p>箭头函数</p>
-<ul>
-<li><p>作用：定义匿名函数</p>
-</li>
-<li><p>基本语法：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//没有参数：</span>
-<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'xxx'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//一个参数：</span>
-i <span class="token operator">=</span><span class="token operator">></span> i<span class="token operator">+</span><span class="token number">2</span>
-<span class="token comment" spellcheck="true">//多个参数：</span>
-<span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> i<span class="token operator">+</span>j
-<span class="token comment" spellcheck="true">//函数体不用大括号：默认返回结果</span>
-<span class="token comment" spellcheck="true">//函数体若有多条语句，需要使用{}包裹起来，若需要返回内容，则需要手动return</span>
-<span class="token comment" spellcheck="true">//箭头函数多用来定义回调函数</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>特点：</p>
-<ol>
-<li>简洁。</li>
-<li>箭头函数没有自己的this，箭头函数内部使用的this不是调用的时候决定的，而是在定义的时候。</li>
-<li>如何分辨箭头函数的this：箭头函数的this看外层是否有函数，如果有，外层函数的this就是箭头函数内部的this，如果没有，则this指向window。</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>三点运算符</p>
-<ul>
-<li><p>用途：可变参数用来取代arguments，但比arguments灵活，只能时最后部分形参参数。</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token operator">...</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//arguments是伪数组，不具备数组的一般方法，例如forEach方法等。</span>
-    <span class="token comment" spellcheck="true">//arguments.forEach(function(item, index) { //报错</span>
-     <span class="token comment" spellcheck="true">//   console.log(item,index);</span>
-    <span class="token comment" spellcheck="true">//})</span>
-    values<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token function">fun</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>扩展运算符</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arr1<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//[1,2,3,4,5,6]</span>
-<span class="token comment" spellcheck="true">//或者</span>
-arr2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-<li><p>形参默认值</p>
-<ul>
-<li><p>当不传入参数时，默认使用形式参数的默认值</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Point</span><span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-<li><p>Promise对象</p>
-<ul>
-<li><p>作用：代表了未来某个将要发生的事件（通常是一个异步操作）</p>
-</li>
-<li><p>有了Promise对象，可以将异步操作以同步的流程表达出来，避免了层层嵌套的回调函数（俗称’回调地狱’）</p>
-</li>
-<li><p>ES6的Promise是一个构造函数，用来生成promise实例</p>
-</li>
-<li><p>使用Promise基本步骤：</p>
-<ol>
-<li><p>创建promise对象</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//初始化promise状态为pending</span>
-    <span class="token comment" spellcheck="true">//执行异步操作</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>异步操作成功<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">resolve</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//修改promise的状态为fullfilled</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token function">reject</span><span class="token punctuation">(</span>errMsg<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//修改promise的状态为rejected</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>调用promise的then()</p>
-<pre class="line-numbers language-js"><code class="language-js">promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">//成功时处理  </span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">(</span>reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//失败时处理</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>promise对象的三个状态</p>
-<ul>
-<li>pending：初始化状态</li>
-<li>fullfilled：成功状态</li>
-<li>rejected：失败状态</li>
-</ul>
-</li>
-<li><p>应用：</p>
-<ul>
-<li>使用promise实现超时处理</li>
-<li>使用promise封装处理ajax请求</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>Symbol</p>
-<ul>
-<li><p>前言：ES5中对象的属性名都是字符串，容易造成重名，污染环境</p>
-</li>
-<li><p>Symbol属于ES6新添加的原始数据类型。已有的原始数据类型（String，Number，bollean,null,undefined,Object）</p>
-</li>
-<li><p>特点：</p>
-<ol>
-<li>Symbol属性对应的值是唯一的，解决命名冲突问题</li>
-<li>Symbol值不能与其他数据进行计算，包括同字符串拼串</li>
-<li>for in，for of遍历时不会遍历symbol属性</li>
-</ol>
-</li>
-<li><p>使用：</p>
-<ol>
-<li><p>调用Symbol函数得到Symbol值</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> symbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-obj<span class="token punctuation">[</span>symbol<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'hello'</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>传参标识</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> symbol1 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> symbol2 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'two'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>symbol1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Symbol('one')</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>symbol2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Symbol('two')</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>内置Symbol值</p>
-<ul>
-<li>除了定义自己使用的Symbol值以外，ES6还提供了11个内置的Symbol值，指向语言内部使用的方法</li>
-<li>Symbol.iterator<ul>
-<li>对象的Symbol.iterator属性，指向该对象的默认遍历器方法</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>iterator</p>
-<ul>
-<li><p>概念：iterator是一种接口机制，为各种不同的数据结构提供统一的访问机制</p>
-</li>
-<li><p>作用：</p>
-<ol>
-<li>为各种数据结构，提供统一的，简便的访问接口</li>
-<li>使得数据结构的成员能够按某种次序排列</li>
-<li>ES6创造了一种新的遍历方法for  of循环，Iterator接口主要供for of消费</li>
-</ol>
-</li>
-<li><p>工作原理：</p>
-<ol>
-<li>创建一个指针对象（遍历器对象），指向数据结构的起始位置。</li>
-<li>第一次调用next方法，指针自动指向数据结构的第一个成员。</li>
-<li>接下来不断调用next方法，指针会一直往后移动，直到指向最后一个成员。</li>
-<li>每次调用next方法返回的是一个包含value和done的对象，{value: 当前成员的值，done：布尔值}<ul>
-<li>value代表当前成员的值，done对应的布尔值表示当前数据的结构是否遍历结束</li>
-<li>当遍历结束的时候返回的value值是undefined，done的值是false</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>原生具备Iterator接口的数据（可用for of循环）</p>
-<p>扩展理解：</p>
-<ol>
-<li>当数据结构上部署了Symbol.iterator接口，该数据就是可以用for of遍历</li>
-<li>当使用for of去遍历目标数据的时候，该数据会自动去找Symbol.iterator属性</li>
-<li>具有Iterator接口的原生数据类型：<ul>
-<li>Array</li>
-<li>arguments</li>
-<li>set容器</li>
-<li>map容器</li>
-<li>String</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//模拟指针对象（遍历器对象）</span>
-<span class="token keyword">function</span> <span class="token function">myIterator</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> nextIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-        next<span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> nextIndex <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token operator">?</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span> arr<span class="token punctuation">[</span>nextIndex<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">,</span> done<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">:</span><span class="token punctuation">{</span>value<span class="token punctuation">:</span>undefined<span class="token punctuation">,</span>done<span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//三点运算符，解构赋值，默认调用iterator接口</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/ES5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -979,14 +497,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-01 12:56:46 / Modified: 16:55:39" itemprop="dateCreated datePublished" datetime="2019-05-01T12:56:46+08:00">2019-05-01</time>
+              <time title="Post created: 2019-05-01 12:56:46 / Updated at: 16:55:39" itemprop="dateCreated datePublished" datetime="2019-05-01T12:56:46+08:00">2019-05-01</time>
             
 
             
@@ -1005,7 +523,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1309,14 +827,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-04-28 16:19:02" itemprop="dateCreated datePublished" datetime="2019-04-28T16:19:02+08:00">2019-04-28</time>
+              <time title="Post created: 2019-04-28 16:19:02" itemprop="dateCreated datePublished" datetime="2019-04-28T16:19:02+08:00">2019-04-28</time>
             
 
             
@@ -1333,7 +851,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 16:56:45" itemprop="dateModified" datetime="2019-05-01T16:56:45+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 16:56:45" itemprop="dateModified" datetime="2019-05-01T16:56:45+08:00">2019-05-01</time>
               
             
           </span>
@@ -1347,7 +865,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1524,14 +1042,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-04-28 12:34:49 / Modified: 12:52:30" itemprop="dateCreated datePublished" datetime="2019-04-28T12:34:49+08:00">2019-04-28</time>
+              <time title="Post created: 2019-04-28 12:34:49 / Updated at: 12:52:30" itemprop="dateCreated datePublished" datetime="2019-04-28T12:34:49+08:00">2019-04-28</time>
             
 
             
@@ -1550,7 +1068,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1695,14 +1213,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-04-28 11:03:51 / Modified: 12:13:03" itemprop="dateCreated datePublished" datetime="2019-04-28T11:03:51+08:00">2019-04-28</time>
+              <time title="Post created: 2019-04-28 11:03:51 / Updated at: 12:13:03" itemprop="dateCreated datePublished" datetime="2019-04-28T11:03:51+08:00">2019-04-28</time>
             
 
             
@@ -1721,7 +1239,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1895,14 +1413,14 @@ setTimeout
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-04-26 14:53:19 / Modified: 15:28:55" itemprop="dateCreated datePublished" datetime="2019-04-26T14:53:19+08:00">2019-04-26</time>
+              <time title="Post created: 2019-04-26 14:53:19 / Updated at: 15:28:55" itemprop="dateCreated datePublished" datetime="2019-04-26T14:53:19+08:00">2019-04-26</time>
             
 
             
@@ -1921,7 +1439,7 @@ setTimeout
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2071,14 +1589,14 @@ setTimeout
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-04-24 12:45:50 / Modified: 12:48:37" itemprop="dateCreated datePublished" datetime="2019-04-24T12:45:50+08:00">2019-04-24</time>
+              <time title="Post created: 2019-04-24 12:45:50 / Updated at: 12:48:37" itemprop="dateCreated datePublished" datetime="2019-04-24T12:45:50+08:00">2019-04-24</time>
             
 
             
@@ -2097,7 +1615,7 @@ setTimeout
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2285,14 +1803,14 @@ setTimeout
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-04-24 12:34:43 / Modified: 12:49:19" itemprop="dateCreated datePublished" datetime="2019-04-24T12:34:43+08:00">2019-04-24</time>
+              <time title="Post created: 2019-04-24 12:34:43 / Updated at: 12:49:19" itemprop="dateCreated datePublished" datetime="2019-04-24T12:34:43+08:00">2019-04-24</time>
             
 
             
@@ -2311,7 +1829,7 @@ setTimeout
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2512,14 +2030,14 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-03-10 22:26:14 / Modified: 22:28:29" itemprop="dateCreated datePublished" datetime="2019-03-10T22:26:14+08:00">2019-03-10</time>
+              <time title="Post created: 2019-03-10 22:26:14 / Updated at: 22:28:29" itemprop="dateCreated datePublished" datetime="2019-03-10T22:26:14+08:00">2019-03-10</time>
             
 
             
@@ -2538,7 +2056,7 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
@@ -2666,6 +2184,232 @@ Vue.directive('defaultImg', {
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/LeetCode相关题目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/10/LeetCode相关题目/" itemprop="url">
+                  LeetCode相关题目
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-03-10 22:18:31 / Updated at: 22:25:05" itemprop="dateCreated datePublished" datetime="2019-03-10T22:18:31+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="两个数之和"><a href="#两个数之和" class="headerlink" title="两个数之和"></a>两个数之和</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p>示例:</p>
+<p>给定 nums = [2, 7, 11, 15], target = 9</p>
+<p>因为 nums[0] + nums[1] = 2 + 7 = 9</p>
+<p>所以返回 [0, 1]</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> twoSum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 初始化hashMap</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hashMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hashMap<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> diff <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> hashMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span> <span class="token operator">!==</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span> hashMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h3><p>反转一个单链表。</p>
+<p>示例:</p>
+<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</p>
+<p>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<p>迭代方法：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">ListNode</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> reverseList <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> q <span class="token operator">=</span> head<span class="token punctuation">;</span>  
+    <span class="token keyword">while</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        p <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        p<span class="token punctuation">.</span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
+        q <span class="token operator">=</span> p<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用来保存下次指针指向的位置</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> q
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>递归方法：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> q<span class="token punctuation">;</span>
+<span class="token keyword">var</span> reverse <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        p <span class="token operator">=</span> head
+        <span class="token keyword">return</span> head
+    <span class="token punctuation">}</span>
+    q <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    q<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> head
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> reverseList <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> p
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2712,8 +2456,8 @@ Vue.directive('defaultImg', {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">53</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -2736,7 +2480,7 @@ Vue.directive('defaultImg', {
                       
                     
                     <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -2793,7 +2537,7 @@ Vue.directive('defaultImg', {
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -2846,7 +2590,7 @@ Vue.directive('defaultImg', {
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
