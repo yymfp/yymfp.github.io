@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="this总结一句话：谁调用的，this就指向谁。 this分为以下的几种情况： 全局的this（浏览器） console.log(this.document===document); //true console.log(this===window); //true this.a=20; console.log(window.a); //20   一般函数的this（浏览器） this.b=10;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-23T07:14:57.532Z">
+<meta property="og:updated_time" content="2019-06-01T03:41:20.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的this指向问题">
 <meta name="twitter:description" content="this总结一句话：谁调用的，this就指向谁。 this分为以下的几种情况： 全局的this（浏览器） console.log(this.document===document); //true console.log(this===window); //true this.a=20; console.log(window.a); //20   一般函数的this（浏览器） this.b=10;">
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Accueil</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />A propos</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -340,7 +340,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posté le</span>
               
 
               
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-23 15:14:57" itemprop="dateModified" datetime="2018-10-23T15:14:57+08:00">2018-10-23</time>
+                <time title="Updated at: 2019-06-01 11:41:20" itemprop="dateModified" datetime="2019-06-01T11:41:20+08:00">2019-06-01</time>
               
             
           </span>
@@ -378,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -526,6 +526,37 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// this</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'------------------------this问题---------------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+            number<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            fn1<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> number<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>number <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                number <span class="token operator">=</span> number <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                number <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>number<span class="token punctuation">;</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>number <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    number <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">var</span> fn1 <span class="token operator">=</span> obj1<span class="token punctuation">.</span>fn1<span class="token punctuation">;</span>
+        fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj1<span class="token punctuation">.</span><span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*
+            10
+            9
+            3
+            27
+            20
+        */</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -618,10 +649,10 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table Des Matières
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Ensemble
           </li>
         </ul>
       
@@ -641,8 +672,8 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-name">articles</span>
                   </a>
                 </div>
               
@@ -664,8 +695,10 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -722,7 +755,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -791,7 +824,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -799,7 +832,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Thème – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
 
 
