@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -285,6 +285,352 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/08/less/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/08/less/" itemprop="url">
+                  less
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-08 13:59:34 / Modified: 15:07:16" itemprop="dateCreated datePublished" datetime="2019-06-08T13:59:34+08:00">2019-06-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><p>less是一种动态样式语言，属于css预处理器的范畴，它扩展了css语言，增加了变量、Mixin、函数等特性，使css更易于维护和扩展。</p>
+<p><strong>Less即可以在客户端上运行，也可以借助Node.js在服务端运行</strong></p>
+<h5 id="Less中的注释"><a href="#Less中的注释" class="headerlink" title="Less中的注释"></a>Less中的注释</h5><ul>
+<li>以//开头的注释，不会被编译到css文件中。</li>
+<li>以/**/包裹的注释会被编译到css文件中。</li>
+</ul>
+<h5 id="less中的变量"><a href="#less中的变量" class="headerlink" title="less中的变量"></a>less中的变量</h5><p>使用@来申明一个变量:@pink:pink</p>
+<ol>
+<li><p>作为普通属性值来使用：直接使用@pink</p>
+</li>
+<li><p>作为选择器和属性：#@{selector的值}的形式</p>
+</li>
+<li><p>作为URL：@{url}</p>
+</li>
+<li><p>变量的延迟加载</p>
+<pre class="line-numbers language-less"><code class="language-less"><span class="token comment" spellcheck="true">// less也拥有块级作用域{}</span>
+<span class="token variable">@var<span class="token punctuation">:</span></span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token selector">.class</span> <span class="token punctuation">{</span>
+    <span class="token variable">@var<span class="token punctuation">:</span></span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token selector">.brass</span> <span class="token punctuation">{</span>
+        <span class="token variable">@var<span class="token punctuation">:</span></span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token property">three</span><span class="token punctuation">:</span> <span class="token variable">@var</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 3</span>
+        <span class="token variable">@var<span class="token punctuation">:</span></span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token property">one</span><span class="token punctuation">:</span> <span class="token variable">@var</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h5 id="less中的嵌套规则"><a href="#less中的嵌套规则" class="headerlink" title="less中的嵌套规则"></a>less中的嵌套规则</h5><ol>
+<li><p>基本嵌套规则</p>
+</li>
+<li><p>&amp;的使用</p>
+<pre class="line-numbers language-less"><code class="language-less"><span class="token comment" spellcheck="true">// &amp;代表平级</span>
+<span class="token comment" spellcheck="true">/*
+    &lt;div class="wrap">
+        &lt;div class="inner">&lt;/div>
+    &lt;/div>
+*/</span>
+<span class="token variable">@color<span class="token punctuation">:</span></span>deepink<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 定义变量    </span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">400</span>px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+    <span class="token selector">.inner</span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token variable">@color</span><span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+        <span class="token selector">&amp;:hover</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 最终解析出来的是 #wrap .inner:hover 如果不加&amp;符号，#wrap .inner :hover</span>
+            <span class="token property">background</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h5 id="less中的混合"><a href="#less中的混合" class="headerlink" title="less中的混合"></a>less中的混合</h5><p>混合就是将一系列属性从一个规则集引入到另一个规则集的方式</p>
+<ol>
+<li>普通混合</li>
+<li>不带输出的混合</li>
+<li>带参数的混合</li>
+<li>带参数并且有默认值的混合</li>
+<li>带多个参数的混合</li>
+<li>命名参数</li>
+<li>匹配模式</li>
+<li>arguments变量</li>
+</ol>
+<pre class="line-numbers language-less"><code class="language-less"><span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">400</span>px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+    <span class="token selector">.inner</span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">.inner2</span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 普通混合 ---> 编译后，不会被删除</span>
+<span class="token selector">.juzhong</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 不带输出混合 ---> 编译后，不会显示</span>
+<span class="token selector">.juzhong()</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 带参数混合 ---> 使用.juzhong(100px,100px,deeppink)</span>
+<span class="token selector">.juzhong(<span class="token variable">@w</span>,<span class="token variable">@h</span>,<span class="token variable">@c</span>)</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token variable">@c</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@w</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">@h</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">400</span>px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+    <span class="token selector">.inner</span><span class="token punctuation">{</span>
+       <span class="token mixin-usage function">.juzhong</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">.inner2</span><span class="token punctuation">{</span>
+        <span class="token mixin-usage function">.juzhong</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="less运算"><a href="#less运算" class="headerlink" title="less运算"></a>less运算</h5><p>在less中可以进行加减乘除的运算</p>
+<pre class="line-numbers language-less"><code class="language-less"><span class="token selector">#wrap .sjx</span><span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token number">100</span> <span class="token operator">+</span> <span class="token number">100</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 只需一方带单位即可</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="less避免编译"><a href="#less避免编译" class="headerlink" title="less避免编译"></a>less避免编译</h5><pre class="line-numbers language-less"><code class="language-less"><span class="token selector">.div</span><span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> ~<span class="token string">"cacl(100px + 100px)"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ~""将被识别为字符串，不会被编译</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="less继承"><a href="#less继承" class="headerlink" title="less继承"></a>less继承</h5><ol>
+<li>性能比混合高</li>
+<li>灵活度比混合低</li>
+</ol>
+<pre class="line-numbers language-less"><code class="language-less"><span class="token selector">.juzhong</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 继承不能使用参数</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">#wrap</span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">400</span>px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+    <span class="token selector">.inner:extend(.juzhong)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 继承</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> deeppink<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -340,14 +686,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-06-01 11:52:38 / Updated at: 11:53:31" itemprop="dateCreated datePublished" datetime="2019-06-01T11:52:38+08:00">2019-06-01</time>
+              <time title="Created: 2019-06-01 11:52:38 / Modified: 11:53:31" itemprop="dateCreated datePublished" datetime="2019-06-01T11:52:38+08:00">2019-06-01</time>
             
 
             
@@ -366,7 +712,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -590,14 +936,14 @@ dojo<span class="token punctuation">.</span><span class="token function">addClas
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-06-01 11:51:41" itemprop="dateCreated datePublished" datetime="2019-06-01T11:51:41+08:00">2019-06-01</time>
+              <time title="Created: 2019-06-01 11:51:41" itemprop="dateCreated datePublished" datetime="2019-06-01T11:51:41+08:00">2019-06-01</time>
             
 
             
@@ -614,7 +960,7 @@ dojo<span class="token punctuation">.</span><span class="token function">addClas
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-06-06 20:10:00" itemprop="dateModified" datetime="2019-06-06T20:10:00+08:00">2019-06-06</time>
+                <time title="Modified: 2019-06-06 20:10:00" itemprop="dateModified" datetime="2019-06-06T20:10:00+08:00">2019-06-06</time>
               
             
           </span>
@@ -628,7 +974,7 @@ dojo<span class="token punctuation">.</span><span class="token function">addClas
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -895,14 +1241,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-06-01 11:49:07 / Updated at: 11:50:30" itemprop="dateCreated datePublished" datetime="2019-06-01T11:49:07+08:00">2019-06-01</time>
+              <time title="Created: 2019-06-01 11:49:07 / Modified: 11:50:30" itemprop="dateCreated datePublished" datetime="2019-06-01T11:49:07+08:00">2019-06-01</time>
             
 
             
@@ -921,7 +1267,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -1459,14 +1805,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-06-01 11:43:04 / Updated at: 11:45:58" itemprop="dateCreated datePublished" datetime="2019-06-01T11:43:04+08:00">2019-06-01</time>
+              <time title="Created: 2019-06-01 11:43:04 / Modified: 11:45:58" itemprop="dateCreated datePublished" datetime="2019-06-01T11:43:04+08:00">2019-06-01</time>
             
 
             
@@ -1485,7 +1831,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1644,14 +1990,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-06-01 11:27:05 / Updated at: 11:36:20" itemprop="dateCreated datePublished" datetime="2019-06-01T11:27:05+08:00">2019-06-01</time>
+              <time title="Created: 2019-06-01 11:27:05 / Modified: 11:36:20" itemprop="dateCreated datePublished" datetime="2019-06-01T11:27:05+08:00">2019-06-01</time>
             
 
             
@@ -1670,7 +2016,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1824,14 +2170,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-05-03 12:09:04 / Updated at: 13:09:58" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
+              <time title="Created: 2019-05-03 12:09:04 / Modified: 13:09:58" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
             
 
             
@@ -1850,7 +2196,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2029,14 +2375,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-05-01 12:57:19 / Updated at: 16:55:03" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:19+08:00">2019-05-01</time>
+              <time title="Created: 2019-05-01 12:57:19 / Modified: 16:55:03" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:19+08:00">2019-05-01</time>
             
 
             
@@ -2055,7 +2401,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2186,14 +2532,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-05-01 12:57:05" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:05+08:00">2019-05-01</time>
+              <time title="Created: 2019-05-01 12:57:05" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:05+08:00">2019-05-01</time>
             
 
             
@@ -2210,7 +2556,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-06-01 11:18:15" itemprop="dateModified" datetime="2019-06-01T11:18:15+08:00">2019-06-01</time>
+                <time title="Modified: 2019-06-01 11:18:15" itemprop="dateModified" datetime="2019-06-01T11:18:15+08:00">2019-06-01</time>
               
             
           </span>
@@ -2224,7 +2570,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2947,14 +3293,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-05-01 12:56:46 / Updated at: 16:55:39" itemprop="dateCreated datePublished" datetime="2019-05-01T12:56:46+08:00">2019-05-01</time>
+              <time title="Created: 2019-05-01 12:56:46 / Modified: 16:55:39" itemprop="dateCreated datePublished" datetime="2019-05-01T12:56:46+08:00">2019-05-01</time>
             
 
             
@@ -2973,7 +3319,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3223,221 +3569,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/vue组件间通信方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/28/vue组件间通信方式/" itemprop="url">
-                  vue组件间通信方式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-04-28 16:19:02" itemprop="dateCreated datePublished" datetime="2019-04-28T16:19:02+08:00">2019-04-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-05-01 16:56:45" itemprop="dateModified" datetime="2019-05-01T16:56:45+08:00">2019-05-01</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="vue组件间通信方式"><a href="#vue组件间通信方式" class="headerlink" title="vue组件间通信方式"></a>vue组件间通信方式</h3><h5 id="通信种类"><a href="#通信种类" class="headerlink" title="通信种类"></a>通信种类</h5><ol>
-<li>父组件向子组件通信</li>
-<li>子组件向父组件通信</li>
-<li>隔代组件间通信</li>
-<li>兄弟组件间通信</li>
-</ol>
-<h5 id="实现通信方式"><a href="#实现通信方式" class="headerlink" title="实现通信方式"></a>实现通信方式</h5><ol>
-<li>props</li>
-<li>vue自定义事件</li>
-<li>消息订阅与发布</li>
-<li>vuex</li>
-<li>slot</li>
-</ol>
-<h5 id="方式1：props"><a href="#方式1：props" class="headerlink" title="方式1：props"></a>方式1：props</h5><ol>
-<li>通过一般属性实现父向子通信</li>
-<li>通过函数属性实现子向父通信</li>
-<li>缺点：隔代组件和兄弟组件间通信比较麻烦</li>
-</ol>
-<h5 id="方式2：vue自定义事件"><a href="#方式2：vue自定义事件" class="headerlink" title="方式2：vue自定义事件"></a>方式2：vue自定义事件</h5><ol>
-<li>vue内置实现，可以代替函数类型的props<ul>
-<li>绑定监听：<code>&lt;MyComp @eventName=&quot;callback&quot;&gt;&lt;/MyComp&gt;</code></li>
-<li>触发（分发）事件：<code>this.$emit(&quot;eventName&quot;,data)</code></li>
-</ul>
-</li>
-<li>缺点：只适合于子向父通信</li>
-</ol>
-<h5 id="方式3：消息订阅与发布"><a href="#方式3：消息订阅与发布" class="headerlink" title="方式3：消息订阅与发布"></a>方式3：消息订阅与发布</h5><ol>
-<li>需要引入消息订阅与发布的实现库，如：<code>pubsub-js</code><ul>
-<li>订阅消息：<code>PubSub.subscript(&#39;msg&#39;,function(msg,data){})</code></li>
-<li>发布消息：<code>PubSub.publish(&#39;msg&#39;,data)</code></li>
-</ul>
-</li>
-<li>优点：此方式可实现任意关系组件间通信</li>
-</ol>
-<h5 id="方式4：vuex"><a href="#方式4：vuex" class="headerlink" title="方式4：vuex"></a>方式4：vuex</h5><ol>
-<li>vuex是vue官方提供的集中式管理vue多组间共享状态数据的vue插件</li>
-<li>优点：对组件间关系没有限制，且相比于pubsub库管理更集中，更方便</li>
-</ol>
-<h5 id="方式5：slot"><a href="#方式5：slot" class="headerlink" title="方式5：slot"></a>方式5：slot</h5><ol>
-<li>专门用来实现父向子传递带数据的标签<ul>
-<li>子组件</li>
-<li>父组件</li>
-</ul>
-</li>
-<li>注意：通信的标签模板是在父组件中解析好后再传递给子组件的</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3484,8 +3615,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">59</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -3510,7 +3641,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -3567,7 +3698,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -3620,7 +3751,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 

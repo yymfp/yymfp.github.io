@@ -218,7 +218,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -226,7 +226,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -242,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -285,6 +285,221 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/vue组件间通信方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/28/vue组件间通信方式/" itemprop="url">
+                  vue组件间通信方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-28 16:19:02" itemprop="dateCreated datePublished" datetime="2019-04-28T16:19:02+08:00">2019-04-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-01 16:56:45" itemprop="dateModified" datetime="2019-05-01T16:56:45+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="vue组件间通信方式"><a href="#vue组件间通信方式" class="headerlink" title="vue组件间通信方式"></a>vue组件间通信方式</h3><h5 id="通信种类"><a href="#通信种类" class="headerlink" title="通信种类"></a>通信种类</h5><ol>
+<li>父组件向子组件通信</li>
+<li>子组件向父组件通信</li>
+<li>隔代组件间通信</li>
+<li>兄弟组件间通信</li>
+</ol>
+<h5 id="实现通信方式"><a href="#实现通信方式" class="headerlink" title="实现通信方式"></a>实现通信方式</h5><ol>
+<li>props</li>
+<li>vue自定义事件</li>
+<li>消息订阅与发布</li>
+<li>vuex</li>
+<li>slot</li>
+</ol>
+<h5 id="方式1：props"><a href="#方式1：props" class="headerlink" title="方式1：props"></a>方式1：props</h5><ol>
+<li>通过一般属性实现父向子通信</li>
+<li>通过函数属性实现子向父通信</li>
+<li>缺点：隔代组件和兄弟组件间通信比较麻烦</li>
+</ol>
+<h5 id="方式2：vue自定义事件"><a href="#方式2：vue自定义事件" class="headerlink" title="方式2：vue自定义事件"></a>方式2：vue自定义事件</h5><ol>
+<li>vue内置实现，可以代替函数类型的props<ul>
+<li>绑定监听：<code>&lt;MyComp @eventName=&quot;callback&quot;&gt;&lt;/MyComp&gt;</code></li>
+<li>触发（分发）事件：<code>this.$emit(&quot;eventName&quot;,data)</code></li>
+</ul>
+</li>
+<li>缺点：只适合于子向父通信</li>
+</ol>
+<h5 id="方式3：消息订阅与发布"><a href="#方式3：消息订阅与发布" class="headerlink" title="方式3：消息订阅与发布"></a>方式3：消息订阅与发布</h5><ol>
+<li>需要引入消息订阅与发布的实现库，如：<code>pubsub-js</code><ul>
+<li>订阅消息：<code>PubSub.subscript(&#39;msg&#39;,function(msg,data){})</code></li>
+<li>发布消息：<code>PubSub.publish(&#39;msg&#39;,data)</code></li>
+</ul>
+</li>
+<li>优点：此方式可实现任意关系组件间通信</li>
+</ol>
+<h5 id="方式4：vuex"><a href="#方式4：vuex" class="headerlink" title="方式4：vuex"></a>方式4：vuex</h5><ol>
+<li>vuex是vue官方提供的集中式管理vue多组间共享状态数据的vue插件</li>
+<li>优点：对组件间关系没有限制，且相比于pubsub库管理更集中，更方便</li>
+</ol>
+<h5 id="方式5：slot"><a href="#方式5：slot" class="headerlink" title="方式5：slot"></a>方式5：slot</h5><ol>
+<li>专门用来实现父向子传递带数据的标签<ul>
+<li>子组件</li>
+<li>父组件</li>
+</ul>
+</li>
+<li>注意：通信的标签模板是在父组件中解析好后再传递给子组件的</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -340,14 +555,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-04-28 12:34:49 / Updated at: 12:52:30" itemprop="dateCreated datePublished" datetime="2019-04-28T12:34:49+08:00">2019-04-28</time>
+              <time title="Created: 2019-04-28 12:34:49 / Modified: 12:52:30" itemprop="dateCreated datePublished" datetime="2019-04-28T12:34:49+08:00">2019-04-28</time>
             
 
             
@@ -366,7 +581,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -511,14 +726,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-04-28 11:03:51 / Updated at: 12:13:03" itemprop="dateCreated datePublished" datetime="2019-04-28T11:03:51+08:00">2019-04-28</time>
+              <time title="Created: 2019-04-28 11:03:51 / Modified: 12:13:03" itemprop="dateCreated datePublished" datetime="2019-04-28T11:03:51+08:00">2019-04-28</time>
             
 
             
@@ -537,7 +752,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -711,14 +926,14 @@ setTimeout
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-04-26 14:53:19 / Updated at: 15:28:55" itemprop="dateCreated datePublished" datetime="2019-04-26T14:53:19+08:00">2019-04-26</time>
+              <time title="Created: 2019-04-26 14:53:19 / Modified: 15:28:55" itemprop="dateCreated datePublished" datetime="2019-04-26T14:53:19+08:00">2019-04-26</time>
             
 
             
@@ -737,7 +952,7 @@ setTimeout
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -887,14 +1102,14 @@ setTimeout
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-04-24 12:45:50 / Updated at: 12:48:37" itemprop="dateCreated datePublished" datetime="2019-04-24T12:45:50+08:00">2019-04-24</time>
+              <time title="Created: 2019-04-24 12:45:50 / Modified: 12:48:37" itemprop="dateCreated datePublished" datetime="2019-04-24T12:45:50+08:00">2019-04-24</time>
             
 
             
@@ -913,7 +1128,7 @@ setTimeout
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1101,14 +1316,14 @@ setTimeout
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-04-24 12:34:43 / Updated at: 12:49:19" itemprop="dateCreated datePublished" datetime="2019-04-24T12:34:43+08:00">2019-04-24</time>
+              <time title="Created: 2019-04-24 12:34:43 / Modified: 12:49:19" itemprop="dateCreated datePublished" datetime="2019-04-24T12:34:43+08:00">2019-04-24</time>
             
 
             
@@ -1127,7 +1342,7 @@ setTimeout
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1328,14 +1543,14 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-03-10 22:26:14 / Updated at: 22:28:29" itemprop="dateCreated datePublished" datetime="2019-03-10T22:26:14+08:00">2019-03-10</time>
+              <time title="Created: 2019-03-10 22:26:14 / Modified: 22:28:29" itemprop="dateCreated datePublished" datetime="2019-03-10T22:26:14+08:00">2019-03-10</time>
             
 
             
@@ -1354,7 +1569,7 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
@@ -1536,14 +1751,14 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-03-10 22:18:31 / Updated at: 22:25:05" itemprop="dateCreated datePublished" datetime="2019-03-10T22:18:31+08:00">2019-03-10</time>
+              <time title="Created: 2019-03-10 22:18:31 / Modified: 22:25:05" itemprop="dateCreated datePublished" datetime="2019-03-10T22:18:31+08:00">2019-03-10</time>
             
 
             
@@ -1562,7 +1777,7 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1762,14 +1977,14 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-03-10 22:13:51 / Updated at: 22:22:08" itemprop="dateCreated datePublished" datetime="2019-03-10T22:13:51+08:00">2019-03-10</time>
+              <time title="Created: 2019-03-10 22:13:51 / Modified: 22:22:08" itemprop="dateCreated datePublished" datetime="2019-03-10T22:13:51+08:00">2019-03-10</time>
             
 
             
@@ -1788,7 +2003,7 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1923,14 +2138,14 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-03-10 22:10:13" itemprop="dateCreated datePublished" datetime="2019-03-10T22:10:13+08:00">2019-03-10</time>
+              <time title="Created: 2019-03-10 22:10:13" itemprop="dateCreated datePublished" datetime="2019-03-10T22:10:13+08:00">2019-03-10</time>
             
 
             
@@ -1947,7 +2162,7 @@ Vue.directive('defaultImg', {
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-06-01 11:23:04" itemprop="dateModified" datetime="2019-06-01T11:23:04+08:00">2019-06-01</time>
+                <time title="Modified: 2019-06-01 11:23:04" itemprop="dateModified" datetime="2019-06-01T11:23:04+08:00">2019-06-01</time>
               
             
           </span>
@@ -1961,7 +2176,7 @@ Vue.directive('defaultImg', {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2142,224 +2357,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/axios/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/09/axios/" itemprop="url">
-                  axios
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-12-09 12:35:48 / Updated at: 12:37:12" itemprop="dateCreated datePublished" datetime="2018-12-09T12:35:48+08:00">2018-12-09</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><p><strong>基于promise用于浏览器和node.js的http客户端</strong></p>
-<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
-<li>支持浏览器和node.js</li>
-<li>支持promise</li>
-<li>能拦截请求和响应</li>
-<li>能转换请求和响应数据</li>
-<li>能取消请求</li>
-<li>自动转换JSON数据</li>
-<li>浏览器端支持防止CSRF(跨站请求伪造)</li>
-</ul>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> axios
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p>发起一个<code>GET</code>请求</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Make a request for a user with a given ID</span>
-axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user?ID=12345'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// Optionally the request above could also be done as</span>
-axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      ID<span class="token punctuation">:</span> <span class="token number">12345</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发起一个<code>POST</code>请求</p>
-<pre class="line-numbers language-js"><code class="language-js">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    firstName<span class="token punctuation">:</span> <span class="token string">'Fred'</span><span class="token punctuation">,</span>
-    lastName<span class="token punctuation">:</span> <span class="token string">'Flintstone'</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>同时发起多个请求</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getUserAccount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user/12345'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function">getUserPermissions</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user/12345/permissions'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-axios<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">getUserAccount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getUserPermissions</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>axios<span class="token punctuation">.</span><span class="token function">spread</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>acct<span class="token punctuation">,</span> perms<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Both requests are now complete</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2406,8 +2403,8 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">59</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -2432,7 +2429,7 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -2489,7 +2486,7 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -2542,7 +2539,7 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
