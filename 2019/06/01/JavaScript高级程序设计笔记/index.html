@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="asyncjavaScript标签上添加async以及defer属性时，只针对外部引入的js文件。确保相关的js代码依赖问题。 在使用async时，不要在此期间操作dom。 undefined == null 返回 trueundefined的值是派生自null值的。 由于typeof null会返回object，所以在定义变量用来保存对象，最好将变量初始化为null而不是其他的值。 if (ca">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-29T01:42:49.951Z">
+<meta property="og:updated_time" content="2019-06-29T01:48:27.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript高级程序设计笔记">
 <meta name="twitter:description" content="asyncjavaScript标签上添加async以及defer属性时，只针对外部引入的js文件。确保相关的js代码依赖问题。 在使用async时，不要在此期间操作dom。 undefined == null 返回 trueundefined的值是派生自null值的。 由于typeof null会返回object，所以在定义变量用来保存对象，最好将变量初始化为null而不是其他的值。 if (ca">
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -340,14 +340,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-01 11:51:41" itemprop="dateCreated datePublished" datetime="2019-06-01T11:51:41+08:00">2019-06-01</time>
+              <time title="Post created: 2019-06-01 11:51:41" itemprop="dateCreated datePublished" datetime="2019-06-01T11:51:41+08:00">2019-06-01</time>
             
 
             
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-29 09:42:49" itemprop="dateModified" datetime="2019-06-29T09:42:49+08:00">2019-06-29</time>
+                <time title="Updated at: 2019-06-29 09:48:27" itemprop="dateModified" datetime="2019-06-29T09:48:27+08:00">2019-06-29</time>
               
             
           </span>
@@ -378,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -720,8 +720,6 @@ Object<span class="token punctuation">.</span><span class="token function">defin
 </ol>
 <p>var person1 = new Person(“Bar”, 20, “Software Engineer”);<br>var person2 = new Person(“Greg”, 27, “Doctor”);</p>
 <pre><code>
-
-
 **特点：**
 
 - 没有显式的创建对象；
@@ -737,6 +735,7 @@ Object<span class="token punctuation">.</span><span class="token function">defin
 - 4. 返回新对象
 
 *前面例子中，person1和person2分别保存着Person的一个不同的实例。这两个对象都有一个constructor（构造函数）属性，该属性指向Person*
+
 ```js
 console.log(person1.constructor === Person);  // true
 console.log(person2.constructor === Person);  // true
@@ -765,7 +764,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<h5 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Nicholas"</span><span class="token punctuation">;</span>
 Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -903,10 +902,10 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -927,7 +926,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">61</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -952,7 +951,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -1009,7 +1008,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -1044,7 +1043,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#async"><span class="nav-number">1.</span> <span class="nav-text">async</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined-null-返回-true"><span class="nav-number">2.</span> <span class="nav-text">undefined == null 返回 true</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数传参"><span class="nav-number">3.</span> <span class="nav-text">函数传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function类型"><span class="nav-number">4.</span> <span class="nav-text">Function类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">5.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部属性"><span class="nav-number">6.</span> <span class="nav-text">函数内部属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数属性和方法"><span class="nav-number">7.</span> <span class="nav-text">函数属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象属性和方法"><span class="nav-number">8.</span> <span class="nav-text">对象属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">9.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的问题"><span class="nav-number">9.0.1.</span> <span class="nav-text">构造函数的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">10.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原型与in操作符"><span class="nav-number">10.0.1.</span> <span class="nav-text">原型与in操作符</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#async"><span class="nav-number">1.</span> <span class="nav-text">async</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined-null-返回-true"><span class="nav-number">2.</span> <span class="nav-text">undefined == null 返回 true</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数传参"><span class="nav-number">3.</span> <span class="nav-text">函数传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function类型"><span class="nav-number">4.</span> <span class="nav-text">Function类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明与函数表达式"><span class="nav-number">5.</span> <span class="nav-text">函数声明与函数表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部属性"><span class="nav-number">6.</span> <span class="nav-text">函数内部属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数属性和方法"><span class="nav-number">7.</span> <span class="nav-text">函数属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象属性和方法"><span class="nav-number">8.</span> <span class="nav-text">对象属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">9.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数的问题"><span class="nav-number">9.0.1.</span> <span class="nav-text">构造函数的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型模式"><span class="nav-number">9.0.2.</span> <span class="nav-text">原型模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原型与in操作符"><span class="nav-number">9.0.3.</span> <span class="nav-text">原型与in操作符</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1078,7 +1077,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
