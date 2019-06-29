@@ -301,6 +301,279 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/前端性能优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/10/前端性能优化/" itemprop="url">
+                  前端性能优化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-03-10 22:10:13" itemprop="dateCreated datePublished" datetime="2019-03-10T22:10:13+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-06-01 11:23:04" itemprop="dateModified" datetime="2019-06-01T11:23:04+08:00">2019-06-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h3><ul>
+<li>2.5.1 数据存取</li>
+</ul>
+<p>☆ 尽量使用局部变量</p>
+<p>☆ 对象成员的嵌套深度与读取时间成正比，嵌套过深要进行优化</p>
+<ul>
+<li>2.5.2 DOM ☆ 尽量减少DOM操作（访问和修改都算）的次数</li>
+</ul>
+<p>☆ 访问元素时使用最快的API</p>
+<p>☆ 使用事件委托来减少事件处理器的数量</p>
+<p>☆ 减少重绘和重排的次数</p>
+<ul>
+<li>2.5.3 算法和流程</li>
+</ul>
+<p>☆ for循环、while循环、do-whild循环比for in 要快 ☆ 优化循环体的复杂度</p>
+<p>☆ 最小化属性查找</p>
+<p>☆ 当条件较少时 使用if-else更易读，而当条件较多时if-else性能负担比switch大，易读性也没switch好。</p>
+<p>☆ 对于if else 概率越大的条件越靠前判断 比如：</p>
+<p>☆ 当计算量很大且重复的时候，用Memoization缓存计算结果</p>
+<ul>
+<li>2.5.5 Ajax</li>
+</ul>
+<p>☆ 服务端设置HTTP头信息确保响应会被浏览器缓存</p>
+<p>☆ 客户端将获取的信息存到本地避免再次请求（localstorage sessionstorage cookice）</p>
+<p>☆ 设置HTTP头信息，expiresgaosu告诉浏览器缓存多久</p>
+<p>☆ 减少HTTP请求，合并css、js、图片资源文件等或使用MXHR</p>
+<p>☆ 通过次要文件用Ajax获取可缩短页面加载时间</p>
+<h4 id="js标签的放置位置"><a href="#js标签的放置位置" class="headerlink" title="js标签的放置位置"></a>js标签的放置位置</h4><p>由于外部引入的js代码，在浏览器加载过程中会出现阻塞的情况，为了避免出现加载时间过长而导致的页面空白，可以考虑将javaScript标签放在body标签中的页面内容之后</p>
+<p>JavaScript是单线程，所以JavaScript的加载和执行是从上至下加载执行完一个再继续加载执行下一个文件，会阻塞页面资源的加载，所以一般情况下JavaScript文件放在body标签内底部，很多后端开发人员放在body标签外下面，这样做不好的地方有两处：1、不规范 2、可能会造成js获取不到页面元素而导致报错。而放在body标签内底部可以确保js执行前页面渲染完成</p>
+<h3 id="防抖-debounce"><a href="#防抖-debounce" class="headerlink" title="防抖 (debounce):"></a>防抖 (debounce):</h3><p>将多次高频操作优化为只在最后一次执行，通常使用的场景是：用户输入，只需再输入完成后做一次输入校验即可。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//防抖函数</span>
+    <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> args <span class="token operator">=</span> arguments<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> context <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+        timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            fn<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="节流-throttle"><a href="#节流-throttle" class="headerlink" title="节流(throttle):"></a>节流(throttle):</h3><p>每隔一段时间后执行一次，也就是降低频率，将高频操作优化成低频操作，通常使用场景: 滚动条事件 或者 resize 事件，通常每隔 100~500 ms执行一次即可。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> delay<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//节流函数，用于高频触发时</span>
+  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> startTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> curTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> remaining <span class="token operator">=</span> delay <span class="token operator">-</span> <span class="token punctuation">(</span>curTime <span class="token operator">-</span> startTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> context <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> args <span class="token operator">=</span> arguments<span class="token punctuation">;</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> remaining <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      func<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      startTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> remaining<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="函数柯里化："><a href="#函数柯里化：" class="headerlink" title="函数柯里化："></a>函数柯里化：</h3><p>在一个函数中，首先填充几个参数，然后再返回一个新的函数的技术，称为函数的柯里化。通常可用于在不侵入函数的前提下，为函数 预置通用参数，供多次重复调用。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> add <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> x <span class="token operator">+</span> y
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> add1 <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token function">add1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">3</span>
+<span class="token function">add1</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token number">21</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js">
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c<span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span> 
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 6</span>
+
+<span class="token comment" spellcheck="true">// -------------------------------------</span>
+
+<span class="token keyword">function</span> <span class="token function">_curry</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> rest <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>args<span class="token punctuation">,</span> <span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>rest<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> fn<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> _curry<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>fn<span class="token punctuation">,</span>rest<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> fn<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>rest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> sumFn <span class="token operator">=</span> <span class="token function">_curry</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sumFn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 6</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/axios/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3082,238 +3355,11 @@ Header<span class="token operator">=</span><span class="token function">connect<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/25/webpack/" itemprop="url">
-                  webpack
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-05-01 17:06:21" itemprop="dateModified" datetime="2019-05-01T17:06:21+08:00">2019-05-01</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><h5 id="创建基本的webpack4-x项目"><a href="#创建基本的webpack4-x项目" class="headerlink" title="创建基本的webpack4.x项目"></a>创建基本的webpack4.x项目</h5><ol>
-<li>运行<code>npm init -y</code>快速初始化项目</li>
-<li>在项目根目录创建<code>src</code>源代码目录和<code>dist</code>产品目录</li>
-<li>在<code>src</code>目录下创建<code>index.html</code></li>
-<li><p>使用npm安装webpack，运行<code>cnpm i webpack webpack-cli -D</code></p>
-<ul>
-<li>全局运行<code>npm i cnpm -g</code></li>
-</ul>
-</li>
-<li><p>注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的体积</p>
-<ul>
-<li>默认约定了：</li>
-<li>打包入口是<code>src</code>-&gt;<code>index.js</code></li>
-<li>打包的输出文件是<code>dist</code>-&gt;<code>main.js</code></li>
-<li>4.x中新增了<code>mode</code>选项（<strong>必需</strong>），可选的值为：<code>development</code>和<code>production</code></li>
-</ul>
-</li>
-</ol>
-<p><strong>webpack的配置文件：</strong><code>webpack.config.js</code>:</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
-module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
-    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
-    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="安装webpack-dev-server"><a href="#安装webpack-dev-server" class="headerlink" title="安装webpack-dev-server"></a>安装webpack-dev-server</h5><p><strong>命令：</strong><code>npm i webpack-dev-server -D</code></p>
-<p>在<code>package.json</code>中的<code>scripts</code>中添加<code>dev</code>选项：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
-    ...
-   <span class="token property">"scripts"</span><span class="token operator">:</span><span class="token punctuation">{</span>
-        ...
-        <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server --open --port 3000"</span>  //--open 自动打开浏览器 --port 指定端口
-    <span class="token punctuation">}</span> 
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>配置好之后，运行：<code>npm run dev</code></p>
-<p><strong>webpack-dev-server</strong>打包好的<code>main.js</code>是托管到内存中的，所以在项目根目录中找不到。</p>
-<h5 id="安装相关插件："><a href="#安装相关插件：" class="headerlink" title="安装相关插件："></a>安装相关插件：</h5><p><strong>命令：</strong><code>npm i html-webpack-plugin -D</code></p>
-<p><strong>作用：</strong>将主页面生成到内存中去。</p>
-<p>配置<code>webpack.config.js</code>文件：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> HtmlWebPackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//导入 在内存中自动生成index页面的插件</span>
-
-<span class="token comment" spellcheck="true">//创建一个插件实例对象</span>
-<span class="token keyword">const</span> htmlPlugin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlWebPackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//源文件</span>
-    filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span> <span class="token comment" spellcheck="true">//生成的内存中首页名称</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
-module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
-    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
-    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
-    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
-        htmlPlugin
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -3355,7 +3401,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

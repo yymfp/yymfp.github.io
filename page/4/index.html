@@ -301,6 +301,233 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/webpack/" itemprop="url">
+                  webpack
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-05-01 17:06:21" itemprop="dateModified" datetime="2019-05-01T17:06:21+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><h5 id="创建基本的webpack4-x项目"><a href="#创建基本的webpack4-x项目" class="headerlink" title="创建基本的webpack4.x项目"></a>创建基本的webpack4.x项目</h5><ol>
+<li>运行<code>npm init -y</code>快速初始化项目</li>
+<li>在项目根目录创建<code>src</code>源代码目录和<code>dist</code>产品目录</li>
+<li>在<code>src</code>目录下创建<code>index.html</code></li>
+<li><p>使用npm安装webpack，运行<code>cnpm i webpack webpack-cli -D</code></p>
+<ul>
+<li>全局运行<code>npm i cnpm -g</code></li>
+</ul>
+</li>
+<li><p>注意：webpack4.x提供了约定大于配置的概念，目的是为了尽量减少配置文件的体积</p>
+<ul>
+<li>默认约定了：</li>
+<li>打包入口是<code>src</code>-&gt;<code>index.js</code></li>
+<li>打包的输出文件是<code>dist</code>-&gt;<code>main.js</code></li>
+<li>4.x中新增了<code>mode</code>选项（<strong>必需</strong>），可选的值为：<code>development</code>和<code>production</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>webpack的配置文件：</strong><code>webpack.config.js</code>:</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
+module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
+    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="安装webpack-dev-server"><a href="#安装webpack-dev-server" class="headerlink" title="安装webpack-dev-server"></a>安装webpack-dev-server</h5><p><strong>命令：</strong><code>npm i webpack-dev-server -D</code></p>
+<p>在<code>package.json</code>中的<code>scripts</code>中添加<code>dev</code>选项：</p>
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+    ...
+   <span class="token property">"scripts"</span><span class="token operator">:</span><span class="token punctuation">{</span>
+        ...
+        <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"webpack-dev-server --open --port 3000"</span>  //--open 自动打开浏览器 --port 指定端口
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置好之后，运行：<code>npm run dev</code></p>
+<p><strong>webpack-dev-server</strong>打包好的<code>main.js</code>是托管到内存中的，所以在项目根目录中找不到。</p>
+<h5 id="安装相关插件："><a href="#安装相关插件：" class="headerlink" title="安装相关插件："></a>安装相关插件：</h5><p><strong>命令：</strong><code>npm i html-webpack-plugin -D</code></p>
+<p><strong>作用：</strong>将主页面生成到内存中去。</p>
+<p>配置<code>webpack.config.js</code>文件：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> HtmlWebPackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//导入 在内存中自动生成index页面的插件</span>
+
+<span class="token comment" spellcheck="true">//创建一个插件实例对象</span>
+<span class="token keyword">const</span> htmlPlugin <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HtmlWebPackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.html'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//源文件</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'index.html'</span> <span class="token comment" spellcheck="true">//生成的内存中首页名称</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">//向外暴露一个打包的配置对象， 因为webpack是基于Node构建的，所以webpack支持所有的Node API和语法</span>
+module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span><span class="token string">'production'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//development production</span>
+    <span class="token comment" spellcheck="true">//在webpack 4.x中，有一个很大的特性，就是约定大于配置，默认的打包入口路径是src -> index.js</span>
+    plugins<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        htmlPlugin
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/react/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3729,179 +3956,11 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/position属性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/18/position属性/" itemprop="url">
-                  position属性
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-18 13:19:20 / Updated at: 17:40:00" itemprop="dateCreated datePublished" datetime="2018-10-18T13:19:20+08:00">2018-10-18</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="position属性"><a href="#position属性" class="headerlink" title="position属性"></a>position属性</h3><p><strong>该属性规定元素的定位类型</strong></p>
-<blockquote>
-<p>语法：<code>position:absolute | relative | fixed | static | interit;</code></p>
-<ul>
-<li>absolute：生成绝对定位的元素，相对于static定位以外的第一个父元素进行定位。（left、top、right、bottom）</li>
-<li>fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。（left、top、right、bottom）</li>
-<li>relative：生成相对定位的元素，相对于其正常位置进行定位。</li>
-<li>static：默认值。没有定位，元素出现在正常的流中。（忽略 top, bottom, left, right 或者 z-index 声明）</li>
-<li>inherit：规定应该从元素继承position属性的值。</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -3943,7 +4002,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
