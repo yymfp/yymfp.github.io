@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="CommonJS、AMD、CMDCommonJS浏览器不兼容CommonJS的根本原因，在于其缺少四个Node.js环境的变量  module  exports  require  global 如果提供以上四个变量，浏览器就可以加载CommonJS模块 Browserify是CommonJS格式转换的工具，语法：  // foo.js module.exports = function(x) {">
+  <meta name="description" content="CommonJS、AMD、CMD在介绍这些之前，首先介绍下前端模块化的演变过程前端模块化 什么是模块化  将一个复杂的程序按照一定的规则封装成几个块，并进行组合。 块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。   模块化的进化过程  全局Function模式：将不同的功能封装成不同的全局函数  问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模">
 <meta name="keywords" content="模块开发规范">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CommonJS、AMD、CMD">
 <meta property="og:url" content="http://yoursite.com/2018/10/20/CommonJS、AMD、CMD/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="CommonJS、AMD、CMDCommonJS浏览器不兼容CommonJS的根本原因，在于其缺少四个Node.js环境的变量  module  exports  require  global 如果提供以上四个变量，浏览器就可以加载CommonJS模块 Browserify是CommonJS格式转换的工具，语法：  // foo.js module.exports = function(x) {">
+<meta property="og:description" content="CommonJS、AMD、CMD在介绍这些之前，首先介绍下前端模块化的演变过程前端模块化 什么是模块化  将一个复杂的程序按照一定的规则封装成几个块，并进行组合。 块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。   模块化的进化过程  全局Function模式：将不同的功能封装成不同的全局函数  问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-01T09:03:18.233Z">
+<meta property="og:updated_time" content="2019-06-29T01:32:31.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CommonJS、AMD、CMD">
-<meta name="twitter:description" content="CommonJS、AMD、CMDCommonJS浏览器不兼容CommonJS的根本原因，在于其缺少四个Node.js环境的变量  module  exports  require  global 如果提供以上四个变量，浏览器就可以加载CommonJS模块 Browserify是CommonJS格式转换的工具，语法：  // foo.js module.exports = function(x) {">
+<meta name="twitter:description" content="CommonJS、AMD、CMD在介绍这些之前，首先介绍下前端模块化的演变过程前端模块化 什么是模块化  将一个复杂的程序按照一定的规则封装成几个块，并进行组合。 块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。   模块化的进化过程  全局Function模式：将不同的功能封装成不同的全局函数  问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模">
 
 
 
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-05-01 17:03:18" itemprop="dateModified" datetime="2019-05-01T17:03:18+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-06-29 09:32:31" itemprop="dateModified" datetime="2019-06-29T09:32:31+08:00">2019-06-29</time>
               
             
           </span>
@@ -415,7 +415,116 @@
       
 
       
-        <h3 id="CommonJS、AMD、CMD"><a href="#CommonJS、AMD、CMD" class="headerlink" title="CommonJS、AMD、CMD"></a>CommonJS、AMD、CMD</h3><h5 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h5><p>浏览器不兼容CommonJS的根本原因，在于其缺少四个Node.js环境的变量</p>
+        <h3 id="CommonJS、AMD、CMD"><a href="#CommonJS、AMD、CMD" class="headerlink" title="CommonJS、AMD、CMD"></a>CommonJS、AMD、CMD</h3><h4 id="在介绍这些之前，首先介绍下前端模块化的演变过程"><a href="#在介绍这些之前，首先介绍下前端模块化的演变过程" class="headerlink" title="在介绍这些之前，首先介绍下前端模块化的演变过程"></a>在介绍这些之前，首先介绍下前端模块化的演变过程</h4><h3 id="前端模块化"><a href="#前端模块化" class="headerlink" title="前端模块化"></a>前端模块化</h3><ol>
+<li><p>什么是模块化</p>
+<ul>
+<li>将一个复杂的程序按照一定的规则封装成几个块，并进行组合。</li>
+<li>块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。</li>
+</ul>
+</li>
+<li><p>模块化的进化过程</p>
+<ul>
+<li><p>全局Function模式：将不同的功能封装成不同的全局函数</p>
+<blockquote>
+<p>问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模块成员之间看不出直接关系。</p>
+</blockquote>
+</li>
+<li><p>namespace模式：简单对象封装</p>
+<blockquote>
+<p>优点：减少全局变量的污染，解决命名冲突</p>
+<p>问题：数据不是私有的（内部定义的数据可以被修改），不够安全。</p>
+</blockquote>
+</li>
+<li><p>IIFE模式：匿名函数自调用(闭包)</p>
+<blockquote>
+<p>作用：数据是私有的，外部只能通过暴露出去的方法进行操作</p>
+<p>编码：将数据和行为封装到一个函数内部，通过给window添加属性来向外暴露接口</p>
+<p>问题：如果当前模块依赖另一个模块时怎么办</p>
+</blockquote>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 相关处理</span>
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'bar'</span><span class="token punctuation">,</span>
+      age <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 私有方法</span>
+  <span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">function</span> <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 对外提供的入口方法</span>
+  <span class="token keyword">function</span> <span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 对外暴露</span>
+  window<span class="token punctuation">.</span>MyPeople <span class="token operator">=</span> <span class="token punctuation">{</span>say<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>IIFE模式增强：引入依赖</p>
+<blockquote>
+<p>做法：将所依赖的库当做参数传入，这样就解决了依赖扩展问题。</p>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li><p>模块化的好处</p>
+<ul>
+<li>避免命名冲突，减少全局变量污染</li>
+<li>相关功能分离，降低了耦合性，可以做到按需加载</li>
+<li>更高的复用性</li>
+<li>更好维护</li>
+</ul>
+</li>
+<li><p>引入多个<code>&lt;script&gt;</code>后出现的后果</p>
+<ul>
+<li>发起的请求过多</li>
+<li>多个外部js文件相互依赖关系不确定</li>
+<li>维护起来困难呢</li>
+</ul>
+</li>
+<li><p>模块化规范</p>
+<blockquote>
+<p>模块化带来的好处是非常明显的，但是会存在第四点所说的那些问题，为了解决此类问题，所以就有了模块化编写规范的诞生。</p>
+<p><strong>在服务器端，模块的加载是运行时同步加载的（服务器端，文件的加载都是存储在服务器本地，读取本地文件是非常快的，所以采用同步加载的方式，对性能方面影响不大）；在浏览器端，模块需要提前编译打包处理，属于异步加载模式，这时候采用同步模式加载就不太合适了。（由于浏览器属于异步加载模式，如果采用同步模式的话，会造成阻塞。）</strong></p>
+</blockquote>
+<ul>
+<li><p>CommonJS</p>
+<ul>
+<li>所有代码运行在模块作用域，不会污染全局作用域</li>
+<li>属于同步加载</li>
+<li>模块可以多次加载，但是只会在第一次加载时运行一次，加载结果会被缓存，后续再去加载的话，直接读取的是缓存，如果想要去重新加载，必须清除缓存。</li>
+<li>模块加载的顺序是自上而下按照代码出现的顺序。</li>
+<li>CommonJS模块的加载机制是，输入的是被输出的值得拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值了。(这与ES6模块化有所差异)</li>
+</ul>
+</li>
+<li><p>AMD</p>
+<ul>
+<li>非同步加载，允许指定回调函数。</li>
+<li>所有代码运行在模块作用域，不会污染全局作用域</li>
+</ul>
+</li>
+<li><p>CMD</p>
+<ul>
+<li>模块加载是异步的，模块使用时才会加载执行。</li>
+</ul>
+</li>
+<li><p>ES6</p>
+<p>ES6与CommonJS模块差异：</p>
+<ul>
+<li>CommonJS模块输出的是一个值的拷贝，ES6模块输出的是值得引用。</li>
+<li>CommonJS模块是运行时加载，ES6模块是编译时输出接口。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h5><p>浏览器不兼容CommonJS的根本原因，在于其缺少四个Node.js环境的变量</p>
 <ul>
 <li><p>module</p>
 </li>
@@ -786,7 +895,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS、AMD、CMD"><span class="nav-number">1.</span> <span class="nav-text">CommonJS、AMD、CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CommonJS"><span class="nav-number">1.0.1.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD"><span class="nav-number">1.0.2.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#define函数："><span class="nav-number">1.0.3.</span> <span class="nav-text">define函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CMD"><span class="nav-number">1.0.4.</span> <span class="nav-text">CMD</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#define-define-id-deps-factory"><span class="nav-number">2.</span> <span class="nav-text">define define(id?, deps?, factory)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD和CMD异同"><span class="nav-number">2.0.1.</span> <span class="nav-text">AMD和CMD异同</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS、AMD、CMD"><span class="nav-number">1.</span> <span class="nav-text">CommonJS、AMD、CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在介绍这些之前，首先介绍下前端模块化的演变过程"><span class="nav-number">1.1.</span> <span class="nav-text">在介绍这些之前，首先介绍下前端模块化的演变过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模块化"><span class="nav-number">2.</span> <span class="nav-text">前端模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.0.1.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD"><span class="nav-number">2.0.2.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#define函数："><span class="nav-number">2.0.3.</span> <span class="nav-text">define函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CMD"><span class="nav-number">2.0.4.</span> <span class="nav-text">CMD</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#define-define-id-deps-factory"><span class="nav-number">3.</span> <span class="nav-text">define define(id?, deps?, factory)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD和CMD异同"><span class="nav-number">3.0.1.</span> <span class="nav-text">AMD和CMD异同</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
