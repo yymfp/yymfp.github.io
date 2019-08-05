@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="JavaScript语言精粹 对象枚举 for in 语句可以用来遍历一个对象中所有的属性名，该枚举过程将会列出所有的属性—包括函数和你可能不关心的原型中的属性—所以有必要过滤掉那些你不想要的值。通常使用的过滤器是hasOwnProperty方法，以及使用typeof来排除函数。 原型链中的任何属性通过typeof判断： typeof obj.toString    // &apos;function&apos; t">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript语言精粹笔记">
+<meta property="og:url" content="http://yoursite.com/2019/06/01/JavaScript语言精粹笔记/index.html">
+<meta property="og:site_name" content="pjy">
+<meta property="og:description" content="JavaScript语言精粹 对象枚举 for in 语句可以用来遍历一个对象中所有的属性名，该枚举过程将会列出所有的属性—包括函数和你可能不关心的原型中的属性—所以有必要过滤掉那些你不想要的值。通常使用的过滤器是hasOwnProperty方法，以及使用typeof来排除函数。 原型链中的任何属性通过typeof判断： typeof obj.toString    // &apos;function&apos; t">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-01T03:50:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript语言精粹笔记">
+<meta name="twitter:description" content="JavaScript语言精粹 对象枚举 for in 语句可以用来遍历一个对象中所有的属性名，该枚举过程将会列出所有的属性—包括函数和你可能不关心的原型中的属性—所以有必要过滤掉那些你不想要的值。通常使用的过滤器是hasOwnProperty方法，以及使用typeof来排除函数。 原型链中的任何属性通过typeof判断： typeof obj.toString    // &apos;function&apos; t">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/01/JavaScript语言精粹笔记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JavaScript语言精粹笔记 | pjy</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">pjy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/JavaScript语言精粹笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript语言精粹笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-06-01 11:49:07 / Updated at: 11:50:32" itemprop="dateCreated datePublished" datetime="2019-06-01T11:49:07+08:00">2019-06-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="JavaScript语言精粹"><a href="#JavaScript语言精粹" class="headerlink" title="JavaScript语言精粹"></a>JavaScript语言精粹</h3><ul>
+<li><p><strong>对象枚举</strong></p>
+<p>for in 语句可以用来遍历一个对象中所有的属性名，该枚举过程将会列出所有的属性—包括函数和你可能不关心的原型中的属性—所以有必要过滤掉那些你不想要的值。通常使用的过滤器是<code>hasOwnProperty</code>方法，以及使用<code>typeof</code>来排除函数。</p>
+<p>原型链中的任何属性通过typeof判断：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>toString    <span class="token comment" spellcheck="true">// 'function'</span>
+<span class="token keyword">typeof</span> obj<span class="token punctuation">.</span>constructor  <span class="token comment" spellcheck="true">// 'function'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> name<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//通过typeof来排除原型中的属性</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>name <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//执行其他</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//通过hasOwnProperty来排除原型中的属性</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>name <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//执行其他</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在使用for in 遍历对象时，属性名出现的顺序是不确定的。如果想要确保属性以特定的顺序出现，最好的办法就是避免使用for in 语句，而是创建一个数组，在其中以正确的顺序包含属性名。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> i<span class="token punctuation">;</span>
+<span class="token keyword">var</span> properties <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'first-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'middle-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'last-name'</span><span class="token punctuation">,</span>
+    <span class="token string">'profession'</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> properties<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    obj<span class="token punctuation">[</span>properties<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>删除对象中的属性</strong></p>
+<p><code>delete</code>运算符可以用来删除对象的属性。它将会移除对象中确定包含的属性，它不会触及原型链中的任何对象。删除对象的属性可能会让来自原型链中的属性浮现出来。</p>
+</li>
+<li><p><strong>减少全局变量污染</strong></p>
+<p>js可以很随意的定义那些可保存所有应用资源的全局变量。不幸的是，全局变量削弱了程序的灵活性，所以应该避免。</p>
+<p>最小化使用全局变量的一个方法是在你的应用中只创建唯一一个全局变量：</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> MYAPP <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  该变量此时变成了你的应用的容器：</p>
+<pre class="line-numbers language-js"><code class="language-js">MYAPP<span class="token punctuation">.</span>stooge <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"Tom"</span><span class="token punctuation">,</span>
+    <span class="token string">"age"</span><span class="token punctuation">:</span> <span class="token number">20</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+MYAPP<span class="token punctuation">.</span>flight <span class="token operator">=</span> <span class="token punctuation">{</span>
+    airline<span class="token punctuation">:</span> <span class="token string">"Oceanic"</span><span class="token punctuation">,</span>
+    number<span class="token punctuation">:</span> <span class="token number">88</span><span class="token punctuation">,</span>
+    departure<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        time<span class="token punctuation">:</span> <span class="token string">"2019-03-20 12:55"</span><span class="token punctuation">,</span>
+        city<span class="token punctuation">:</span> <span class="token string">"Sydney"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>只要把多个全局变量都整理在一个名称空间下，你将显著降低与其他应用程序、组件或类库之间产生糟糕的相互影响的可能性。程序也会变得更易读。</p>
+<ul>
+<li><p><strong>函数对象</strong></p>
+<p>在js中函数就是对象。对象是一个“名/值”对的集合，并且拥有一个连到原型对象的隐藏连接。对象字面量产生的对象连接到<code>Object.prototype</code>。函数对象连接到<code>Function.prototype</code>（该原型对象本身连接到<code>Object.prototype</code>）。每个函数在创建时附有两个附加的隐藏属性：函数的上下文和实现函数行为的代码。</p>
+<p>因为函数是对象，所以它们可以像任何其他的值一样被使用。函数可以存放在变量、对象和数组中，函数也可以被当做参数传递给其他函数，函数也可以再返回函数。而且因为函数是对象，所以函数可以拥有方法。</p>
+<p><em>函数的与众不同之处在于它们可以被调用。</em></p>
+</li>
+<li><p><strong>函数调用</strong></p>
+<p>调用一个函数时，将暂定当前函数的执行，传递控制权和参数给新函数。除了声明时定义的形式参数，每个函数接收两个附加的参数：this和arguments。</p>
+<p>在js中，一共有四种调用模式（这些模式在如何初始化关键参数this上存在差异）：</p>
+<ol>
+<li><p>方法调用模式</p>
+<p>– 当一个函数被保存为对象的一个属性时，我们称它为一个方法。当一个方法被调用时，this被绑定到该对象。</p>
+</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 创建myObject。它有一个value属性和一个increment方法。</span>
+<span class="token comment" spellcheck="true">// increment方法接受一个可选的参数。如果参数不是数字，那么默认使用数字1</span>
+
+<span class="token keyword">var</span> myObject <span class="token operator">=</span><span class="token punctuation">{</span>
+  value<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  increment<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>inc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">typeof</span> inc <span class="token operator">===</span> <span class="token string">'number'</span> <span class="token operator">?</span> inc <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+myObject<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myObject<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 1</span>
+
+myObject<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>muObject<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//3</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方法可以使用this去访问对象，所以可以从对象中取值或修改该对象。</p>
+<ol start="2">
+<li><p>函数调用模式</p>
+<p>– 当一个函数并非一个对象的属性时，那么它被当作一个函数来调用：</p>
+</li>
+</ol>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// sum的值是7</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当函数以此模式调用时，this被绑定到全局对象。</p>
+<ol start="3">
+<li><p>构造器调用模式</p>
+<p>– 如果在一个函数前面带上new来调用，那么将创建一个隐藏连接到该函数的prototype成员的新对象，同时this将会被绑定到那个新对象上。</p>
+</li>
+</ol>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 创建一个名为Quo的构造器函数。它构造一个代用status属性的对象</span>
+
+<span class="token keyword">var</span> Quo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>status <span class="token operator">=</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Quo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>get_status <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> myQuo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Quo</span><span class="token punctuation">(</span><span class="token string">"confused"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li><p>apply调用模式</p>
+<p>– apply方法让我们构建一个参数数组并用其去调用函数。允许我们选择this的值。apply方法接收两个参数，第一个是将被绑定给this的值，第二个就是一个参数数组。</p>
+</li>
+</ol>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> statusObject <span class="token operator">=</span> <span class="token punctuation">{</span>
+    status<span class="token punctuation">:</span> <span class="token string">'A-OK'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// statusObject并没有继承自Quo.prototype,但我们可以在statusObject上调</span>
+<span class="token comment" spellcheck="true">// 用get_status方法，尽管statusObject并没有名为get_status的方法。</span>
+
+<span class="token keyword">var</span> status <span class="token operator">=</span> Quo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>get_status<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>statusObject<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// status 值为 'A-OK'</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p><strong>闭包</strong></p>
+<p>函数内部返回出去的对象或函数可以访问它被创建时所处的上下文环境。被称为闭包。</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> myObject <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        increment<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>inc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            value <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">typeof</span> inc <span class="token operator">===</span> <span class="token string">'number'</span> <span class="token operator">?</span> inc <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        getValue<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 我们没有把一个函数赋值给myObject，而是将函数的返回结果赋值给了它。注意最后一行（）。</span>
+<span class="token comment" spellcheck="true">// 该函数返回一个包含两个方法的对象，并且这些方法继续享有访问value变量的特权。</span>
+
+
+
+<span class="token comment" spellcheck="true">// 创建一个名为quo的构造函数</span>
+<span class="token comment" spellcheck="true">// 它构造出带有get_status方法和status私有属性的一个对象。</span>
+
+<span class="token keyword">var</span> quo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        get_status<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> status<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 构造一个quo的实例</span>
+
+<span class="token keyword">var</span> myQuo <span class="token operator">=</span> <span class="token function">quo</span><span class="token punctuation">(</span><span class="token string">"amazed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myQuo<span class="token punctuation">.</span><span class="token function">get_status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">// 这个函数被设计称无须在前面加上new来使用，所以名字也没有首字母大写，</span>
+<span class="token comment" spellcheck="true">// 调用quo时，返回带有get_status方法的新对象。该对象的一个引用保存在myQuo中</span>
+<span class="token comment" spellcheck="true">// 。即使quo已经返回了，但get_status方法仍然享有访问quo对象的status属性的特权。</span>
+<span class="token comment" spellcheck="true">// 它访问的就是该参数的本身而不是参数的拷贝。</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>记忆</p>
+<p>函数可以用对象去记住先前操作的结果，从而能避免无谓的运算。这种优化被称为记忆。</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token comment" spellcheck="true">// 不适用记忆，采用递归函数计算Fibonacci数列。</span>
+  <span class="token comment" spellcheck="true">// 一个Fibonacci数字是之前两个Fibonacci数字之和。</span>
+  <span class="token comment" spellcheck="true">// 最初是两个数字是0和1。</span>
+  <span class="token keyword">var</span> fibonacci <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> n <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">?</span> n <span class="token punctuation">:</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'//'</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+
+  <span class="token comment" spellcheck="true">// 0: 0</span>
+  <span class="token comment" spellcheck="true">// 1: 1</span>
+  <span class="token comment" spellcheck="true">// 2: 1</span>
+  <span class="token comment" spellcheck="true">// 3: 2</span>
+  <span class="token comment" spellcheck="true">// 4: 3</span>
+  <span class="token comment" spellcheck="true">// 5: 5</span>
+  <span class="token comment" spellcheck="true">// 6: 8</span>
+  <span class="token comment" spellcheck="true">// 7: 13</span>
+  <span class="token comment" spellcheck="true">// 8: 21</span>
+  <span class="token comment" spellcheck="true">// 9: 34</span>
+  <span class="token comment" spellcheck="true">// 10: 55</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  虽然这样是可以工作的，但它做了很多无谓的工作。fibonacci函数被调用了453次。我们调用了11次，而它自身调用了442次去计算可能已经被刚计算过的值。如果我们让该函数具备记忆功能，就可以显著地减少它的运算量。</p>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token comment" spellcheck="true">// 使用memo数组保存计算结果,采用闭包的形式</span>
+
+  <span class="token keyword">var</span> fibonacci <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> memo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span> <span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> fib <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">var</span> result <span class="token operator">=</span> memo<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> result <span class="token operator">!==</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              result <span class="token operator">=</span> <span class="token function">fib</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fib</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              memo<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> result<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword">return</span> result
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> fib<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  这个函数返回同样的结果，但它只被调用了29次。我们调用了11次。它自身调用了18次去取的计算结果。</p>
+<p>  我们可以编写一个函数来帮助我们构造带记忆功能的函数。memoizer函数将取的一个初始的memo数组和fundamental函数。</p>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token keyword">var</span> memoizer <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>memo<span class="token punctuation">,</span> fundamental<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> shell <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">var</span> result <span class="token operator">=</span> memo<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> result <span class="token operator">!==</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              result <span class="token operator">=</span> <span class="token function">fundamental</span><span class="token punctuation">(</span>shell<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              memo<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> result<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> shell<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 使用memoizer来定义fibonacci函数</span>
+
+  <span class="token keyword">var</span> fibonacci <span class="token operator">=</span> <span class="token function">memoizer</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span> <span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>shell<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">shell</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">shell</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">//  通过设计能产生出其他函数的函数，可以极大减少我们必须要做的工作。</span>
+  <span class="token comment" spellcheck="true">//  产生一个可以记忆的阶乘函数，我们只需提供基本的阶乘公式即可：</span>
+
+  <span class="token keyword">var</span> factorial <span class="token operator">=</span> <span class="token function">memoizer</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>shell<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> n <span class="token operator">*</span> <span class="token function">shell</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>全局变量</p>
+<p>js所有糟糕的特性之中最为糟糕的就是它对全局变量的依赖性。全局变量就是在所有作用域中都可见的变量。全局变量可以被程序的任何部分在任何时间改变，它们会使得程序的行为被极大地复杂化。在程序中使用全局变量降低了程序的可靠性。</p>
+<p>全局变量使得在同一个程序中运行独立的子程序变得更难，如果某些全局变量的名称碰巧和子程序中的变量名称相同，那么它们将会相互冲突并可能导致程序无法运行，而且通常难以调试。</p>
+<p>定义全局变量有三种方式：</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 第一种脱离任何函数安排一个var语句：</span>
+    <span class="token keyword">var</span> foo <span class="token operator">=</span> value<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 第二种是直接添加一个属性到全局对象上。</span>
+<span class="token comment" spellcheck="true">// 全局对象是所有全局变量的容器。</span>
+<span class="token comment" spellcheck="true">// 在Web浏览器里，全局对象名为window</span>
+
+    window<span class="token punctuation">.</span>foo <span class="token operator">=</span> value<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 第三种是直接使用未经声明的变量。这被称为隐式的全局变量</span>
+
+    foo <span class="token operator">=</span> value<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>自动插入分号</p>
+<p>js有一个机制，它试图通过自动插入分号来修正有缺损的程序。千万不要依靠它，它可能会掩盖更为严重的错误。</p>
+<p>如果一个return语句返回一个值，这个值表达式开始部分必须和return在同一行上。</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token keyword">return</span>
+    <span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        上述代码看起来是要返回一个包含status成员元素的对象，不幸的是，自动插入分号让它变成了返回undefined。
+        如果把{放在上一行的尾部而不是下一行的头部就可以避免该问题
+    */</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>typeof</p>
+<p>typeof运算符返回一个用于表示其运算数类型的字符串。</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"> <span class="token keyword">typeof</span> <span class="token number">98.6</span>  <span class="token comment" spellcheck="true">// number</span>
+ <span class="token keyword">typeof</span> <span class="token keyword">null</span> <span class="token comment" spellcheck="true">// 返回object而不是null</span>
+
+ <span class="token comment" spellcheck="true">// typeof不能辨别出null与对象，可以像下面这样做</span>
+ <span class="token comment" spellcheck="true">// 因为null值为假，而所有对象值为真</span>
+
+ <span class="token comment" spellcheck="true">// my_value === null;</span>
+ <span class="token keyword">if</span><span class="token punctuation">(</span>my_value <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> my_value <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token comment" spellcheck="true">// my_value是一个对象或数组</span>
+ <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>parseInt</p>
+<p>parseInt是一个将字符串转换为整数的函数。它在遇到非数字时停止解析，所以parseInt(“16”)与parseInt(“16 tons”)产生相同的结果。</p>
+<p>如果该字符串第一个字符是0，那么该字符串将被基于八进制而不是十进制来求值。在八进制中，8和9不是数字，所依parseInt(“08”)和parseInt(“09”)产生0作为结果。这个错误导致了程序解析日期和时间时出现问题。幸运的是，parseInt可以接受一个基数作为参数，parseInt(“08”,10)结果为8。使用parseInt总是提供这个基数参数是有必要的。</p>
+</li>
+<li><p>‘+’</p>
+<p>‘+’运算符可以用于加法运算或字符串连接。如果其中一个运算数是一个空字符串，它会把另一个运算数转换成字符串并返回。如果两个运算数都是数字，它返回两者之和。如果你打算用+去做加法运算，请确保两个运算数都是整数。</p>
+</li>
+<li><p>NaN</p>
+<p>NaN是IEEE754中定义的一个特殊的数量值，它表示不是一个数字。</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">typeof</span> <span class="token number">NaN</span> <span class="token operator">===</span> <span class="token string">'number'</span>  <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token comment" spellcheck="true">// 该值可能会在试图将非数字形式的字符串转换为数字时产生。</span>
+
+<span class="token operator">+</span> <span class="token string">'0'</span>  <span class="token comment" spellcheck="true">// 0</span>
+<span class="token operator">+</span> <span class="token string">'aksk'</span> <span class="token comment" spellcheck="true">// NaN</span>
+
+<span class="token comment" spellcheck="true">// 需要注意的是，如果你有一个公式链产生出NaN的结果，那么至少其中一个输入项是NaN，或者在某个地方产生了NaN。</span>
+
+<span class="token comment" spellcheck="true">// NaN不等同与它自己</span>
+
+<span class="token number">NaN</span> <span class="token operator">===</span> <span class="token number">NaN</span>   <span class="token comment" spellcheck="true">// false</span>
+<span class="token number">NaN</span> <span class="token operator">!==</span> <span class="token number">NaN</span>   <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token comment" spellcheck="true">// js提供了isNaN函数检测是否是NaN</span>
+
+<span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// true</span>
+<span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// false</span>
+<span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">'asnsnsn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// ture</span>
+<span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// false</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>判断一个值是否可用做数字的最佳方法是使用isFinite函数，因为它会筛除掉NaN和Infinity。不幸的是，isFinite会试图把它的运算数转换为一个数字，所以，如果值事实上不是一个数字，它就不是一个好的测试。可以自己定义isNumber函数：</p>
+<pre class="line-numbers language-js"><code class="language-js">  <span class="token keyword">function</span> <span class="token function">isNumber</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">'number'</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isFinite</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>伪数组</p>
+<p>js没有真正的数组。</p>
+<p>typeof运算符不能辨别数组和对象。要判断一个值是否为数组，必须要检查它的constructor属性：</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token keyword">if</span><span class="token punctuation">(</span>my_value <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> my_value <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> my_value<span class="token punctuation">.</span>constructor <span class="token operator">===</span> Array<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// my_value是一个数组</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>上面的检测对于在不同的帧或窗口创建的数组将会给出false。当数组有可能哎其他的帧中被创建时，下面的检测更为可靠：</p>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token keyword">if</span><span class="token punctuation">(</span>my_value <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> my_value <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> my_value<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token string">'number'</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token punctuation">(</span>my_value<span class="token punctuation">.</span><span class="token function">propertyIsEnumerable</span><span class="token punctuation">(</span><span class="token string">'length'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// my_value确实是一个数组</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>==</p>
+<p>js有两组相等运算符：=== 和 !==，以及 == 和 !=。 === 和 !==这一组运算符会按照你期望的方式工作。如果两个运算数类型一致且拥有相同的值，那么 === 返回 true，而 !==返回false。而 == 和 !=只有在两个运算数类型一致时才会做出正确的判断，如果两个运算数是不同的类型时，它们试图去强制转换类型。</p>
+</li>
+</ul>
+<pre class="line-numbers language-js"><code class="language-js"> <span class="token string">''</span> <span class="token operator">==</span> <span class="token string">'0'</span>   <span class="token comment" spellcheck="true">// false</span>
+ <span class="token number">0</span> <span class="token operator">==</span> <span class="token string">''</span>     <span class="token comment" spellcheck="true">// true</span>
+ <span class="token number">0</span> <span class="token operator">==</span> <span class="token string">'0'</span>    <span class="token comment" spellcheck="true">// true</span>
+
+ <span class="token boolean">false</span> <span class="token operator">==</span> <span class="token string">'false'</span>  <span class="token comment" spellcheck="true">// false</span>
+ <span class="token boolean">false</span> <span class="token operator">==</span> <span class="token string">'0'</span>  <span class="token comment" spellcheck="true">// true</span>
+
+ <span class="token boolean">false</span> <span class="token operator">==</span> undefined  <span class="token comment" spellcheck="true">// false</span>
+ <span class="token boolean">false</span> <span class="token operator">==</span> <span class="token keyword">null</span>    <span class="token comment" spellcheck="true">// false</span>
+ <span class="token keyword">null</span> <span class="token operator">==</span> undefined   <span class="token comment" spellcheck="true">// true</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>== 运算符对传递性的缺乏值得我们警惕。建议永远不要用== 和 !=。始终使用 === 和 !==。</p>
+<blockquote>
+<p>传递性是一种编程约定。可以这么去理解：对于任意的引用值x、y和z，如果x == y和y == z为true，那么x == z 为true。而js中的==运算符在某些特例上违背了传递性。</p>
+</blockquote>
+<hr>
+<p><strong>避免使用with语句，with语句严重影响了js处理器的速度，因为它阻止了变量名的词法作用域绑定。</strong></p>
+<hr>
+<p><strong>避免使用eval。使用它会使得性能显著降低，因为它须运行编译器。</strong></p>
+<ul>
+<li>Function构造器是eval的另一种形式，所以它同样也应该被避免使用。</li>
+<li>浏览器提供的setTimeout和setInterval函数，它们能接受字符串参数或函数参数。当传递的是字符串参数时，setTimeout和setInterval会像eval那样去处理。字符串参数形式也应该被避免使用。</li>
+</ul>
+<hr>
+<p><strong>continue语句</strong></p>
+<p>continue语句跳到循环的顶部。通过移除continue语句后，性能会得到改善。</p>
+<hr>
+<p><strong>switch贯穿</strong></p>
+<p>使用switch语句时，每一个条件都是需要添加break，防止上一个case条件向下贯穿到另一个case条件。</p>
+<hr>
+<p><strong>function语句对比函数表达式</strong></p>
+<p>js中既有function语句，同时也有函数表达式。这是令人困惑的，因为它们看起来就是相同的。一个function语句就是其值为一个函数法人var语句的速记形式。</p>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// 下面语句：</span>
+    <span class="token keyword">function</span> foo <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//意思相当于：</span>
+    <span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第二种形式能明确表示foo是一个包含一个函数值的变量。function语句在解析时会发生被提升的情况，这意味着不管function被放置在哪里，它会被移动到被定义时所在作用域的顶层。禁止在if语句中声明function语句。</p>
+<p>一个语句不能以一个函数表达式开头，因为官方的语法假定以单词function开头的语句是一个function语句。解决方法就是把函数表达式括在一个圆括号之中。</p>
+<pre class="line-numbers language-js"><code class="language-js">    <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> hidden_variable<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 这个函数可能对环境有一些影响，但不会引入新的全局变量</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p><strong>在使用new运算符创建新对象时，千万别忘了new，否则会造成this被绑定到全局对象，而不是新创建的对象。</strong></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/01/浏览器存储/" rel="next" title="浏览器存储">
+                <i class="fa fa-chevron-left"></i> 浏览器存储
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/01/JavaScript高级程序设计笔记/" rel="prev" title="JavaScript高级程序设计笔记">
+                JavaScript高级程序设计笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container"></div>
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pjy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript语言精粹"><span class="nav-number">1.</span> <span class="nav-text">JavaScript语言精粹</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pjy</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'c9b2f05dad097ee5b6ba',
+          clientSecret: '3afeccd217f8ff6eb1b42d637510abb1892a1410',
+          repo: 'yymfp.github.io',
+          id: md5(window.location.pathname),
+          owner: 'yymfp',
+          admin: ['yymfp'],
+          labels: 'Gitalk',
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false,
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

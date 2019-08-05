@@ -1,0 +1,27 @@
+<!--There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!-->
+
+<% if( page.type === "bizi") { %>
+
+	<%- partial('bizi') %>
+
+<% } else { %>
+
+	<!DOCTYPE html>
+	<html>
+		<%- partial('_partial/head') %>
+	<body>	
+		<%- partial('_partial/header') %>
+
+		<main>
+		<div class="page-container">
+		<%- body %>
+		</div>
+		<%- partial("_partial/footer") %>
+		</main>
+
+		<%- partial('_partial/footer-after') %>
+	</body>
+	</html>
+
+<% } %>
+

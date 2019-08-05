@@ -1,0 +1,93 @@
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+	<div class="am-u-md-8 am-u-sm-12">
+
+		<article class="am-article blog-article-p">
+			<div class="am-article-hd">
+				<%- partial('post/gallery', {post:post}) %>
+
+				<h1 class="am-article-title blog-text-center">
+					<% permalink = config.url + config.root + post.path %>
+					<%- partial('post/title', {post:post}) %>
+				</h1>
+
+				<p class="am-article-meta blog-text-center">
+					<span>
+						<i class="fa fa-clock-o"></i> 
+						<%- partial('post/date', {post: post, date_format: null}) %>&nbsp
+					</span>
+					<span>						
+						<% if (post.tags && post.tags.length){ %>
+							<i class="fa fa-tags"></i>
+							<% post.tags.map(function(tag){  %>
+								<a href="#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>&nbsp
+							<% }) %>						 											
+						<% } %>
+					</span>	
+				</p>
+			</div>	
+
+			<div class="am-article-bd">
+				<div class="content">
+					<%- post.content %>
+				</div>
+			</div>
+
+		</article>
+
+		<%- partial('post/navigation', {post:post}) %>
+
+		<%- partial('third/comment') %>
+
+	</div> 
+</div>
+
+<!-- code highlight 测试版fix me-->
+<style>
+pre {
+  background: inherit;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  padding: .5em;
+  position: relative;
+  margin: 0 0 0.8em 0;
+  overflow-y: hidden
+}
+
+pre code {
+  margin: -0.5em !important;
+  padding: 0.5em !important;
+  overflow-y: auto;
+  overflow-x: auto;
+  display: block
+}
+
+code.has-numbering {
+  margin-left: 1.7em !important;
+  word-wrap: normal;
+  word-break: keep-all;
+  white-space: pre
+}
+
+.pre-numbering {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.2em;
+  height: 100%;
+  padding: 0.5em 0.2em 0.5em 0;
+  border-right: 1px solid #C3CCD0;
+  background-color: #EEE;
+  text-align: right;
+  color: #AAA;
+  list-style: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+</style>
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+
+<!-- css爬取自网页 -->
+<!-- code highlight 测试版fix me-->

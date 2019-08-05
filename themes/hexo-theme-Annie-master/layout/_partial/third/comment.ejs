@@ -1,0 +1,7 @@
+<% if(theme.comment.enable) { %>
+	<% if(theme.gittalk.enable) { %>
+		<%- partial('comment/gitalk')%>	
+	<% } else { %>
+		<%- partial('comment/default')%>
+	<% } %>
+<% } %>	

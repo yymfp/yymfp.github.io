@@ -1,0 +1,20 @@
+
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+<script>window.jQuery || document.write('<script src="<%- config.root %>js/jquery-2.1.1.min.js"><\/script>')</script>
+
+<script src="<%- config.root %>js/main.js"></script> 
+
+<%- partial('third/motto') %>
+
+<% if (theme.local_search.enable) { %>
+    <%- partial('_partial/third/search') %>
+<% } %>
+
+<% if (theme.love.enable) { %>
+    <script type="text/javascript" src="/js/love.js"></script>
+<% } %>
+
+<script src="<%- config.root %>js/code.js"></script>
+

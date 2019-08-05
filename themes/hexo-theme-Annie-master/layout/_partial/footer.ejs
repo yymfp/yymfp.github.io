@@ -1,0 +1,44 @@
+<footer>
+	<div class="blog-text-center">
+		<div class="social">
+			<% if(theme.social.enable) { %>	
+				<% if(theme.social.github){ %>
+					<a href="<%- url_for(theme.social.github) %>" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+				<% } %>	
+				<% if(theme.social.weibo){ %>
+					<a href="<%- url_for(theme.social.weibo) %>" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				<% } %>
+				<% if(theme.social.email){ %>
+					<a href="<%- url_for(theme.social.email) %>" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+				<% } %>	
+				<% if(theme.social.weibo){ %>
+					<a href="<%- url_for(theme.social.qq) %>" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+				<% } %>	
+				<% if(theme.social.twitter){ %>
+					<a href="<%- url_for(theme.social.twitter) %>" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+				<% } %>		
+			<% } %>	
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="copyright">
+			<% if(theme.since && theme.since < date(new Date(), 'YYYY')) { %>
+				&copy; <%= theme.since %> - <%= date(new Date(), 'YYYY') %>, content by <%= config.author || config.title %>. All Rights Reserved.			       	
+			<% } else { %>
+				&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>.			   
+			<% } %>
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="copyright">
+			<%- link_to("http://hexo.io/", "Hexo", {external: true})%> Theme <%- link_to("https://github.com/Sariay/hexo-theme-Annie", "Annie", {external: true})%> by Sariay.		
+		</div>
+	</div>
+</footer>
+
+
+
+
+

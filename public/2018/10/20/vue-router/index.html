@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Vue-router路由的定义使用：HTML &amp;lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&amp;gt;&amp;lt;/script&amp;gt;  &amp;lt;div id=&quot;app&quot;&amp;gt;   &amp;lt;h1&amp;gt;Hello A">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router">
+<meta property="og:url" content="http://yoursite.com/2018/10/20/vue-router/index.html">
+<meta property="og:site_name" content="pjy">
+<meta property="og:description" content="Vue-router路由的定义使用：HTML &amp;lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&amp;gt;&amp;lt;/script&amp;gt;  &amp;lt;div id=&quot;app&quot;&amp;gt;   &amp;lt;h1&amp;gt;Hello A">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-01T09:05:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-router">
+<meta name="twitter:description" content="Vue-router路由的定义使用：HTML &amp;lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&amp;gt;&amp;lt;/script&amp;gt;  &amp;lt;div id=&quot;app&quot;&amp;gt;   &amp;lt;h1&amp;gt;Hello A">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/20/vue-router/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vue-router | pjy</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">pjy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/vue-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue-router
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-20 14:41:41" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-05-01 17:05:50" itemprop="dateModified" datetime="2019-05-01T17:05:50+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h3><h5 id="路由的定义使用："><a href="#路由的定义使用：" class="headerlink" title="路由的定义使用："></a>路由的定义使用：</h5><p><strong>HTML</strong></p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/vue/dist/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/vue-router/dist/vue-router.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Hello App!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 使用 router-link 组件来导航. --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 通过传入 `to` 属性指定链接. --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- &lt;router-link> 默认会被渲染成一个 `&lt;a>` 标签 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/foo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Go to Foo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/bar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Go to Bar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- 路由出口 --></span>
+  <span class="token comment" spellcheck="true">&lt;!-- 路由匹配到的组件将渲染在这里 --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//非模块化定义</span>
+<span class="token comment" spellcheck="true">//1.定义路由组件</span>
+<span class="token keyword">const</span> Foo <span class="token operator">=</span> <span class="token punctuation">{</span> template<span class="token punctuation">:</span> <span class="token string">'&lt;div>foo&lt;/div>'</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> Bar <span class="token operator">=</span> <span class="token punctuation">{</span> template<span class="token punctuation">:</span> <span class="token string">'&lt;div>bar&lt;/div>'</span> <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//2.定义路由</span>
+<span class="token keyword">const</span> routes<span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span><span class="token string">'/foo'</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span>Foo
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span><span class="token string">'/bar'</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span>Bar
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">//3.创建路由实例，将routes配置传入</span>
+<span class="token keyword">const</span> router<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    routes  <span class="token comment" spellcheck="true">//相当于routes:routes</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//4.创建和挂载根实例</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    router  <span class="token comment" spellcheck="true">//相当于router:router</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">"#app"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//模块化开发定义方式</span>
+<span class="token comment" spellcheck="true">// 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)</span>
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">import</span> routes <span class="token keyword">from</span> <span class="token string">'./routes'</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//1.创建路由实例，将routes传入</span>
+<span class="token keyword">const</span> router<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    mode<span class="token punctuation">:</span><span class="token string">'history'</span><span class="token punctuation">,</span>
+    routes
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//文件./routes内容</span>
+<span class="token keyword">const</span> Foo <span class="token operator">=</span> <span class="token punctuation">{</span> template<span class="token punctuation">:</span> <span class="token string">'&lt;div>foo&lt;/div>'</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> Bar <span class="token operator">=</span> <span class="token punctuation">{</span> template<span class="token punctuation">:</span> <span class="token string">'&lt;div>bar&lt;/div>'</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> routes<span class="token operator">=</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span><span class="token string">'/foo'</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span>Foo
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span><span class="token string">'/bar'</span><span class="token punctuation">,</span>
+        component<span class="token punctuation">:</span>Bar
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>定义完成后，可以再组件内通过 <code>this.$router</code> 访问路由器，也可以通过 <code>this.$route</code> 访问当前路由：</strong></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//Foo.vue</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token function">myRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                path<span class="token punctuation">:</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//要跳转的路由位置</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="动态路由匹配"><a href="#动态路由匹配" class="headerlink" title="动态路由匹配"></a>动态路由匹配</h5><p><strong>路由传参：</strong></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> User<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span><span class="token string">'&lt;div>User{{ $route.params.id }}&lt;/div>'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> router<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    routes<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            path<span class="token punctuation">:</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span>User
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>一个路径参数使用“:”标记。当匹配到一个路由时，参数值会被设置到<code>this.$rote.params</code>。</em></p>
+<p>你可以在一个路由中设置多段“路径参数”，对应的值都会设置到 <code>$route.params</code> 中。例如：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>匹配路径</th>
+<th>$route.params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/user/:username</td>
+<td>/user/evan</td>
+<td><code>{ username: &#39;evan&#39; }</code></td>
+</tr>
+<tr>
+<td>/user/:username/post/:post_id</td>
+<td>/user/evan/post/123</td>
+<td><code>{ username: &#39;evan&#39;, post_id: 123 }</code></td>
+</tr>
+</tbody>
+</table>
+<p>除了 <code>$route.params</code> 外，<code>$route</code> 对象还提供了其它有用的信息，例如，<code>$route.query</code> (如果 URL 中有查询参数)、<code>$route.hash</code> 等等。你可以查看 <a href="https://router.vuejs.org/zh/api/#%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1" target="_blank" rel="noopener">API 文档</a> 的详细说明。</p>
+<p><strong>注意：路由跳转时，原来的组件实例会被复用。因为两个路由都渲染同个组件，比起销毁再创建，复用则更加高效。这也就意味着，组件的生命周期钩子不会再被调用。</strong></p>
+<p>复用组件时，可以<code>watch</code>（监测变化）<code>$route</code>对象：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> User<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span><span class="token string">'...'</span><span class="token punctuation">,</span>
+    watch<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token string">'$route'</span> <span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//对路由变化做出响应</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用<code>beforeRouteUpdate</code>导航守卫：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token punctuation">{</span>
+  template<span class="token punctuation">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span>
+  beforeRouteUpdate <span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// react to route changes...</span>
+    <span class="token comment" spellcheck="true">// don't forget to call next()</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>匹配优先级</strong></p>
+<p>有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。</p>
+<h5 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h5><p>app：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><em>app这里的<code>&lt;router-view&gt;</code>是最顶层的出口。一个被渲染的组件同样可以包含自己嵌套的<code>&lt;router-view&gt;</code>。例如在<code>User</code>模板中添加<code>&lt;router-view&gt;</code>：</em></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> User<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+        &lt;div class="user">
+            &lt;h2>User {{$route.params.id}}&lt;/h2>
+            &lt;router-link to="/user/:id/posts">UserPosts&lt;/router-link>
+            &lt;router-link to="/user/:id/profile">UserProfile&lt;/router-link>
+            &lt;router-view>&lt;/router-view>
+        &lt;/div>
+    `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//实现嵌套路由的话，需要在配置项中添加children属性。</span>
+<span class="token keyword">const</span> route<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    routes<span class="token punctuation">:</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            path<span class="token punctuation">:</span><span class="token string">'/user/:id'</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span>User<span class="token punctuation">,</span>
+            children<span class="token punctuation">:</span><span class="token punctuation">[</span>
+                <span class="token comment" spellcheck="true">// 当 /user/:id/profile匹配成功</span>
+                <span class="token comment" spellcheck="true">//UserProfile会被渲染在User的&lt;router-view>中</span>
+                <span class="token punctuation">{</span>
+                    path<span class="token punctuation">:</span><span class="token string">'profile'</span><span class="token punctuation">,</span>
+                    component<span class="token punctuation">:</span>UserProfile
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token comment" spellcheck="true">// 当 /user/:id/posts匹配成功</span>
+                <span class="token comment" spellcheck="true">//UserPosts会被渲染在User的&lt;router-view>中</span>
+                <span class="token punctuation">{</span>
+                    path<span class="token punctuation">:</span><span class="token string">'posts'</span><span class="token punctuation">,</span>
+                    component<span class="token punctuation">:</span>UserPosts
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>注意：以<code>/</code>开头的匹配，会被当作根路径。<code>children</code>的配置类似于routes的配置，可以进行多层嵌套。</em></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">const</span> UserProfile<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`
+        &lt;div class="userprofile">
+            userprofile
+        &lt;/div>
+    `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> UserPosts<span class="token operator">=</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span><span class="token template-string"><span class="token string">`
+        &lt;div class="UserPosts">
+            UserPosts
+        &lt;/div>
+    `</span></span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/20/CommonJS、AMD、CMD/" rel="next" title="CommonJS、AMD、CMD">
+                <i class="fa fa-chevron-left"></i> CommonJS、AMD、CMD
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/21/BFC/" rel="prev" title="BFC">
+                BFC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container"></div>
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pjy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">Tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-router"><span class="nav-number">1.</span> <span class="nav-text">Vue-router</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#路由的定义使用："><span class="nav-number">1.0.1.</span> <span class="nav-text">路由的定义使用：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态路由匹配"><span class="nav-number">1.0.2.</span> <span class="nav-text">动态路由匹配</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#嵌套路由"><span class="nav-number">1.0.3.</span> <span class="nav-text">嵌套路由</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pjy</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'c9b2f05dad097ee5b6ba',
+          clientSecret: '3afeccd217f8ff6eb1b42d637510abb1892a1410',
+          repo: 'yymfp.github.io',
+          id: md5(window.location.pathname),
+          owner: 'yymfp',
+          admin: ['yymfp'],
+          labels: 'Gitalk',
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false,
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

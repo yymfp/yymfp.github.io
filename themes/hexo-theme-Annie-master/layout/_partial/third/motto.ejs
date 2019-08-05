@@ -1,0 +1,17 @@
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 60px 20px 0 20px;
+		line-height: 1.4;
+		font-family: 'Fang Song', 'Song', 'STSong', sans-serif;
+		text-align: center;
+	}
+</style>
+
+<% if ( (is_home() && is_current('index.html')) || ( is_post() )) { %>
+	<%- js('js/motto') %>
+	<script>
+		$(".motto").html(getMingYanContent());
+	</script>	
+<% } %>

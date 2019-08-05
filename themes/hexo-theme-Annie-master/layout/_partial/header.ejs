@@ -1,0 +1,50 @@
+<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="preloader" src="<%- config.root %>img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
+
+<% if(theme.background_image.enable) { %>
+	<header style="background-image: url( <%- url_for(theme.background_image.url) %> );">	
+<% } else { %>
+	<header>
+<% } %>
+	<% if(theme.avtor) { %>
+		<div id="cd-logo"><a href="<%- config.root %>"><img src="<%- url_for(theme.avtor) %>" alt="Logo"></a></div>
+	<% } else { %>
+		<div id="cd-logo"><a href="<%- config.root %>"><%= theme.say %></a></div>		
+	<% } %>
+		
+	<% if(theme.motto || config.description) { %>	
+ 		<p class="motto"><%=config.description%></p>
+	<% } %>
+	
+	<% if(theme.page_name.enable) { %>
+		<% if (page.type !== "home") { %>
+			<p class="page-name"><%= page.title %></p>
+		<% } %>
+		<% if (is_archive() && is_current('archives/index.html')) { %>
+			<p class="page-name">文章归档</p>
+		<% } %>
+	<% } %>
+</header>
+
+<div id="cd-nav">
+	<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+
+	<nav id="cd-main-nav">
+		<ul>
+			<% for (var i in theme.menu){ %>
+      		<li class="fa fa-<%= theme.menu[i] %>">
+           		<%- link_to(url_for(theme.menu[i]), i, { external: false})%>	
+      		</li>
+    		<%}%>
+    		
+        	<% if (theme.local_search.enable) { %>
+            	<li><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	<% } %>
+		</ul>
+	</nav>
+</div>
