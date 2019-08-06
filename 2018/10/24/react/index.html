@@ -116,14 +116,14 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/35cc29484072961d801e4de7f94c3b65.png">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/231d414640b509d980203a5ab45a3c4e.png">
-<meta property="og:updated_time" content="2019-05-01T09:04:56.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/24/react/6873d82c40e03c3080a5f4098f6df602.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/24/react/35cc29484072961d801e4de7f94c3b65.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/24/react/231d414640b509d980203a5ab45a3c4e.png">
+<meta property="og:updated_time" content="2019-08-06T05:44:29.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react">
 <meta name="twitter:description" content="ReactReact中的几个核心概念 虚拟DOM  DOM本质是什么：是浏览器中的概念，用JS对象来表示页面上的元素，并提供了操作DOM对象的API。  什么是React中的虚拟DOM：是框架中的概念，是程序员用JS对象来模拟页面上的DOM和DOM嵌套。  使用虚拟DOM的目的：为了实现页面中，DOM元素的高效更新。  DOM和虚拟DOM之间的区别：  DOM：浏览器中提供的概念，用JS对象表示页">
-<meta name="twitter:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/24/react/6873d82c40e03c3080a5f4098f6df602.png">
 
 
 
@@ -368,7 +368,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-05-01 17:04:56" itemprop="dateModified" datetime="2019-05-01T17:04:56+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-08-06 13:44:29" itemprop="dateModified" datetime="2019-08-06T13:44:29+08:00">2019-08-06</time>
               
             
           </span>
@@ -476,7 +476,7 @@
 </ol>
 </li>
 <li><p><strong>element diff</strong>：进行组件对比的时候，如果两个组件类型相同，则需要进行元素级别的对比，这就叫做Element diff。</p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png" alt></p>
+<p><img src="/2018/10/24/react/6873d82c40e03c3080a5f4098f6df602.png" alt></p>
 </li>
 </ul>
 </li>
@@ -741,7 +741,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>jsx到页面到底经过了怎样的过程呢？</strong></p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/35cc29484072961d801e4de7f94c3b65.png" alt></p>
+<p><img src="/2018/10/24/react/35cc29484072961d801e4de7f94c3b65.png" alt></p>
 <p>为什么不直接从jsx直接渲染构造DOM结构呢？</p>
 <ol>
 <li>第一个原因是：当我们拿到一个表示ui的结构和信息的对象以后，不一定会把元素渲染到浏览器的普通页面上，我们有可能会将它们渲染到canvas或者是手机app上。而js对象可以很方便让我们去进行其他地方的渲染。（ReactNative就是帮我们把它转换成原生的app的）</li>
@@ -913,7 +913,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
 <blockquote>
 <p><strong>特点：</strong>它是通过hash值来对路由进行控制，如果你选择使用它，就会在url上看到#。</p>
 <p><strong>用法：</strong></p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/231d414640b509d980203a5ab45a3c4e.png" alt></p>
+<p><img src="/2018/10/24/react/231d414640b509d980203a5ab45a3c4e.png" alt></p>
 <pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Router</span><span class="token punctuation">></span></span>
        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Layout</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>layout<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">></span></span>
