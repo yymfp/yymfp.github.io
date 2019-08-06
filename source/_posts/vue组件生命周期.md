@@ -15,7 +15,9 @@ categories: 前端
 
 > 所有的生命周期钩子自动绑定`this`上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法。这是因为箭头函数绑定了父上下文，因此`this`与你期待的Vue实例不同。
 
-![参考：https://cn.vuejs.org/v2/guide/instance.html](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/31/da4542b8404aacff8083b804fa48db76.png)
+![](vue组件声明周期/da4542b8404aacff8083b804fa48db76.png)
+
+> 参考：https://cn.vuejs.org/v2/guide/instance.html
 
 1. beforeCreate：这是第一个生命周期函数，此时组件的data和methods以及页面DOM结构，都还没有初始化，所以此阶段，什么都做不了。
 

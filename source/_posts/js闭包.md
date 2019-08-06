@@ -75,7 +75,7 @@ let max=10,
 
 **附加：**
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/10/d2a9dab04077415480e81d7d8e8fd13e.png)
+![](js闭包/d2a9dab04077415480e81d7d8e8fd13e.png)
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/10/a33c05334094f1ce80d00166ab7ed5aa.png)
+![](js闭包/a33c05334094f1ce80d00166ab7ed5aa.png)
 

@@ -814,4 +814,4 @@ Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的
 
 ##### 原理
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2019/04/30/ef5b88bd404de9f080415eceb994a780.png)
+![](Vuex/ef5b88bd404de9f080415eceb994a780.png)

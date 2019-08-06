@@ -59,7 +59,7 @@ categories: 前端
 
    效果：
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/1362e17d4024bf32807439bb428f8806.png)
+   ![](BFC/1362e17d4024bf32807439bb428f8806.png)
 
    *由于`p`元素的边缘与`.box`元素边缘不存在`padding`和`border`，所以`p`元素与`.box`元素紧密相连，`p`元素设置的`margin`属性与外部的`.box`的`margin`相重叠，`p`元素会与`.box`元素的顶部底部齐平，两个`p`元素中间又根据`margin`叠加计算规则得出10px。*
 
@@ -85,7 +85,7 @@ categories: 前端
 
    效果：
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/4e7ccdd640f9f1948001b77f22fff5bc.png)
+   ![](BFC/4e7ccdd640f9f1948001b77f22fff5bc.png)
 
    通过`overflow`创建BFC，可以将p元素的`margin`包裹在BFC内部。
 
@@ -120,7 +120,7 @@ categories: 前端
 
    效果：
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/2e7435f6404a840180b90b5050465d7d.png)
+   ![](BFC/2e7435f6404a840180b90b5050465d7d.png)
 
    *父容器的高度取决于文本的高度，它将不会包含已经浮动的子元素。可以通过给容器设置`overflow:hidden`，在容器中创建一个新的BFC。*
 
@@ -154,7 +154,7 @@ categories: 前端
 
    效果：
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/8fe9e38b40ca8d5c80e2e402f6b1d609.png)
+   ![](BFC/8fe9e38b40ca8d5c80e2e402f6b1d609.png)
 
 3. 使用BFC来防止文字环绕。
 
@@ -191,7 +191,7 @@ categories: 前端
 
    效果：
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/58fe0bc24074305e80124130cb611524.png)
+   ![](BFC/58fe0bc24074305e80124130cb611524.png)
 
    *上图可以看出，右侧的文字会环绕着左侧的浮动元素，如果我们不想要环绕的效果呢？*
 
@@ -229,7 +229,7 @@ categories: 前端
 
    效果：
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/d1d0d0b84057b84c8064633356e7a56a.png)
+   ![](BFC/d1d0d0b84057b84c8064633356e7a56a.png)
 
    *通过设置`overflow`，为p元素创建单独的BFC。*
 
@@ -261,7 +261,7 @@ categories: 前端
 
    效果：
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/61f755c3404c04f880bf3759d96965db.png)
+![](BFC/61f755c3404c04f880bf3759d96965db.png)
 
 *上图中多列元素的最后一个被挤到下一行了，造成这样的原因可能时因为浏览器舍入（取整）了列的宽度使得总和的宽度超过了容器的宽度。可以通过创建新的BFC，它将会在前一列填充完之后的后面占据所剩余的空间。*
 
@@ -292,5 +292,5 @@ categories: 前端
 
 效果：
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/21/9f51d5ac40bdb5fa804d79aed400cab1.png)
+![](BFC/9f51d5ac40bdb5fa804d79aed400cab1.png)
 

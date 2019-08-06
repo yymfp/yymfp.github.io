@@ -56,10 +56,10 @@ categories: 前端
 
    一个块元素的总宽度/总高度=width/height+padding+margin+border
 
-   ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/0754b65440c0fe40808b6481d881c0d2.png)
+   ![](css盒模型/0754b65440c0fe40808b6481d881c0d2.png)
 
 2. ##### 怪异盒模型
 
    一个块元素的总宽度/总高度=width/height+margin=内容区宽度/高度+padding+margin+border
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/11/7018d20d4024c8748094ee6c656cbc13.png)
+![](css盒模型/7018d20d4024c8748094ee6c656cbc13.png)

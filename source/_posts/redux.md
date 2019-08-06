@@ -105,4 +105,4 @@ function createStore (reducer) {
 
 ##### Redux基本原理图：
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2019/04/30/417252aa40fd5841805aee7017fc73cd.png)
+![](redux/417252aa40fd5841805aee7017fc73cd.png)

@@ -9,7 +9,7 @@ categories: 前端
 
 **检测规则：**
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/5e35a8e04062aeeb805a82c051a9560d.png)
+![](js类型检测总结/5e35a8e04062aeeb805a82c051a9560d.png)
 
 1. **`typeof`：操作符返回一个字符串，表示未经计算的操作数的类型**
 

@@ -14,11 +14,11 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
@@ -116,23 +116,23 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="js的prototype总结1. 每一个函数都有一个prototype，即原型。 2. 每个对象都有一个__proto__，可称为隐式原型，指向创建该对象的函数的prototype。  Object.prototype却是一个特例——它的__proto__指向的是null。   3. 自定义函数Foo.__proto__指向Function.prototype,Object.__proto__指向">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/3ed52e91409ae13e805e9ea9c771c66c.png">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/672e52454044214b80a9d2f140417535.png">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/fc61390740d130488051d1089074ba12.png">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/ad023c9f40a1e17f803967a5a402683e.png">
-<meta property="og:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/19/fb2ec26540658c9480e22f7217f7ff29.png">
-<meta property="og:updated_time" content="2018-10-19T02:39:44.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/06/js的prototype总结/3ed52e91409ae13e805e9ea9c771c66c.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/06/js的prototype总结/672e52454044214b80a9d2f140417535.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/06/js的prototype总结/fc61390740d130488051d1089074ba12.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/06/js的prototype总结/ad023c9f40a1e17f803967a5a402683e.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/06/js的prototype总结/fb2ec26540658c9480e22f7217f7ff29.png">
+<meta property="og:updated_time" content="2019-08-06T05:41:47.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的prototype总结">
 <meta name="twitter:description" content="js的prototype总结1. 每一个函数都有一个prototype，即原型。 2. 每个对象都有一个__proto__，可称为隐式原型，指向创建该对象的函数的prototype。  Object.prototype却是一个特例——它的__proto__指向的是null。   3. 自定义函数Foo.__proto__指向Function.prototype,Object.__proto__指向">
-<meta name="twitter:image" content="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/3ed52e91409ae13e805e9ea9c771c66c.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/06/js的prototype总结/3ed52e91409ae13e805e9ea9c771c66c.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/06/js的prototype总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/06/js的prototype总结/">
 
 
 
@@ -228,7 +228,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
   </li>
         
         
@@ -236,7 +236,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
   </li>
         
         
@@ -244,7 +244,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
   </li>
         
         
@@ -252,7 +252,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
   </li>
         
         
@@ -260,7 +260,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
   </li>
 
       
@@ -315,7 +315,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -370,13 +370,13 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-10-19 10:39:44" itemprop="dateModified" datetime="2018-10-19T10:39:44+08:00">2018-10-19</time>
+                <time title="Updated at: 2019-08-06 13:41:47" itemprop="dateModified" datetime="2019-08-06T13:41:47+08:00">2019-08-06</time>
               
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -426,11 +426,11 @@
 <blockquote>
 <p><strong><code>Object.prototype</code>却是一个特例——它的<code>__proto__</code>指向的是<code>null</code>。</strong></p>
 </blockquote>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/3ed52e91409ae13e805e9ea9c771c66c.png" alt=""></p>
+<p><img src="/2018/10/06/js的prototype总结/3ed52e91409ae13e805e9ea9c771c66c.png" alt></p>
 <p><strong>3. 自定义函数<code>Foo.__proto__</code>指向<code>Function.prototype</code>,<code>Object.__proto__</code>指向<code>Function.prototype</code>，而<code>Function.__proto__</code>指向<code>Function.prototype</code>,从而形成一个环形结构。<code>Function</code>也是一个函数，函数是一种对象，而<code>Function</code>是被自身所创建的一种函数，所以它的<code>__proto__</code>指向了自身的<code>prototype</code>。</strong></p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/672e52454044214b80a9d2f140417535.png" alt=""></p>
+<p><img src="/2018/10/06/js的prototype总结/672e52454044214b80a9d2f140417535.png" alt></p>
 <p><strong>4. <code>Function.prototype</code>是一个对象，它的<code>__proto__</code>也指向<code>Object.prototype</code>。</strong></p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/fc61390740d130488051d1089074ba12.png" alt=""></p>
+<p><img src="/2018/10/06/js的prototype总结/fc61390740d130488051d1089074ba12.png" alt></p>
 <p><strong>5. <code>Instanceof</code>运算符：</strong></p>
 <blockquote>
 <p><code>instanceof</code>运算符的左边的变量是一个对象，暂时称为A；右边的变量为一个函数，暂时称为B。</p>
@@ -441,9 +441,9 @@
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1 <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1 <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/06/ad023c9f40a1e17f803967a5a402683e.png" alt=""></p>
+<p><img src="/2018/10/06/js的prototype总结/ad023c9f40a1e17f803967a5a402683e.png" alt></p>
 <p><strong><em><code>instanceof</code>表示的就是一种继承关系，或者原型链的结构。</em></strong></p>
-<p><img src="http://bmob-cdn-8350.b0.upaiyun.com/2018/10/19/fb2ec26540658c9480e22f7217f7ff29.png" alt=""></p>
+<p><img src="/2018/10/06/js的prototype总结/fb2ec26540658c9480e22f7217f7ff29.png" alt></p>
 
       
     </div>
@@ -711,7 +711,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
 
 
 

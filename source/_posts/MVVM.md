@@ -22,4 +22,4 @@ categories: 前端
 
 所以，需要SEO（Search Engine Optimization）的页面，不能使用MVVM展示数据。不需要SEO的页面，如果前端逻辑复杂，就适合使用MVVM展示数据，例如，工具类页面，复杂的表单页面，用户登录后才能操作的页面等等
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2019/04/30/c045b16c40f808e480f874a801a7680a.png)
+![](MVVM/c045b16c40f808e480f874a801a7680a.png)

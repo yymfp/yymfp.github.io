@@ -63,7 +63,7 @@ categories: 前端
 
    - **element diff**：进行组件对比的时候，如果两个组件类型相同，则需要进行元素级别的对比，这就叫做Element diff。
 
-     ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/10/24/6873d82c40e03c3080a5f4098f6df602.png)
+     ![](react/6873d82c40e03c3080a5f4098f6df602.png)
 
 ##### 在项目中使用react
 
@@ -348,7 +348,7 @@ ReactDOM.render(<div>
 
 **jsx到页面到底经过了怎样的过程呢？**
 
-![](http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/35cc29484072961d801e4de7f94c3b65.png)
+![](react/35cc29484072961d801e4de7f94c3b65.png)
 
 为什么不直接从jsx直接渲染构造DOM结构呢？
 
@@ -558,7 +558,7 @@ this.setState({
       >
       > **用法：**
       >
-      > ![](http://bmob-cdn-8350.b0.upaiyun.com/2018/11/24/231d414640b509d980203a5ab45a3c4e.png)
+      > ![](react/231d414640b509d980203a5ab45a3c4e.png)
       >
       > ```html
       > <Router>
