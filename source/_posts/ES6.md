@@ -48,6 +48,13 @@ categories: 前端
         ```
         
      
+     > let相比于var：
+     >
+     > 1. let声明的变量拥有块级作用域，let声明仍然保留了提升的特性，但不会盲目提升。
+     > 2. let声明的全局变量不是全局对象上的属性。不可以通过**window.变量名**的方式访问。
+     > 3. 形如`for (let x...)`的循环在每次迭代时都为x创建新的绑定。
+     > 4. let声明的变量直到控制流到达该变量被定义的代码行时才会被装载，所以在到达之前使用该变量会触发语法错误。
+     
    - const：作用是定义一个常量。
    
      特点：
@@ -141,6 +148,15 @@ categories: 前端
      1. 简洁。
      2. 箭头函数没有自己的this，箭头函数内部使用的this不是调用的时候决定的，而是在定义的时候。
      3. 如何分辨箭头函数的this：箭头函数的this看外层是否有函数，如果有，外层函数的this就是箭头函数内部的this，如果没有，则this指向window。
+
+   > 箭头函数与传统函数的区别：
+   >
+   > 1. 没有this、super、arguments和new.target绑定，这些值由最近一层非箭头函数决定。
+   > 2. 不能通过new关键字调用，所以不能用作构造函数，否则程序会抛出错误。
+   > 3. 没有原型。由于不可以通过new关键字调用箭头函数，因而没有构建原型的需求，所以箭头函数不存在prototype这个属性。
+   > 4. 不可以改变this的绑定，函数内部的this值不可以被改变，在函数的生命周期内始终保持一致。
+   > 5. 不支持arguments对象，所以你必须通过命名参数和不定参数这两种形式访问函数的参数。
+   > 6. 不支持重复的命名参数，无论在严格还是非严格模式下，都不支持，而在传统的函数规定中只有在严格模式下才不能有重复命名参数。
 
 6. 三点运算符
 
@@ -398,15 +414,15 @@ categories: 前端
   
    
 - Promise其他方法
-   
+  
   - Promise.resolve
-   
+  
      >  Promise.resolve(value)返回一个以给定值解析后的Promise 对象.
-   
+  
   1. 如果 value 是个 thenable 对象，返回的promise会“跟随”这个thenable的对象，采用它的最终状态
      2. 如果传入的value本身就是promise对象，那么Promise.resolve将不做任何修改、原封不动地返回这个promise对象。
      3. 其他情况，直接返回以该值为成功状态的promise对象。
-   
+  
      ```js
      Promise.resolve = function (param) {
              if (param instanceof Promise) {
@@ -425,9 +441,9 @@ categories: 前端
   
      ```
   - Promise.reject
-   
+  
      > Promise.reject方法和Promise.resolve不同，Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。
-   
+  
      ```js
      Promise.reject = function (reason) {
          return new Promise((resolve, reject) => {
@@ -436,18 +452,18 @@ categories: 前端
   }
      ```
   - Promise.catch
-   
+  
      > Promise.prototype.catch 用于指定出错时的回调，是特殊的then方法，catch之后，可以继续 .then
-   
+  
      ```js
      Promise.prototype.catch = function (onRejected) {
          return this.then(null, onRejected);
   }
      ```
   - Promise.finally
-   
+  
      > 不管成功还是失败，都会走到finally中,并且finally之后，还可以继续then。并且会将值原封不动的传递给后面的then.
-   
+  
      ```js
      Promise.prototype.finally = function (callback) {
          return this.then((value) => {
@@ -462,9 +478,9 @@ categories: 前端
   }
      ```
   - Promise.all
-   
+  
      > Promise.all(promises) 返回一个promise对象
-   
+  
      1. 如果传入的参数是一个空的可迭代对象，那么此promise对象回调完成(resolve),只有此情况，是同步执行的，其它都是异步返回的。
      2. 如果传入的参数不包含任何promise，则返回一个异步完成.
      3. promises 中所有的promise都promise都“完成”时或参数中不包含 promise 时回调完成。

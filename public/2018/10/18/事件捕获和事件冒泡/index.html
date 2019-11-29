@@ -117,7 +117,7 @@
 <meta property="og:description" content="事件捕获和事件冒泡在介绍两者之前首先需要了解监听器:  EventTarget.addEventListener()：方法将指定的监听器注册到EventTarget上，当该对象触发指定的事件时，指定的回掉函数就会被执行。事件的目标可以是一个文档上的元素Element,Document和Window或者任何其他支持事件的对象（比如XMLHttpRequest）。 语法： element.addEve">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/10/18/事件捕获和事件冒泡/b2a98b1d408c0923807704ad7ac95fde.png">
-<meta property="og:updated_time" content="2019-08-06T05:34:21.548Z">
+<meta property="og:updated_time" content="2019-08-12T02:42:42.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件捕获和事件冒泡">
 <meta name="twitter:description" content="事件捕获和事件冒泡在介绍两者之前首先需要了解监听器:  EventTarget.addEventListener()：方法将指定的监听器注册到EventTarget上，当该对象触发指定的事件时，指定的回掉函数就会被执行。事件的目标可以是一个文档上的元素Element,Document和Window或者任何其他支持事件的对象（比如XMLHttpRequest）。 语法： element.addEve">
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-08-06 13:34:21" itemprop="dateModified" datetime="2019-08-06T13:34:21+08:00">2019-08-06</time>
+                <time title="Updated at: 2019-08-12 10:42:42" itemprop="dateModified" datetime="2019-08-12T10:42:42+08:00">2019-08-12</time>
               
             
           </span>
@@ -504,6 +504,42 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
 <li>事件委托减少操作dom的次数，对性能优化，事件不委托操作的dom次数较多</li>
 <li>事件委托所定义的事件，对新创建的元素结点也可起到作用，而不使用事件委托，对新添加的结点，需要重新为其绑定相关事件。</li>
 </ol>
+<p><strong>event.target &amp; event.currentTarget两者的区别</strong></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>c<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当我们点击最里层的元素d的时候，会依次输出:</p>
+<pre class="line-numbers language-js"><code class="language-js">target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>d
+target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>c
+target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>b
+target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>a
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>从输出中我们可以看到，<code>event.target</code>指向引起触发事件的元素，而<code>event.currentTarget</code>则是事件绑定的元素，只有被点击的那个目标元素的<code>event.target</code>才会等于<code>event.currentTarget</code>。<strong>也就是说，event.currentTarget始终是监听事件者，而event.target是事件的真正发出者</strong>。</p>
 
       
     </div>
@@ -619,7 +655,7 @@ Obtn<span class="token punctuation">.</span>onclick<span class="token operator">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

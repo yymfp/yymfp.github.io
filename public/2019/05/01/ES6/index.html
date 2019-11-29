@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="ES6新增语法 新增关键字  let：作用与var类似，用于声明变量。 特点：  在块级作用域内有效。  不能重复声明。  不会预处理，不存在变量提升。 let btns = document.getElementsByTagName(&apos;button&apos;); for(var i = 0; i&amp;lt;btns.length; i++) { var btn = btns[i];     btn.oncl">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-29T01:46:44.000Z">
+<meta property="og:updated_time" content="2019-09-03T09:14:46.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
 <meta name="twitter:description" content="ES6新增语法 新增关键字  let：作用与var类似，用于声明变量。 特点：  在块级作用域内有效。  不能重复声明。  不会预处理，不存在变量提升。 let btns = document.getElementsByTagName(&apos;button&apos;); for(var i = 0; i&amp;lt;btns.length; i++) { var btn = btns[i];     btn.oncl">
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-06-29 09:46:44" itemprop="dateModified" datetime="2019-06-29T09:46:44+08:00">2019-06-29</time>
+                <time title="Updated at: 2019-09-03 17:14:46" itemprop="dateModified" datetime="2019-09-03T17:14:46+08:00">2019-09-03</time>
               
             
           </span>
@@ -458,7 +458,13 @@
 </ul>
 </li>
 </ol>
-<ul>
+<pre><code> &gt; let相比于var：
+ &gt;
+ &gt; 1. let声明的变量拥有块级作用域，let声明仍然保留了提升的特性，但不会盲目提升。
+ &gt; 2. let声明的全局变量不是全局对象上的属性。不可以通过**window.变量名**的方式访问。
+ &gt; 3. 形如`for (let x...)`的循环在每次迭代时都为x创建新的绑定。
+ &gt; 4. let声明的变量直到控制流到达该变量被定义的代码行时才会被装载，所以在到达之前使用该变量会触发语法错误。
+</code></pre><ul>
 <li><p>const：作用是定义一个常量。</p>
 <p>特点：</p>
 <ol>
@@ -550,6 +556,17 @@ i <span class="token operator">=</span><span class="token operator">></span> i<s
 </ol>
 </li>
 </ul>
+<blockquote>
+<p>箭头函数与传统函数的区别：</p>
+<ol>
+<li>没有this、super、arguments和new.target绑定，这些值由最近一层非箭头函数决定。</li>
+<li>不能通过new关键字调用，所以不能用作构造函数，否则程序会抛出错误。</li>
+<li>没有原型。由于不可以通过new关键字调用箭头函数，因而没有构建原型的需求，所以箭头函数不存在prototype这个属性。</li>
+<li>不可以改变this的绑定，函数内部的this值不可以被改变，在函数的生命周期内始终保持一致。</li>
+<li>不支持arguments对象，所以你必须通过命名参数和不定参数这两种形式访问函数的参数。</li>
+<li>不支持重复的命名参数，无论在严格还是非严格模式下，都不支持，而在传统的函数规定中只有在严格模式下才不能有重复命名参数。</li>
+</ol>
+</blockquote>
 </li>
 <li><p>三点运算符</p>
 <ul>
@@ -1136,7 +1153,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-count">62</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
