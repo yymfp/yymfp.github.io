@@ -307,3 +307,40 @@ define('hello', ['jquery'], function(require, exports, module) {
    - **插件机制不同**。RequireJS 采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js 采取的是通用事件机制，插件类型更丰富。
 
 **最后：SeaJS对模块的态度是懒执行（用到时再请求）, 而RequireJS对模块的态度是预执行（使用前请求模块）**
+
+
+
+##### **es6 中的export export default 和node 中的module.exports exports区别**
+
+1. export default导出的成员，可以使用任意的变量来接收
+
+   ```js
+   // a.js
+   let obj = {name: '张三'};
+   export default obj;
+   
+   // b.js
+   import objName from './a.js';
+   
+   console.log(objName.name); // 张三
+   ```
+
+2. export 导出的成员，名字必须严格一致，需要改变名字时，使用**as**来起别名，使用{}形式接受，属于按需导出，可以暴露出多个成员
+
+   ```js
+   // a.js
+   export function getName() {};
+   
+   // b.js
+   import {getName} from './a.js';
+   ```
+
+3. node中exports 相当于是module.exports向外暴露的一个别名
+
+   ```js
+   var exports = module.exports;
+   ```
+
+   module变量是一个对象，代表当前模块(node中一个文件就是一个模块)，而exports是module的一个属性，加载某个模块其实是加载的当前模块的module.exports属性。
+
+   
