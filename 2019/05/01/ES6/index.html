@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="ES6新增语法 新增关键字  let：作用与var类似，用于声明变量。 特点：  在块级作用域内有效。  不能重复声明。  不会预处理，不存在变量提升。 let btns = document.getElementsByTagName(&apos;button&apos;); for(var i = 0; i&amp;lt;btns.length; i++) { var btn = btns[i];     btn.oncl">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-03T09:14:46.999Z">
+<meta property="og:updated_time" content="2020-01-03T08:52:54.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
 <meta name="twitter:description" content="ES6新增语法 新增关键字  let：作用与var类似，用于声明变量。 特点：  在块级作用域内有效。  不能重复声明。  不会预处理，不存在变量提升。 let btns = document.getElementsByTagName(&apos;button&apos;); for(var i = 0; i&amp;lt;btns.length; i++) { var btn = btns[i];     btn.oncl">
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Accueil</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>A propos</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
   </li>
 
       
@@ -340,7 +340,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-09-03 17:14:46" itemprop="dateModified" datetime="2019-09-03T17:14:46+08:00">2019-09-03</time>
+                <time title="Updated at: 2020-01-03 16:52:54" itemprop="dateModified" datetime="2020-01-03T16:52:54+08:00">2020-01-03</time>
               
             
           </span>
@@ -378,7 +378,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1037,6 +1037,54 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">//三点运算符，解构赋值，默认调用iterator接口</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
+<li><p><strong>Reflect</strong> </p>
+<blockquote>
+<p><strong>Reflect</strong> 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与proxy handlers的方法相同。Reflect不是一个函数对象，因此它是不可构造的。</p>
+<p>与大多数全局对象不同，<code>Reflect</code>不是一个构造函数。你不能将其与一个new运算符一起使用，或者将Reflect对象作为一个函数来调用。Reflect的所有属性和方法都是静态的（就像是Math对象）。</p>
+</blockquote>
+<p><strong>reflect存在的意义：</strong></p>
+<ol>
+<li><p>将对象(Object)一些内部的方法，放到Reflect对象上。比如：Object.defineProperty。<em>说明：现阶段这些方法存在以Object和Reflect对象上，未来只存在于Reflect对象上。</em></p>
+</li>
+<li><p>操作对象时出现报错返回false <em>说明：比如调用Object.defineProperty(target, name, value)在无法定义属性时，会出现异常，抛出错误，而Reflect.defineProperty(target, name, value)则会返回false。</em></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 通过Object调用</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+  Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> attributes<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 处理异常</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 使用Reflect写法</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Reflect<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> attributes<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// success</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// failure</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>通过调用函数方法，让本来写法变为函数式编程的写法</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 之前的写法</span>
+<span class="token string">'name'</span> <span class="token keyword">in</span> Object <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token comment" spellcheck="true">// 使用Reflect</span>
+Reflect<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>Object<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>保持和Proxy对象的方法一一对应 <em>说明：Reflect对象与Proxy对象的方法一一对应，只要是Proxy对象的方法，就能在Reflect对象上找到对应的方法。</em></p>
+<pre class="line-numbers language-js"><code class="language-js">
+<span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token keyword">set</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> success <span class="token operator">=</span> Reflect<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> value<span class="token punctuation">,</span> receiver<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>success<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// </span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
 </ol>
 
       
@@ -1130,10 +1178,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table Des Matières
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Ensemble
+            Übersicht
           </li>
         </ul>
       
@@ -1154,7 +1202,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">62</span>
-                    <span class="site-state-item-name">articles</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -1179,7 +1227,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -1236,7 +1284,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -1291,7 +1339,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1305,7 +1353,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
 
 
 
@@ -1313,7 +1361,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="theme-info">Thème – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
 
 
 
