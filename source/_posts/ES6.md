@@ -616,4 +616,57 @@ categories: 前端
     //三点运算符，解构赋值，默认调用iterator接口
     ```
 
-    
+11. **Reflect** 
+
+    > **Reflect** 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与proxy handlers的方法相同。Reflect不是一个函数对象，因此它是不可构造的。
+    >
+    > 与大多数全局对象不同，`Reflect`不是一个构造函数。你不能将其与一个new运算符一起使用，或者将Reflect对象作为一个函数来调用。Reflect的所有属性和方法都是静态的（就像是Math对象）。
+
+    **reflect存在的意义：**
+
+    1. 将对象(Object)一些内部的方法，放到Reflect对象上。比如：Object.defineProperty。*说明：现阶段这些方法存在以Object和Reflect对象上，未来只存在于Reflect对象上。*
+
+    2. 操作对象时出现报错返回false *说明：比如调用Object.defineProperty(target, name, value)在无法定义属性时，会出现异常，抛出错误，而Reflect.defineProperty(target, name, value)则会返回false。*
+
+       ```js
+       // 通过Object调用
+       try {
+         Object.defineProperty(target, name, attributes)
+       } catch (e) {
+         // 处理异常
+       }
+       
+       // 使用Reflect写法
+       if (Reflect.defineProperty(target, name, attributes)) {
+         // success
+       } else {
+         // failure
+       }
+       ```
+
+    3. 通过调用函数方法，让本来写法变为函数式编程的写法
+
+       ```js
+       // 之前的写法
+       'name' in Object // true
+       
+       // 使用Reflect
+       Reflect.has(Object, 'name') // true
+       ```
+
+    4. 保持和Proxy对象的方法一一对应 *说明：Reflect对象与Proxy对象的方法一一对应，只要是Proxy对象的方法，就能在Reflect对象上找到对应的方法。*
+
+       ```js
+       
+       new Proxy(target, {
+         set: function(target, name, value, receiver) {
+           var success = Reflect.set(target, name, value, receiver);
+           if (success) {
+             // 
+           }
+           return success;
+         }
+       });
+       ```
+
+       
