@@ -76,8 +76,8 @@ js引擎在代码正式执行前会做一个预处理工作：
   
 - 创建执行上下文（es5）
 
-  ![image-20200706120514737](/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706120514737.png)[可参考]（https://juejin.im/post/5ba32171f265da0ab719a6d7#heading-5）
+  ![image-20200706120514737](js变量提升-预处理/image-20200706120514737.png)[可参考]（https://juejin.im/post/5ba32171f265da0ab719a6d7#heading-5）
 
 - 创建执行上下文（es6）
 
-  ![](/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706121750467.png)
+  ![](js变量提升-预处理/image-20200706121750467.png)
