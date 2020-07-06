@@ -116,13 +116,13 @@
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="js变量提升—预处理js引擎在代码正式执行前会做一个预处理工作：  收集变量  收集函数 依据：  var 将var后边的变量定义但不赋值 var username = undefined function(){} 提前定义该函数  ​       执行上下文 理解：代码执行的环境  时机：代码正式执行之前会进入到执行环境  创建执行上下文（es3版本）：  创建变量对象：  变量  函数及函数的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706120514737.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706121750467.png">
-<meta property="og:updated_time" content="2020-07-06T04:18:53.717Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706120514737.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706121750467.png">
+<meta property="og:updated_time" content="2020-07-06T06:36:12.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js变量提升---预处理&amp;&amp;执行上下文">
 <meta name="twitter:description" content="js变量提升—预处理js引擎在代码正式执行前会做一个预处理工作：  收集变量  收集函数 依据：  var 将var后边的变量定义但不赋值 var username = undefined function(){} 提前定义该函数  ​       执行上下文 理解：代码执行的环境  时机：代码正式执行之前会进入到执行环境  创建执行上下文（es3版本）：  创建变量对象：  变量  函数及函数的">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706120514737.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706120514737.png">
 
 
 
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
   </li>
         
         
@@ -233,7 +233,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
   </li>
         
         
@@ -257,7 +257,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
   </li>
 
       
@@ -343,14 +343,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-03 12:09:04" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
+              <time title="Post created: 2019-05-03 12:09:04" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
             
 
             
@@ -367,7 +367,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-07-06 12:18:53" itemprop="dateModified" datetime="2020-07-06T12:18:53+08:00">2020-07-06</time>
+                <time title="Updated at: 2020-07-06 14:36:12" itemprop="dateModified" datetime="2020-07-06T14:36:12+08:00">2020-07-06</time>
               
             
           </span>
@@ -381,7 +381,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -491,10 +491,10 @@
 </ol>
 </li>
 <li><p>创建执行上下文（es5）</p>
-<p><img src="/2019/05/03/js变量提升-预处理&&执行上下文/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706120514737.png" alt="image-20200706120514737">[可参考]（<a href="https://juejin.im/post/5ba32171f265da0ab719a6d7#heading-5）" target="_blank" rel="noopener">https://juejin.im/post/5ba32171f265da0ab719a6d7#heading-5）</a></p>
+<p><img src="/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706120514737.png" alt><a href="https://juejin.im/post/5ba32171f265da0ab719a6d7#heading-5" target="_blank" rel="noopener">可参考</a></p>
 </li>
 <li><p>创建执行上下文（es6）</p>
-<p><img src="/2019/05/03/js变量提升-预处理&&执行上下文/Users/pjy/Myblog/yymfp.github.io/source/_posts/js变量提升-预处理/image-20200706121750467.png" alt></p>
+<p><img src="/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706121750467.png" alt></p>
 </li>
 </ul>
 
@@ -590,10 +590,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -614,7 +614,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">62</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -639,7 +639,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -696,7 +696,7 @@
                       
                     
                     <span class="site-state-item-count">22</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -765,7 +765,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
 
 
 
