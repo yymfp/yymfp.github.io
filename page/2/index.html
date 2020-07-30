@@ -301,6 +301,411 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/03/js变量提升-预处理&&执行上下文/" itemprop="url">
+                  js变量提升---预处理&&执行上下文
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-05-03 12:09:04" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2020-07-06 14:36:12" itemprop="dateModified" datetime="2020-07-06T14:36:12+08:00">2020-07-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="js变量提升—预处理"><a href="#js变量提升—预处理" class="headerlink" title="js变量提升—预处理"></a>js变量提升—预处理</h3><p>js引擎在代码正式执行前会做一个预处理工作：</p>
+<ol>
+<li><p>收集变量</p>
+</li>
+<li><p>收集函数</p>
+<p>依据：</p>
+<ul>
+<li>var 将var后边的变量定义但不赋值 <code>var username = undefined</code></li>
+<li>function(){} 提前定义该函数</li>
+</ul>
+<p>​    </p>
+</li>
+</ol>
+<h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><ul>
+<li><p>理解：代码执行的环境</p>
+</li>
+<li><p>时机：代码正式执行之前会进入到执行环境</p>
+</li>
+<li><p>创建执行上下文（<strong>es3版本</strong>）：</p>
+<ol>
+<li><p>创建变量对象：</p>
+<ul>
+<li><p>变量</p>
+</li>
+<li><p>函数及函数的参数</p>
+</li>
+</ul>
+<blockquote>
+<p>函数声明会被加入到变量对象中，而函数表达式会被忽略</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 函数声明</span>
+<span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">_fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">//函数表达式   fn会作为变量加入到变量对象中  _fn作为函数表达式，不会被加入到变量对象中</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<ul>
+<li><p>全局：window</p>
+</li>
+<li><p>局部：抽象的但是确实存在</p>
+</li>
+</ul>
+<blockquote>
+<p>函数内部的变量，只会在函数执行的过程中存在，在函数被调用时，具体的代码执行之前，js引擎会用当前函数的参数列表（<code>arguments</code>）初始化一个“变量对象”并将当前执行上下文与之关联，函数内部代码声明的<strong>变量</strong>和<strong>函数</strong>将作为属性加到这个变量对象中。</p>
+</blockquote>
+</li>
+<li><p>确认this的指向</p>
+<ul>
+<li>全局：this —&gt; window</li>
+<li>局部： this —&gt; 调用其的对象</li>
+</ul>
+</li>
+<li><p>创建作用域链</p>
+<ul>
+<li><p>构成：父级作用域链+当前的变量对象</p>
+</li>
+<li><p>查找规则：查找变量时，会先从当前执行上下文变量对象中查找，如果没找到，就会从父级（词法层面）执行上下文的变量对象中查找，一直找到最外层（全局上下文）的变量对象。</p>
+<blockquote>
+<p>函数的作用域在函数创建时就确定了。当函数创建时，会有一个名为[[scope]]的内部属性保存所有父级变量对象到其中。当函数调用时，会创建函数执行环境，将[[scope]]属性复制初始化作用域链，变量对象（VO）激活为活动对象（AO），并添加到作用域链前端，完成创建作用域链：</p>
+<pre class="line-numbers language-js"><code class="language-js">Scope <span class="token operator">=</span> <span class="token punctuation">[</span>AO<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>Scope<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>扩展：</p>
+<pre class="line-numbers language-js"><code class="language-js">ECObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//变量对象： {变量，函数，函数的形参},</span>
+    <span class="token comment" spellcheck="true">//scopeChain：父级作用域链+当前的变量对象,</span>
+    <span class="token comment" spellcheck="true">//this:{window || 调用其的对象}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+<li><p>创建执行上下文（es5）</p>
+<p><img src="/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706120514737.png" alt><a href="https://juejin.im/post/5ba32171f265da0ab719a6d7#heading-5" target="_blank" rel="noopener">可参考</a></p>
+</li>
+<li><p>创建执行上下文（es6）</p>
+<p><img src="/2019/05/03/js变量提升-预处理&&执行上下文/image-20200706121750467.png" alt></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/ES7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/01/ES7/" itemprop="url">
+                  ES7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-05-01 12:57:19 / Updated at: 16:55:04" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:19+08:00">2019-05-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ES7新增语法"><a href="#ES7新增语法" class="headerlink" title="ES7新增语法"></a>ES7新增语法</h3>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/ES6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2659,440 +3064,6 @@ Vue.directive('defaultImg', {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/数据结构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/10/数据结构/" itemprop="url">
-                  数据结构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-03-10 22:26:14 / Updated at: 22:28:30" itemprop="dateCreated datePublished" datetime="2019-03-10T22:26:14+08:00">2019-03-10</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ol>
-<li><h5 id="数组：数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。"><a href="#数组：数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。" class="headerlink" title="数组：数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。"></a>数组：数组是一种线性表数据结构，它用一组连续的内存空间，来存储一组具有相同类型的数据。</h5><p>特点：</p>
-<ul>
-<li>线性表：每个线性表上的数据最多只有前和后两个方向。</li>
-<li>连续的内存空间和相同类型的数据。</li>
-</ul>
-<h5 id="数组和链表的区别："><a href="#数组和链表的区别：" class="headerlink" title="数组和链表的区别："></a>数组和链表的区别：</h5><p>​    数组适合查找，支持随机访问，根据下标随机访问的时间复杂度为O(1)。链表适合插入、删除，时间复杂度O(1)。</p>
-<h5 id="为什么大多数编程语言中，数组要从-0-开始编号，而不是从-1-开始-呢"><a href="#为什么大多数编程语言中，数组要从-0-开始编号，而不是从-1-开始-呢" class="headerlink" title="为什么大多数编程语言中，数组要从 0 开始编号，而不是从 1 开始 呢?"></a>为什么大多数编程语言中，数组要从 0 开始编号，而不是从 1 开始 呢?</h5><p>从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移(offset)”。前面也讲到，如果用 a 来表示数组的首地址，a[0] 就是偏移为 0 的位置，也就是首地址，a[k] 就表示偏移 k 个 type_size 的位置，所以计算 a[k] 的内存地址只需要用这个公式:</p>
-<pre><code>a[k]_address = base_address + k * type_size
-</code></pre><p>但是，如果数组从 1 开始计数，那我们计算数组元素 a[k] 的内存地址就会变为:</p>
-<pre><code>a[k]_address = base_address + (k-1)*type_size
-</code></pre><p>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</p>
-<p>数组作为非常基础的数据结构，通过下标随机访问数组元素又是其非常基础的编程操作，效率的优 化就要尽可能做到极致。所以为了减少一次减法操作，数组选择了从 0 开始编号，而不是从 1 开 始。</p>
-</li>
-<li><h5 id="链表：是一种物理存储单元上的非连续、非顺序的存储结构，通过”指针”将一组零散的内存块串联起来。"><a href="#链表：是一种物理存储单元上的非连续、非顺序的存储结构，通过”指针”将一组零散的内存块串联起来。" class="headerlink" title="链表：是一种物理存储单元上的非连续、非顺序的存储结构，通过”指针”将一组零散的内存块串联起来。"></a>链表：是一种物理存储单元上的非连续、非顺序的存储结构，通过”指针”将一组零散的内存块串联起来。</h5><ul>
-<li><p>单链表：</p>
-<ol>
-<li><p>单链表为了将所有的节点串起来，每个链表的节点出了存储数据之外，还需要记录链上的下一个节点地址，叫做后继指针next。</p>
-</li>
-<li><p>有两个特殊的节点，第一个节点和最后一个节点，分别叫做头结点和尾节点。头结点作为记录链表的基地址，可以用来遍历得到整条链表。尾节点不是指向下一个节点，而是指向一个空地址null，代表这是链表的最后一个节点。</p>
-<blockquote>
-<p>链表特点：</p>
-<ol>
-<li>相比于数组，链表再插入和删除操作时，并不需要保持内存的连续性而搬移节点，因为链表的存储空间本身就是不连续的，只需要考虑相邻接点的指针改变。</li>
-<li>但是链表想要去访问第k个元素，就没有数组方便，无法利用数组中通过寻址公式直接计算，因为内存是不连续的，需要从头开始依次遍历。</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p>双向链表：双向链表出了有指向下一个结点的next指针外，还有一个前驱指针prev指向前面的结点。</p>
-<p>特点：</p>
-<ol>
-<li>相对于单链表，存储同样多的数据，需要占用更多的内存空间。</li>
-<li>支持双向遍历，更加灵活。</li>
-</ol>
-</li>
-<li><p>循环链表：循环链表的尾结点指针指向链表的头结点。</p>
-<p>​    优点：从链尾到链头比较方便，当要处理的数据具有环型结构特点时，就特别适合采用循环链表。</p>
-</li>
-</ul>
-</li>
-<li><h5 id="栈："><a href="#栈：" class="headerlink" title="栈："></a>栈：</h5></li>
-<li><h5 id="队列："><a href="#队列：" class="headerlink" title="队列："></a>队列：</h5></li>
-<li><h5 id="散列表："><a href="#散列表：" class="headerlink" title="散列表："></a>散列表：</h5></li>
-<li><h5 id="二叉树："><a href="#二叉树：" class="headerlink" title="二叉树："></a>二叉树：</h5></li>
-<li><h5 id="堆："><a href="#堆：" class="headerlink" title="堆："></a>堆：</h5></li>
-<li><h5 id="跳表："><a href="#跳表：" class="headerlink" title="跳表："></a>跳表：</h5></li>
-<li><h5 id="图："><a href="#图：" class="headerlink" title="图："></a>图：</h5></li>
-<li><h5 id="Trie树："><a href="#Trie树：" class="headerlink" title="Trie树："></a>Trie树：</h5></li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/LeetCode相关题目/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/10/LeetCode相关题目/" itemprop="url">
-                  LeetCode相关题目
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-03-10 22:18:31 / Updated at: 22:25:06" itemprop="dateCreated datePublished" datetime="2019-03-10T22:18:31+08:00">2019-03-10</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="两个数之和"><a href="#两个数之和" class="headerlink" title="两个数之和"></a>两个数之和</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
-<p>示例:</p>
-<p>给定 nums = [2, 7, 11, 15], target = 9</p>
-<p>因为 nums[0] + nums[1] = 2 + 7 = 9</p>
-<p>所以返回 [0, 1]</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> twoSum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token comment" spellcheck="true">// 初始化hashMap</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hashMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      hashMap<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> diff <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> hashMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span> <span class="token operator">!==</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span> hashMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h3><p>反转一个单链表。</p>
-<p>示例:</p>
-<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</p>
-<p>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
-<p>迭代方法：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">ListNode</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">var</span> reverseList <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> p <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    <span class="token keyword">let</span> q <span class="token operator">=</span> head<span class="token punctuation">;</span>  
-    <span class="token keyword">while</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        p <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        head<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        p<span class="token punctuation">.</span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
-        q <span class="token operator">=</span> p<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用来保存下次指针指向的位置</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> q
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>递归方法：</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> q<span class="token punctuation">;</span>
-<span class="token keyword">var</span> reverse <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        p <span class="token operator">=</span> head
-        <span class="token keyword">return</span> head
-    <span class="token punctuation">}</span>
-    q <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    q<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
-    head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> head
-<span class="token punctuation">}</span>
-
-<span class="token keyword">var</span> reverseList <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> p
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3139,7 +3110,7 @@ Vue.directive('defaultImg', {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-count">64</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
