@@ -512,7 +512,7 @@
                 
               
 
-              <time title="Post created: 2020-07-30 10:40:35 / Updated at: 10:47:36" itemprop="dateCreated datePublished" datetime="2020-07-30T10:40:35+08:00">2020-07-30</time>
+              <time title="Post created: 2020-07-30 10:40:35 / Updated at: 16:52:42" itemprop="dateCreated datePublished" datetime="2020-07-30T10:40:35+08:00">2020-07-30</time>
             
 
             
@@ -570,7 +570,107 @@
       
         
           
-            <h3 id="Snabbdom源码笔记"><a href="#Snabbdom源码笔记" class="headerlink" title="Snabbdom源码笔记"></a>Snabbdom源码笔记</h3>
+            <h3 id="Snabbdom源码笔记"><a href="#Snabbdom源码笔记" class="headerlink" title="Snabbdom源码笔记"></a>Snabbdom源码笔记</h3><ul>
+<li><h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a><strong>创建项目</strong></h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 创建项目目录</span>
+<span class="token function">mkdir</span> snabbdom-demo
+<span class="token comment" spellcheck="true"># 进入项目</span>
+<span class="token function">cd</span> snabbdom-demo
+<span class="token comment" spellcheck="true"># 创建 package.json</span>
+<span class="token function">npm</span> init -y
+<span class="token comment" spellcheck="true"># 本地安装 parcel</span>
+<span class="token function">npm</span> add parcel-bundler
+<span class="token comment" spellcheck="true"># 安装snabbdom</span>
+<span class="token function">npm</span> i snabbdom
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="配置package-json"><a href="#配置package-json" class="headerlink" title="配置package.json"></a><strong>配置package.json</strong></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token string">"script"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"parcel index.html --open"</span><span class="token punctuation">,</span>
+  <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"parcel build index.html"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="创建目录结构"><a href="#创建目录结构" class="headerlink" title="创建目录结构"></a><strong>创建目录结构</strong></h5><pre><code>| index.html
+| package.json
+|-src
+                demo.js
+</code></pre></li>
+<li><h5 id="demo-js"><a href="#demo-js" class="headerlink" title="demo.js"></a><strong>demo.js</strong></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> h<span class="token punctuation">,</span> init <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'snabbdom'</span>
+<span class="token comment" spellcheck="true">// 导入模块</span>
+<span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">'snabbdom/modules/style'</span>
+<span class="token keyword">import</span> eventlisteners <span class="token keyword">from</span> <span class="token string">'snabbdom/modules/eventlisteners'</span>
+
+<span class="token keyword">let</span> patch <span class="token operator">=</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">[</span>style<span class="token punctuation">,</span> eventlisteners<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> vNode <span class="token operator">=</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'div#container'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    style<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        backgroundColor<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    on<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        click<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello word'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    hook<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token function">init</span><span class="token punctuation">(</span>vNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>vNode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">create</span><span class="token punctuation">(</span>emptyVnode<span class="token punctuation">,</span> vNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>emptyVnode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">,</span> <span class="token string">'Hello World'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token string">'p 标签'</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+<span class="token function">patch</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> vNode<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="init函数源码分析"><a href="#init函数源码分析" class="headerlink" title="init函数源码分析"></a><strong>init函数源码分析</strong></h5><ul>
+<li><p>init函数接收一个modules的数组参数和用户自定义的domApi（可选）</p>
+<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">function</span> init <span class="token punctuation">(</span>modules<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>Partial<span class="token operator">&lt;</span>Module<span class="token operator">></span><span class="token operator">></span><span class="token punctuation">,</span> domApi<span class="token operator">?</span><span class="token punctuation">:</span> DOMAPI<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ***</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>初始化cbs（存储回调钩子函数）</p>
+<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">const</span> hooks<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>keyof Module<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'create'</span><span class="token punctuation">,</span> <span class="token string">'update'</span><span class="token punctuation">,</span> <span class="token string">'remove'</span><span class="token punctuation">,</span> <span class="token string">'destroy'</span><span class="token punctuation">,</span> <span class="token string">'pre'</span><span class="token punctuation">,</span> <span class="token string">'post'</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> cbs<span class="token punctuation">:</span> ModuleHooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+    create<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    update<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    remove<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    destroy<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    pre<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    post<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 初始化所有的钩子函数结构</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> hooks<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cbs<span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">// 将传入模块的钩子函数添加到cbs对应的钩子函数结构中</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> modules<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> hook <span class="token operator">=</span> modules<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>hook <span class="token operator">!==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span>cbs<span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> as <span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>hook<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>判断domapi</p>
+<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">const</span> api<span class="token punctuation">:</span> DOMAPI <span class="token operator">=</span> domApi <span class="token operator">!==</span> undefined <span class="token operator">?</span> domApi <span class="token punctuation">:</span> htmlDomApi
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>返回patch函数</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">return</span> <span class="token keyword">function</span> patch <span class="token punctuation">(</span>oldVnode<span class="token punctuation">:</span> VNode <span class="token operator">|</span> Element<span class="token punctuation">,</span> vnode<span class="token punctuation">:</span> VNode<span class="token punctuation">)</span><span class="token punctuation">:</span> VNode <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ****</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
           
         
       
