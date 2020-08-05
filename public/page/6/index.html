@@ -301,6 +301,231 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css盒模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/css盒模型/" itemprop="url">
+                  css盒模型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-11 17:58:23" itemprop="dateCreated datePublished" datetime="2018-10-11T17:58:23+08:00">2018-10-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-08-06 13:37:43" itemprop="dateModified" datetime="2019-08-06T13:37:43+08:00">2019-08-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="css盒模型"><a href="#css盒模型" class="headerlink" title="css盒模型"></a>css盒模型</h3><p><strong>css盒模型组成：content区域+margin+padding+border。</strong></p>
+<blockquote>
+<p><strong>css3的box-sizing：</strong></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre class="line-numbers language-css"><code class="language-css"><span class="token property">box-sizing</span><span class="token punctuation">:</span> content-box|border-box|inherit<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content-box</td>
+<td>这是由 CSS2.1 规定的宽度高度行为。宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。</td>
+</tr>
+<tr>
+<td>border-box</td>
+<td>为元素设定的宽度和高度决定了元素的边框盒。就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应从父元素继承 box-sizing 属性的值。</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h5 id="css的盒模型分为两种"><a href="#css的盒模型分为两种" class="headerlink" title="css的盒模型分为两种"></a>css的盒模型分为两种</h5><ol>
+<li>W3C标准盒模型</li>
+<li>IE标准盒模型</li>
+</ol>
+<p>市面上大多数浏览器都采用W3C标准的盒模型。</p>
+<p>由于标准不同，所以就产生了两种盒模型。</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.hz</span></span><span class="token punctuation">{</span>
+            <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span>
+            <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span>
+            <span class="token property">box-sizing</span><span class="token punctuation">:</span> content-box<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">/*标准模式：content-box  怪异模式：border-box*/</span>
+            <span class="token property">background</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+            <span class="token property">margin</span><span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>
+            <span class="token property">padding</span><span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>
+            <span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid <span class="token hexcode">#ccc</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hz<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>        
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li><h5 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h5><p>一个块元素的总宽度/总高度=width/height+padding+margin+border</p>
+<p><img src="/2018/10/11/css盒模型/0754b65440c0fe40808b6481d881c0d2.png" alt></p>
+</li>
+<li><h5 id="怪异盒模型"><a href="#怪异盒模型" class="headerlink" title="怪异盒模型"></a>怪异盒模型</h5><p>一个块元素的总宽度/总高度=width/height+margin=内容区宽度/高度+padding+margin+border</p>
+</li>
+</ol>
+<p><img src="/2018/10/11/css盒模型/7018d20d4024c8748094ee6c656cbc13.png" alt></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/HTML5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2395,352 +2620,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/05/call、apply使用与区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/05/call、apply使用与区别/" itemprop="url">
-                  call、apply使用与区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-05 16:55:01" itemprop="dateCreated datePublished" datetime="2018-10-05T16:55:01+08:00">2018-10-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-06-01 11:39:46" itemprop="dateModified" datetime="2019-06-01T11:39:46+08:00">2019-06-01</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="call、apply使用与区别"><a href="#call、apply使用与区别" class="headerlink" title="call、apply使用与区别"></a>call、apply使用与区别</h3><p>javaScript中的每个Function对象都有一个apply()方法和call()方法，两者作用一样，唯一的不同点就是参数不同，语法：</p>
-<p><strong>call</strong>：方法调用一个函数，其具有一个指定的this值和分别地提供的参数（参数列表）。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>thisObject<span class="token punctuation">,</span>arg1<span class="token punctuation">,</span>arg2<span class="token punctuation">,</span>arg3<span class="token punctuation">,</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>举例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//改变this指向</span>
-window<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token string">'哈哈'</span><span class="token punctuation">;</span>
-document<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token string">'嘿嘿'</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> s<span class="token operator">=</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token string">'嘻嘻'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">changea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-changea<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'哈哈'</span>
-changea<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'哈哈'</span>
-changea<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'嘿嘿'</span>
-changea<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'嘻嘻'</span>
-changea<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'哈哈'</span>
-
-<span class="token comment" spellcheck="true">//调用匿名函数</span>
-<span class="token keyword">let</span> Persons<span class="token operator">=</span><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        name<span class="token punctuation">:</span><span class="token string">'张三'</span><span class="token punctuation">,</span>
-        age<span class="token punctuation">:</span><span class="token number">20</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-        name<span class="token punctuation">:</span><span class="token string">'李四'</span><span class="token punctuation">,</span>
-        age<span class="token punctuation">:</span><span class="token number">30</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">]</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>Persons<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>say<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token string">'我叫'</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">'今年'</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">+</span><span class="token string">'岁'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>Persons<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-Persons<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//0我叫张三今年20岁</span>
-Persons<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1我叫李四今年30岁</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>apply:</strong>方法调用一个具有给定this值的函数，以及作为一个数组（或者类似数组对象）提供的参数。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>thisObj<span class="token punctuation">,</span><span class="token punctuation">[</span>argsArray<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>举例：</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//改变this指向</span>
-window<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token string">'哈哈'</span><span class="token punctuation">;</span>
-document<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token string">'嘿嘿'</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> s<span class="token operator">=</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token string">'嘻嘻'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">changea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-changea<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'哈哈'</span>
-changea<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'哈哈'</span>
-changea<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'嘿嘿'</span>
-changea<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'嘻嘻'</span>
-changea<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'哈哈'</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><em>使用apply将数组添加到另一个数组</em>:</p>
-<blockquote>
-<p>我们可以使用<code>push</code>将元素追加到数组中。并且，因为push接受可变数量的参数，我们也可以一次推送多个元素。但是，如果我们传递一个数组来推送，它实际上会将该数组作为单个元素添加，而不是单独添加元素，因此我们最终得到一个数组内的数组。如果那不是我们想要的怎么办？在这种情况下，<code>concat</code>确实具有我们想要的行为，但它实际上并不附加到现有数组，而是创建并返回一个新数组。 但是我们想要附加到我们现有的阵列……那么现在呢？ 写一个循环？当然不是吗？</p>
-</blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> arr1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> arr2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//如果使用push</span>
-arr1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//[1,2,[3,4,5]]</span>
-<span class="token comment" spellcheck="true">//可以看到，得到的并不是我们想要的一维的数组</span>
-arr1<span class="token punctuation">.</span>push<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>arr1<span class="token punctuation">,</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//[1,2,3,4,5]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>两者传递参数差异：</strong></p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">change</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-change<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//张三 20</span>
-change<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'张三'</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//张三 20</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="call、apply以及bind异同点"><a href="#call、apply以及bind异同点" class="headerlink" title="call、apply以及bind异同点"></a>call、apply以及bind异同点</h3><ul>
-<li>相同点<ul>
-<li>都可以用来改变this指向问题。</li>
-</ul>
-</li>
-<li>不同点<ul>
-<li>call和apply都是调用即执行，而bind不会立即执行。</li>
-<li>call和apply传递的参数不一样，call传递参数是一个参数列表，而apply第二个参数需要是一个数组。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>实现原理</strong></p>
-<ul>
-<li>call</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// call实现原理</span>
-    Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>_call <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        <span class="token comment" spellcheck="true">// context是否存在</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            context <span class="token operator">=</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> window <span class="token punctuation">:</span> global<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        context<span class="token punctuation">.</span>fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// this代表函数实例本身，将函数实例添加到context对象的属性中</span>
-        <span class="token keyword">let</span> rest <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 获取到去除context外的所有参数</span>
-        <span class="token keyword">let</span> result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>rest<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 隐式绑定this，此时调用fn函数内部this指向context</span>
-        <span class="token keyword">delete</span> context<span class="token punctuation">.</span>fn<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> result
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">let</span> ooo <span class="token operator">=</span> <span class="token punctuation">{</span>
-        name<span class="token punctuation">:</span> <span class="token string">'张三'</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>getName<span class="token punctuation">.</span><span class="token function">_call</span><span class="token punctuation">(</span>ooo<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 张三 Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>apply</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// apply实现原理</span>
-    Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>_apply <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-        <span class="token comment" spellcheck="true">// context是否存在</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            context <span class="token operator">=</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> window <span class="token punctuation">:</span> global<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        context<span class="token punctuation">.</span>fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// this代表函数实例本身</span>
-        <span class="token keyword">let</span> result<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>arr <span class="token operator">===</span> undefined <span class="token operator">||</span> arr <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> arr <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">delete</span> context<span class="token punctuation">.</span>fn<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> result
-    <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> ooo <span class="token operator">=</span> <span class="token punctuation">{</span>
-        name<span class="token punctuation">:</span> <span class="token string">'张三'</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>getName<span class="token punctuation">.</span><span class="token function">_apply</span><span class="token punctuation">(</span>ooo<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 张三 Arguments(2) [1, 2, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>bind</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// bind实现原理</span>
-    Function<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>_bind <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">this</span> <span class="token operator">!==</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">"not a function"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">let</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">let</span> rest <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 获取bind所有参数</span>
-        <span class="token keyword">function</span> <span class="token function">Fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-        Fn<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
-        <span class="token keyword">let</span> bound <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>rest<span class="token punctuation">,</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 获取到bind传入的参数以及执行函数传入的参数</span>
-            context <span class="token operator">=</span> <span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Fn</span> <span class="token operator">?</span> <span class="token keyword">this</span> <span class="token punctuation">:</span> context <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 谁调用bound函数，this就指向谁</span>
-            <span class="token keyword">return</span> self<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment" spellcheck="true">// 原型链</span>
-        bound<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> bound
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">let</span> ooo <span class="token operator">=</span> <span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span> <span class="token string">'张三'</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>getName<span class="token punctuation">.</span><span class="token function">_bind</span><span class="token punctuation">(</span>ooo<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 张三 Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2787,7 +2666,7 @@ change<span class="token punctuation">.</span><span class="token function">apply
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">64</span>
+                    <span class="site-state-item-count">65</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

@@ -301,6 +301,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/js深拷贝、浅拷贝/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/01/js深拷贝、浅拷贝/" itemprop="url">
+                  js深拷贝、浅拷贝
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-06-01 11:27:05 / Updated at: 11:36:22" itemprop="dateCreated datePublished" datetime="2019-06-01T11:27:05+08:00">2019-06-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="js深拷贝、浅拷贝"><a href="#js深拷贝、浅拷贝" class="headerlink" title="js深拷贝、浅拷贝"></a>js深拷贝、浅拷贝</h3><p>什么是深拷贝？深拷贝和浅拷贝有什么区别？</p>
+<p>浅拷贝是指只复制第一层对象，但是当对象的属性是引用类型时，实质复制的是其引用，当引用指向的值改变时也会跟着变化。</p>
+<p>深拷贝复制变量值，对于非基本类型的变量，则递归至基本类型变量后，再复制。深拷贝后的对象与原来的对象是完全隔离的，互不影响，对一个对象的修改并不会影响另一个对象。</p>
+<p>实现一个深拷贝:</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>obj <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// null情况</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">RegExp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">Date</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 如果不是复杂数据类型，直接返回</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> obj <span class="token operator">!==</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> obj
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 如果obj是数组，那么obj.constructor是[Function: Array]</span>
+    <span class="token comment" spellcheck="true">// 如果obj是对象，那么obj.constructor是[Function: Object]</span>
+
+    <span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [] or {}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        t<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 复杂数据类型进行递归</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/03/js变量提升-预处理&&执行上下文/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2837,233 +3017,6 @@ setTimeout
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/vue自定义指令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/24/vue自定义指令/" itemprop="url">
-                  vue自定义指令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-04-24 12:34:43 / Updated at: 12:49:20" itemprop="dateCreated datePublished" datetime="2019-04-24T12:34:43+08:00">2019-04-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="vue自定义指令用法"><a href="#vue自定义指令用法" class="headerlink" title="vue自定义指令用法"></a>vue自定义指令用法</h3><h5 id="可以通过Vue-directive来定义全局指令"><a href="#可以通过Vue-directive来定义全局指令" class="headerlink" title="可以通过Vue.directive来定义全局指令"></a>可以通过<code>Vue.directive</code>来定义全局指令</h5><pre class="line-numbers language-javaScript"><code class="language-javaScript">// 注册一个全局自定义指令 `v-focus`
-Vue.directive('focus', {
-  // 当被绑定的元素插入到 DOM 中时……
-  inserted: function (el) {
-    // 聚焦元素
-    el.focus()
-  }
-})
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="如果想注册局部指令，组件中也接受directives选项"><a href="#如果想注册局部指令，组件中也接受directives选项" class="headerlink" title="如果想注册局部指令，组件中也接受directives选项"></a>如果想注册局部指令，组件中也接受<code>directives</code>选项</h5><pre class="line-numbers language-javaScript"><code class="language-javaScript">directives: {
-  focus: {
-    // 指令的定义
-    inserted: function (el) {
-      el.focus()
-    }
-  }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="可以在模板中任何元素上使用v-focus"><a href="#可以在模板中任何元素上使用v-focus" class="headerlink" title="可以在模板中任何元素上使用v-focus"></a>可以在模板中任何元素上使用<code>v-focus</code></h5><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-focus</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="提供的钩子函数"><a href="#提供的钩子函数" class="headerlink" title="提供的钩子函数"></a>提供的钩子函数</h5><ul>
-<li><p>bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
-</li>
-<li><p>inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
-</li>
-<li><p>update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。</p>
-</li>
-<li><p>componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用。</p>
-</li>
-<li><p>unbind：只调用一次，指令与元素解绑时调用。</p>
-</li>
-<li><p>接下来我们来看一下钩子函数的参数 (即 el、binding、vnode 和 oldVnode)。</p>
-</li>
-</ul>
-<h5 id="钩子函数参数"><a href="#钩子函数参数" class="headerlink" title="钩子函数参数"></a>钩子函数参数</h5><ul>
-<li><p>el：指令所绑定的元素，可以用来直接操作 DOM 。</p>
-</li>
-<li><p>binding：一个对象，包含以下属性：<br>  name：指令名，不包括 v- 前缀。</p>
-<ol>
-<li><p>value：指令的绑定值，例如：v-my-directive=”1 + 1” 中，绑定值为 2。</p>
-</li>
-<li><p>oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</p>
-</li>
-<li><p>expression：字符串形式的指令表达式。例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。</p>
-</li>
-<li><p>arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 “foo”。</p>
-</li>
-<li><p>modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。</p>
-</li>
-</ol>
-</li>
-<li><p>vnode：Vue 编译生成的虚拟节点。</p>
-</li>
-<li><p>oldVnode：上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。</p>
-</li>
-</ul>
-<blockquote>
-<p>除了 el 之外，其它参数都应该是只读的，切勿进行修改。如果需要在钩子之间共享数据，建议通过元素的 dataset 来进行。</p>
-</blockquote>
-<h5 id="通过全局指令实现img默认图片"><a href="#通过全局指令实现img默认图片" class="headerlink" title="通过全局指令实现img默认图片"></a>通过全局指令实现img默认图片</h5><pre class="line-numbers language-javaScript"><code class="language-javaScript">//默认图片
-Vue.directive('defaultImg', {
-    bind: function(el) {
-        //在图片加载失败时执行onerror
-        el.onerror = function(){
-            el.src = require('../src/assets/images/pic_small.png');
-        }
-    }
-})
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3110,7 +3063,7 @@ Vue.directive('defaultImg', {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">64</span>
+                    <span class="site-state-item-count">65</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
