@@ -301,6 +301,218 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/浏览器存储/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/01/浏览器存储/" itemprop="url">
+                  浏览器存储
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-06-01 11:43:04" itemprop="dateCreated datePublished" datetime="2019-06-01T11:43:04+08:00">2019-06-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2020-06-06 13:40:35" itemprop="dateModified" datetime="2020-06-06T13:40:35+08:00">2020-06-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="浏览器存储"><a href="#浏览器存储" class="headerlink" title="浏览器存储"></a>浏览器存储</h3><ul>
+<li><p>sessionStorage 、localStorage 和 cookie 之间的区别</p>
+</li>
+<li><p>cookie</p>
+<blockquote>
+<p>主要用来记录用户身份信息，因为HTTP是无状态的应用层协议，服务器不会记住客户端本次的请求操作。</p>
+<p>大小：4kb</p>
+<p>特点：无论请求是否用得到，都会被来回传递。可以设置过期时间</p>
+<p>安全性：js脚本可以通过<code>document.cookie</code>获取或者设置cookie。通过设置cookie时，添加httpOnly禁止js读取，从而可以预防xss攻击。（不要用cookie传递敏感信息）</p>
+</blockquote>
+<p>  共同点：用于浏览器端存储的缓存数据,都遵循同源策略。</p>
+<p>  不同点：</p>
+<ol>
+<li>存储内容是否发送到服务器端：当设置了Cookie后，数据会发送到服务器端，造成一定的宽带浪费；web storage,会将数据保存到本地，不会造成宽带浪费；</li>
+<li>数据存储大小不同：Cookie数据不能超过4K,适用于会话标识；web storage数据存储可以达到5M;</li>
+<li>数据存储的有效期限不同：cookie只在设置了Cookid过期时间之前一直有效，即关闭窗口或者浏览器；sessionStorage,仅在关闭浏览器之前有效；localStorage,除非手动删除，否则数据存储永久有效；</li>
+<li>作用域不同：cookie和localStorage是在同源中共享的，即只要在相同协议、相同主机名、相同端口下；sessionStorage除了同源外，还必须是同一个窗口（也就是浏览器的标签页）；</li>
+</ol>
+</li>
+<li><p>Web Storage与Cookie相比存在的优势：</p>
+<ol>
+<li><p>存储空间更大：IE8下每个独立的存储空间为10M，其他浏览器实现略有不同，但都比Cookie要大很多。</p>
+</li>
+<li><p>存储内容不会发送到服务器：当设置了Cookie后，Cookie的内容会随着请求一并发送的服务器，这对于本地存储的数据是一种带宽浪费。而Web Storage中的数据则仅仅是存在本</p>
+<p>地，不会与服务器发生任何交互。</p>
+</li>
+<li><p>更多丰富易用的接口：Web Storage提供了一套更为丰富的接口，如setItem,getItem,removeItem,clear等,使得数据操作更为简便。cookie需要自己封装。</p>
+</li>
+<li><p>独立的存储空间：每个域（包括子域）有独立的存储空间，各个存储空间是完全独立的，因此不会造成数据混乱。</p>
+</li>
+</ol>
+</li>
+<li><p>使用sessionStorage遇到的坑</p>
+<ol>
+<li><p>sessionStorage有要求必须是同一个浏览器标签tab下的才可以访问。</p>
+<blockquote>
+<p>但实际在运用中发现，通过页面内的链接（或者用window.open）打开新的标签页，它们之间也是可以读取到session的（但感觉不是共享的，修改了新开页的session值，原来的并不受影响）。而通过浏览器直接新开一个tab是，即使网站一样，也是读取不到的。</p>
+</blockquote>
+<p>[这里参考]<a href="https://github.com/lmk123/blog/issues/66" target="_blank" rel="noopener">https://github.com/lmk123/blog/issues/66</a></p>
+</li>
+</ol>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/js深拷贝、浅拷贝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2803,220 +3015,6 @@ setTimeout
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/package中的devdependencies和dependencies/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/24/package中的devdependencies和dependencies/" itemprop="url">
-                  package中的devdependencies和dependencies
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-04-24 12:45:50 / Updated at: 12:48:38" itemprop="dateCreated datePublished" datetime="2019-04-24T12:45:50+08:00">2019-04-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="package中的devdependencies和dependencies"><a href="#package中的devdependencies和dependencies" class="headerlink" title="package中的devdependencies和dependencies"></a>package中的devdependencies和dependencies</h3><h5 id="devdependencies和dependencies"><a href="#devdependencies和dependencies" class="headerlink" title="devdependencies和dependencies"></a>devdependencies和dependencies</h5><p>这两个配置代表的是项目中所需要的相关依赖模块插件，通过键值的方式来定义：</p>
-<pre class="line-numbers language-json"><code class="language-json"><span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"webpack-react-express"</span><span class="token punctuation">,</span>
-  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>
-  <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"antd"</span><span class="token operator">:</span> <span class="token string">"^2.13.11"</span><span class="token punctuation">,</span>
-    <span class="token property">"babel-polyfill"</span><span class="token operator">:</span> <span class="token string">"^6.26.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"base-64"</span><span class="token operator">:</span> <span class="token string">"^0.1.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"bluebird"</span><span class="token operator">:</span> <span class="token string">"^3.5.1"</span><span class="token punctuation">,</span>
-    <span class="token property">"css-loader"</span><span class="token operator">:</span> <span class="token string">"^0.28.7"</span><span class="token punctuation">,</span>
-    <span class="token property">"echarts"</span><span class="token operator">:</span> <span class="token string">"^3.7.2"</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"babel-core"</span><span class="token operator">:</span> <span class="token string">"^6.26.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"babel-loader"</span><span class="token operator">:</span> <span class="token string">"^6.4.1"</span><span class="token punctuation">,</span>
-    <span class="token property">"babel-plugin-transform-class-properties"</span><span class="token operator">:</span> <span class="token string">"^6.24.1"</span><span class="token punctuation">,</span>
-    <span class="token property">"babel-plugin-transform-runtime"</span><span class="token operator">:</span> <span class="token string">"^6.23.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"babel-polyfill"</span><span class="token operator">:</span> <span class="token string">"^6.26.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"babel-preset-es2015"</span><span class="token operator">:</span> <span class="token string">"^6.24.1"</span><span class="token punctuation">,</span>
-    <span class="token property">"webpack"</span><span class="token operator">:</span> <span class="token string">"^1.12.13"</span><span class="token punctuation">,</span>
-    <span class="token property">"webpack-hot-middleware"</span><span class="token operator">:</span> <span class="token string">"^2.21.0"</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="devDependencies"><a href="#devDependencies" class="headerlink" title="devDependencies"></a>devDependencies</h5><ol>
-<li><p>内容：是一个对象，配置模块依赖的模块列表，key是模块名称，value是版本范围</p>
-</li>
-<li><p>作用：该模块中所列举的插件属于开发环境的依赖（比如：测试或者文档框架等）</p>
-</li>
-<li><p>部署来源：通过你npm install进行依赖安装时加上-save-dev，devDependencies对象中便会增加你所需要的插件的安装配置</p>
-<p> <code>npm install name -save-dev</code></p>
-<h5 id="dependencies"><a href="#dependencies" class="headerlink" title="dependencies"></a>dependencies</h5></li>
-<li><p>内容：是一个对象，配置模块依赖的模块列表，key是模块名称，value是版本范围</p>
-</li>
-<li><p>作用：该模块中所列举的插件属于生产环境的依赖（程序正常运行需要加载的依赖）</p>
-</li>
-<li><p>部署来源：通过你npm install进行依赖安装时加上-save，dependencies对象中便会增加你所需要的插件的安装配置<br> <code>npm install name -save</code></p>
-</li>
-</ol>
-<h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h5><ol>
-<li><p>如果拿到别人的项目，需要安装之前package.json中devdependencies 和 dependencies两个模块下所列举的依赖，可以通过执行以下命令实现</p>
-<p> <code>npm install</code></p>
-</li>
-<li><p>如果拿到别人的项目，只需要安装之前package.json中dependencies 模块下所列举的依赖，可以通过执行以下命令实现</p>
-<p> <code>npm install packagename</code></p>
-</li>
-<li><p>如果拿到别人的项目，只需要安装之前package.json中devdependencies 模块下所列举的依赖，可以通过执行以下命令实现<br> <code>npm install packagename -dev</code></p>
-<h5 id="删除依赖"><a href="#删除依赖" class="headerlink" title="删除依赖"></a>删除依赖</h5></li>
-<li><p>npm uninstall “依赖名称”：删除依赖，但不会删除package.json的配置（即通过npm install依然可以安装该依赖），删除echarts依赖实例代码如下</p>
-<p> <code>npm uninstall echarts</code></p>
-</li>
-<li><p>npm uninstall “依赖名称” –save-dev：删除依赖，同时删除package.json中devdependencies的配置,删除echarts依赖实例代码如下</p>
-<p> <code>npm uninstall echarts  --save-dev</code></p>
-</li>
-<li><p>npm uninstall “依赖名称” –save：删除依赖，同时删除package.json中dependencies的配置,删除echarts依赖实例代码如下</p>
-<p> <code>npm uninstall echarts --save</code></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3063,7 +3061,7 @@ setTimeout
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-count">66</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

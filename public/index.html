@@ -301,6 +301,223 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/" itemprop="url">
+                  css层叠上下文、层叠等级、层叠顺序以及z-index
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2020-08-05 16:11:04 / Updated at: 17:30:02" itemprop="dateCreated datePublished" datetime="2020-08-05T16:11:04+08:00">2020-08-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="css层叠上下文、层叠等级、层叠顺序以及z-index"><a href="#css层叠上下文、层叠等级、层叠顺序以及z-index" class="headerlink" title="css层叠上下文、层叠等级、层叠顺序以及z-index"></a><strong>css层叠上下文、层叠等级、层叠顺序以及z-index</strong></h5><ul>
+<li><p><strong>层叠上下文</strong></p>
+<blockquote>
+<p>层叠上下文是HTML中的一个三维概念。分为x轴、y轴、z轴，层叠上下文就是对这些HTML元素的三维构想。</p>
+<p>满足一下任意一个条件及可形成层叠上下文：</p>
+<ul>
+<li>文档的根元素<code>&lt;html&gt;</code></li>
+<li>position值不为static（z-index值不为auto的元素）</li>
+<li>flex容器的子元素（z-index值不为auto的元素）</li>
+<li>grid容器的子元素（z-index值不为auto的元素）</li>
+<li>opacity值小于1的元素</li>
+<li>mix-blend-mode值不为normal的元素</li>
+<li>css3属性（值不为none）<ul>
+<li>transform</li>
+<li>filter</li>
+<li>perspective</li>
+<li>clip-path</li>
+<li>mask/mask-image/mask-border</li>
+</ul>
+</li>
+<li>isolation属性值为isolate的元素</li>
+<li>-webkit-overflow-scrolling属性值为touch的元素</li>
+<li>will-change</li>
+<li>contain值为layout、paint或包含它们其中之一的合成值</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>层叠等级</strong></p>
+<blockquote>
+<p>层叠等级：</p>
+<ul>
+<li>在同一个层叠上下文中，它描述定义的是该层叠上下文中的层叠上下文元素在Z轴上的上下顺序。</li>
+<li>在其他普通元素中，它描述的是这些普通元素在Z轴上的上下顺序。</li>
+<li>层叠等级的比较只有在当前层叠上下文中才有意义。不同层叠上下文的层叠等级比较是没有意义的。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>层叠顺序</strong></p>
+<blockquote>
+<p>层叠顺序：表示元素发生层叠时按照特定的元素规则在Z轴上垂直显示。（层叠上下文和层叠等级是一种概念，而层叠顺序是一种规则）</p>
+<p><img src="/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/image-20200805170444733.png" alt="image-20200805170444733"></p>
+</blockquote>
+</li>
+<li><p><strong>比较流程</strong></p>
+<blockquote>
+<ol>
+<li><p>首先看比较的两个元素是否处在一个层叠上下文中</p>
+<ul>
+<li><p>如果是，则谁的层叠等级大(层叠等级通过层叠顺序图来判断)，则谁在上边。</p>
+</li>
+<li><p>如果不是，则比较它们所处的层叠上下文的层叠等级</p>
+</li>
+</ul>
+</li>
+<li><p>当两个元素层叠等级相同、层叠顺序相同时，在dom结构中，后面的元素的层叠等级在前面的元素之上。</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/word-break、overflow-wrap、white-space/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3028,218 +3245,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/01/浏览器存储/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/01/浏览器存储/" itemprop="url">
-                  浏览器存储
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-06-01 11:43:04" itemprop="dateCreated datePublished" datetime="2019-06-01T11:43:04+08:00">2019-06-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2020-06-06 13:40:35" itemprop="dateModified" datetime="2020-06-06T13:40:35+08:00">2020-06-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="浏览器存储"><a href="#浏览器存储" class="headerlink" title="浏览器存储"></a>浏览器存储</h3><ul>
-<li><p>sessionStorage 、localStorage 和 cookie 之间的区别</p>
-</li>
-<li><p>cookie</p>
-<blockquote>
-<p>主要用来记录用户身份信息，因为HTTP是无状态的应用层协议，服务器不会记住客户端本次的请求操作。</p>
-<p>大小：4kb</p>
-<p>特点：无论请求是否用得到，都会被来回传递。可以设置过期时间</p>
-<p>安全性：js脚本可以通过<code>document.cookie</code>获取或者设置cookie。通过设置cookie时，添加httpOnly禁止js读取，从而可以预防xss攻击。（不要用cookie传递敏感信息）</p>
-</blockquote>
-<p>  共同点：用于浏览器端存储的缓存数据,都遵循同源策略。</p>
-<p>  不同点：</p>
-<ol>
-<li>存储内容是否发送到服务器端：当设置了Cookie后，数据会发送到服务器端，造成一定的宽带浪费；web storage,会将数据保存到本地，不会造成宽带浪费；</li>
-<li>数据存储大小不同：Cookie数据不能超过4K,适用于会话标识；web storage数据存储可以达到5M;</li>
-<li>数据存储的有效期限不同：cookie只在设置了Cookid过期时间之前一直有效，即关闭窗口或者浏览器；sessionStorage,仅在关闭浏览器之前有效；localStorage,除非手动删除，否则数据存储永久有效；</li>
-<li>作用域不同：cookie和localStorage是在同源中共享的，即只要在相同协议、相同主机名、相同端口下；sessionStorage除了同源外，还必须是同一个窗口（也就是浏览器的标签页）；</li>
-</ol>
-</li>
-<li><p>Web Storage与Cookie相比存在的优势：</p>
-<ol>
-<li><p>存储空间更大：IE8下每个独立的存储空间为10M，其他浏览器实现略有不同，但都比Cookie要大很多。</p>
-</li>
-<li><p>存储内容不会发送到服务器：当设置了Cookie后，Cookie的内容会随着请求一并发送的服务器，这对于本地存储的数据是一种带宽浪费。而Web Storage中的数据则仅仅是存在本</p>
-<p>地，不会与服务器发生任何交互。</p>
-</li>
-<li><p>更多丰富易用的接口：Web Storage提供了一套更为丰富的接口，如setItem,getItem,removeItem,clear等,使得数据操作更为简便。cookie需要自己封装。</p>
-</li>
-<li><p>独立的存储空间：每个域（包括子域）有独立的存储空间，各个存储空间是完全独立的，因此不会造成数据混乱。</p>
-</li>
-</ol>
-</li>
-<li><p>使用sessionStorage遇到的坑</p>
-<ol>
-<li><p>sessionStorage有要求必须是同一个浏览器标签tab下的才可以访问。</p>
-<blockquote>
-<p>但实际在运用中发现，通过页面内的链接（或者用window.open）打开新的标签页，它们之间也是可以读取到session的（但感觉不是共享的，修改了新开页的session值，原来的并不受影响）。而通过浏览器直接新开一个tab是，即使网站一样，也是读取不到的。</p>
-</blockquote>
-<p>[这里参考]<a href="https://github.com/lmk123/blog/issues/66" target="_blank" rel="noopener">https://github.com/lmk123/blog/issues/66</a></p>
-</li>
-</ol>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3286,7 +3291,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-count">66</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

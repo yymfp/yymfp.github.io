@@ -108,25 +108,27 @@
 
 
 
-  <meta name="description" content="浏览器兼容相关 Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序: L-V-H-A : a:link {} a:visited {} a">
-<meta name="keywords" content="浏览器">
+  <meta name="description" content="css层叠上下文、层叠等级、层叠顺序以及z-index 层叠上下文  层叠上下文是HTML中的一个三维概念。分为x轴、y轴、z轴，层叠上下文就是对这些HTML元素的三维构想。 满足一下任意一个条件及可形成层叠上下文：  文档的根元素&amp;lt;html&amp;gt; position值不为static（z-index值不为auto的元素） flex容器的子元素（z-index值不为auto的元素） grid">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器兼容问题">
-<meta property="og:url" content="http://yoursite.com/2019/03/10/浏览器兼容问题/index.html">
+<meta property="og:title" content="css层叠上下文、层叠等级、层叠顺序以及z-index">
+<meta property="og:url" content="http://yoursite.com/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="浏览器兼容相关 Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序: L-V-H-A : a:link {} a:visited {} a">
+<meta property="og:description" content="css层叠上下文、层叠等级、层叠顺序以及z-index 层叠上下文  层叠上下文是HTML中的一个三维概念。分为x轴、y轴、z轴，层叠上下文就是对这些HTML元素的三维构想。 满足一下任意一个条件及可形成层叠上下文：  文档的根元素&amp;lt;html&amp;gt; position值不为static（z-index值不为auto的元素） flex容器的子元素（z-index值不为auto的元素） grid">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T14:22:10.000Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/image-20200805170444733.png">
+<meta property="og:updated_time" content="2020-08-05T09:30:02.681Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器兼容问题">
-<meta name="twitter:description" content="浏览器兼容相关 Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序: L-V-H-A : a:link {} a:visited {} a">
+<meta name="twitter:title" content="css层叠上下文、层叠等级、层叠顺序以及z-index">
+<meta name="twitter:description" content="css层叠上下文、层叠等级、层叠顺序以及z-index 层叠上下文  层叠上下文是HTML中的一个三维概念。分为x轴、y轴、z轴，层叠上下文就是对这些HTML元素的三维构想。 满足一下任意一个条件及可形成层叠上下文：  文档的根元素&amp;lt;html&amp;gt; position值不为static（z-index值不为auto的元素） flex容器的子元素（z-index值不为auto的元素） grid">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/image-20200805170444733.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/10/浏览器兼容问题/">
+  <link rel="canonical" href="http://yoursite.com/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/">
 
 
 
@@ -136,7 +138,7 @@
   };
 </script>
 
-  <title>浏览器兼容问题 | pjy</title>
+  <title>css层叠上下文、层叠等级、层叠顺序以及z-index | pjy</title>
   
 
 
@@ -305,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/浏览器兼容问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
@@ -322,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浏览器兼容问题
+          <h1 class="post-title" itemprop="name headline">css层叠上下文、层叠等级、层叠顺序以及z-index
               
             
           </h1>
@@ -347,7 +349,7 @@
                 
               
 
-              <time title="Post created: 2019-03-10 22:13:51 / Updated at: 22:22:10" itemprop="dateCreated datePublished" datetime="2019-03-10T22:13:51+08:00">2019-03-10</time>
+              <time title="Post created: 2020-08-05 16:11:04 / Updated at: 17:30:02" itemprop="dateCreated datePublished" datetime="2020-08-05T16:11:04+08:00">2020-08-05</time>
             
 
             
@@ -403,9 +405,65 @@
       
 
       
-        <h3 id="浏览器兼容相关"><a href="#浏览器兼容相关" class="headerlink" title="浏览器兼容相关"></a>浏览器兼容相关</h3><ul>
-<li>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决.</li>
-<li>超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序: L-V-H-A : a:link {} a:visited {} a:hover {} a:active {}</li>
+        <h5 id="css层叠上下文、层叠等级、层叠顺序以及z-index"><a href="#css层叠上下文、层叠等级、层叠顺序以及z-index" class="headerlink" title="css层叠上下文、层叠等级、层叠顺序以及z-index"></a><strong>css层叠上下文、层叠等级、层叠顺序以及z-index</strong></h5><ul>
+<li><p><strong>层叠上下文</strong></p>
+<blockquote>
+<p>层叠上下文是HTML中的一个三维概念。分为x轴、y轴、z轴，层叠上下文就是对这些HTML元素的三维构想。</p>
+<p>满足一下任意一个条件及可形成层叠上下文：</p>
+<ul>
+<li>文档的根元素<code>&lt;html&gt;</code></li>
+<li>position值不为static（z-index值不为auto的元素）</li>
+<li>flex容器的子元素（z-index值不为auto的元素）</li>
+<li>grid容器的子元素（z-index值不为auto的元素）</li>
+<li>opacity值小于1的元素</li>
+<li>mix-blend-mode值不为normal的元素</li>
+<li>css3属性（值不为none）<ul>
+<li>transform</li>
+<li>filter</li>
+<li>perspective</li>
+<li>clip-path</li>
+<li>mask/mask-image/mask-border</li>
+</ul>
+</li>
+<li>isolation属性值为isolate的元素</li>
+<li>-webkit-overflow-scrolling属性值为touch的元素</li>
+<li>will-change</li>
+<li>contain值为layout、paint或包含它们其中之一的合成值</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>层叠等级</strong></p>
+<blockquote>
+<p>层叠等级：</p>
+<ul>
+<li>在同一个层叠上下文中，它描述定义的是该层叠上下文中的层叠上下文元素在Z轴上的上下顺序。</li>
+<li>在其他普通元素中，它描述的是这些普通元素在Z轴上的上下顺序。</li>
+<li>层叠等级的比较只有在当前层叠上下文中才有意义。不同层叠上下文的层叠等级比较是没有意义的。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>层叠顺序</strong></p>
+<blockquote>
+<p>层叠顺序：表示元素发生层叠时按照特定的元素规则在Z轴上垂直显示。（层叠上下文和层叠等级是一种概念，而层叠顺序是一种规则）</p>
+<p><img src="/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/image-20200805170444733.png" alt="image-20200805170444733"></p>
+</blockquote>
+</li>
+<li><p><strong>比较流程</strong></p>
+<blockquote>
+<ol>
+<li><p>首先看比较的两个元素是否处在一个层叠上下文中</p>
+<ul>
+<li><p>如果是，则谁的层叠等级大(层叠等级通过层叠顺序图来判断)，则谁在上边。</p>
+</li>
+<li><p>如果不是，则比较它们所处的层叠上下文的层叠等级</p>
+</li>
+</ul>
+</li>
+<li><p>当两个元素层叠等级相同、层叠顺序相同时，在dom结构中，后面的元素的层叠等级在前面的元素之上。</p>
+</li>
+</ol>
+</blockquote>
+</li>
 </ul>
 
       
@@ -427,7 +485,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/浏览器/" rel="tag"># 浏览器</a>
+            <a href="/tags/css/" rel="tag"># css</a>
           
         </div>
       
@@ -440,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/10/前端性能优化/" rel="next" title="前端性能优化">
-                <i class="fa fa-chevron-left"></i> 前端性能优化
+              <a href="/2020/08/05/word-break、overflow-wrap、white-space/" rel="next" title="word-break、overflow-wrap、white-space">
+                <i class="fa fa-chevron-left"></i> word-break、overflow-wrap、white-space
               </a>
             
           </div>
@@ -449,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/10/LeetCode相关题目/" rel="prev" title="LeetCode相关题目">
-                LeetCode相关题目 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器兼容相关"><span class="nav-number">1.</span> <span class="nav-text">浏览器兼容相关</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#css层叠上下文、层叠等级、层叠顺序以及z-index"><span class="nav-number">1.</span> <span class="nav-text">css层叠上下文、层叠等级、层叠顺序以及z-index</span></a></li></ol></div>
             
 
           </div>
