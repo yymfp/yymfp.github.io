@@ -301,6 +301,219 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/21/vue组件生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/21/vue组件生命周期/" itemprop="url">
+                  vue组件生命周期
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-21 16:30:32" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-08-06 13:47:10" itemprop="dateModified" datetime="2019-08-06T13:47:10+08:00">2019-08-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="vue组件生命周期"><a href="#vue组件生命周期" class="headerlink" title="vue组件生命周期"></a>vue组件生命周期</h3><p>参考自Vue官方：<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/</a></p>
+<p>生命周期的概念：每个组件的实例，从创建、到运行、直到销毁，在这个过程中，会发生一系列事件，这些事件就叫做组件的生命周期函数。</p>
+<p><strong>需要注意的是：</strong></p>
+<blockquote>
+<p>所有的生命周期钩子自动绑定<code>this</code>上下文到实例中，因此你可以访问数据，对属性和方法进行运算。这意味着你不能使用箭头函数来定义一个生命周期方法。这是因为箭头函数绑定了父上下文，因此<code>this</code>与你期待的Vue实例不同。</p>
+</blockquote>
+<p><img src="/2018/10/21/vue组件生命周期/da4542b8404aacff8083b804fa48db76.png" alt></p>
+<blockquote>
+<p>参考：<a href="https://cn.vuejs.org/v2/guide/instance.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/instance.html</a></p>
+</blockquote>
+<ol>
+<li><p>beforeCreate：这是第一个生命周期函数，此时组件的data和methods以及页面DOM结构，都还没有初始化，所以此阶段，什么都做不了。</p>
+</li>
+<li><p>create：此时，组件的data和methods已经可用。在这一步，实例已经完成以下的配置：数据观测（data observer），属性和方法的运算，watch/event事件回调。然而，挂载阶段还没开始，<code>$el</code>属性目前不可见。<strong>在这个生命周期函数中，我们经常会发起Ajax请求。</strong></p>
+</li>
+<li><p>beforeMount：在挂载开始之前被调用：相关的<code>render</code>函数首次被调用。</p>
+</li>
+<li><p>mounted：<code>el</code>被新创建的<code>vm.$el</code>替换，并挂载到实例上去之后调用该钩子。如果root实例挂载了一个文档内元素，当<code>mounted</code>被调用时<code>vm.$el</code>也在文档内。<strong>需要注意的是：<code>mounted</code>不会承诺所有的子组件也都一起被加载，如果你希望等到整个视图都渲染完毕，可以用<code>vm.$nextTick</code>替换掉<code>mounted</code></strong>，如果页面用到了第三方UI插件，而且这个插件还需要被初始化，那么必需在mounted中来初始化插件。</p>
+<pre class="line-numbers language-js"><code class="language-js">mounted<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//等到整个视图加载完成后的操作</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>beforeUpdate：数据更新时的调用，在此阶段，数据是最新的，但是页面是旧的。</p>
+</li>
+<li><p>updated：由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用<a href="https://cn.vuejs.org/v2/api/#computed" target="_blank" rel="noopener">计算属性</a>或 <a href="https://cn.vuejs.org/v2/api/#watch" target="_blank" rel="noopener">watcher</a> 取而代之。</p>
+<p><strong>注意 <code>updated</code> 不会承诺所有的子组件也都一起被重绘。如果你希望等到整个视图都重绘完毕，可以用 <a href="https://cn.vuejs.org/v2/api/#vm-nextTick" target="_blank" rel="noopener">vm.$nextTick</a> 替换掉 <code>updated</code></strong>：</p>
+<pre class="line-numbers language-js"><code class="language-js">updated<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Code that will run only after the</span>
+    <span class="token comment" spellcheck="true">// entire view has been re-rendered</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>activated：<code>keep-alive</code>组件激活时调用。</p>
+</li>
+<li>deactivated：<code>keep-alive</code>组件停用时调用。</li>
+<li>beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+<li>destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/21/BFC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3142,322 +3355,6 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/flex布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/flex布局/" itemprop="url">
-                  flex布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-12 13:17:17" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-10-18 13:59:54" itemprop="dateModified" datetime="2018-10-18T13:59:54+08:00">2018-10-18</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><blockquote>
-<p>参考菜鸟教程</p>
-</blockquote>
-<p>flex布局意为“弹性布局”，任何容器都可指定为flex布局。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*行内元素*/</span>
-<span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">display</span><span class="token punctuation">:</span>inline-flex<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*Webkit内核的浏览器*/</span>
-<span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">display</span><span class="token punctuation">:</span>-webkit-flex<span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>注意：设为flex布局以后，子元素的float、clear和vertical-align属性将失效。</strong></p>
-<p>采用Flex布局的元素，称为Flex容器，它的所有子元素自动成为容器成员，称为flex项目。</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/3791e575c48b3698be6a94ae1dbff79d.png" alt="参考菜鸟教程"></p>
-<blockquote>
-<p>说明：容器存在两根轴：水平的主轴和垂直的交叉轴。项目默认沿主轴排列。</p>
-</blockquote>
-<h5 id="flex-direction属性"><a href="#flex-direction属性" class="headerlink" title="flex-direction属性"></a>flex-direction属性</h5><blockquote>
-<p>flex-direction属性决定主轴的方向（项目的排列方向）</p>
-</blockquote>
-<p>语法：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">flex-direction</span><span class="token punctuation">:</span>row | row-reverse | column | column-reverse<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>row：主轴为水平方向，左为起点。</li>
-<li>row-reverse：主轴为水平方向，右为起点。</li>
-<li>column：主轴为垂直方向，上为起点。</li>
-<li>column-reverse：主轴为垂直方向，下为起点。</li>
-</ul>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/0cbe5f8268121114e87d0546e53cda6e.png" alt="参考菜鸟教程"></p>
-<h5 id="flex-wrap属性"><a href="#flex-wrap属性" class="headerlink" title="flex-wrap属性"></a>flex-wrap属性</h5><blockquote>
-<p>flex-wrap属性决定元素在一条轴线上排不下如何换行。</p>
-</blockquote>
-<p>语法：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.box</span></span><span class="token punctuation">{</span>
-  <span class="token property">flex-wrap</span><span class="token punctuation">:</span> nowrap | wrap | wrap-reverse<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>nowrap（默认）：不换行。</li>
-<li>wrap：换行，第一行在上方。</li>
-<li>wrap-reverse：换行，第一行在下方。</li>
-</ul>
-<h5 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h5><blockquote>
-<p>flex-flow属性是flex-direction和flex-wrap属性的简写，默认值row nowrap。</p>
-</blockquote>
-<h5 id="justify-content属性"><a href="#justify-content属性" class="headerlink" title="justify-content属性"></a>justify-content属性</h5><blockquote>
-<p>justify-content属性规定项目在主轴上的对其方式。</p>
-</blockquote>
-<p>语法：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">justify-content</span><span class="token punctuation">:</span>flex-start | flex-end | center | space-between | space-around
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>flex-start：左对齐。</li>
-<li>flex-end：右对齐。</li>
-<li>center：居中。</li>
-<li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。（注意：项目之间的间隔比项目与两边边框的间隔大一倍）</li>
-</ul>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/c55dfe8e3422458b50e985552ef13ba5.png" alt="参考菜鸟教程"></p>
-<h5 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h5><blockquote>
-<p>align-items属性规定项目在交叉轴上如何对齐。</p>
-</blockquote>
-<p>语法：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">align-items</span><span class="token punctuation">:</span>flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>flex-start：假设交叉轴从上到下，从上开始对齐。</li>
-<li>flex-end：交叉轴的终点对齐。</li>
-<li>center：交叉轴的中点对齐。</li>
-<li>baseline：项目的第一行文字的基线对齐。</li>
-<li>stretch：如果项目未设置高度或为auto，将铺满整个容器高度。</li>
-</ul>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/2b0c39c7e7a80d5a784c8c2ca63cde17.png" alt="参考菜鸟教程"></p>
-<h5 id="align-content属性"><a href="#align-content属性" class="headerlink" title="align-content属性"></a>align-content属性</h5><blockquote>
-<p>align-content属性定义多根轴线的对齐方式，若只有一根轴线，不起作用。</p>
-</blockquote>
-<p>语法：</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
-    <span class="token property">align-content</span><span class="token punctuation">:</span>flex-start | flex-end | center | space-between | space-around | stretch<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>flex-start：与交叉轴的起点对齐。</li>
-<li>flex-end：与交叉轴的终点对齐。</li>
-<li>center：与交叉轴的中点对齐。</li>
-<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-<li>stretch（默认值）：轴线占满整个交叉轴。</li>
-</ul>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png" alt></p>
-<h5 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h5><ol>
-<li><p>order属性：定义项目的排列顺序。数值越小排列越靠前，默认0。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
-    <span class="token property">order</span><span class="token punctuation">:</span>&lt;integer><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/59e399c72daafcfcc20ede36bf32f266.png" alt="参考菜鸟教程"></p>
-</li>
-<li><p>flex-grow属性：定义项目的放大比例，默认0。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
-    <span class="token property">flex-grow</span><span class="token punctuation">:</span>&lt;number><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default 0*/</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/*如果项目的值相同，则均分。*/</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png" alt="参考菜鸟教程"></p>
-</li>
-<li><p>flex-shrink属性：定义项目的缩小比例，默认1。(负值对该属性无效)</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
-    <span class="token property">flex-shrink</span><span class="token punctuation">:</span>&lt;number><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default 1*/</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/240d3e960043a729bb3ff5e34987904f.jpg" alt="参考菜鸟教程"></p>
-</li>
-<li><p>flex-basis属性：定义再分配多余空间时，项目占据的主轴空间。默认auto。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
-    <span class="token property">flex-basis</span><span class="token punctuation">:</span>&lt;length> | auto<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default auto*/</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>flex属性：该属性时flex-grow、flex-shrink、flex-basis属性的简写。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
-    <span class="token property">flex</span><span class="token punctuation">:</span>none | [ &lt;<span class="token string">'flex-grow'</span>> &lt;<span class="token string">'flex-shrink'</span>>? || &lt;<span class="token string">'flex-basis'</span>> ]
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</strong></p>
-</li>
-<li><p>align-self属性：允许单个项目与其他项目不一样的对齐方式，可覆盖align-items属性。默认值auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
-<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
-    <span class="token property">align-self</span><span class="token punctuation">:</span>auto| flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</strong></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3504,7 +3401,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -3586,7 +3483,9 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
