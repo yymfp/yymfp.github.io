@@ -301,6 +301,322 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/flex布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/12/flex布局/" itemprop="url">
+                  flex布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-12 13:17:17" itemprop="dateCreated datePublished" datetime="2018-10-12T13:17:17+08:00">2018-10-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-18 13:59:54" itemprop="dateModified" datetime="2018-10-18T13:59:54+08:00">2018-10-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><blockquote>
+<p>参考菜鸟教程</p>
+</blockquote>
+<p>flex布局意为“弹性布局”，任何容器都可指定为flex布局。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*行内元素*/</span>
+<span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span>inline-flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*Webkit内核的浏览器*/</span>
+<span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span>-webkit-flex<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span>flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注意：设为flex布局以后，子元素的float、clear和vertical-align属性将失效。</strong></p>
+<p>采用Flex布局的元素，称为Flex容器，它的所有子元素自动成为容器成员，称为flex项目。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/3791e575c48b3698be6a94ae1dbff79d.png" alt="参考菜鸟教程"></p>
+<blockquote>
+<p>说明：容器存在两根轴：水平的主轴和垂直的交叉轴。项目默认沿主轴排列。</p>
+</blockquote>
+<h5 id="flex-direction属性"><a href="#flex-direction属性" class="headerlink" title="flex-direction属性"></a>flex-direction属性</h5><blockquote>
+<p>flex-direction属性决定主轴的方向（项目的排列方向）</p>
+</blockquote>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span>row | row-reverse | column | column-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>row：主轴为水平方向，左为起点。</li>
+<li>row-reverse：主轴为水平方向，右为起点。</li>
+<li>column：主轴为垂直方向，上为起点。</li>
+<li>column-reverse：主轴为垂直方向，下为起点。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/0cbe5f8268121114e87d0546e53cda6e.png" alt="参考菜鸟教程"></p>
+<h5 id="flex-wrap属性"><a href="#flex-wrap属性" class="headerlink" title="flex-wrap属性"></a>flex-wrap属性</h5><blockquote>
+<p>flex-wrap属性决定元素在一条轴线上排不下如何换行。</p>
+</blockquote>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.box</span></span><span class="token punctuation">{</span>
+  <span class="token property">flex-wrap</span><span class="token punctuation">:</span> nowrap | wrap | wrap-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>nowrap（默认）：不换行。</li>
+<li>wrap：换行，第一行在上方。</li>
+<li>wrap-reverse：换行，第一行在下方。</li>
+</ul>
+<h5 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h5><blockquote>
+<p>flex-flow属性是flex-direction和flex-wrap属性的简写，默认值row nowrap。</p>
+</blockquote>
+<h5 id="justify-content属性"><a href="#justify-content属性" class="headerlink" title="justify-content属性"></a>justify-content属性</h5><blockquote>
+<p>justify-content属性规定项目在主轴上的对其方式。</p>
+</blockquote>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span>flex-start | flex-end | center | space-between | space-around
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>flex-start：左对齐。</li>
+<li>flex-end：右对齐。</li>
+<li>center：居中。</li>
+<li>space-between：两端对齐，项目之间的间隔都相等。</li>
+<li>space-around：每个项目两侧的间隔相等。（注意：项目之间的间隔比项目与两边边框的间隔大一倍）</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/c55dfe8e3422458b50e985552ef13ba5.png" alt="参考菜鸟教程"></p>
+<h5 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h5><blockquote>
+<p>align-items属性规定项目在交叉轴上如何对齐。</p>
+</blockquote>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span>flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>flex-start：假设交叉轴从上到下，从上开始对齐。</li>
+<li>flex-end：交叉轴的终点对齐。</li>
+<li>center：交叉轴的中点对齐。</li>
+<li>baseline：项目的第一行文字的基线对齐。</li>
+<li>stretch：如果项目未设置高度或为auto，将铺满整个容器高度。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/2b0c39c7e7a80d5a784c8c2ca63cde17.png" alt="参考菜鸟教程"></p>
+<h5 id="align-content属性"><a href="#align-content属性" class="headerlink" title="align-content属性"></a>align-content属性</h5><blockquote>
+<p>align-content属性定义多根轴线的对齐方式，若只有一根轴线，不起作用。</p>
+</blockquote>
+<p>语法：</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span></span><span class="token punctuation">{</span>
+    <span class="token property">align-content</span><span class="token punctuation">:</span>flex-start | flex-end | center | space-between | space-around | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>flex-start：与交叉轴的起点对齐。</li>
+<li>flex-end：与交叉轴的终点对齐。</li>
+<li>center：与交叉轴的中点对齐。</li>
+<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li>stretch（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f10918ccb8a13247c9d47715a2bd2c33.png" alt></p>
+<h5 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h5><ol>
+<li><p>order属性：定义项目的排列顺序。数值越小排列越靠前，默认0。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">order</span><span class="token punctuation">:</span>&lt;integer><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/59e399c72daafcfcc20ede36bf32f266.png" alt="参考菜鸟教程"></p>
+</li>
+<li><p>flex-grow属性：定义项目的放大比例，默认0。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-grow</span><span class="token punctuation">:</span>&lt;number><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default 0*/</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*如果项目的值相同，则均分。*/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/f41c08bb35962ed79e7686f735d6cd78.png" alt="参考菜鸟教程"></p>
+</li>
+<li><p>flex-shrink属性：定义项目的缩小比例，默认1。(负值对该属性无效)</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-shrink</span><span class="token punctuation">:</span>&lt;number><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default 1*/</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://www.runoob.com/wp-content/uploads/2015/07/240d3e960043a729bb3ff5e34987904f.jpg" alt="参考菜鸟教程"></p>
+</li>
+<li><p>flex-basis属性：定义再分配多余空间时，项目占据的主轴空间。默认auto。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex-basis</span><span class="token punctuation">:</span>&lt;length> | auto<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*default auto*/</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>flex属性：该属性时flex-grow、flex-shrink、flex-basis属性的简写。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span>none | [ &lt;<span class="token string">'flex-grow'</span>> &lt;<span class="token string">'flex-shrink'</span>>? || &lt;<span class="token string">'flex-basis'</span>> ]
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</strong></p>
+</li>
+<li><p>align-self属性：允许单个项目与其他项目不一样的对齐方式，可覆盖align-items属性。默认值auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.item</span></span><span class="token punctuation">{</span>
+    <span class="token property">align-self</span><span class="token punctuation">:</span>auto| flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</strong></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/css3新增的常见属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2715,291 +3031,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/06/js类型检测总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/06/js类型检测总结/" itemprop="url">
-                  js类型检测总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-06 18:25:53" itemprop="dateCreated datePublished" datetime="2018-10-06T18:25:53+08:00">2018-10-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-08-06 13:42:33" itemprop="dateModified" datetime="2019-08-06T13:42:33+08:00">2019-08-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="js类型检测总结"><a href="#js类型检测总结" class="headerlink" title="js类型检测总结"></a>js类型检测总结</h3><p><strong>检测规则：</strong></p>
-<p><img src="/2018/10/06/js类型检测总结/5e35a8e04062aeeb805a82c051a9560d.png" alt></p>
-<ol>
-<li><p><strong><code>typeof</code>：操作符返回一个字符串，表示未经计算的操作数的类型</strong></p>
-<p>语法：<code>typeof</code>运算符后跟操作数。</p>
-<blockquote>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">typeof</span> operand
-or
-<span class="token keyword">typeof</span> <span class="token punctuation">(</span>operand<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>operand是一个表达式，表示对象或原始值，其类型将被返回。</strong></p>
-<p>| 类型                                        | 结果                       |<br>| ——————————————- | ————————– |<br>| Undefined                                   | <code>&quot;undefined&quot;</code>              |<br>| Null                                        | <code>&quot;object&quot;</code>                 |<br>| Boolean                                     | <code>&quot;boolean&quot;</code>                |<br>| Number                                      | <code>&quot;number&quot;</code>                 |<br>| String                                      | <code>&quot;string&quot;</code>                 |<br>| Symbol （ECMAScript 6 新增）                | <code>&quot;symbol&quot;</code>                 |<br>| 宿主对象（由JS环境提供）                    | <em>Implementation-dependent</em> |<br>| 函数对象（[[Call]] 在ECMA-262条款中实现了） | <code>&quot;function&quot;</code>               |<br>| 任何其他对象                                | <code>&quot;object&quot;</code>                 |</p>
-</blockquote>
-<h5 id="使用new操作符："><a href="#使用new操作符：" class="headerlink" title="使用new操作符："></a>使用<code>new</code>操作符：</h5><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> str<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">'string'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> num<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">typeof</span> str<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'object'</span>
-<span class="token keyword">typeof</span> num<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'object'</span>
-<span class="token keyword">let</span> func<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">typeof</span> func<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//'function'</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="语法中需要括号："><a href="#语法中需要括号：" class="headerlink" title="语法中需要括号："></a>语法中需要括号：</h5><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> num<span class="token operator">=</span><span class="token number">99</span><span class="token punctuation">;</span>
-<span class="token keyword">typeof</span> num <span class="token operator">+</span> <span class="token string">' str'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//it will return 'number str'</span>
-<span class="token keyword">typeof</span> <span class="token punctuation">(</span>num<span class="token operator">+</span><span class="token string">' str'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//string</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h5 id="暂存死区："><a href="#暂存死区：" class="headerlink" title="暂存死区："></a>暂存死区：</h5><blockquote>
-<p>在 ECMAScript 2015 之前，<code>typeof</code>总是保证为任何操作数返回一个字符串。但是，除了非提升，块作用域的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="noopener">let</a>和<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="noopener">const</a>之外，在声明之前对块中的<code>let</code>和<code>const</code>变量使用<code>typeof</code>会抛出一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError" target="_blank" rel="noopener">ReferenceError</a>。这与未声明的变量形成对比，<code>typeof</code>会返回“undefined”。块作用域变量在块的头部处于“<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let" target="_blank" rel="noopener">暂时死区</a>”，直到被初始化，在这期间，如果变量被访问将会引发错误。</p>
-<pre><code>typeof undeclaredVariable === &#39;undefined&#39;;
-typeof newLetVariable; let newLetVariable; // ReferenceError
-typeof newConstVariable; const newConstVariable = &#39;hello&#39;; // ReferenceError
-</code></pre></blockquote>
-</li>
-<li><p><strong><code>instanceof</code>：用于测试构造函数的<code>prototype</code>属性是否出现在对象的原型链中的任何位置</strong></p>
-</li>
-</ol>
-<blockquote>
-<p><strong>语法：<code>object instanceof constructor</code></strong></p>
-<p><strong>参数：<code>object</code> 要检测的对象， <code>constructor</code> 某个构造函数</strong></p>
-<p><strong>举例：</strong></p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Dog</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>food<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span>name<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>food<span class="token operator">=</span>food<span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">'吃'</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>food<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">let</span> dog<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token string">'小黑'</span><span class="token punctuation">,</span><span class="token string">'骨头'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dog <span class="token keyword">instanceof</span> <span class="token class-name">Dog</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>dog <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="描述：instanceof运算符用来检测constructor-prototype是否存在于参数object的原型链上。"><a href="#描述：instanceof运算符用来检测constructor-prototype是否存在于参数object的原型链上。" class="headerlink" title="描述：instanceof运算符用来检测constructor.prototype是否存在于参数object的原型链上。"></a>描述：<code>instanceof</code>运算符用来检测<code>constructor.prototype</code>是否存在于参数<code>object</code>的原型链上。</h5><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//定义函数</span>
-<span class="token keyword">function</span> <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> o<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-o <span class="token keyword">instanceof</span> <span class="token class-name">A</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true，因为o.__proto__指向A.prototype</span>
-o <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true,因为o.__proto__指向A.prototype，A.prototype指向Object.prototype</span>
-
-<span class="token comment" spellcheck="true">//继承</span>
-B<span class="token punctuation">.</span>prototype<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> o1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-o1 <span class="token keyword">instanceof</span> <span class="token class-name">B</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
-o1 <span class="token keyword">instanceof</span> <span class="token class-name">A</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true，因为A.prototype在o1的原型链上</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>需要注意的是，如果表达式 <code>obj instanceof Foo</code> 返回<code>true</code>，则并不意味着该表达式会永远返回<code>true</code>，因为<code>Foo.prototype</code>属性的值有可能会改变，改变之后的值很有可能不存在于<code>obj</code>的原型链上，这时原表达式的值就会成为<code>false</code>。另外一种情况下，原表达式的值也会改变，就是改变对象<code>obj</code>的原型链的情况，虽然在目前的ES规范中，我们只能读取对象的原型而不能改变它，但借助于非标准的<code>__proto__</code>伪属性，是可以实现的。比如执行<code>obj.__proto__ = {}</code>之后，<code>obj instanceof Foo</code>就会返回<code>false</code>了。</p>
-</blockquote>
-<h5 id="instanceof和多全局对象（多个farme或多个window之间的交互）"><a href="#instanceof和多全局对象（多个farme或多个window之间的交互）" class="headerlink" title="instanceof和多全局对象（多个farme或多个window之间的交互）"></a><code>instanceof</code>和多全局对象（多个farme或多个window之间的交互）</h5><blockquote>
-<p>在浏览器中，我们的脚本可能需要在多个窗口之间进行交互。多个窗口意味着多个全局环境，不同的全局环境拥有不同的全局对象，从而拥有不同的内置类型构造函数。这可能会引发一些问题。比如，表达式 <code>[] instanceof window.frames[0].Array</code> 会返回<code>false</code>，因为 <code>Array.prototype !== window.frames[0].Array.prototype</code>，并且数组从前者继承。</p>
-</blockquote>
-<h5 id="演示String对象和Date对象都属于Object类型和一些特殊情况"><a href="#演示String对象和Date对象都属于Object类型和一些特殊情况" class="headerlink" title="演示String对象和Date对象都属于Object类型和一些特殊情况"></a>演示<code>String</code>对象和<code>Date</code>对象都属于<code>Object</code>类型和一些特殊情况</h5><p>下面的代码使用了<code>instanceof</code>来证明：<code>String</code>和<code>Date</code>对象同时也属于<code>Object</code>类型（他们是由<code>Object</code>类派生出来的）。</p>
-<p>但是，使用对象文字符号创建的对象在这里是一个例外：虽然原型未定义，但<code>instanceof Object</code>返回<code>true</code>。</p>
-<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> simpleStr <span class="token operator">=</span> <span class="token string">"This is a simple string"</span><span class="token punctuation">;</span> 
-<span class="token keyword">var</span> myString  <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> newStr    <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"String created with constructor"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> myDate    <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> myObj     <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-simpleStr <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回 false, 检查原型链会找到 undefined</span>
-myString  <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回 true</span>
-newStr    <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回 true</span>
-myString  <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回 true</span>
-
-myObj <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 返回 true, 尽管原型没有定义</span>
-<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 返回 true, 同上</span>
-myNonObj <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回 false, 一种创建对象的方法，这种方法创建的对象不是Object的一个实例</span>
-
-myString <span class="token keyword">instanceof</span> <span class="token class-name">Date</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//返回 false</span>
-
-myDate <span class="token keyword">instanceof</span> <span class="token class-name">Date</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 返回 true</span>
-myDate <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 返回 true</span>
-myDate <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 返回 false</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li><p>instanceof</p>
-<p>instanceof可以判断复杂数据类型，不能判断基本数据类型。</p>
-<p>instanceof实现原理是通过原型链进行查找。<br>实现代码：</p>
-</li>
-</ul>
-<pre class="line-numbers language-js"><code class="language-js">    <span class="token comment" spellcheck="true">// L instanceof R</span>
-    <span class="token keyword">function</span> <span class="token function">instance_of</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>R<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// L表示左表达式，R表示右表达式</span>
-        <span class="token keyword">let</span> O <span class="token operator">=</span> R<span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// R的显式原型</span>
-        L <span class="token operator">=</span> L<span class="token punctuation">.</span>__proto__<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// L的隐式原型</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>L <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// Object.prototype.__proto__ --> null</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>O <span class="token operator">===</span> L<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 判断全等时返回true</span>
-                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            L <span class="token operator">=</span> L<span class="token punctuation">.</span>__proto__<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-    <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>判断复杂类型</strong></p>
-<pre class="line-numbers language-js"><code class="language-js">    Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>Array<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [object Array]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3046,7 +3077,7 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -3128,7 +3159,9 @@ myDate <span class="token keyword">instanceof</span> <span class="token class-na
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
