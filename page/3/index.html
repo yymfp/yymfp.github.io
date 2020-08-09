@@ -301,6 +301,206 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/js宏任务和微任务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/28/js宏任务和微任务/" itemprop="url">
+                  js宏任务和微任务
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-04-28 11:03:51 / Updated at: 12:13:04" itemprop="dateCreated datePublished" datetime="2019-04-28T11:03:51+08:00">2019-04-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="js宏任务和微任务"><a href="#js宏任务和微任务" class="headerlink" title="js宏任务和微任务"></a>js宏任务和微任务</h3><h5 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h5><p>分类：<code>setTimeout</code> <code>setInterval</code> <code>requrestAnimationFrame</code></p>
+<ol>
+<li>宏任务所处的队列就是宏任务队列</li>
+<li>第一个宏任务队列中只有一个任务：执行主线程的js代码</li>
+<li>宏任务队列可以有多个</li>
+<li>当宏任务队列中的任务全部被执行完以后会查看是否有微任务队列如果有则先执行微任务队列中的所有任务，如果没有就查看是否有宏任务队列</li>
+</ol>
+<h5 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h5><p>分类：<code>new promise.then(回调)</code> <code>process.nextTick</code></p>
+<ol>
+<li>微任务所处的队列就是微任务队列</li>
+<li>只有一个微任务队列</li>
+<li>在上一个宏任务队列执行完毕后如果有微任务队列就会执行微任务队列中的所有任务 </li>
+</ol>
+<pre class="line-numbers language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'---------- start --------------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'setTimeout'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//修改promise实例对象的状态为成功的状态</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'promise实例成功回调执行！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'------------- end ----------------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+<span class="token comment" spellcheck="true">//输出结果</span>
+<span class="token comment" spellcheck="true">/*
+---------- start --------------
+0
+1
+2
+3
+4
+------------- end ----------------
+promise实例成功回调执行
+setTimeout
+*/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/NodeJs事件轮询机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2198,199 +2398,6 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/开发编码规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/09/开发编码规范/" itemprop="url">
-                  开发编码规范
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-12-09 12:29:47 / Updated at: 12:42:12" itemprop="dateCreated datePublished" datetime="2018-12-09T12:29:47+08:00">2018-12-09</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="开发编码规范"><a href="#开发编码规范" class="headerlink" title="开发编码规范"></a>开发编码规范</h3><ol>
-<li><p>标注必要的注释</p>
-<p>js中少用全局变量，加上必要的注释，思维逻辑清晰方便他人维护。</p>
-</li>
-<li><p>名正言顺</p>
-<p>命名函数、路由或者实体时，要简单明了。</p>
-<p>在编写前端代码时，命名标签id、class时要符合场景不能有歧义，不要写没地方用到的id、class，命名id的时候，一定要先全局搜索这个名字是否已经被使用了。</p>
-</li>
-<li><p>DRY原则</p>
-<p>写方法前，一定要看一下是否已经有类似的方法满足需求了，不要重复编写。</p>
-<p>编写前段代码的时候，要善用bootstrap自带样式，一般的表格、弹出层都已经支持，不需要自己写，不确定的话可以百度下bootstrap官方文档。</p>
-</li>
-<li><p>去掉没用的</p>
-<p>代码中不要出现长篇的注释代码，不用了就干掉！我保证你以后也不会用！</p>
-<p>方法体内多余的空行删掉</p>
-</li>
-<li><p>缩减代码长度</p>
-<p>一个方法的长度不要超过一屏，翻滚代码的时候容易出错，从现在开始大家要拒绝意大利面条式代码！</p>
-</li>
-<li><p>注意代码风格</p>
-<p>JAVA和JS代码提交之前格式化下，不用的话平时自己敲代码注意下格式，如等号两边空一格等，代码尽量不要揉成一块。</p>
-<p>HTML代码不要格式化，一格式化就各种换行，同一个标签里有两个及以上子标签则换行便于查看。因为IDEA对HTML代码的格式化做的不是很好，很多模板引擎的写法不兼容。</p>
-</li>
-<li><p>代码的自我审查</p>
-<p>使用command+K提交代码，在提交代码之前必须diff所有的文件，不管有多少，这样可以避免将不必要的代码和文件上传到git上影响他人工作，如果不需要提交的代码建议加入IDEA其他的change list里面。</p>
-</li>
-<li><p>注意文件缓存</p>
-<p>修改js和css后必须改html或者config文件中的版本号，例如：2015123v1，不然js可能未及时生效需要强刷页面。</p>
-</li>
-<li><p>路由命名规范</p>
-<p>比如客户管理，新建了个CustomerController，mapping是customer，那么资讯分类的路由应该是news/detail，而不是customer/customerDetail 添加编辑页面路由统一命名：addPage，如customer/addPage，后面跟参数区分是添加还是编辑，以便在面包屑上显示不同文案 列表页路由统一命名：listPage，如customer/listPage 取列表页数据路由统一命名：list，如customer/list 保存接口统一命名：save，如customer/save 获取详情统一命名：detail，如customer/detail 下拉列表数据接口统一命名：listForSelect，如customer/listForSelect 删除数据接口统一命名：delete，如customer/delete</p>
-</li>
-<li><p>文件名命名规范</p>
-<p>添加/编辑页面统一命名：addXXPage.ftl，如addCustomerPage.ftl 列表页面统一命名：XXListPage.ftl，如customerListPage.ftl underscore模板统一命名：xx_list.html，如customer_list.html js统一命名：与相应ftl页面命名一致，去掉Page后缀即可，如addNews.js，newsList.js</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2437,7 +2444,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

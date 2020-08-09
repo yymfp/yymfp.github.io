@@ -301,6 +301,317 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/js的this指向问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/22/js的this指向问题/" itemprop="url">
+                  js的this指向问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-22 19:22:01" itemprop="dateCreated datePublished" datetime="2018-10-22T19:22:01+08:00">2018-10-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-06-01 11:41:22" itemprop="dateModified" datetime="2019-06-01T11:41:22+08:00">2019-06-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="this总结"><a href="#this总结" class="headerlink" title="this总结"></a>this总结</h3><p><strong>一句话：谁调用的，this就指向谁。</strong></p>
+<h5 id="this分为以下的几种情况："><a href="#this分为以下的几种情况：" class="headerlink" title="this分为以下的几种情况："></a>this分为以下的几种情况：</h5><ol>
+<li><p>全局的this（浏览器）</p>
+<pre class="line-numbers language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>document<span class="token operator">===</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">===</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//20</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>一般函数的this（浏览器）</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>b<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">===</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>b<span class="token operator">===</span>window<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10</span>
+<span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>作为对象方法的函数的this</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//例一</span>
+<span class="token keyword">var</span> o<span class="token operator">=</span><span class="token punctuation">{</span>
+    prop<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>
+    f<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>prop<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10</span>
+
+<span class="token comment" spellcheck="true">//例二</span>
+<span class="token keyword">var</span> o<span class="token operator">=</span><span class="token punctuation">{</span>prop<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>prop<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+o<span class="token punctuation">.</span>f<span class="token operator">=</span>p<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//20</span>
+
+<span class="token comment" spellcheck="true">//例三</span>
+<span class="token keyword">var</span> o<span class="token operator">=</span><span class="token punctuation">{</span>
+    prop<span class="token punctuation">:</span><span class="token number">30</span><span class="token punctuation">,</span>
+    f<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>prop<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> f1<span class="token operator">=</span>o<span class="token punctuation">.</span>f<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//undefined</span>
+<span class="token comment" spellcheck="true">//如果f函数被赋值到另一个变量中，并没有作为对象o的属性被调用，那么this的指向就是window，this.prop就为undefined。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>对象原型链上的this</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">=</span><span class="token string">"张三"</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+f<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">': '</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> f1<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+f1<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//张三：20</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>不仅仅是构造函数的prototype，即便是在整个原型链中，this代表的也是当前对象的值。</strong></p>
+</li>
+<li><p>get/set方法与this</p>
+</li>
+<li><p>构造器中的this</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">myClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> o<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">myClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//20</span>
+
+<span class="token keyword">function</span> <span class="token function">myClass1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+o<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">myClass1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//10</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>call/apply方法与this</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>b<span class="token operator">+</span>c<span class="token operator">+</span>d<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> o<span class="token operator">=</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+add<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//1+2+3+4=10</span>
+add<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//1+2+3+4=10</span>
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bar<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//"[object Number]"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>bind方法与this</p>
+<p>与call/apply类似。</p>
+<p><strong>需要注意的一种情况：</strong></p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> o<span class="token operator">=</span><span class="token punctuation">{</span>
+    prop<span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span>
+    f<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//Window {postMessage:ƒ, blur:ƒ, focus:ƒ, close:ƒ, frames:Window,...}</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>prop<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//undefined</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+o<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//函数f1虽然是对象o.f内部定义的，但是它仍然是一个普通的函数，this仍然指向window。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// this</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'------------------------this问题---------------'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> number <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+            number<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            fn1<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> number<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>number <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                number <span class="token operator">=</span> number <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                number <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>number<span class="token punctuation">;</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>number <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    number <span class="token operator">*</span><span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">var</span> fn1 <span class="token operator">=</span> obj1<span class="token punctuation">.</span>fn1<span class="token punctuation">;</span>
+        fn1<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj1<span class="token punctuation">.</span><span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*
+            10
+            9
+            3
+            27
+            20
+        */</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/21/vue组件生命周期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3087,274 +3398,6 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/计算机网络/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/16/计算机网络/" itemprop="url">
-                  计算机网络
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-10-16 12:43:15" itemprop="dateCreated datePublished" datetime="2018-10-16T12:43:15+08:00">2018-10-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-08-06 11:34:22" itemprop="dateModified" datetime="2019-08-06T11:34:22+08:00">2019-08-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h5 id="网络互连的设备"><a href="#网络互连的设备" class="headerlink" title="网络互连的设备"></a>网络互连的设备</h5><p>中间设备有称为中间系统或中继系统。</p>
-<ul>
-<li>物理层中继系统：转发器。</li>
-<li>数据链路层中继系统：网桥或桥接器。</li>
-<li>网络层中继系统：路由器。</li>
-<li>网络层以上的的中继系统：网关。</li>
-</ul>
-<h5 id="计算机数据交换方式："><a href="#计算机数据交换方式：" class="headerlink" title="计算机数据交换方式："></a>计算机数据交换方式：</h5><ol>
-<li><p>电路交换</p>
-<p>步骤：建立连接、通话、释放连接。</p>
-<p>特点：面向连接、通话过程中一直占用资源。</p>
-</li>
-<li><p>报文交换</p>
-<p>特点：报文比分组长、时延较长。</p>
-</li>
-<li><p>分组交换</p>
-<p>特点：将数据拆分成一块一块的发送、不需要建立特定的路线。</p>
-<p>优点：高效，灵活，迅速，可靠。</p>
-<p>缺点：时延。开销。</p>
-</li>
-</ol>
-<h5 id="计算机网络的性能："><a href="#计算机网络的性能：" class="headerlink" title="计算机网络的性能："></a>计算机网络的性能：</h5><ol>
-<li><p>速率：连接在计算机网络上的主机在数字信道上传送数据位数的速率。</p>
-</li>
-<li><p>带宽：数据通信领域中，数字信道所能传送的最高数据率。</p>
-</li>
-<li><p>吞吐量：单位时间内通过某个网络的数据量。</p>
-</li>
-<li><p>时延：分为发送时延、传播时延、处理时延、排队时延等。</p>
-<blockquote>
-<p>发送时延=数据块长度（比特）/信道带宽（比特/秒）</p>
-<p>信道时延=信道长度/信号在信道上的传播速率</p>
-<p>处理时延=网络节点存储转发处理时间</p>
-</blockquote>
-</li>
-<li><p>利用率：信道利用率、网络利用率。</p>
-</li>
-</ol>
-<h5 id="OSI参考模型："><a href="#OSI参考模型：" class="headerlink" title="OSI参考模型："></a>OSI参考模型：</h5><ol>
-<li>应用层：能够产生网络流量能够和用户交互的应用程序</li>
-<li>表示层：加密、压缩 （开发人员考虑的问题）</li>
-<li>会话层：服务和客户端建立的会话</li>
-<li>传输层： 可靠传输（建立会话）、不可靠传输、流量控制</li>
-<li>网络层：IP地址编址、选择最佳路径</li>
-<li>数据链路层：数据如何封装、添加物理地址(MAC)</li>
-<li>物理层：规定电压、接口标准等</li>
-</ol>
-<h5 id="物理层：解决如何再连接各种计算机的传输媒体上传输数据比特流，而不是指具体的传输媒体。"><a href="#物理层：解决如何再连接各种计算机的传输媒体上传输数据比特流，而不是指具体的传输媒体。" class="headerlink" title="物理层：解决如何再连接各种计算机的传输媒体上传输数据比特流，而不是指具体的传输媒体。"></a>物理层：解决如何再连接各种计算机的传输媒体上传输数据比特流，而不是指具体的传输媒体。</h5><ul>
-<li>机械特性：接口形状，大小，阴线数目</li>
-<li>电气特性：规定电压范围</li>
-<li>功能特性：例规定-5V表示0，+5V表示1</li>
-<li>过程特性：规定建立连接时，各个相关部件的工作步骤</li>
-</ul>
-<p><strong>频分复用（FDM）：用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带。</strong></p>
-<p><strong>时分复用：用户在不同的时间占用同样的频带宽度。</strong></p>
-<p><strong>码分复用：分割成码片序列</strong></p>
-<p>​    任何一个码片向量和该码片向量自己的规格化内积都是1。</p>
-<p>​    一个码片向量和该码片反码的向量的规格化内积值是-1。</p>
-<p>​    <strong>公式：</strong></p>
-<p><img src="/2018/10/16/计算机网络/8b9c50964095160480f00995d28b8ac3.png" alt></p>
-<p><img src="/2018/10/16/计算机网络/ffd0bea740c395d2807ae91fd1a27a4f.png" alt></p>
-<h5 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h5><ol>
-<li><p>封装成帧</p>
-<blockquote>
-<p>封装成帧就是在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。</p>
-<p>首部和尾部的一个重要作用就是进行帧的定界。</p>
-<p><img src="/2018/10/16/计算机网络/a5edd4d540ed8572803058f6a9f0c854.png" alt></p>
-<p>MTU：每一种链路层协议都规定了帧的数据部分长度的上限，即最大传送单元（MTU）。</p>
-</blockquote>
-</li>
-<li><p>可靠传输</p>
-<blockquote>
-<p>保证数据的完整一致性，即发送端发送什么，在对应的接收端就能收到什么。</p>
-</blockquote>
-</li>
-<li><p>差错检验</p>
-<blockquote>
-<p>在传输过程中可能会产生比特差错：1变成0，0变成1等。</p>
-<p>在一段时间内，传输错误的比特所占传输比特总数的比率称为误码率（BER）。</p>
-<ul>
-<li><h5 id="循环冗余检验（CRC）"><a href="#循环冗余检验（CRC）" class="headerlink" title="循环冗余检验（CRC）"></a>循环冗余检验（CRC）</h5></li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h5 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h5><ol>
-<li><p>网际协议（IP）</p>
-<p>IP层次结构：层次IP地址将32位的IP地址分为网络ID和主机ID。</p>
-<p>IP地址的分类</p>
-<p><img src="/2018/10/16/计算机网络/e0e0be624093114e805cd93918b993b9.png" alt></p>
-<p><strong>子网掩码：又叫做网络掩码，它是一种用来指明IP地址的哪些位标识的是IP地址，哪些位是主机部分。</strong></p>
-</li>
-<li><p>地址解析协议（ARP）：</p>
-</li>
-<li><p>网际控制报文协议（ICMP）：</p>
-</li>
-<li><p>网际组管理协议（IGMP）：</p>
-</li>
-</ol>
-<h5 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h5><h5 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h5>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3401,7 +3444,7 @@ res<span class="token punctuation">.</span><span class="token function">setHeade
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
