@@ -301,6 +301,630 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/常见的几种布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/10/常见的几种布局/" itemprop="url">
+                  常见的几种布局
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-10 17:04:18" itemprop="dateCreated datePublished" datetime="2018-10-10T17:04:18+08:00">2018-10-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-10-11 14:01:42" itemprop="dateModified" datetime="2018-10-11T14:01:42+08:00">2018-10-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="几种常见的布局方式"><a href="#几种常见的布局方式" class="headerlink" title="几种常见的布局方式"></a>几种常见的布局方式</h3><ol>
+<li><h5 id="固定布局（静态布局）"><a href="#固定布局（静态布局）" class="headerlink" title="固定布局（静态布局）"></a>固定布局（静态布局）</h5><p>特点：采用px作为单位，固定宽高大小。</p>
+<p>适用于设备较少的页面设计，当页面内容显示不全时，会采用滚动条的方式显示。</p>
+<p>如果需要在移动设备上显示，一般需要设计两套页面，一个适配PC端，一个用来在移动端使用显示。</p>
+<p>移动端开发：</p>
+<ol>
+<li><p>需要设置在viewport meta标签上设置相关属性，例如：width=320，页面的各个元素采用px作为大小单位，通过用JS动态修改标签的initial-scale使得页面等比缩放，从而刚好占满整个屏幕。</p>
+</li>
+<li><p>在viewport meta标签上content”width=640,user-scalable=no”。</p>
+</li>
+</ol>
+<p>   [参考]: <a href="https://www.zhihu.com/question/32090605" target="_blank" rel="noopener">https://www.zhihu.com/question/32090605</a></p>
+</li>
+<li><h5 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h5><ol>
+<li><p>特点：页面元素宽度按照屏幕分辨率进行适配调整，但整体布局不变。（例如：栅格系统）。</p>
+</li>
+<li><p>设计方法：使用%百分比定义宽度，高度大都使用px固定，配合max-width、min-width使用，避免出现类似图片被拉伸过度而失真的情况，尽可能适应各种分辨率。</p>
+<p>无法满足设备跨度太大的情况，在这种情况下，往往会出现元素被拉伸导致页面看起来不合理。（因为高度、文字大小始终是固定的）</p>
+</li>
+</ol>
+</li>
+<li><h5 id="弹性布局"><a href="#弹性布局" class="headerlink" title="弹性布局"></a>弹性布局</h5><ol>
+<li>特点：页面采用em、rem作为单位，对于这两个单位不了解的可以去看</li>
+</ol>
+<p>   [参考]: <a href="https://yymfp.github.io/2018/09/27/px%E3%80%81em%E3%80%81rem%E5%8C%BA%E5%88%AB/" target="_blank" rel="noopener">https://yymfp.github.io/2018/09/27/px%E3%80%81em%E3%80%81rem%E5%8C%BA%E5%88%AB/</a></p>
+<ol start="2">
+<li>设计方法：包裹文字的各个元素采用em、rem作为单位，而页面整体的划分区域的地方仍然采用百分比或px作为单位。<strong>早期浏览器不支持整个页面按比例缩放</strong>，仅支持网页内文字尺寸的放大，这种情况下。使用em/rem做单位，可以使包裹文字的元素随着文字的缩放而缩放。</li>
+</ol>
+</li>
+<li><h5 id="自适应布局"><a href="#自适应布局" class="headerlink" title="自适应布局"></a>自适应布局</h5><ol>
+<li>特点：分别为不同屏幕设置布局格式，随着屏幕大小而改变布局格式，可以看成是由多个静态布局组成。</li>
+<li>设计方法：采用@media媒体查询给不同尺寸的设备进行切换。</li>
+</ol>
+</li>
+<li><h5 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h5><ol>
+<li><p>特点：流式布局和自适应布局相结合，配合媒体查询，实现不同设备，元素的大小位置均发生改变。</p>
+</li>
+<li><p>设计方法：媒体查询+自适应布局+流式布局。结合多种技术，实现页面适配多种设备。</p>
+</li>
+<li><p>优点：能够适配PC、移动端。</p>
+<p>设置meta标签：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width,initial-scale<span class="token punctuation">=</span>1.0,maximum-scale<span class="token punctuation">=</span>1.0,minimum-scale<span class="token punctuation">=</span>1.0,user-scalable<span class="token punctuation">=</span>no<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/js闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/08/js闭包/" itemprop="url">
+                  js闭包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-08 17:19:00" itemprop="dateCreated datePublished" datetime="2018-10-08T17:19:00+08:00">2018-10-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-08-06 13:40:57" itemprop="dateModified" datetime="2019-08-06T13:40:57+08:00">2019-08-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="js闭包"><a href="#js闭包" class="headerlink" title="js闭包"></a>js闭包</h3><p><strong>概念：</strong></p>
+<blockquote>
+<p>在计算机科学中，闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起，这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。</p>
+<p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+<p>​                                                                                            ———维基百科</p>
+</blockquote>
+<p><strong>闭包特点：</strong></p>
+<ol>
+<li>优点：灵活方便、封装。</li>
+<li>空间浪费、内存泄漏、性能消耗。</li>
+</ol>
+<h5 id="闭包形成的两个必要条件："><a href="#闭包形成的两个必要条件：" class="headerlink" title="闭包形成的两个必要条件："></a>闭包形成的两个必要条件：</h5><ol>
+<li>函数嵌套</li>
+<li>内部函数引用外部函数的局部变量</li>
+</ol>
+<p><strong>闭包常见的表现形式：</strong></p>
+<ol>
+<li>函数作为返回值</li>
+<li>函数作为参数传递</li>
+</ol>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//函数作为返回值</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> max<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">&lt;</span>max<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> f1<span class="token operator">=</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">f1</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//13</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>说明：我们都知道，一般函数调用之后，其内存会得到释放，函数内部定义的变量都会随着函数调用执行结束后释放。fn函数的返回值是函数bar,而函数bar中调用了fn函数中定义的max变量，导致max变量无法的到释放，从而形成了闭包。所以f1(13)可以输出13。</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//函数作为参数被传递</span>
+<span class="token keyword">let</span> max<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span>
+    fn<span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">></span>max<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> max<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//15</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>说明：如上代码中，fn函数作为一个参数传递到立即执行函数中，在执行f(15)时，max的变量取值仍然是10而不是100。（在调用函数时，函数会先去查找内部的作用域，如果存在，则调用，如果不存在，就会去创建这个函数的作用域去取值，而不是在调用的那个‘父作用域’）。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>函数内部可以读取函数外部的全局变量，而在函数内部无法读取函数内的局部变量。</li>
+<li>在函数内部定义变量必须用let/var，否则引用的还是全局的变量。</li>
+<li>滥用闭包，会导致内存泄漏：由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
+<li>会改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+</ol>
+<p><strong>附加：</strong></p>
+<p><img src="/2018/10/08/js闭包/d2a9dab04077415480e81d7d8e8fd13e.png" alt></p>
+<p><img src="/2018/10/08/js闭包/a33c05334094f1ce80d00166ab7ed5aa.png" alt></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/js包装对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/08/js包装对象/" itemprop="url">
+                  js包装对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-10-08 16:34:14" itemprop="dateCreated datePublished" datetime="2018-10-08T16:34:14+08:00">2018-10-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-05-01 17:04:12" itemprop="dateModified" datetime="2019-05-01T17:04:12+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="js包装对象"><a href="#js包装对象" class="headerlink" title="js包装对象"></a>js包装对象</h3><p>在js中，对于基本的string、number、Boolean类型，在对其进行类似对象的操作时，会将这些基本类型包装成一个临时对象类型，例如：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">let</span> srt<span class="token operator">=</span><span class="token string">"string"</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//"string"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//6</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong><em>说明：</em></strong>定义一个变量，赋值为字符串’string’，本身是一个基本的string类型，在调用它的length时，会将其包装成一个临时的对象，用来获取相关属性。调用length属性之后，这个临时的对象会被立即销毁。</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//string</span>
+str<span class="token punctuation">.</span>a<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//undefined</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>给str添加a属性，添加完毕，包装对象立即被销毁，再去访问，得到undefined。</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/06/js类型检测总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2076,7 +2700,7 @@ repository的值：<br><img src="/2018/09/25/你好，潘君毅/1be67f4740ae60fa
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">70</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -2160,7 +2784,9 @@ repository的值：<br><img src="/2018/09/25/你好，潘君毅/1be67f4740ae60fa
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>

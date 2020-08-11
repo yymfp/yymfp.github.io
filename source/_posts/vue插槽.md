@@ -9,7 +9,9 @@ categories: 前端
 
 > [具体文档参考官方]: https://cn.vuejs.org/v2/guide/components-slots.html
 
-```vue
+
+
+```html
 <!-- 父组件 -->
 <SlotDemo :slotList="listData">
   <template  v-slot:default="{myData: list}">

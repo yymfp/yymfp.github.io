@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="vue插槽                               {{list.name}}         :{{ list.age }}                    // ***   export default class Index extends Vue{     listData: Array = [             {                 name">
+  <meta name="description" content="vue插槽  &amp;lt;!-- 父组件 --&amp;gt; &amp;lt;SlotDemo :slotList=&quot;listData&quot;&amp;gt;   &amp;lt;template  v-slot:default=&quot;{myData: list}&quot;&amp;gt; &amp;lt;!-- &amp;lt;template  v-slot:list=&quot;{myData: list}&quot;&amp;gt; --&amp;gt; &amp;lt;!-- 属于解构赋值{myData: list} v-slot:l">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue插槽">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/vue插槽/index.html">
 <meta property="og:site_name" content="pjy">
-<meta property="og:description" content="vue插槽                               {{list.name}}         :{{ list.age }}                    // ***   export default class Index extends Vue{     listData: Array = [             {                 name">
+<meta property="og:description" content="vue插槽  &amp;lt;!-- 父组件 --&amp;gt; &amp;lt;SlotDemo :slotList=&quot;listData&quot;&amp;gt;   &amp;lt;template  v-slot:default=&quot;{myData: list}&quot;&amp;gt; &amp;lt;!-- &amp;lt;template  v-slot:list=&quot;{myData: list}&quot;&amp;gt; --&amp;gt; &amp;lt;!-- 属于解构赋值{myData: list} v-slot:l">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-07T06:43:44.171Z">
+<meta property="og:updated_time" content="2020-08-10T07:58:10.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue插槽">
-<meta name="twitter:description" content="vue插槽                               {{list.name}}         :{{ list.age }}                    // ***   export default class Index extends Vue{     listData: Array = [             {                 name">
+<meta name="twitter:description" content="vue插槽  &amp;lt;!-- 父组件 --&amp;gt; &amp;lt;SlotDemo :slotList=&quot;listData&quot;&amp;gt;   &amp;lt;template  v-slot:default=&quot;{myData: list}&quot;&amp;gt; &amp;lt;!-- &amp;lt;template  v-slot:list=&quot;{myData: list}&quot;&amp;gt; --&amp;gt; &amp;lt;!-- 属于解构赋值{myData: list} v-slot:l">
 
 
 
@@ -347,12 +347,24 @@
                 
               
 
-              <time title="Post created: 2020-08-07 14:08:33 / Updated at: 14:43:44" itemprop="dateCreated datePublished" datetime="2020-08-07T14:08:33+08:00">2020-08-07</time>
+              <time title="Post created: 2020-08-07 14:08:33" itemprop="dateCreated datePublished" datetime="2020-08-07T14:08:33+08:00">2020-08-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2020-08-10 15:58:10" itemprop="dateModified" datetime="2020-08-10T15:58:10+08:00">2020-08-10</time>
               
             
           </span>
@@ -405,59 +417,59 @@
       
         <h3 id="vue插槽"><a href="#vue插槽" class="headerlink" title="vue插槽"></a><strong>vue插槽</strong></h3><blockquote>
 </blockquote>
-<pre class="line-numbers language-vue"><code class="language-vue"><!-- 父组件 -->
-<slotdemo :slotlist="listData">
-  <template v-slot:default="{myData: list}">
-<!-- <template  v-slot:list="{myData: list}"> -->
-<!-- 属于解构赋值{myData: list} v-slot:list="这里代表的是子组件对应的:myData="scope"等数据" -->
-      <ul>
-      <li>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 父组件 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SlotDemo</span> <span class="token attr-name">:slotList</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>listData<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span>  <span class="token attr-name"><span class="token namespace">v-slot:</span>default</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{myData: list}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- &lt;template  v-slot:list="{myData: list}"> --></span>
+<span class="token comment" spellcheck="true">&lt;!-- 属于解构赋值{myData: list} v-slot:list="这里代表的是子组件对应的:myData="scope"等数据" --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
         {{list.name}}
-        <span v-show="list.age > 21">:{{ list.age }}</span>
-      </li>
-    </ul>
-  </template>
-</slotdemo>
-<script lang="ts">
-  // ***
-  export default class Index extends Vue{
-    listData: Array<object> = [
-            {
-                name: 'jack',
-                age: 20,
-                desc: 'haha',
-            },
-            {
-                name: 'lisa',
-                age: 22,
-                desc: 'xixi',
-            },
-            {
-                name: 'tom',
-                age: 23,
-                desc: 'heihei',
-            },
-            {
-                name: 'peter',
-                age: 24,
-                desc: 'hello',
-            }
-     ]
-  }
-</script>
-<!-- 子组件 -->
-<template v-for="scope in slotList">
-    <!-- 默认name="default" -->
-    <!-- 与父组件的v-slot:name对应 -->
-    <slot :mydata="scope">
-  </slot>
-</template>
-<script lang="ts">
-  // ***
-   export default class slotDemo extends Vue{
-        @Prop({default: ''}) slotList!: any 
-   }
-</script>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list.age <span class="token punctuation">></span> 21<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>:{{ list.age }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SlotDemo</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+  <span class="token comment" spellcheck="true">// ***</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span><span class="token punctuation">{</span>
+    listData<span class="token punctuation">:</span> Array<span class="token operator">&lt;</span>object<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                name<span class="token punctuation">:</span> <span class="token string">'jack'</span><span class="token punctuation">,</span>
+                age<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+                desc<span class="token punctuation">:</span> <span class="token string">'haha'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                name<span class="token punctuation">:</span> <span class="token string">'lisa'</span><span class="token punctuation">,</span>
+                age<span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+                desc<span class="token punctuation">:</span> <span class="token string">'xixi'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                name<span class="token punctuation">:</span> <span class="token string">'tom'</span><span class="token punctuation">,</span>
+                age<span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+                desc<span class="token punctuation">:</span> <span class="token string">'heihei'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                name<span class="token punctuation">:</span> <span class="token string">'peter'</span><span class="token punctuation">,</span>
+                age<span class="token punctuation">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+                desc<span class="token punctuation">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+     <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- 子组件 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scope in slotList<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 默认name="default" --></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 与父组件的v-slot:name对应 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">:myData</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scope<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+  <span class="token comment" spellcheck="true">// ***</span>
+   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">slotDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span><span class="token punctuation">{</span>
+        @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span> slotList<span class="token operator">!</span><span class="token punctuation">:</span> any 
+   <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
@@ -501,6 +513,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/09/函数柯里化/" rel="prev" title="函数柯里化">
+                函数柯里化 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -571,7 +587,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">70</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -655,7 +671,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
