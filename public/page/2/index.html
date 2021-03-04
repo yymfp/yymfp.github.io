@@ -2088,7 +2088,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2020-06-06 13:40:35" itemprop="dateModified" datetime="2020-06-06T13:40:35+08:00">2020-06-06</time>
+                <time title="Updated at: 2021-03-04 14:52:29" itemprop="dateModified" datetime="2021-03-04T14:52:29+08:00">2021-03-04</time>
               
             
           </span>
@@ -2156,7 +2156,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ol>
 <li>存储内容是否发送到服务器端：当设置了Cookie后，数据会发送到服务器端，造成一定的宽带浪费；web storage,会将数据保存到本地，不会造成宽带浪费；</li>
 <li>数据存储大小不同：Cookie数据不能超过4K,适用于会话标识；web storage数据存储可以达到5M;</li>
-<li>数据存储的有效期限不同：cookie只在设置了Cookid过期时间之前一直有效，即关闭窗口或者浏览器；sessionStorage,仅在关闭浏览器之前有效；localStorage,除非手动删除，否则数据存储永久有效；</li>
+<li>数据存储的有效期限不同：cookie只在设置了Cookid过期时间之前一直有效，即关闭窗口或者浏览器；sessionStorage仅在关闭浏览器之前有效（会话级别）；localStorage,除非手动删除，否则数据存储永久有效；</li>
 <li>作用域不同：cookie和localStorage是在同源中共享的，即只要在相同协议、相同主机名、相同端口下；sessionStorage除了同源外，还必须是同一个窗口（也就是浏览器的标签页）；</li>
 </ol>
 </li>
@@ -2164,7 +2164,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ol>
 <li><p>存储空间更大：IE8下每个独立的存储空间为10M，其他浏览器实现略有不同，但都比Cookie要大很多。</p>
 </li>
-<li><p>存储内容不会发送到服务器：当设置了Cookie后，Cookie的内容会随着请求一并发送的服务器，这对于本地存储的数据是一种带宽浪费。而Web Storage中的数据则仅仅是存在本</p>
+<li><p>存储内容不会发送到服务器：当设置了Cookie后，Cookie的内容会随着请求一并发送到服务器，这对于本地存储的数据是一种带宽浪费。而Web Storage中的数据则仅仅是存在本</p>
 <p>地，不会与服务器发生任何交互。</p>
 </li>
 <li><p>更多丰富易用的接口：Web Storage提供了一套更为丰富的接口，如setItem,getItem,removeItem,clear等,使得数据操作更为简便。cookie需要自己封装。</p>
@@ -2177,7 +2177,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ol>
 <li><p>sessionStorage有要求必须是同一个浏览器标签tab下的才可以访问。</p>
 <blockquote>
-<p>但实际在运用中发现，通过页面内的链接（或者用window.open）打开新的标签页，它们之间也是可以读取到session的（但感觉不是共享的，修改了新开页的session值，原来的并不受影响）。而通过浏览器直接新开一个tab是，即使网站一样，也是读取不到的。</p>
+<p>但实际在运用中发现，通过页面内的链接（必须是鼠标左键点击，chrome89版本后通过代码动态创建a标签的方式也是不行的）（或者用window.open）打开新的标签页，它们之间也是可以读取到session的（但感觉不是共享的，修改了新开页的session值，原来的并不受影响）。而通过浏览器直接新开一个tab是，即使网站一样，也是读取不到的。</p>
 </blockquote>
 <p>[这里参考]<a href="https://github.com/lmk123/blog/issues/66" target="_blank" rel="noopener">https://github.com/lmk123/blog/issues/66</a></p>
 </li>
@@ -4149,7 +4149,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
