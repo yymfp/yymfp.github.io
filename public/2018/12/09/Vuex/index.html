@@ -14,11 +14,11 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
@@ -109,18 +109,17 @@
 
 
   <meta name="description" content="vuex 使用 Vuex 并不意味着你需要将所有的状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。   每一个应用的核心就是store（仓库）。”store”基本上就是一个容器，它包含着应用中的大部分状态（state）。  Vuex 的状">
-<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vuex">
 <meta property="og:url" content="http://yoursite.com/2018/12/09/Vuex/index.html">
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="vuex 使用 Vuex 并不意味着你需要将所有的状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。   每一个应用的核心就是store（仓库）。”store”基本上就是一个容器，它包含着应用中的大部分状态（state）。  Vuex 的状">
-<meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/12/09/Vuex/ef5b88bd404de9f080415eceb994a780.png">
-<meta property="og:updated_time" content="2019-08-06T05:47:39.804Z">
+<meta property="article:published_time" content="2018-12-09T04:16:43.000Z">
+<meta property="article:modified_time" content="2019-08-06T05:47:39.804Z">
+<meta property="article:author" content="pjy">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vuex">
-<meta name="twitter:description" content="vuex 使用 Vuex 并不意味着你需要将所有的状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。   每一个应用的核心就是store（仓库）。”store”基本上就是一个容器，它包含着应用中的大部分状态（state）。  Vuex 的状">
 <meta name="twitter:image" content="http://yoursite.com/2018/12/09/Vuex/ef5b88bd404de9f080415eceb994a780.png">
 
 
@@ -128,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/09/Vuex/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/09/Vuex/"/>
 
 
 
@@ -176,7 +175,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
@@ -224,7 +223,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -232,7 +231,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -240,7 +239,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
         
         
@@ -248,7 +247,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -256,7 +255,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -311,7 +310,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -342,14 +341,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-12-09 12:16:43" itemprop="dateCreated datePublished" datetime="2018-12-09T12:16:43+08:00">2018-12-09</time>
+              <time title="Created: 2018-12-09 12:16:43" itemprop="dateCreated datePublished" datetime="2018-12-09T12:16:43+08:00">2018-12-09</time>
             
 
             
@@ -366,13 +365,13 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-08-06 13:47:39" itemprop="dateModified" datetime="2019-08-06T13:47:39+08:00">2019-08-06</time>
+                <time title="Modified: 2019-08-06 13:47:39" itemprop="dateModified" datetime="2019-08-06T13:47:39+08:00">2019-08-06</time>
               
             
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -380,10 +379,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -1128,10 +1127,10 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -1149,10 +1148,10 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">70</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1177,7 +1176,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -1237,8 +1236,10 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">Tags</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -1273,7 +1274,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">1.</span> <span class="nav-text">vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#State"><span class="nav-number">1.0.1.</span> <span class="nav-text">State</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#在模块化开发模式中使用"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">在模块化开发模式中使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mapState辅助函数"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">mapState辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Getter"><span class="nav-number">1.0.2.</span> <span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#mapGetters辅助函数"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">mapGetters辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mutation"><span class="nav-number">1.0.3.</span> <span class="nav-text">Mutation</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提交载荷（Payload）"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">提交载荷（Payload）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对象风格的提交方式"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">对象风格的提交方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用常量替代Mutation事件类型"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">使用常量替代Mutation事件类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Mutation必须是同步函数"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">Mutation必须是同步函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中提交Mutation"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">在组件中提交Mutation</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action"><span class="nav-number">1.0.4.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分发action"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中分发action"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">在组件中分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#组合action"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">组合action</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Module"><span class="nav-number">1.0.5.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模块的局部状态"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">模块的局部状态</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#命名空间"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块重用"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">模块重用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#项目结构"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">项目结构</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原理"><span class="nav-number">1.0.6.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">1.</span> <span class="nav-text">vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#State"><span class="nav-number">1.0.1.</span> <span class="nav-text">State</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#在模块化开发模式中使用"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">在模块化开发模式中使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mapState辅助函数"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">mapState辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Getter"><span class="nav-number">1.0.2.</span> <span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#mapGetters辅助函数"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">mapGetters辅助函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mutation"><span class="nav-number">1.0.3.</span> <span class="nav-text">Mutation</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#提交载荷（Payload）"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">提交载荷（Payload）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对象风格的提交方式"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">对象风格的提交方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用常量替代Mutation事件类型"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">使用常量替代Mutation事件类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Mutation必须是同步函数"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">Mutation必须是同步函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中提交Mutation"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">在组件中提交Mutation</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action"><span class="nav-number">1.0.4.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分发action"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#在组件中分发action"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">在组件中分发action</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#组合action"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">组合action</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Module"><span class="nav-number">1.0.5.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#模块的局部状态"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">模块的局部状态</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#命名空间"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#模块重用"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">模块重用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#项目结构"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">项目结构</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原理"><span class="nav-number">1.0.6.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1293,7 +1294,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1307,7 +1308,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 
