@@ -14,11 +14,11 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
@@ -109,24 +109,23 @@
 
 
   <meta name="description" content="CommonJS、AMD、CMD在介绍这些之前，首先介绍下前端模块化的演变过程前端模块化 什么是模块化  将一个复杂的程序按照一定的规则封装成几个块，并进行组合。 块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。   模块化的进化过程  全局Function模式：将不同的功能封装成不同的全局函数  问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模">
-<meta name="keywords" content="模块开发规范">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CommonJS、AMD、CMD">
-<meta property="og:url" content="http://yoursite.com/2018/10/20/CommonJS、AMD、CMD/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/10/20/CommonJS%E3%80%81AMD%E3%80%81CMD/index.html">
 <meta property="og:site_name" content="pjy">
 <meta property="og:description" content="CommonJS、AMD、CMD在介绍这些之前，首先介绍下前端模块化的演变过程前端模块化 什么是模块化  将一个复杂的程序按照一定的规则封装成几个块，并进行组合。 块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。   模块化的进化过程  全局Function模式：将不同的功能封装成不同的全局函数  问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-04T09:16:49.623Z">
+<meta property="article:published_time" content="2018-10-20T03:16:56.000Z">
+<meta property="article:modified_time" content="2019-12-04T09:16:49.623Z">
+<meta property="article:author" content="pjy">
+<meta property="article:tag" content="模块开发规范">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CommonJS、AMD、CMD">
-<meta name="twitter:description" content="CommonJS、AMD、CMD在介绍这些之前，首先介绍下前端模块化的演变过程前端模块化 什么是模块化  将一个复杂的程序按照一定的规则封装成几个块，并进行组合。 块的内部数据与实现是私有的，外界没有操作改变的权限，只是暴露一些接口与外部其他模块通信。   模块化的进化过程  全局Function模式：将不同的功能封装成不同的全局函数  问题：污染全局命名空间，容易引起命名冲突或数据不安全，而且模">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/20/CommonJS、AMD、CMD/">
+  <link rel="canonical" href="http://yoursite.com/2018/10/20/CommonJS、AMD、CMD/"/>
 
 
 
@@ -174,7 +173,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
@@ -222,7 +221,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -230,7 +229,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -238,7 +237,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
         
         
@@ -246,7 +245,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -254,7 +253,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -305,11 +304,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/CommonJS、AMD、CMD/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/CommonJS%E3%80%81AMD%E3%80%81CMD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -340,14 +339,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
+              <time title="Created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
             
 
             
@@ -364,13 +363,13 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-12-04 17:16:49" itemprop="dateModified" datetime="2019-12-04T17:16:49+08:00">2019-12-04</time>
+                <time title="Modified: 2019-12-04 17:16:49" itemprop="dateModified" datetime="2019-12-04T17:16:49+08:00">2019-12-04</time>
               
             
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -378,10 +377,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -708,7 +707,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
       
         <div class="post-tags">
           
-            <a href="/tags/模块开发规范/" rel="tag"># 模块开发规范</a>
+            <a href="/tags/%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag"># 模块开发规范</a>
           
         </div>
       
@@ -721,7 +720,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/19/git使用/" rel="next" title="git使用">
+              <a href="/2018/10/19/git%E4%BD%BF%E7%94%A8/" rel="next" title="git使用">
                 <i class="fa fa-chevron-left"></i> git使用
               </a>
             
@@ -781,10 +780,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -802,10 +801,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">70</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -830,7 +829,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -890,8 +889,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">Tags</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -926,7 +927,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS、AMD、CMD"><span class="nav-number">1.</span> <span class="nav-text">CommonJS、AMD、CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在介绍这些之前，首先介绍下前端模块化的演变过程"><span class="nav-number">1.1.</span> <span class="nav-text">在介绍这些之前，首先介绍下前端模块化的演变过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模块化"><span class="nav-number">2.</span> <span class="nav-text">前端模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.0.1.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD"><span class="nav-number">2.0.2.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#define函数："><span class="nav-number">2.0.3.</span> <span class="nav-text">define函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CMD"><span class="nav-number">2.0.4.</span> <span class="nav-text">CMD</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#define-define-id-deps-factory"><span class="nav-number">3.</span> <span class="nav-text">define define(id?, deps?, factory)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD和CMD异同"><span class="nav-number">3.0.1.</span> <span class="nav-text">AMD和CMD异同</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#es6-中的export-export-default-和node-中的module-exports-exports区别"><span class="nav-number">3.0.2.</span> <span class="nav-text">es6 中的export export default 和node 中的module.exports exports区别</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS、AMD、CMD"><span class="nav-number">1.</span> <span class="nav-text">CommonJS、AMD、CMD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在介绍这些之前，首先介绍下前端模块化的演变过程"><span class="nav-number">1.1.</span> <span class="nav-text">在介绍这些之前，首先介绍下前端模块化的演变过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模块化"><span class="nav-number">2.</span> <span class="nav-text">前端模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.0.1.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD"><span class="nav-number">2.0.2.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#define函数："><span class="nav-number">2.0.3.</span> <span class="nav-text">define函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CMD"><span class="nav-number">2.0.4.</span> <span class="nav-text">CMD</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#define-define-id-deps-factory"><span class="nav-number">3.</span> <span class="nav-text">define define(id?, deps?, factory)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AMD和CMD异同"><span class="nav-number">3.0.1.</span> <span class="nav-text">AMD和CMD异同</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#es6-中的export-export-default-和node-中的module-exports-exports区别"><span class="nav-number">3.0.2.</span> <span class="nav-text">es6 中的export export default 和node 中的module.exports exports区别</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -946,7 +947,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -960,7 +961,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 
