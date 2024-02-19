@@ -116,7 +116,7 @@
 <meta property="og:description" content="事件捕获和事件冒泡在介绍两者之前首先需要了解监听器:  EventTarget.addEventListener()：方法将指定的监听器注册到EventTarget上，当该对象触发指定的事件时，指定的回掉函数就会被执行。事件的目标可以是一个文档上的元素Element,Document和Window或者任何其他支持事件的对象（比如XMLHttpRequest）。 语法： element.addEve">
 <meta property="og:image" content="http://yoursite.com/2018/10/18/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/b2a98b1d408c0923807704ad7ac95fde.png">
 <meta property="article:published_time" content="2018-10-18T05:58:44.000Z">
-<meta property="article:modified_time" content="2019-08-12T02:42:42.783Z">
+<meta property="article:modified_time" content="2024-02-19T07:42:51.624Z">
 <meta property="article:author" content="pjy">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -223,7 +223,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -231,7 +231,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -247,7 +247,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -255,7 +255,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -341,14 +341,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
+              <time title="Created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
             
 
             
@@ -365,7 +365,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-08-12 10:42:42" itemprop="dateModified" datetime="2019-08-12T10:42:42+08:00">2019-08-12</time>
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -379,7 +379,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -454,7 +454,7 @@
 <li><h5 id="事件冒泡：button-gt-body-gt-document-gt-window（从当前触发事件的元素开始，一层一层冒泡到window）"><a href="#事件冒泡：button-gt-body-gt-document-gt-window（从当前触发事件的元素开始，一层一层冒泡到window）" class="headerlink" title="事件冒泡：button&gt;body&gt;document&gt;window（从当前触发事件的元素开始，一层一层冒泡到window）"></a>事件冒泡：button&gt;body&gt;document&gt;window（从当前触发事件的元素开始，一层一层冒泡到window）</h5></li>
 <li><h5 id="两者刚好相反"><a href="#两者刚好相反" class="headerlink" title="两者刚好相反"></a>两者刚好相反</h5></li>
 </ol>
-<p><img src="/2018/10/18/事件捕获和事件冒泡/b2a98b1d408c0923807704ad7ac95fde.png" alt></p>
+<p><img src="/2018/10/18/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/b2a98b1d408c0923807704ad7ac95fde.png" alt></p>
 <h5 id="如何阻止事件冒泡-捕获和默认行为"><a href="#如何阻止事件冒泡-捕获和默认行为" class="headerlink" title="如何阻止事件冒泡/捕获和默认行为"></a>如何阻止事件冒泡/捕获和默认行为</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//jquery阻止默认行为和冒泡</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
@@ -632,10 +632,10 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -656,7 +656,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
                   <a href="/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -681,7 +681,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -744,7 +744,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -813,7 +813,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 

@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/ad023c9f40a1e17f803967a5a402683e.png">
 <meta property="og:image" content="http://yoursite.com/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/fb2ec26540658c9480e22f7217f7ff29.png">
 <meta property="article:published_time" content="2018-10-06T09:40:45.000Z">
-<meta property="article:modified_time" content="2019-08-06T05:41:47.333Z">
+<meta property="article:modified_time" content="2024-02-19T07:42:51.604Z">
 <meta property="article:author" content="pjy">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -227,7 +227,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -235,7 +235,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
         
         
@@ -251,7 +251,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -259,7 +259,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
 
       
@@ -345,14 +345,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-10-06 17:40:45" itemprop="dateCreated datePublished" datetime="2018-10-06T17:40:45+08:00">2018-10-06</time>
+              <time title="Created: 2018-10-06 17:40:45" itemprop="dateCreated datePublished" datetime="2018-10-06T17:40:45+08:00">2018-10-06</time>
             
 
             
@@ -369,7 +369,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-08-06 13:41:47" itemprop="dateModified" datetime="2019-08-06T13:41:47+08:00">2019-08-06</time>
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -383,7 +383,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -425,11 +425,11 @@
 <blockquote>
 <p><strong><code>Object.prototype</code>却是一个特例——它的<code>__proto__</code>指向的是<code>null</code>。</strong></p>
 </blockquote>
-<p><img src="/2018/10/06/js的prototype总结/3ed52e91409ae13e805e9ea9c771c66c.png" alt></p>
+<p><img src="/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/3ed52e91409ae13e805e9ea9c771c66c.png" alt></p>
 <p><strong>3. 自定义函数<code>Foo.__proto__</code>指向<code>Function.prototype</code>,<code>Object.__proto__</code>指向<code>Function.prototype</code>，而<code>Function.__proto__</code>指向<code>Function.prototype</code>,从而形成一个环形结构。<code>Function</code>也是一个函数，函数是一种对象，而<code>Function</code>是被自身所创建的一种函数，所以它的<code>__proto__</code>指向了自身的<code>prototype</code>。</strong></p>
-<p><img src="/2018/10/06/js的prototype总结/672e52454044214b80a9d2f140417535.png" alt></p>
+<p><img src="/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/672e52454044214b80a9d2f140417535.png" alt></p>
 <p><strong>4. <code>Function.prototype</code>是一个对象，它的<code>__proto__</code>也指向<code>Object.prototype</code>。</strong></p>
-<p><img src="/2018/10/06/js的prototype总结/fc61390740d130488051d1089074ba12.png" alt></p>
+<p><img src="/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/fc61390740d130488051d1089074ba12.png" alt></p>
 <p><strong>5. <code>Instanceof</code>运算符：</strong></p>
 <blockquote>
 <p><code>instanceof</code>运算符的左边的变量是一个对象，暂时称为A；右边的变量为一个函数，暂时称为B。</p>
@@ -440,9 +440,9 @@
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1 <span class="token keyword">instanceof</span> <span class="token class-name">Foo</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f1 <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2018/10/06/js的prototype总结/ad023c9f40a1e17f803967a5a402683e.png" alt></p>
+<p><img src="/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/ad023c9f40a1e17f803967a5a402683e.png" alt></p>
 <p><strong><em><code>instanceof</code>表示的就是一种继承关系，或者原型链的结构。</em></strong></p>
-<p><img src="/2018/10/06/js的prototype总结/fb2ec26540658c9480e22f7217f7ff29.png" alt></p>
+<p><img src="/2018/10/06/js%E7%9A%84prototype%E6%80%BB%E7%BB%93/fb2ec26540658c9480e22f7217f7ff29.png" alt></p>
 
       
     </div>
@@ -536,10 +536,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -560,7 +560,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                   <a href="/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -585,7 +585,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -648,7 +648,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">Tags</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -717,7 +717,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 
