@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 视频传输原理视频是利用人眼视觉暂留的原理，通过播放一系列的图片，使人眼产生运动的感觉。单纯传输视频画面，视频量非常大，对现有的网络和存储来说是不可接受的。为了能够使视频便于传输和存储，人们发现视频有大量重复的信息，如果将重复信息在发送端去掉，在接收端恢复出来，这样就大大减少了视频数据的文件，因此就有了H.264、H.265、VP8、VP9等视频压缩标准。 2. 视频播放器原理视频播放器播放一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系">
+<meta property="og:url" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/index.html">
+<meta property="og:site_name" content="pjy">
+<meta property="og:description" content="1. 视频传输原理视频是利用人眼视觉暂留的原理，通过播放一系列的图片，使人眼产生运动的感觉。单纯传输视频画面，视频量非常大，对现有的网络和存储来说是不可接受的。为了能够使视频便于传输和存储，人们发现视频有大量重复的信息，如果将重复信息在发送端去掉，在接收端恢复出来，这样就大大减少了视频数据的文件，因此就有了H.264、H.265、VP8、VP9等视频压缩标准。 2. 视频播放器原理视频播放器播放一">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/2428C12B709F42D38859BA4234F61E5D.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/504B85A8EA314E70BC3BB9C865A14FB4.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/9DED6512254D4CF0A117E6B1AE5EE402.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/5DDB5B88A2924C6A840C41533AE0920D.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/8AC59C17C15A4885A126F0B3B824E20B.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/D7B775D11EB743F094F9802ACDF78DBA.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/B670A19A85B547999C298B6BA314E0F1.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/CBED4F4AC4EC45B78044E27BA0CB6A8B.png">
+<meta property="article:published_time" content="2024-02-19T10:29:15.000Z">
+<meta property="article:modified_time" content="2024-02-19T10:41:54.142Z">
+<meta property="article:author" content="pjy">
+<meta property="article:tag" content="音视频">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/2428C12B709F42D38859BA4234F61E5D.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2024/02/19/I帧、P帧、B帧、GOP、IDR-和PTS-DTS之间的关系/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系 | pjy</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">pjy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2024-02-19 18:29:15 / Modified: 18:41:54" itemprop="dateCreated datePublished" datetime="2024-02-19T18:29:15+08:00">2024-02-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-视频传输原理"><a href="#1-视频传输原理" class="headerlink" title="1. 视频传输原理"></a>1. 视频传输原理</h3><p>视频是利用人眼视觉暂留的原理，通过播放一系列的图片，使人眼产生运动的感觉。单纯传输视频画面，视频量非常大，对现有的网络和存储来说是不可接受的。为了能够使视频便于传输和存储，人们发现视频有大量重复的信息，如果将重复信息在发送端去掉，在接收端恢复出来，这样就大大减少了视频数据的文件，因此就有了H.264、H.265、VP8、VP9等视频压缩标准。</p>
+<h3 id="2-视频播放器原理"><a href="#2-视频播放器原理" class="headerlink" title="2. 视频播放器原理"></a>2. 视频播放器原理</h3><p>视频播放器播放一个互联网上的视频文件，需要经过以及几个步骤：解协议、解封装、解码音视频以及音视频同步。完整过程如下图所示：<br><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/2428C12B709F42D38859BA4234F61E5D.png" alt="image"></p>
+<p><strong>解协议</strong>：作用就是将流媒体协议的数据解析为标准的相应的封装格式数据（HTTP/RTMP等）</p>
+<p><strong>解封装</strong>：作用就是将输入的封装格式的数据分离成为视频流压缩编码数据和音频流压缩编码数据。（MP4/TS等）</p>
+<p><strong>解码</strong>：作用就是将音视频压缩编码数据解码成为非压缩的音视频原始数据。</p>
+<ul>
+<li><p>音频：MP3/AAC –&gt; PCM </p>
+</li>
+<li><p>视频：H.264/VP8 —&gt; YUV/RGB</p>
+</li>
+</ul>
+<p><strong>音视频同步</strong>：根据解封装模块处理过程中获取到的参数信息，同步解码出来的音频和视频数据，并将音视频数据送到显卡和声卡中播放。</p>
+<h3 id="3-帧内预测和帧间预测"><a href="#3-帧内预测和帧间预测" class="headerlink" title="3. 帧内预测和帧间预测"></a>3. 帧内预测和帧间预测</h3><p>以下方图片为例。图片显示了两个视频帧（彼此相邻），有一个黑色像素的矩形块在其中移动。在第一帧中，该块位于图像左侧，而第二帧中它移动到了右侧。如何压缩帧2图像数据呢？</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/504B85A8EA314E70BC3BB9C865A14FB4.png" alt="image"><br>大致步骤：</p>
+<ul>
+<li><p>将视频分解成为多个像素块（宏块），并逐一压缩。</p>
+</li>
+<li><p>为了压缩每个宏块，首先在当前帧（<strong>帧内预测</strong>）和前后帧（<strong>帧间预测</strong>）中搜索，找到与我们想要压缩的宏块相似的宏块。</p>
+</li>
+<li><p>记录最佳匹配的宏块的位置（位于哪一帧以及在该帧中的位置）。然后，两个宏块之间的差异被压缩，并和位置信息一起被发送给解码器。</p>
+</li>
+</ul>
+<h3 id="4-I帧"><a href="#4-I帧" class="headerlink" title="4. I帧"></a>4. I帧</h3><p>I帧：即Intra-coded picture（帧内编码图像帧），I帧表示关键帧，可以理解为这一帧画面的完整保留；解码时只需要本帧数据就可以完成（因为包含完整画面）。也就是说I帧只会进行<strong>帧内预测</strong>，匹配相似的宏块进行压缩。</p>
+<p><strong>I帧的特点</strong>：</p>
+<ol>
+<li>它是一个全帧压缩编码帧。它将全帧图像信息进行JPEG压缩编码及传输；</li>
+<li>解码时仅用I帧的数据就可重构完整图像； </li>
+<li>I帧描述了图像背景和运动主体的详情；</li>
+<li>I帧是P帧和B帧的参考帧（其质量直接影响到同组内以后各帧的质量）；</li>
+<li>I帧是帧组GOP的基础帧（第一帧），在一组中只有一个I帧；</li>
+<li>I帧所占数据的信息量比较大；</li>
+</ol>
+<h3 id="5-P帧"><a href="#5-P帧" class="headerlink" title="5. P帧"></a>5. P帧</h3><p>P帧：即Predictive-coded Picture（<strong>前向预测编码图像帧</strong>）。P帧表示的是这一帧跟之前的一个关键帧（或P帧）的差别，解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。（也就是差别帧，P帧没有完整画面数据，只有与前一帧的画面差别的数据）</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/9DED6512254D4CF0A117E6B1AE5EE402.png" alt="image"></p>
+<p><strong>P帧的预测与重构</strong>：P帧是以前面I/P帧为参考帧，在前面的I/P帧中找出P帧“某点”的预测值和运动矢量，取预测差值和运动矢量一起传送。在接收端根据运动矢量从I/P帧中找出P帧“某点”的预测值并与差值相加以得到P帧“某点”样值,从而可得到完整的P帧。</p>
+<p><strong>P帧特点</strong>：</p>
+<ol>
+<li>P帧采用运动补偿的方法传送它与前面的I或P帧的差值及运动矢量(预测误差);</li>
+<li>解码时必须将I帧中的预测值与预测误差求和后才能重构完整的P帧图像;</li>
+<li>P帧属于前向预测的帧间预测。它只参考前面最靠近它的I帧或P帧;</li>
+<li>P帧可以是其后面P帧的参考帧,也可以是其前后的B帧的参考帧;</li>
+<li>由于P帧是参考帧,它可能造成解码错误的扩散;</li>
+<li>由于是差值传送,P帧的压缩比较高。</li>
+</ol>
+<h3 id="6-B帧"><a href="#6-B帧" class="headerlink" title="6. B帧"></a>6. B帧</h3><p>B帧：即Bidirectionally predicted picture（<strong>双向预测编码图像帧</strong>)。B帧是双向差别帧，也就是B帧记录的是本帧与前后帧的差别，换言之，要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是解码时比较耗CPU。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/5DDB5B88A2924C6A840C41533AE0920D.png" alt="image"></p>
+<p><strong>B帧的预测与重构</strong>：B帧以前面的I或P帧和后面的P帧为参考帧,“找出”B帧“某点”的预测值和两个运动矢量,并取预测差值和运动矢量传送。接收端根据运动矢量在两个参考帧中“找出(算出)”预测值并与差值求和,得到B帧“某点”样值,从而可得到完整的B帧。采用运动预测的方式进行帧间双向预测编码。</p>
+<p><strong>B帧的特点</strong>：</p>
+<ol>
+<li>B帧是由前面的I或P帧和后面的P帧来进行预测的;</li>
+<li>B帧传送的是它与前面的I帧或P帧和后面的P帧之间的预测误差及运动矢量;</li>
+<li>B帧是双向预测编码帧;</li>
+<li>B帧压缩比最高,因为它只反映参考帧间运动主体的变化情况,预测比较准确;</li>
+<li>B帧不是参考帧,不会造成解码错误的扩散</li>
+</ol>
+<h3 id="7-GOP（序列）和IDR"><a href="#7-GOP（序列）和IDR" class="headerlink" title="7. GOP（序列）和IDR"></a>7. GOP（序列）和IDR</h3><p><strong>序列</strong>：一个序列就是一段内容差异不太大的图像编码后生成的一串数据流。当运动变化比较少时，一个序列可以很长，因为运动变化少就代表图像画面的内容变动很小，所以就可以编一个I帧，然后一直P帧、B帧了。当运动变化多时，可能一个序列就比较短了，比如就包含一个I帧和3、4个P帧。</p>
+<p><strong>IDR</strong>：即立即刷新图像，是一个序列的第一个图像，IDR图像都是I帧图像。引入 IDR 图像是为了解码的重同步，当解码器解码到 IDR 图像时，立即将参考帧队列清空，将已解码的数据全部输出或抛弃，重新查找参数集，开始一个新的序列。这样，如果前一个序列出现重大错误，在这里可以获得重新同步的机会。IDR图像之后的图像永远不会使用IDR之前的图像的数据来解码。</p>
+<p><strong>GOP</strong>：即Group of picture（<strong>图像组</strong>），指两个I帧之间的距离，两个I帧之间形成一组图片，就是GOP。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/8AC59C17C15A4885A126F0B3B824E20B.png" alt="image"></p>
+<h3 id="为什么需要B帧："><a href="#为什么需要B帧：" class="headerlink" title="为什么需要B帧："></a>为什么需要B帧：</h3><p>想要理解B帧的作用，我们需要先理解呈现顺序和编解码顺序的概念。<br>以I帧和P帧为例。如果你只使用了这两种类型的帧，那么每一帧要么参考自身（I帧），要么参考前一帧（P帧）。因此，帧可以以相同的顺序进出编码器。这里，呈现顺序（或显示顺序）与编码、解码顺序相同。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/D7B775D11EB743F094F9802ACDF78DBA.png" alt="image"></p>
+<p>网络上的电影很多都采用了B帧，因为B帧记录的是前后帧的差别，比P帧能节约更多的空间，但这样一来，文件小了，解码器就麻烦了，因为在解码时，不仅要用之前缓存的画面，还要知道下一个I或者P的画面（也就是说要预读预解码），而且，B帧不能简单地丢掉，因为B帧其实也包含了画面信息，如果简单丢掉，并用之前的画面简单重复，就会造成画面卡（其实就是丢帧了），并且由于网络上的电影为了节约空间，往往使用相当多的B帧，B帧用的多，对不支持B帧的播放器就造成更大的困扰，画面也就越卡。</p>
+<p><strong>下图编解码顺序：IPBBPBB…I</strong></p>
+<p><strong>呈现顺序：IBBPBBP…I</strong></p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/B670A19A85B547999C298B6BA314E0F1.png" alt="image"></p>
+<h3 id="8-PTS和DTS"><a href="#8-PTS和DTS" class="headerlink" title="8. PTS和DTS"></a>8. PTS和DTS</h3><p>为什么会有PTS和DTS的概念</p>
+<p>通过上面的解释可以看出：P帧需要参考前面的I帧或P帧才可以生成一张完整的图片，而B帧则需要参考前面的I帧或P帧以及后面的P帧才可以生成一张完整的图片。这样一来就有一个问题：在视频流中，先到来的B帧无法理解解码，需要等待它依赖的后面的P帧先解码完成才行，这样一来播放时间与解码时间就不一致了，所以需要针对这种顺序进行重新排序，这时就引入了另外的两个概念：DTS和PTS。</p>
+<p><strong>DTS（Decoding Time Stamp）</strong>：即<strong>解码时间戳</strong>，这个时间戳的意义在于告诉播放器该在什么时候解码这一帧的数据。</p>
+<p><strong>PTS（Presentation Time Stamp）</strong>：即<strong>显示时间戳</strong>，这个时间戳用来告诉播放器该在什么时候显示这一帧的数据。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/CBED4F4AC4EC45B78044E27BA0CB6A8B.png" alt="image"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" rel="tag"># 音视频</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/02/19/WebRtc-Internals%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" rel="next" title="WebRtc Internals工具使用">
+                <i class="fa fa-chevron-left"></i> WebRtc Internals工具使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2024/02/19/HTTP-Live-Streaming-HLS/" rel="prev" title="HTTP Live Streaming (HLS)">
+                HTTP Live Streaming (HLS) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pjy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-视频传输原理"><span class="nav-number">1.</span> <span class="nav-text">1. 视频传输原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-视频播放器原理"><span class="nav-number">2.</span> <span class="nav-text">2. 视频播放器原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-帧内预测和帧间预测"><span class="nav-number">3.</span> <span class="nav-text">3. 帧内预测和帧间预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-I帧"><span class="nav-number">4.</span> <span class="nav-text">4. I帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-P帧"><span class="nav-number">5.</span> <span class="nav-text">5. P帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-B帧"><span class="nav-number">6.</span> <span class="nav-text">6. B帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-GOP（序列）和IDR"><span class="nav-number">7.</span> <span class="nav-text">7. GOP（序列）和IDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要B帧："><span class="nav-number">8.</span> <span class="nav-text">为什么需要B帧：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-PTS和DTS"><span class="nav-number">9.</span> <span class="nav-text">8. PTS和DTS</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pjy</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'c9b2f05dad097ee5b6ba',
+          clientSecret: '3afeccd217f8ff6eb1b42d637510abb1892a1410',
+          repo: 'yymfp.github.io',
+          id: md5(window.location.pathname),
+          owner: 'yymfp',
+          admin: ['yymfp'],
+          labels: 'Gitalk',
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false,
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

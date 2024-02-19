@@ -300,6 +300,582 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2024/02/19/HTTP-Live-Streaming-HLS/" itemprop="url">
+                  HTTP Live Streaming (HLS)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2024-02-19 18:41:04 / Modified: 18:47:34" itemprop="dateCreated datePublished" datetime="2024-02-19T18:41:04+08:00">2024-02-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>HLS（HTTP Live Streaming）是由Apple公司定义的用于实时流传输的协议，HLS基于HTTP协议实现，传输内容包括两部分。一是M3U8播放列表，二是TS媒体文件（H.265对应的是FMP4格式的文件）。</p>
+</blockquote>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>基于HTTP协议进行传输，兼容性好</li>
+<li>单个片段包含完整的音视频数据以及字幕信息等，不存在音视频同步问题</li>
+<li>自适应流：可根据网络情况和设备性能动态调整视频质量和比特率</li>
+<li>支持加解密传输</li>
+<li>支持中间插入广告</li>
+<li>播放延迟较大</li>
+</ul>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ul>
+<li>视频直播：HLS是一种流媒体协议，可以实现实时或准实时的视频播放，因此在各种直播平台（如Twitch，YouTube Live等）中都有应用。</li>
+<li>点播服务：除了直播，HLS也可以用于点播服务，用户可以随时选择观看的内容。</li>
+<li>在线教育：在线教育平台可以使用HLS提供实时的课程直播，或者录制好的课程视频。</li>
+<li>网络电视：一些网络电视服务商也使用HLS技术，提供电视节目的在线播放。</li>
+</ul>
+<h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>通过将整条流切割成一个小的可以通过HTTP下载的媒体文件（TS片段），然后提供一个配套的媒体列表文件（m3u8）提供给客户端，客户端按照列表顺序去拉取这些媒体文件进行播放，视觉上就是在播放一整段流的效果。由于传输层协议用的标准的HTTP协议，HLS可以方便的透过防火墙或者代理服务器以及利用CDN进行分发加速。</p>
+<p><img src="/2024/02/19/HTTP-Live-Streaming-HLS/4B0A0C9B610A4573BCA9DCD0DF2DFCB7.png" alt="image"></p>
+<h2 id="M3U8索引文件"><a href="#M3U8索引文件" class="headerlink" title="M3U8索引文件"></a>M3U8索引文件</h2><p>M3U8文件实质是一个播放列表，其可能是一个媒体播放列表（Media PlayList），或者是一个主列表（Master Playlist）。</p>
+<ul>
+<li><p>媒体播放列表：这种类型的M3U8文件包含了一系列的媒体段（通常是TS或fMP4文件）的URL链接，这些媒体段按照在播放列表中的顺序进行播放。对于点播来说，客户端只需要按照顺序下载片段资源，依次播放即可。而对于直播来说，客户端需要定时重新请求该m3u8文件，拉取最新的片段数据。</p>
+<pre><code>#EXTM3U // 表明该文件是一个 m3u8 文件，必须在文件的第一行
+#EXT-X-VERSION:3 //  HLS 的协议版本号
+#EXT-X-TARGETDURATION:10 // 该标签指定了媒体文件持续时间的最大值,，播放文件列表中的媒体文件在EXTINF标签中定义的持续时间必须小于或者等于该标签指定的持续时间。该标签在播放列表文件中必须出现一次。
+#EXTINF:10,
+http://example.com/1.ts
+#EXTINF:10,
+http://example.com/2.ts
+#EXTINF:10,
+http://example.com/3.ts
+#EXT-X-ENDLIST
+</code></pre></li>
+<li><p>主播放列表：这种类型的M3U8文件并不直接包含媒体内容，而是包含了一系列的媒体播放列表的URL链接。每一个媒体播放列表都代表了同一份媒体内容的不同版本，例如不同的分辨率、不同的码率等。客户端可以根据自身的网络状况和设备性能，从主播放列表中选择最合适的媒体播放列表进行播放。</p>
+<pre><code>#EXTM3U // 表明该文件是一个 m3u8 文件，必须在文件的第一行
+#EXT-X-VERSION:3   //  HLS 的协议版本号
+#EXT-X-STREAM-INF:BANDWIDTH=1280000,RESOLUTION=720x480
+http://example.com/low.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=2560000,RESOLUTION=1280x720
+http://example.com/mid.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=7680000,RESOLUTION=1920x1080
+http://example.com/high.m3u8
+</code></pre></li>
+</ul>
+<h2 id="TS文件"><a href="#TS文件" class="headerlink" title="TS文件"></a>TS文件</h2><p>TS（Transport Stream）是一种音视频封装格式，全称MPEG2-TS。MPEG-TS主要应用于实时传送的节目，比如实时广播的电视节目。</p>
+<p>TS文件（流）可以分为三层：<strong>TS层（Transport Stream）、PES层（Packet Elemental Stream）、ES层（Elementary Stream）</strong>。</p>
+<ul>
+<li>ES层就是音视频数据</li>
+<li>PES层是在音视频数据上加了时间戳等对数据帧的说明信息</li>
+<li>TS层是在PES层上加入了数据流识别和传输的必要信息。TS文件（码流）由多个TS Packet组成的。</li>
+</ul>
+<h2 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h2><p>HLS协议支持对媒体内容进行AES-128或SAMPLE-AES加密，以保护媒体内容的安全。</p>
+<ol>
+<li>加密流程：</li>
+</ol>
+<ul>
+<li>服务端首先生成一个随机的AES密钥。</li>
+<li>使用这个AES密钥对媒体内容进行AES-128或SAMPLE-AES加密，生成加密后的媒体段。</li>
+<li>将AES密钥加密后存储在服务端，同时生成一个可以用于获取AES密钥的URL链接。</li>
+<li>在M3U8播放列表中，对于每一个加密的媒体段，都会添加一个EXT-X-KEY标签，该标签包含了获取AES密钥的URL链接和加密方法。</li>
+</ul>
+<ol start="2">
+<li>解密流程：</li>
+</ol>
+<ul>
+<li>客户端在解析M3U8播放列表时，发现EXT-X-KEY标签，就知道媒体段是加密的。</li>
+<li>客户端通过EXT-X-KEY标签中的URL链接向服务端请求AES密钥。</li>
+<li>服务端验证客户端的请求后，返回加密的AES密钥。</li>
+<li>客户端解密AES密钥，然后使用AES密钥对媒体段进行解密，得到原始的媒体内容。</li>
+</ul>
+<h2 id="web端如何使用HLS播放云存储视频"><a href="#web端如何使用HLS播放云存储视频" class="headerlink" title="web端如何使用HLS播放云存储视频"></a>web端如何使用HLS播放云存储视频</h2><p><img src="/2024/02/19/HTTP-Live-Streaming-HLS/WEBRESOURCE7db8da1ac6ab759c2364a5e7cacd4f68.png" alt="image"></p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">const</span> HlsVideo<span class="token punctuation">:</span> React<span class="token punctuation">.</span>FC<span class="token operator">&lt;</span>IHlsVideoProps<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  debug <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+  keyPreset <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  enableWorker <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  url <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  hlsRef<span class="token punctuation">,</span>
+  videoRef<span class="token punctuation">,</span>
+  videoProps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> defaultVideoProps <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useMemo</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+      disablePictureInPicture<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+      autoPlay<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+      controls<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> _videoProps <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>defaultVideoProps<span class="token punctuation">,</span> <span class="token operator">...</span>videoProps <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> hls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hls</span><span class="token punctuation">(</span><span class="token function">config</span><span class="token punctuation">(</span>debug<span class="token punctuation">,</span> keyPreset<span class="token punctuation">,</span> enableWorker<span class="token punctuation">)</span> as <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hlsRef<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hlsRef<span class="token punctuation">.</span>current <span class="token operator">=</span> hls<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> video <span class="token operator">=</span> videoRef<span class="token punctuation">.</span>current<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hls <span class="token operator">&amp;&amp;</span> video <span class="token operator">&amp;&amp;</span> url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hls<span class="token punctuation">.</span><span class="token function">loadSource</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 加载m3u8</span>
+      hls<span class="token punctuation">.</span><span class="token function">attachMedia</span><span class="token punctuation">(</span>video<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 绑定videoElement和hls实例</span>
+      <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> hls<span class="token punctuation">.</span><span class="token function">detachMedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>url<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>video
+      style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token string">"100%"</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token string">"100%"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      ref<span class="token operator">=</span><span class="token punctuation">{</span>videoRef<span class="token punctuation">}</span>
+      <span class="token punctuation">{</span><span class="token operator">...</span>_videoProps<span class="token punctuation">}</span>
+    <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// @ts-nocheck</span>
+<span class="token keyword">import</span> Hls <span class="token keyword">from</span> <span class="token string">"hls.js"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> KEY_URL <span class="token operator">=</span> <span class="token string">"/api/jarvis/hls/key"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前端网关配置的用于获取密钥的链接（业务鉴权之类的）</span>
+<span class="token keyword">const</span> ORIGIN_KEY_URL <span class="token operator">=</span> <span class="token string">"/api/cloud/key"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// m3u8返回的通用的用于获取密钥的链接</span>
+
+<span class="token keyword">function</span> <span class="token function">ab2str</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> String<span class="token punctuation">.</span>fromCharCode<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">_base64ToArrayBuffer</span><span class="token punctuation">(</span>base64<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// base64 解码</span>
+  <span class="token keyword">const</span> binaryString <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">atob</span><span class="token punctuation">(</span>base64<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> len <span class="token operator">=</span> binaryString<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    bytes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> binaryString<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 二进制数组</span>
+  <span class="token keyword">return</span> bytes<span class="token punctuation">.</span>buffer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> configure <span class="token operator">=</span> <span class="token punctuation">(</span>debug<span class="token punctuation">:</span> <span class="token keyword">boolean</span><span class="token punctuation">,</span> keyPreset<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> enableWorker<span class="token punctuation">:</span> <span class="token keyword">boolean</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  debug<span class="token punctuation">,</span>
+  enableWorker<span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// defaultAudioCodec: 'mp4a.40.2',</span>
+  <span class="token comment" spellcheck="true">// enableWorker: false,</span>
+  <span class="token comment" spellcheck="true">// maxAudioFramesDrift: 23,</span>
+  loader<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> loader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hls<span class="token punctuation">.</span>DefaultConfig<span class="token punctuation">.</span>loader</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Object<span class="token punctuation">.</span><span class="token function">defineProperties</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      stats<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span>stats<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span>context<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>abort <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>destroy <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>load <span class="token operator">=</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> config<span class="token punctuation">,</span> callbacks<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> context<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> onSuccess <span class="token operator">=</span> callbacks<span class="token punctuation">.</span>onSuccess<span class="token punctuation">;</span>
+      callbacks<span class="token punctuation">.</span>onSuccess <span class="token operator">=</span> <span class="token punctuation">(</span>response<span class="token punctuation">,</span> stats<span class="token punctuation">,</span> context1<span class="token punctuation">,</span> networkDetails<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">!==</span> <span class="token string">"manifest"</span> <span class="token operator">&amp;&amp;</span> context1<span class="token punctuation">.</span>url<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"key?devId"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// 针对密钥进行base64解密处理</span>
+          <span class="token keyword">const</span> key <span class="token operator">=</span> keyPreset <span class="token operator">||</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token function">ab2str</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>result<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+          response<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token function">_base64ToArrayBuffer</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">onSuccess</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> stats<span class="token punctuation">,</span> context<span class="token punctuation">,</span> networkDetails<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      loader<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> config<span class="token punctuation">,</span> callbacks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  xhrSetup<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">:</span> XMLHttpRequest<span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 自定义xhr，替换密钥链接</span>
+    <span class="token keyword">const</span> u <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>ORIGIN_KEY_URL<span class="token punctuation">)</span>
+      <span class="token operator">?</span> KEY_URL <span class="token operator">+</span> <span class="token string">"?"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>url as <span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+      <span class="token punctuation">:</span> url<span class="token punctuation">;</span>
+    xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> u<span class="token punctuation">,</span> <span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> configure<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="HLS直播延迟原因"><a href="#HLS直播延迟原因" class="headerlink" title="HLS直播延迟原因"></a>HLS直播延迟原因</h2><ol>
+<li>存在安全缓冲时长，客户端应该从M3U8文件中倒数第三个分片开始播放</li>
+<li>服务器更新M3U8文件的间隔，理论上服务器需要大于等于一个EXT-X-TARGETDURATION的时长去更新M3u8文件</li>
+<li>CDN缓存机制。若当前源站 M3U8 已经更新到了第四个片段，但是CDN边缘节点还缓存着上一个版本的 M3U8文件（只包含3个片段）。此时就需要等文件的TTL过期，边缘节点才会去获取最新版本的 M3U8 文件。而这个缓存TTL也不能取消，如果每个端上的请求到达CDN边缘节点时都去找源站要最新版本，源站就可能会被流量冲垮。</li>
+<li>服务器处理时间：服务器接收到媒体源数据后，进行切片编码之后再进行传输。</li>
+<li>网络延迟：文件从服务器到客户端中间的网络传输延迟。</li>
+</ol>
+<h2 id="优化延迟方法"><a href="#优化延迟方法" class="headerlink" title="优化延迟方法"></a>优化延迟方法</h2><ol>
+<li>减少客户端安全缓冲时长</li>
+<li>减少服务器更新M3U8文件的间隔</li>
+<li>减小分片长度</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">
+                  I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2024-02-19 18:29:15 / Modified: 18:41:54" itemprop="dateCreated datePublished" datetime="2024-02-19T18:29:15+08:00">2024-02-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-视频传输原理"><a href="#1-视频传输原理" class="headerlink" title="1. 视频传输原理"></a>1. 视频传输原理</h3><p>视频是利用人眼视觉暂留的原理，通过播放一系列的图片，使人眼产生运动的感觉。单纯传输视频画面，视频量非常大，对现有的网络和存储来说是不可接受的。为了能够使视频便于传输和存储，人们发现视频有大量重复的信息，如果将重复信息在发送端去掉，在接收端恢复出来，这样就大大减少了视频数据的文件，因此就有了H.264、H.265、VP8、VP9等视频压缩标准。</p>
+<h3 id="2-视频播放器原理"><a href="#2-视频播放器原理" class="headerlink" title="2. 视频播放器原理"></a>2. 视频播放器原理</h3><p>视频播放器播放一个互联网上的视频文件，需要经过以及几个步骤：解协议、解封装、解码音视频以及音视频同步。完整过程如下图所示：<br><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/2428C12B709F42D38859BA4234F61E5D.png" alt="image"></p>
+<p><strong>解协议</strong>：作用就是将流媒体协议的数据解析为标准的相应的封装格式数据（HTTP/RTMP等）</p>
+<p><strong>解封装</strong>：作用就是将输入的封装格式的数据分离成为视频流压缩编码数据和音频流压缩编码数据。（MP4/TS等）</p>
+<p><strong>解码</strong>：作用就是将音视频压缩编码数据解码成为非压缩的音视频原始数据。</p>
+<ul>
+<li><p>音频：MP3/AAC –&gt; PCM </p>
+</li>
+<li><p>视频：H.264/VP8 —&gt; YUV/RGB</p>
+</li>
+</ul>
+<p><strong>音视频同步</strong>：根据解封装模块处理过程中获取到的参数信息，同步解码出来的音频和视频数据，并将音视频数据送到显卡和声卡中播放。</p>
+<h3 id="3-帧内预测和帧间预测"><a href="#3-帧内预测和帧间预测" class="headerlink" title="3. 帧内预测和帧间预测"></a>3. 帧内预测和帧间预测</h3><p>以下方图片为例。图片显示了两个视频帧（彼此相邻），有一个黑色像素的矩形块在其中移动。在第一帧中，该块位于图像左侧，而第二帧中它移动到了右侧。如何压缩帧2图像数据呢？</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/504B85A8EA314E70BC3BB9C865A14FB4.png" alt="image"><br>大致步骤：</p>
+<ul>
+<li><p>将视频分解成为多个像素块（宏块），并逐一压缩。</p>
+</li>
+<li><p>为了压缩每个宏块，首先在当前帧（<strong>帧内预测</strong>）和前后帧（<strong>帧间预测</strong>）中搜索，找到与我们想要压缩的宏块相似的宏块。</p>
+</li>
+<li><p>记录最佳匹配的宏块的位置（位于哪一帧以及在该帧中的位置）。然后，两个宏块之间的差异被压缩，并和位置信息一起被发送给解码器。</p>
+</li>
+</ul>
+<h3 id="4-I帧"><a href="#4-I帧" class="headerlink" title="4. I帧"></a>4. I帧</h3><p>I帧：即Intra-coded picture（帧内编码图像帧），I帧表示关键帧，可以理解为这一帧画面的完整保留；解码时只需要本帧数据就可以完成（因为包含完整画面）。也就是说I帧只会进行<strong>帧内预测</strong>，匹配相似的宏块进行压缩。</p>
+<p><strong>I帧的特点</strong>：</p>
+<ol>
+<li>它是一个全帧压缩编码帧。它将全帧图像信息进行JPEG压缩编码及传输；</li>
+<li>解码时仅用I帧的数据就可重构完整图像； </li>
+<li>I帧描述了图像背景和运动主体的详情；</li>
+<li>I帧是P帧和B帧的参考帧（其质量直接影响到同组内以后各帧的质量）；</li>
+<li>I帧是帧组GOP的基础帧（第一帧），在一组中只有一个I帧；</li>
+<li>I帧所占数据的信息量比较大；</li>
+</ol>
+<h3 id="5-P帧"><a href="#5-P帧" class="headerlink" title="5. P帧"></a>5. P帧</h3><p>P帧：即Predictive-coded Picture（<strong>前向预测编码图像帧</strong>）。P帧表示的是这一帧跟之前的一个关键帧（或P帧）的差别，解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。（也就是差别帧，P帧没有完整画面数据，只有与前一帧的画面差别的数据）</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/9DED6512254D4CF0A117E6B1AE5EE402.png" alt="image"></p>
+<p><strong>P帧的预测与重构</strong>：P帧是以前面I/P帧为参考帧，在前面的I/P帧中找出P帧“某点”的预测值和运动矢量，取预测差值和运动矢量一起传送。在接收端根据运动矢量从I/P帧中找出P帧“某点”的预测值并与差值相加以得到P帧“某点”样值,从而可得到完整的P帧。</p>
+<p><strong>P帧特点</strong>：</p>
+<ol>
+<li>P帧采用运动补偿的方法传送它与前面的I或P帧的差值及运动矢量(预测误差);</li>
+<li>解码时必须将I帧中的预测值与预测误差求和后才能重构完整的P帧图像;</li>
+<li>P帧属于前向预测的帧间预测。它只参考前面最靠近它的I帧或P帧;</li>
+<li>P帧可以是其后面P帧的参考帧,也可以是其前后的B帧的参考帧;</li>
+<li>由于P帧是参考帧,它可能造成解码错误的扩散;</li>
+<li>由于是差值传送,P帧的压缩比较高。</li>
+</ol>
+<h3 id="6-B帧"><a href="#6-B帧" class="headerlink" title="6. B帧"></a>6. B帧</h3><p>B帧：即Bidirectionally predicted picture（<strong>双向预测编码图像帧</strong>)。B帧是双向差别帧，也就是B帧记录的是本帧与前后帧的差别，换言之，要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是解码时比较耗CPU。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/5DDB5B88A2924C6A840C41533AE0920D.png" alt="image"></p>
+<p><strong>B帧的预测与重构</strong>：B帧以前面的I或P帧和后面的P帧为参考帧,“找出”B帧“某点”的预测值和两个运动矢量,并取预测差值和运动矢量传送。接收端根据运动矢量在两个参考帧中“找出(算出)”预测值并与差值求和,得到B帧“某点”样值,从而可得到完整的B帧。采用运动预测的方式进行帧间双向预测编码。</p>
+<p><strong>B帧的特点</strong>：</p>
+<ol>
+<li>B帧是由前面的I或P帧和后面的P帧来进行预测的;</li>
+<li>B帧传送的是它与前面的I帧或P帧和后面的P帧之间的预测误差及运动矢量;</li>
+<li>B帧是双向预测编码帧;</li>
+<li>B帧压缩比最高,因为它只反映参考帧间运动主体的变化情况,预测比较准确;</li>
+<li>B帧不是参考帧,不会造成解码错误的扩散</li>
+</ol>
+<h3 id="7-GOP（序列）和IDR"><a href="#7-GOP（序列）和IDR" class="headerlink" title="7. GOP（序列）和IDR"></a>7. GOP（序列）和IDR</h3><p><strong>序列</strong>：一个序列就是一段内容差异不太大的图像编码后生成的一串数据流。当运动变化比较少时，一个序列可以很长，因为运动变化少就代表图像画面的内容变动很小，所以就可以编一个I帧，然后一直P帧、B帧了。当运动变化多时，可能一个序列就比较短了，比如就包含一个I帧和3、4个P帧。</p>
+<p><strong>IDR</strong>：即立即刷新图像，是一个序列的第一个图像，IDR图像都是I帧图像。引入 IDR 图像是为了解码的重同步，当解码器解码到 IDR 图像时，立即将参考帧队列清空，将已解码的数据全部输出或抛弃，重新查找参数集，开始一个新的序列。这样，如果前一个序列出现重大错误，在这里可以获得重新同步的机会。IDR图像之后的图像永远不会使用IDR之前的图像的数据来解码。</p>
+<p><strong>GOP</strong>：即Group of picture（<strong>图像组</strong>），指两个I帧之间的距离，两个I帧之间形成一组图片，就是GOP。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/8AC59C17C15A4885A126F0B3B824E20B.png" alt="image"></p>
+<h3 id="为什么需要B帧："><a href="#为什么需要B帧：" class="headerlink" title="为什么需要B帧："></a>为什么需要B帧：</h3><p>想要理解B帧的作用，我们需要先理解呈现顺序和编解码顺序的概念。<br>以I帧和P帧为例。如果你只使用了这两种类型的帧，那么每一帧要么参考自身（I帧），要么参考前一帧（P帧）。因此，帧可以以相同的顺序进出编码器。这里，呈现顺序（或显示顺序）与编码、解码顺序相同。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/D7B775D11EB743F094F9802ACDF78DBA.png" alt="image"></p>
+<p>网络上的电影很多都采用了B帧，因为B帧记录的是前后帧的差别，比P帧能节约更多的空间，但这样一来，文件小了，解码器就麻烦了，因为在解码时，不仅要用之前缓存的画面，还要知道下一个I或者P的画面（也就是说要预读预解码），而且，B帧不能简单地丢掉，因为B帧其实也包含了画面信息，如果简单丢掉，并用之前的画面简单重复，就会造成画面卡（其实就是丢帧了），并且由于网络上的电影为了节约空间，往往使用相当多的B帧，B帧用的多，对不支持B帧的播放器就造成更大的困扰，画面也就越卡。</p>
+<p><strong>下图编解码顺序：IPBBPBB…I</strong></p>
+<p><strong>呈现顺序：IBBPBBP…I</strong></p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/B670A19A85B547999C298B6BA314E0F1.png" alt="image"></p>
+<h3 id="8-PTS和DTS"><a href="#8-PTS和DTS" class="headerlink" title="8. PTS和DTS"></a>8. PTS和DTS</h3><p>为什么会有PTS和DTS的概念</p>
+<p>通过上面的解释可以看出：P帧需要参考前面的I帧或P帧才可以生成一张完整的图片，而B帧则需要参考前面的I帧或P帧以及后面的P帧才可以生成一张完整的图片。这样一来就有一个问题：在视频流中，先到来的B帧无法理解解码，需要等待它依赖的后面的P帧先解码完成才行，这样一来播放时间与解码时间就不一致了，所以需要针对这种顺序进行重新排序，这时就引入了另外的两个概念：DTS和PTS。</p>
+<p><strong>DTS（Decoding Time Stamp）</strong>：即<strong>解码时间戳</strong>，这个时间戳的意义在于告诉播放器该在什么时候解码这一帧的数据。</p>
+<p><strong>PTS（Presentation Time Stamp）</strong>：即<strong>显示时间戳</strong>，这个时间戳用来告诉播放器该在什么时候显示这一帧的数据。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/CBED4F4AC4EC45B78044E27BA0CB6A8B.png" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/19/WebRtc-Internals%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -579,12 +1155,24 @@
                 
               
 
-              <time title="Created: 2020-08-11 09:58:16 / Modified: 10:34:31" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:16+08:00">2020-08-11</time>
+              <time title="Created: 2020-08-11 09:58:16" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:16+08:00">2020-08-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -772,12 +1360,24 @@
                 
               
 
-              <time title="Created: 2020-08-11 09:58:03 / Modified: 10:12:24" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:03+08:00">2020-08-11</time>
+              <time title="Created: 2020-08-11 09:58:03" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:03+08:00">2020-08-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -959,12 +1559,24 @@
                 
               
 
-              <time title="Created: 2020-08-09 10:35:08 / Modified: 10:37:09" itemprop="dateCreated datePublished" datetime="2020-08-09T10:35:08+08:00">2020-08-09</time>
+              <time title="Created: 2020-08-09 10:35:08" itemprop="dateCreated datePublished" datetime="2020-08-09T10:35:08+08:00">2020-08-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1154,7 +1766,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-08-10 15:58:10" itemprop="dateModified" datetime="2020-08-10T15:58:10+08:00">2020-08-10</time>
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1362,12 +1974,24 @@
                 
               
 
-              <time title="Created: 2020-08-05 16:11:04 / Modified: 17:32:40" itemprop="dateCreated datePublished" datetime="2020-08-05T16:11:04+08:00">2020-08-05</time>
+              <time title="Created: 2020-08-05 16:11:04" itemprop="dateCreated datePublished" datetime="2020-08-05T16:11:04+08:00">2020-08-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1460,7 +2084,7 @@
 <li><p><strong>层叠顺序</strong></p>
 <blockquote>
 <p>层叠顺序：表示元素发生层叠时按照特定的元素规则在Z轴上垂直显示。（层叠上下文和层叠等级是一种概念，而层叠顺序是一种规则）</p>
-<p><img src="/2020/08/05/css层叠上下文、层叠等级、层叠顺序以及z-index/image-20200805170444733.png" alt="image-20200805170444733"></p>
+<p><img src="/2020/08/05/css%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E5%B1%82%E5%8F%A0%E7%AD%89%E7%BA%A7%E3%80%81%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%E4%BB%A5%E5%8F%8Az-index/image-20200805170444733.png" alt="image-20200805170444733"></p>
 </blockquote>
 </li>
 <li><p><strong>比较流程</strong></p>
@@ -1596,7 +2220,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-08-11 10:30:18" itemprop="dateModified" datetime="2020-08-11T10:30:18+08:00">2020-08-11</time>
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1773,12 +2397,24 @@
                 
               
 
-              <time title="Created: 2020-07-30 14:13:27 / Modified: 15:11:13" itemprop="dateCreated datePublished" datetime="2020-07-30T14:13:27+08:00">2020-07-30</time>
+              <time title="Created: 2020-07-30 14:13:27" itemprop="dateCreated datePublished" datetime="2020-07-30T14:13:27+08:00">2020-07-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1877,457 +2513,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/snabbdom%E6%BA%90%E7%A0%81%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/30/snabbdom%E6%BA%90%E7%A0%81%E7%AC%94%E8%AE%B0/" itemprop="url">
-                  snabbdom源码笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-07-30 10:40:35 / Modified: 16:52:42" itemprop="dateCreated datePublished" datetime="2020-07-30T10:40:35+08:00">2020-07-30</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Snabbdom源码笔记"><a href="#Snabbdom源码笔记" class="headerlink" title="Snabbdom源码笔记"></a>Snabbdom源码笔记</h3><ul>
-<li><h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a><strong>创建项目</strong></h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 创建项目目录</span>
-<span class="token function">mkdir</span> snabbdom-demo
-<span class="token comment" spellcheck="true"># 进入项目</span>
-<span class="token function">cd</span> snabbdom-demo
-<span class="token comment" spellcheck="true"># 创建 package.json</span>
-<span class="token function">npm</span> init -y
-<span class="token comment" spellcheck="true"># 本地安装 parcel</span>
-<span class="token function">npm</span> add parcel-bundler
-<span class="token comment" spellcheck="true"># 安装snabbdom</span>
-<span class="token function">npm</span> i snabbdom
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><h5 id="配置package-json"><a href="#配置package-json" class="headerlink" title="配置package.json"></a><strong>配置package.json</strong></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token string">"script"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"parcel index.html --open"</span><span class="token punctuation">,</span>
-  <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"parcel build index.html"</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><h5 id="创建目录结构"><a href="#创建目录结构" class="headerlink" title="创建目录结构"></a><strong>创建目录结构</strong></h5><pre><code>| index.html
-| package.json
-|-src
-                demo.js
-</code></pre></li>
-<li><h5 id="demo-js"><a href="#demo-js" class="headerlink" title="demo.js"></a><strong>demo.js</strong></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> h<span class="token punctuation">,</span> init <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'snabbdom'</span>
-<span class="token comment" spellcheck="true">// 导入模块</span>
-<span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">'snabbdom/modules/style'</span>
-<span class="token keyword">import</span> eventlisteners <span class="token keyword">from</span> <span class="token string">'snabbdom/modules/eventlisteners'</span>
-
-<span class="token keyword">let</span> patch <span class="token operator">=</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">[</span>style<span class="token punctuation">,</span> eventlisteners<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> vNode <span class="token operator">=</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'div#container'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    style<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        backgroundColor<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    on<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        click<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello word'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    hook<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token function">init</span><span class="token punctuation">(</span>vNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>vNode<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token function">create</span><span class="token punctuation">(</span>emptyVnode<span class="token punctuation">,</span> vNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>emptyVnode<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">,</span> <span class="token string">'Hello World'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token string">'p 标签'</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">let</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
-<span class="token function">patch</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> vNode<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><h5 id="init函数源码分析"><a href="#init函数源码分析" class="headerlink" title="init函数源码分析"></a><strong>init函数源码分析</strong></h5><ul>
-<li><p>init函数接收一个modules的数组参数和用户自定义的domApi（可选）</p>
-<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">function</span> init <span class="token punctuation">(</span>modules<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>Partial<span class="token operator">&lt;</span>Module<span class="token operator">></span><span class="token operator">></span><span class="token punctuation">,</span> domApi<span class="token operator">?</span><span class="token punctuation">:</span> DOMAPI<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// ***</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>初始化cbs（存储回调钩子函数）</p>
-<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">const</span> hooks<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>keyof Module<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'create'</span><span class="token punctuation">,</span> <span class="token string">'update'</span><span class="token punctuation">,</span> <span class="token string">'remove'</span><span class="token punctuation">,</span> <span class="token string">'destroy'</span><span class="token punctuation">,</span> <span class="token string">'pre'</span><span class="token punctuation">,</span> <span class="token string">'post'</span><span class="token punctuation">]</span>
-
-<span class="token keyword">const</span> cbs<span class="token punctuation">:</span> ModuleHooks <span class="token operator">=</span> <span class="token punctuation">{</span>
-    create<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    update<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    remove<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    destroy<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    pre<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    post<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// 初始化所有的钩子函数结构</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> hooks<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    cbs<span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token comment" spellcheck="true">// 将传入模块的钩子函数添加到cbs对应的钩子函数结构中</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> modules<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">const</span> hook <span class="token operator">=</span> modules<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>hook <span class="token operator">!==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token punctuation">(</span>cbs<span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> as <span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>hook<span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>判断domapi</p>
-<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">const</span> api<span class="token punctuation">:</span> DOMAPI <span class="token operator">=</span> domApi <span class="token operator">!==</span> undefined <span class="token operator">?</span> domApi <span class="token punctuation">:</span> htmlDomApi
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>返回patch函数</p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">return</span> <span class="token keyword">function</span> patch <span class="token punctuation">(</span>oldVnode<span class="token punctuation">:</span> VNode <span class="token operator">|</span> Element<span class="token punctuation">,</span> vnode<span class="token punctuation">:</span> VNode<span class="token punctuation">)</span><span class="token punctuation">:</span> VNode <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// ****</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/29/Vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9ADep%E4%B8%8EWatcher%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/29/Vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9ADep%E4%B8%8EWatcher%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">
-                  Vue数据绑定Dep与Watcher之间的关系
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-11-29 10:54:08 / Modified: 11:16:52" itemprop="dateCreated datePublished" datetime="2019-11-29T10:54:08+08:00">2019-11-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Vue数据绑定dep与Watcher之间的关系"><a href="#Vue数据绑定dep与Watcher之间的关系" class="headerlink" title="Vue数据绑定dep与Watcher之间的关系"></a>Vue数据绑定dep与Watcher之间的关系</h3><ul>
-<li><h5 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a><strong>Dep</strong></h5><ol>
-<li><p>实例创建时机：初始化时，给data的属性进行数据劫持时创建的。</p>
-</li>
-<li><p>个数：与data中的属性一一对应。</p>
-</li>
-<li><p>结构：</p>
-<p>id: 标识</p>
-<p>Subs: [] n个相关的watcher的容器</p>
-</li>
-</ol>
-</li>
-<li><h5 id="Watcher"><a href="#Watcher" class="headerlink" title="Watcher"></a><strong>Watcher</strong></h5><ol>
-<li><p>实例创建的时机：初始化解析大括号表达式/一般指令时创建</p>
-</li>
-<li><p>个数：与模板中表达式（包括一般指令单不包括事件指令）一一对应</p>
-</li>
-<li><p>结构：</p>
-<p>this.cb = cb; // 用于更新界面的回调</p>
-<p>this.vm = vm; // vm</p>
-<p>this.exp = exp; // 对应的表达式</p>
-<p>this.depIds = {depid, dep}; //相关的n个dep的容器对象</p>
-<p>this.value = this.get(); // 当前表达式对应的value</p>
-</li>
-</ol>
-</li>
-<li><h5 id="Dep与Watcher之间的关系"><a href="#Dep与Watcher之间的关系" class="headerlink" title="Dep与Watcher之间的关系"></a><strong>Dep与Watcher之间的关系</strong></h5><ul>
-<li><p>多对多的关系</p>
-<p>data属性 –&gt; Dep –&gt;n个Watcher（模板中有多个表达式使用了此属性： /v-text=”name”）</p>
-<p>表达式 –&gt; Watcher –&gt; n个Dep（多层表达式： a.b.c）</p>
-</li>
-<li><p>什么时候建立</p>
-<p>初始化解析模板中的表达式创建Watcher对象时建立</p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2374,7 +2559,7 @@
                 
                   <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">71</span>
+                    <span class="site-state-item-count">73</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

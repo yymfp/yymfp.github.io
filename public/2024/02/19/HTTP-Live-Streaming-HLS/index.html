@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概述 HLS（HTTP Live Streaming）是由Apple公司定义的用于实时流传输的协议，HLS基于HTTP协议实现，传输内容包括两部分。一是M3U8播放列表，二是TS媒体文件（H.265对应的是FMP4格式的文件）。  特点 基于HTTP协议进行传输，兼容性好 单个片段包含完整的音视频数据以及字幕信息等，不存在音视频同步问题 自适应流：可根据网络情况和设备性能动态调整视频质量和比特率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP Live Streaming (HLS)">
+<meta property="og:url" content="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/index.html">
+<meta property="og:site_name" content="pjy">
+<meta property="og:description" content="概述 HLS（HTTP Live Streaming）是由Apple公司定义的用于实时流传输的协议，HLS基于HTTP协议实现，传输内容包括两部分。一是M3U8播放列表，二是TS媒体文件（H.265对应的是FMP4格式的文件）。  特点 基于HTTP协议进行传输，兼容性好 单个片段包含完整的音视频数据以及字幕信息等，不存在音视频同步问题 自适应流：可根据网络情况和设备性能动态调整视频质量和比特率">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/4B0A0C9B610A4573BCA9DCD0DF2DFCB7.png">
+<meta property="og:image" content="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/WEBRESOURCE7db8da1ac6ab759c2364a5e7cacd4f68.png">
+<meta property="article:published_time" content="2024-02-19T10:41:04.000Z">
+<meta property="article:modified_time" content="2024-02-19T10:47:34.626Z">
+<meta property="article:author" content="pjy">
+<meta property="article:tag" content="音视频">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/4B0A0C9B610A4573BCA9DCD0DF2DFCB7.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HTTP Live Streaming (HLS) | pjy</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">pjy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/19/HTTP-Live-Streaming-HLS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTTP Live Streaming (HLS)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2024-02-19 18:41:04 / Modified: 18:47:34" itemprop="dateCreated datePublished" datetime="2024-02-19T18:41:04+08:00">2024-02-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>HLS（HTTP Live Streaming）是由Apple公司定义的用于实时流传输的协议，HLS基于HTTP协议实现，传输内容包括两部分。一是M3U8播放列表，二是TS媒体文件（H.265对应的是FMP4格式的文件）。</p>
+</blockquote>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>基于HTTP协议进行传输，兼容性好</li>
+<li>单个片段包含完整的音视频数据以及字幕信息等，不存在音视频同步问题</li>
+<li>自适应流：可根据网络情况和设备性能动态调整视频质量和比特率</li>
+<li>支持加解密传输</li>
+<li>支持中间插入广告</li>
+<li>播放延迟较大</li>
+</ul>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ul>
+<li>视频直播：HLS是一种流媒体协议，可以实现实时或准实时的视频播放，因此在各种直播平台（如Twitch，YouTube Live等）中都有应用。</li>
+<li>点播服务：除了直播，HLS也可以用于点播服务，用户可以随时选择观看的内容。</li>
+<li>在线教育：在线教育平台可以使用HLS提供实时的课程直播，或者录制好的课程视频。</li>
+<li>网络电视：一些网络电视服务商也使用HLS技术，提供电视节目的在线播放。</li>
+</ul>
+<h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>通过将整条流切割成一个小的可以通过HTTP下载的媒体文件（TS片段），然后提供一个配套的媒体列表文件（m3u8）提供给客户端，客户端按照列表顺序去拉取这些媒体文件进行播放，视觉上就是在播放一整段流的效果。由于传输层协议用的标准的HTTP协议，HLS可以方便的透过防火墙或者代理服务器以及利用CDN进行分发加速。</p>
+<p><img src="/2024/02/19/HTTP-Live-Streaming-HLS/4B0A0C9B610A4573BCA9DCD0DF2DFCB7.png" alt="image"></p>
+<h2 id="M3U8索引文件"><a href="#M3U8索引文件" class="headerlink" title="M3U8索引文件"></a>M3U8索引文件</h2><p>M3U8文件实质是一个播放列表，其可能是一个媒体播放列表（Media PlayList），或者是一个主列表（Master Playlist）。</p>
+<ul>
+<li><p>媒体播放列表：这种类型的M3U8文件包含了一系列的媒体段（通常是TS或fMP4文件）的URL链接，这些媒体段按照在播放列表中的顺序进行播放。对于点播来说，客户端只需要按照顺序下载片段资源，依次播放即可。而对于直播来说，客户端需要定时重新请求该m3u8文件，拉取最新的片段数据。</p>
+<pre><code>#EXTM3U // 表明该文件是一个 m3u8 文件，必须在文件的第一行
+#EXT-X-VERSION:3 //  HLS 的协议版本号
+#EXT-X-TARGETDURATION:10 // 该标签指定了媒体文件持续时间的最大值,，播放文件列表中的媒体文件在EXTINF标签中定义的持续时间必须小于或者等于该标签指定的持续时间。该标签在播放列表文件中必须出现一次。
+#EXTINF:10,
+http://example.com/1.ts
+#EXTINF:10,
+http://example.com/2.ts
+#EXTINF:10,
+http://example.com/3.ts
+#EXT-X-ENDLIST
+</code></pre></li>
+<li><p>主播放列表：这种类型的M3U8文件并不直接包含媒体内容，而是包含了一系列的媒体播放列表的URL链接。每一个媒体播放列表都代表了同一份媒体内容的不同版本，例如不同的分辨率、不同的码率等。客户端可以根据自身的网络状况和设备性能，从主播放列表中选择最合适的媒体播放列表进行播放。</p>
+<pre><code>#EXTM3U // 表明该文件是一个 m3u8 文件，必须在文件的第一行
+#EXT-X-VERSION:3   //  HLS 的协议版本号
+#EXT-X-STREAM-INF:BANDWIDTH=1280000,RESOLUTION=720x480
+http://example.com/low.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=2560000,RESOLUTION=1280x720
+http://example.com/mid.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=7680000,RESOLUTION=1920x1080
+http://example.com/high.m3u8
+</code></pre></li>
+</ul>
+<h2 id="TS文件"><a href="#TS文件" class="headerlink" title="TS文件"></a>TS文件</h2><p>TS（Transport Stream）是一种音视频封装格式，全称MPEG2-TS。MPEG-TS主要应用于实时传送的节目，比如实时广播的电视节目。</p>
+<p>TS文件（流）可以分为三层：<strong>TS层（Transport Stream）、PES层（Packet Elemental Stream）、ES层（Elementary Stream）</strong>。</p>
+<ul>
+<li>ES层就是音视频数据</li>
+<li>PES层是在音视频数据上加了时间戳等对数据帧的说明信息</li>
+<li>TS层是在PES层上加入了数据流识别和传输的必要信息。TS文件（码流）由多个TS Packet组成的。</li>
+</ul>
+<h2 id="加解密"><a href="#加解密" class="headerlink" title="加解密"></a>加解密</h2><p>HLS协议支持对媒体内容进行AES-128或SAMPLE-AES加密，以保护媒体内容的安全。</p>
+<ol>
+<li>加密流程：</li>
+</ol>
+<ul>
+<li>服务端首先生成一个随机的AES密钥。</li>
+<li>使用这个AES密钥对媒体内容进行AES-128或SAMPLE-AES加密，生成加密后的媒体段。</li>
+<li>将AES密钥加密后存储在服务端，同时生成一个可以用于获取AES密钥的URL链接。</li>
+<li>在M3U8播放列表中，对于每一个加密的媒体段，都会添加一个EXT-X-KEY标签，该标签包含了获取AES密钥的URL链接和加密方法。</li>
+</ul>
+<ol start="2">
+<li>解密流程：</li>
+</ol>
+<ul>
+<li>客户端在解析M3U8播放列表时，发现EXT-X-KEY标签，就知道媒体段是加密的。</li>
+<li>客户端通过EXT-X-KEY标签中的URL链接向服务端请求AES密钥。</li>
+<li>服务端验证客户端的请求后，返回加密的AES密钥。</li>
+<li>客户端解密AES密钥，然后使用AES密钥对媒体段进行解密，得到原始的媒体内容。</li>
+</ul>
+<h2 id="web端如何使用HLS播放云存储视频"><a href="#web端如何使用HLS播放云存储视频" class="headerlink" title="web端如何使用HLS播放云存储视频"></a>web端如何使用HLS播放云存储视频</h2><p><img src="/2024/02/19/HTTP-Live-Streaming-HLS/WEBRESOURCE7db8da1ac6ab759c2364a5e7cacd4f68.png" alt="image"></p>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token keyword">const</span> HlsVideo<span class="token punctuation">:</span> React<span class="token punctuation">.</span>FC<span class="token operator">&lt;</span>IHlsVideoProps<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  debug <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+  keyPreset <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  enableWorker <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  url <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span>
+  hlsRef<span class="token punctuation">,</span>
+  videoRef<span class="token punctuation">,</span>
+  videoProps <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> defaultVideoProps <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useMemo</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+      disablePictureInPicture<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+      autoPlay<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+      controls<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> _videoProps <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>defaultVideoProps<span class="token punctuation">,</span> <span class="token operator">...</span>videoProps <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> hls <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hls</span><span class="token punctuation">(</span><span class="token function">config</span><span class="token punctuation">(</span>debug<span class="token punctuation">,</span> keyPreset<span class="token punctuation">,</span> enableWorker<span class="token punctuation">)</span> as <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hlsRef<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hlsRef<span class="token punctuation">.</span>current <span class="token operator">=</span> hls<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> video <span class="token operator">=</span> videoRef<span class="token punctuation">.</span>current<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hls <span class="token operator">&amp;&amp;</span> video <span class="token operator">&amp;&amp;</span> url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hls<span class="token punctuation">.</span><span class="token function">loadSource</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 加载m3u8</span>
+      hls<span class="token punctuation">.</span><span class="token function">attachMedia</span><span class="token punctuation">(</span>video<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 绑定videoElement和hls实例</span>
+      <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> hls<span class="token punctuation">.</span><span class="token function">detachMedia</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>url<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>video
+      style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token string">"100%"</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token string">"100%"</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      ref<span class="token operator">=</span><span class="token punctuation">{</span>videoRef<span class="token punctuation">}</span>
+      <span class="token punctuation">{</span><span class="token operator">...</span>_videoProps<span class="token punctuation">}</span>
+    <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// @ts-nocheck</span>
+<span class="token keyword">import</span> Hls <span class="token keyword">from</span> <span class="token string">"hls.js"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> KEY_URL <span class="token operator">=</span> <span class="token string">"/api/jarvis/hls/key"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前端网关配置的用于获取密钥的链接（业务鉴权之类的）</span>
+<span class="token keyword">const</span> ORIGIN_KEY_URL <span class="token operator">=</span> <span class="token string">"/api/cloud/key"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// m3u8返回的通用的用于获取密钥的链接</span>
+
+<span class="token keyword">function</span> <span class="token function">ab2str</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> String<span class="token punctuation">.</span>fromCharCode<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">_base64ToArrayBuffer</span><span class="token punctuation">(</span>base64<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// base64 解码</span>
+  <span class="token keyword">const</span> binaryString <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">atob</span><span class="token punctuation">(</span>base64<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> len <span class="token operator">=</span> binaryString<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    bytes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> binaryString<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 二进制数组</span>
+  <span class="token keyword">return</span> bytes<span class="token punctuation">.</span>buffer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> configure <span class="token operator">=</span> <span class="token punctuation">(</span>debug<span class="token punctuation">:</span> <span class="token keyword">boolean</span><span class="token punctuation">,</span> keyPreset<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> enableWorker<span class="token punctuation">:</span> <span class="token keyword">boolean</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  debug<span class="token punctuation">,</span>
+  enableWorker<span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// defaultAudioCodec: 'mp4a.40.2',</span>
+  <span class="token comment" spellcheck="true">// enableWorker: false,</span>
+  <span class="token comment" spellcheck="true">// maxAudioFramesDrift: 23,</span>
+  loader<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> loader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hls<span class="token punctuation">.</span>DefaultConfig<span class="token punctuation">.</span>loader</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Object<span class="token punctuation">.</span><span class="token function">defineProperties</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      stats<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span>stats<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      context<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span>context<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>abort <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>destroy <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> loader<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>load <span class="token operator">=</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> config<span class="token punctuation">,</span> callbacks<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> context<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> onSuccess <span class="token operator">=</span> callbacks<span class="token punctuation">.</span>onSuccess<span class="token punctuation">;</span>
+      callbacks<span class="token punctuation">.</span>onSuccess <span class="token operator">=</span> <span class="token punctuation">(</span>response<span class="token punctuation">,</span> stats<span class="token punctuation">,</span> context1<span class="token punctuation">,</span> networkDetails<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">!==</span> <span class="token string">"manifest"</span> <span class="token operator">&amp;&amp;</span> context1<span class="token punctuation">.</span>url<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"key?devId"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// 针对密钥进行base64解密处理</span>
+          <span class="token keyword">const</span> key <span class="token operator">=</span> keyPreset <span class="token operator">||</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token function">ab2str</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>result<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+          response<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token function">_base64ToArrayBuffer</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">onSuccess</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> stats<span class="token punctuation">,</span> context<span class="token punctuation">,</span> networkDetails<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      loader<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> config<span class="token punctuation">,</span> callbacks<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  xhrSetup<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">:</span> XMLHttpRequest<span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 自定义xhr，替换密钥链接</span>
+    <span class="token keyword">const</span> u <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>ORIGIN_KEY_URL<span class="token punctuation">)</span>
+      <span class="token operator">?</span> KEY_URL <span class="token operator">+</span> <span class="token string">"?"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>url as <span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+      <span class="token punctuation">:</span> url<span class="token punctuation">;</span>
+    xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> u<span class="token punctuation">,</span> <span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> configure<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="HLS直播延迟原因"><a href="#HLS直播延迟原因" class="headerlink" title="HLS直播延迟原因"></a>HLS直播延迟原因</h2><ol>
+<li>存在安全缓冲时长，客户端应该从M3U8文件中倒数第三个分片开始播放</li>
+<li>服务器更新M3U8文件的间隔，理论上服务器需要大于等于一个EXT-X-TARGETDURATION的时长去更新M3u8文件</li>
+<li>CDN缓存机制。若当前源站 M3U8 已经更新到了第四个片段，但是CDN边缘节点还缓存着上一个版本的 M3U8文件（只包含3个片段）。此时就需要等文件的TTL过期，边缘节点才会去获取最新版本的 M3U8 文件。而这个缓存TTL也不能取消，如果每个端上的请求到达CDN边缘节点时都去找源站要最新版本，源站就可能会被流量冲垮。</li>
+<li>服务器处理时间：服务器接收到媒体源数据后，进行切片编码之后再进行传输。</li>
+<li>网络延迟：文件从服务器到客户端中间的网络传输延迟。</li>
+</ol>
+<h2 id="优化延迟方法"><a href="#优化延迟方法" class="headerlink" title="优化延迟方法"></a>优化延迟方法</h2><ol>
+<li>减少客户端安全缓冲时长</li>
+<li>减少服务器更新M3U8文件的间隔</li>
+<li>减小分片长度</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" rel="tag"># 音视频</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="next" title="I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系">
+                <i class="fa fa-chevron-left"></i> I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">pjy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景"><span class="nav-number">3.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心原理"><span class="nav-number">4.</span> <span class="nav-text">核心原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#M3U8索引文件"><span class="nav-number">5.</span> <span class="nav-text">M3U8索引文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TS文件"><span class="nav-number">6.</span> <span class="nav-text">TS文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加解密"><span class="nav-number">7.</span> <span class="nav-text">加解密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web端如何使用HLS播放云存储视频"><span class="nav-number">8.</span> <span class="nav-text">web端如何使用HLS播放云存储视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HLS直播延迟原因"><span class="nav-number">9.</span> <span class="nav-text">HLS直播延迟原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化延迟方法"><span class="nav-number">10.</span> <span class="nav-text">优化延迟方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pjy</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'c9b2f05dad097ee5b6ba',
+          clientSecret: '3afeccd217f8ff6eb1b42d637510abb1892a1410',
+          repo: 'yymfp.github.io',
+          id: md5(window.location.pathname),
+          owner: 'yymfp',
+          admin: ['yymfp'],
+          labels: 'Gitalk',
+          perPage: 15,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false,
+        })
+
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
