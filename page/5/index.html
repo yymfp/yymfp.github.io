@@ -217,7 +217,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -241,7 +241,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -284,6 +284,258 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/22/redux/" itemprop="url">
+                  redux
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-22 17:14:55" itemprop="dateCreated datePublished" datetime="2018-11-22T17:14:55+08:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-08-06 13:44:47" itemprop="dateModified" datetime="2019-08-06T13:44:47+08:00">2019-08-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h3><h5 id="使用方式："><a href="#使用方式：" class="headerlink" title="使用方式："></a>使用方式：</h5><p>安装：<code>npm install redux react-redux --save</code></p>
+<ol>
+<li><p>首先需要引入</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span>createStore<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'redux'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Provider<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>创建<code>action</code></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">const</span> changeColor<span class="token operator">=</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span>action<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>state<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">{</span>
+        themeColor<span class="token punctuation">:</span><span class="token string">'red'</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token string">'CHANGE_COLOR'</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token operator">...</span>state<span class="token punctuation">,</span>themeColor<span class="token punctuation">:</span>action<span class="token punctuation">.</span>themeColor<span class="token punctuation">}</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> state
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>创建生成<code>store</code></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span>changeColor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>使用<code>Provider</code>组件作为根组件将<code>store</code>作为<code>props</code>传入</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span> <span class="token attr-name">store</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Index</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Footer</span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Provider</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>子组件使用</p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">'prop-types'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>connect<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Header</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span><span class="token punctuation">{</span>
+    state contentType<span class="token operator">=</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//必须添加类型验证才能拿到state数据</span>
+        store<span class="token punctuation">:</span>PropTypes<span class="token punctuation">.</span>object
+    <span class="token punctuation">}</span>
+    <span class="token operator">...</span>
+    <span class="token comment" spellcheck="true">//子组件使用数据，this.props.themeColor</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> mapStateTopProps<span class="token operator">=</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//通过connect高阶组件将themeColor属性添加进去&lt;Header themeColor={state.themeColor}>&lt;/Header></span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        themeColor<span class="token punctuation">:</span>state<span class="token punctuation">.</span>themeColor
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> mapDispatchToProps<span class="token operator">=</span><span class="token punctuation">(</span>dispatch<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//通过connect高阶组件将onSwitchColor属性方法添加进去&lt;Header onSwitchColor={(color)=>{dispatch({type:'CHANGE_COLOR',themeColor:color})}}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        onSwitchColor<span class="token punctuation">:</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+            <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token punctuation">:</span><span class="token string">'CHANGE_COLOR'</span><span class="token punctuation">,</span>themeColor<span class="token punctuation">:</span>color<span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+Header<span class="token operator">=</span><span class="token function">connect</span><span class="token punctuation">(</span>mapStateTopProps<span class="token punctuation">,</span>mapDispatchToProps<span class="token punctuation">)</span><span class="token punctuation">(</span>Header<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Header
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<p><strong><code>createStore</code>的原理类似这样：</strong></p>
+<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token keyword">function</span> createStore <span class="token punctuation">(</span>reducer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">const</span> listeners <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> subscribe <span class="token operator">=</span> <span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> listeners<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> getState <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> state
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    state <span class="token operator">=</span> <span class="token function">reducer</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+    listeners<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">listener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 初始化 state</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch<span class="token punctuation">,</span> subscribe <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li><code>dispatch</code>：分发<code>action</code></li>
+<li><code>subscribe</code>：注册<code>listener</code>，监听<code>state</code>变化</li>
+<li><code>getState</code>：读取<code>store tree</code>中所有<code>state</code></li>
+<li><code>replaceReucer</code>：替换<code>reducer</code>，改变<code>state</code>更新逻辑</li>
+<li><code>reducer</code>就是类似上边<code>action</code>步骤的<code>changeColor</code></li>
+</ol>
+<h5 id="Redux基本原理图："><a href="#Redux基本原理图：" class="headerlink" title="Redux基本原理图："></a>Redux基本原理图：</h5><p><img src="/2018/11/22/redux/417252aa40fd5841805aee7017fc73cd.png" alt></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -339,14 +591,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
+              <time title="Post created: 2018-10-25 10:37:09" itemprop="dateCreated datePublished" datetime="2018-10-25T10:37:09+08:00">2018-10-25</time>
             
 
             
@@ -363,7 +615,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-06 13:47:50" itemprop="dateModified" datetime="2019-08-06T13:47:50+08:00">2019-08-06</time>
+                <time title="Updated at: 2019-08-06 13:47:50" itemprop="dateModified" datetime="2019-08-06T13:47:50+08:00">2019-08-06</time>
               
             
           </span>
@@ -377,7 +629,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -566,14 +818,14 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
+              <time title="Post created: 2018-10-24 17:19:44" itemprop="dateCreated datePublished" datetime="2018-10-24T17:19:44+08:00">2018-10-24</time>
             
 
             
@@ -590,7 +842,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-06 13:44:29" itemprop="dateModified" datetime="2019-08-06T13:44:29+08:00">2019-08-06</time>
+                <time title="Updated at: 2019-08-06 13:44:29" itemprop="dateModified" datetime="2019-08-06T13:44:29+08:00">2019-08-06</time>
               
             
           </span>
@@ -604,7 +856,7 @@ module<span class="token punctuation">.</span>exports<span class="token operator
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1439,14 +1691,14 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-23 16:20:52" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
+              <time title="Post created: 2018-10-23 16:20:52" itemprop="dateCreated datePublished" datetime="2018-10-23T16:20:52+08:00">2018-10-23</time>
             
 
             
@@ -1463,7 +1715,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-01 11:38:14" itemprop="dateModified" datetime="2019-06-01T11:38:14+08:00">2019-06-01</time>
+                <time title="Updated at: 2019-06-01 11:38:14" itemprop="dateModified" datetime="2019-06-01T11:38:14+08:00">2019-06-01</time>
               
             
           </span>
@@ -1477,7 +1729,7 @@ textChange<span class="token operator">=</span> <span class="token punctuation">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1795,14 +2047,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-22 19:22:01" itemprop="dateCreated datePublished" datetime="2018-10-22T19:22:01+08:00">2018-10-22</time>
+              <time title="Post created: 2018-10-22 19:22:01" itemprop="dateCreated datePublished" datetime="2018-10-22T19:22:01+08:00">2018-10-22</time>
             
 
             
@@ -1819,7 +2071,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-06-01 11:41:22" itemprop="dateModified" datetime="2019-06-01T11:41:22+08:00">2019-06-01</time>
+                <time title="Updated at: 2019-06-01 11:41:22" itemprop="dateModified" datetime="2019-06-01T11:41:22+08:00">2019-06-01</time>
               
             
           </span>
@@ -1833,7 +2085,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2106,14 +2358,14 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-21 16:30:32" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
+              <time title="Post created: 2018-10-21 16:30:32" itemprop="dateCreated datePublished" datetime="2018-10-21T16:30:32+08:00">2018-10-21</time>
             
 
             
@@ -2130,7 +2382,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-06 13:47:10" itemprop="dateModified" datetime="2019-08-06T13:47:10+08:00">2019-08-06</time>
+                <time title="Updated at: 2019-08-06 13:47:10" itemprop="dateModified" datetime="2019-08-06T13:47:10+08:00">2019-08-06</time>
               
             
           </span>
@@ -2144,7 +2396,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2319,14 +2571,14 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-21 12:25:33" itemprop="dateCreated datePublished" datetime="2018-10-21T12:25:33+08:00">2018-10-21</time>
+              <time title="Post created: 2018-10-21 12:25:33" itemprop="dateCreated datePublished" datetime="2018-10-21T12:25:33+08:00">2018-10-21</time>
             
 
             
@@ -2343,7 +2595,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-06 13:35:51" itemprop="dateModified" datetime="2019-08-06T13:35:51+08:00">2019-08-06</time>
+                <time title="Updated at: 2019-08-06 13:35:51" itemprop="dateModified" datetime="2019-08-06T13:35:51+08:00">2019-08-06</time>
               
             
           </span>
@@ -2357,7 +2609,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2728,14 +2980,14 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-20 14:41:41" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
+              <time title="Post created: 2018-10-20 14:41:41" itemprop="dateCreated datePublished" datetime="2018-10-20T14:41:41+08:00">2018-10-20</time>
             
 
             
@@ -2752,7 +3004,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-01 17:05:50" itemprop="dateModified" datetime="2019-05-01T17:05:50+08:00">2019-05-01</time>
+                <time title="Updated at: 2019-05-01 17:05:50" itemprop="dateModified" datetime="2019-05-01T17:05:50+08:00">2019-05-01</time>
               
             
           </span>
@@ -2766,7 +3018,7 @@ o<span class="token punctuation">.</span><span class="token function">f</span><s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3092,14 +3344,14 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
+              <time title="Post created: 2018-10-20 11:16:56" itemprop="dateCreated datePublished" datetime="2018-10-20T11:16:56+08:00">2018-10-20</time>
             
 
             
@@ -3116,7 +3368,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-12-04 17:16:49" itemprop="dateModified" datetime="2019-12-04T17:16:49+08:00">2019-12-04</time>
+                <time title="Updated at: 2019-12-04 17:16:49" itemprop="dateModified" datetime="2019-12-04T17:16:49+08:00">2019-12-04</time>
               
             
           </span>
@@ -3130,7 +3382,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3534,14 +3786,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-10-19 11:38:39" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
+              <time title="Post created: 2018-10-19 11:38:39" itemprop="dateCreated datePublished" datetime="2018-10-19T11:38:39+08:00">2018-10-19</time>
             
 
             
@@ -3558,7 +3810,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-06 13:39:56" itemprop="dateModified" datetime="2019-08-06T13:39:56+08:00">2019-08-06</time>
+                <time title="Updated at: 2019-08-06 13:39:56" itemprop="dateModified" datetime="2019-08-06T13:39:56+08:00">2019-08-06</time>
               
             
           </span>
@@ -3572,7 +3824,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
@@ -3740,298 +3992,6 @@ Switched to branch 'dev'
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/18/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/" itemprop="url">
-                  事件捕获和事件冒泡
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-10-18 13:58:44" itemprop="dateCreated datePublished" datetime="2018-10-18T13:58:44+08:00">2018-10-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-12 10:42:42" itemprop="dateModified" datetime="2019-08-12T10:42:42+08:00">2019-08-12</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="事件捕获和事件冒泡"><a href="#事件捕获和事件冒泡" class="headerlink" title="事件捕获和事件冒泡"></a>事件捕获和事件冒泡</h3><p>在介绍两者之前首先需要了解监听器:</p>
-<blockquote>
-<p><code>EventTarget.addEventListener()</code>：方法将指定的监听器注册到<code>EventTarget</code>上，当该对象触发指定的事件时，指定的回掉函数就会被执行。事件的目标可以是一个文档上的元素<code>Element,Document</code>和<code>Window</code>或者任何其他支持事件的对象（比如<code>XMLHttpRequest</code>）。</p>
-<p>语法：</p>
-<pre class="line-numbers language-js"><code class="language-js">element<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">,</span>useCapture<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li><p>event（必需）：字符串，指定事件名。<em>注意不要使用”on”前缀，例如”onclick”应该使用”click”</em></p>
-</li>
-<li><p>function（必需）：指定被监听的事件触发时所要执行的回掉函数。</p>
-</li>
-<li><p>useCapture（可选）：布尔值，指定事件是否在捕获或冒泡阶段执行。可能值：true :事件句柄在捕获阶段执行。false:默认。事件句柄在冒泡阶段执行。</p>
-</li>
-</ul>
-</blockquote>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span>callfunction<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//事件捕获</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span>callfunction<span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//事件冒泡</span>
-    <span class="token keyword">function</span> <span class="token function">callfunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"demo"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">"hello world!"</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myBtn<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        点击
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>一个完整的事件流：从window开始，最后回到window的过程。</strong></p>
-<ol>
-<li><h5 id="事件捕获：window-gt-document-gt-body-gt-button（从window开始一层一层到真正触发事件的元素）"><a href="#事件捕获：window-gt-document-gt-body-gt-button（从window开始一层一层到真正触发事件的元素）" class="headerlink" title="事件捕获：window&gt; document&gt;body&gt;button（从window开始一层一层到真正触发事件的元素）"></a>事件捕获：window&gt; document&gt;body&gt;button（从window开始一层一层到真正触发事件的元素）</h5></li>
-<li><h5 id="事件冒泡：button-gt-body-gt-document-gt-window（从当前触发事件的元素开始，一层一层冒泡到window）"><a href="#事件冒泡：button-gt-body-gt-document-gt-window（从当前触发事件的元素开始，一层一层冒泡到window）" class="headerlink" title="事件冒泡：button&gt;body&gt;document&gt;window（从当前触发事件的元素开始，一层一层冒泡到window）"></a>事件冒泡：button&gt;body&gt;document&gt;window（从当前触发事件的元素开始，一层一层冒泡到window）</h5></li>
-<li><h5 id="两者刚好相反"><a href="#两者刚好相反" class="headerlink" title="两者刚好相反"></a>两者刚好相反</h5></li>
-</ol>
-<p><img src="/2018/10/18/事件捕获和事件冒泡/b2a98b1d408c0923807704ad7ac95fde.png" alt></p>
-<h5 id="如何阻止事件冒泡-捕获和默认行为"><a href="#如何阻止事件冒泡-捕获和默认行为" class="headerlink" title="如何阻止事件冒泡/捕获和默认行为"></a>如何阻止事件冒泡/捕获和默认行为</h5><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//jquery阻止默认行为和冒泡</span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">//js</span>
-<span class="token keyword">let</span> Obtn<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"myBtn"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-Obtn<span class="token punctuation">.</span>onclick<span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> e<span class="token operator">=</span>ev<span class="token operator">||</span>event<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//阻止事件冒泡  </span>
-    e<span class="token punctuation">.</span>cancelBubble<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
-    e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    e<span class="token punctuation">.</span><span class="token function">stopImmediatePropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//阻止默认行为，但不阻止冒泡</span>
-    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><em>stoppropagation属于W3C标准，试用于Firefox等浏览器，但是不支持IE浏览器相反cancelBubble不符合W3C标准，而且只支持IE浏览器。所以很多时候，我们都要结合起来用。不过，cancelBubble在新版本chrome,opera浏览器中已经支持。</em></p>
-<p><strong>也可以使用新增事件stopImmediatePropagation()方法来阻止事件捕获和事件冒泡</strong></p>
-<p>那么 stopImmediatePropagation() 和 stopPropagation()的区别在哪儿呢？</p>
-<p>　　后者只会阻止冒泡或者是捕获。 但是前者除此之外还会阻止该元素的其他事件发生，但是后者就不会阻止其他事件的发生</p>
-<h5 id="事件代理（事件委托）"><a href="#事件代理（事件委托）" class="headerlink" title="事件代理（事件委托）"></a>事件代理（事件委托）</h5><p><strong>原理：利用事件的冒泡原理来实现的。处在深层的元素触发的事件，最终会冒泡到其父层上，在绑定事件时，利用这个原理，对其父级进行事件绑定。</strong></p>
-<p><strong>举例：实现鼠标滑过，改变背景</strong></p>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>li1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>li2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>li3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>不使用事件代理：</strong></p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"li"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"mouseover"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">siblings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"white"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><strong>使用事件代理：</strong></p>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"ul"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"mouseover"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> e<span class="token operator">=</span>e<span class="token operator">||</span>event<span class="token punctuation">;</span>
-    <span class="token function">$</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">siblings</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">"background"</span><span class="token punctuation">,</span><span class="token string">"white"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>事件委托与事件不委托之间区别：</strong></p>
-<ol>
-<li>事件委托不需要遍历要操作的元素结点，事件不委托需要遍历要操作的元素结点</li>
-<li>事件委托减少操作dom的次数，对性能优化，事件不委托操作的dom次数较多</li>
-<li>事件委托所定义的事件，对新创建的元素结点也可起到作用，而不使用事件委托，对新添加的结点，需要重新为其绑定相关事件。</li>
-</ol>
-<p><strong>event.target &amp; event.currentTarget两者的区别</strong></p>
-<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>c<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>d<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-      <span class="token string">'target:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">+</span> <span class="token string">'&amp;currentTarget:'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>id
-    <span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>当我们点击最里层的元素d的时候，会依次输出:</p>
-<pre class="line-numbers language-js"><code class="language-js">target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>d
-target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>c
-target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>b
-target<span class="token punctuation">:</span>d<span class="token operator">&amp;</span>currentTarget<span class="token punctuation">:</span>a
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>从输出中我们可以看到，<code>event.target</code>指向引起触发事件的元素，而<code>event.currentTarget</code>则是事件绑定的元素，只有被点击的那个目标元素的<code>event.target</code>才会等于<code>event.currentTarget</code>。<strong>也就是说，event.currentTarget始终是监听事件者，而event.target是事件的真正发出者</strong>。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -4078,8 +4038,8 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
                 
                   <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -4104,7 +4064,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -4167,7 +4127,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -4220,7 +4180,7 @@ target<span class="token punctuation">:</span>d<span class="token operator">&amp
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 

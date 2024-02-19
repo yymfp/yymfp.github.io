@@ -217,7 +217,7 @@
           
           <li class="menu-item menu-item-home menu-item-active">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -241,7 +241,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -284,6 +284,233 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">
+                  I帧、P帧、B帧、GOP、IDR 和PTS, DTS之间的关系
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2024-02-19 18:29:15 / Updated at: 18:36:40" itemprop="dateCreated datePublished" datetime="2024-02-19T18:29:15+08:00">2024-02-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-视频传输原理"><a href="#1-视频传输原理" class="headerlink" title="1. 视频传输原理"></a>1. 视频传输原理</h3><p>视频是利用人眼视觉暂留的原理，通过播放一系列的图片，使人眼产生运动的感觉。单纯传输视频画面，视频量非常大，对现有的网络和存储来说是不可接受的。为了能够使视频便于传输和存储，人们发现视频有大量重复的信息，如果将重复信息在发送端去掉，在接收端恢复出来，这样就大大减少了视频数据的文件，因此就有了H.264、H.265、VP8、VP9等视频压缩标准。</p>
+<h3 id="2-视频播放器原理"><a href="#2-视频播放器原理" class="headerlink" title="2. 视频播放器原理"></a>2. 视频播放器原理</h3><p>视频播放器播放一个互联网上的视频文件，需要经过以及几个步骤：解协议、解封装、解码音视频以及音视频同步。完整过程如下图所示：<br><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/2428C12B709F42D38859BA4234F61E5D.png" alt="image"></p>
+<p><strong>解协议</strong>：作用就是将流媒体协议的数据解析为标准的相应的封装格式数据（HTTP/RTMP等）</p>
+<p><strong>解封装</strong>：作用就是将输入的封装格式的数据分离成为视频流压缩编码数据和音频流压缩编码数据。（MP4/TS等）</p>
+<p><strong>解码</strong>：作用就是将音视频压缩编码数据解码成为非压缩的音视频原始数据。</p>
+<ul>
+<li><p>音频：MP3/AAC –&gt; PCM </p>
+</li>
+<li><p>视频：H.264/VP8 —&gt; YUV/RGB</p>
+</li>
+</ul>
+<p><strong>音视频同步</strong>：根据解封装模块处理过程中获取到的参数信息，同步解码出来的音频和视频数据，并将音视频数据送到显卡和声卡中播放。</p>
+<h3 id="3-帧内预测和帧间预测"><a href="#3-帧内预测和帧间预测" class="headerlink" title="3. 帧内预测和帧间预测"></a>3. 帧内预测和帧间预测</h3><p>以下方图片为例。图片显示了两个视频帧（彼此相邻），有一个黑色像素的矩形块在其中移动。在第一帧中，该块位于图像左侧，而第二帧中它移动到了右侧。如何压缩帧2图像数据呢？</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/504B85A8EA314E70BC3BB9C865A14FB4.png" alt="image"><br>大致步骤：</p>
+<ul>
+<li><p>将视频分解成为多个像素块（宏块），并逐一压缩。</p>
+</li>
+<li><p>为了压缩每个宏块，首先在当前帧（<strong>帧内预测</strong>）和前后帧（<strong>帧间预测</strong>）中搜索，找到与我们想要压缩的宏块相似的宏块。</p>
+</li>
+<li><p>记录最佳匹配的宏块的位置（位于哪一帧以及在该帧中的位置）。然后，两个宏块之间的差异被压缩，并和位置信息一起被发送给解码器。</p>
+</li>
+</ul>
+<h3 id="4-I帧"><a href="#4-I帧" class="headerlink" title="4. I帧"></a>4. I帧</h3><p>I帧：即Intra-coded picture（帧内编码图像帧），I帧表示关键帧，可以理解为这一帧画面的完整保留；解码时只需要本帧数据就可以完成（因为包含完整画面）。也就是说I帧只会进行<strong>帧内预测</strong>，匹配相似的宏块进行压缩。</p>
+<p><strong>I帧的特点</strong>：</p>
+<ol>
+<li>它是一个全帧压缩编码帧。它将全帧图像信息进行JPEG压缩编码及传输；</li>
+<li>解码时仅用I帧的数据就可重构完整图像； </li>
+<li>I帧描述了图像背景和运动主体的详情；</li>
+<li>I帧是P帧和B帧的参考帧（其质量直接影响到同组内以后各帧的质量）；</li>
+<li>I帧是帧组GOP的基础帧（第一帧），在一组中只有一个I帧；</li>
+<li>I帧所占数据的信息量比较大；</li>
+</ol>
+<h3 id="5-P帧"><a href="#5-P帧" class="headerlink" title="5. P帧"></a>5. P帧</h3><p>P帧：即Predictive-coded Picture（<strong>前向预测编码图像帧</strong>）。P帧表示的是这一帧跟之前的一个关键帧（或P帧）的差别，解码时需要用之前缓存的画面叠加上本帧定义的差别，生成最终画面。（也就是差别帧，P帧没有完整画面数据，只有与前一帧的画面差别的数据）</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/9DED6512254D4CF0A117E6B1AE5EE402.png" alt="image"></p>
+<p><strong>P帧的预测与重构</strong>：P帧是以前面I/P帧为参考帧，在前面的I/P帧中找出P帧“某点”的预测值和运动矢量，取预测差值和运动矢量一起传送。在接收端根据运动矢量从I/P帧中找出P帧“某点”的预测值并与差值相加以得到P帧“某点”样值,从而可得到完整的P帧。</p>
+<p><strong>P帧特点</strong>：</p>
+<ol>
+<li>P帧采用运动补偿的方法传送它与前面的I或P帧的差值及运动矢量(预测误差);</li>
+<li>解码时必须将I帧中的预测值与预测误差求和后才能重构完整的P帧图像;</li>
+<li>P帧属于前向预测的帧间预测。它只参考前面最靠近它的I帧或P帧;</li>
+<li>P帧可以是其后面P帧的参考帧,也可以是其前后的B帧的参考帧;</li>
+<li>由于P帧是参考帧,它可能造成解码错误的扩散;</li>
+<li>由于是差值传送,P帧的压缩比较高。</li>
+</ol>
+<h3 id="6-B帧"><a href="#6-B帧" class="headerlink" title="6. B帧"></a>6. B帧</h3><p>B帧：即Bidirectionally predicted picture（<strong>双向预测编码图像帧</strong>)。B帧是双向差别帧，也就是B帧记录的是本帧与前后帧的差别，换言之，要解码B帧，不仅要取得之前的缓存画面，还要解码之后的画面，通过前后画面的与本帧数据的叠加取得最终的画面。B帧压缩率高，但是解码时比较耗CPU。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/5DDB5B88A2924C6A840C41533AE0920D.png" alt="image"></p>
+<p><strong>B帧的预测与重构</strong>：B帧以前面的I或P帧和后面的P帧为参考帧,“找出”B帧“某点”的预测值和两个运动矢量,并取预测差值和运动矢量传送。接收端根据运动矢量在两个参考帧中“找出(算出)”预测值并与差值求和,得到B帧“某点”样值,从而可得到完整的B帧。采用运动预测的方式进行帧间双向预测编码。</p>
+<p><strong>B帧的特点</strong>：</p>
+<ol>
+<li>B帧是由前面的I或P帧和后面的P帧来进行预测的;</li>
+<li>B帧传送的是它与前面的I帧或P帧和后面的P帧之间的预测误差及运动矢量;</li>
+<li>B帧是双向预测编码帧;</li>
+<li>B帧压缩比最高,因为它只反映参考帧间运动主体的变化情况,预测比较准确;</li>
+<li>B帧不是参考帧,不会造成解码错误的扩散</li>
+</ol>
+<h3 id="7-GOP（序列）和IDR"><a href="#7-GOP（序列）和IDR" class="headerlink" title="7. GOP（序列）和IDR"></a>7. GOP（序列）和IDR</h3><p><strong>序列</strong>：一个序列就是一段内容差异不太大的图像编码后生成的一串数据流。当运动变化比较少时，一个序列可以很长，因为运动变化少就代表图像画面的内容变动很小，所以就可以编一个I帧，然后一直P帧、B帧了。当运动变化多时，可能一个序列就比较短了，比如就包含一个I帧和3、4个P帧。</p>
+<p><strong>IDR</strong>：即立即刷新图像，是一个序列的第一个图像，IDR图像都是I帧图像。引入 IDR 图像是为了解码的重同步，当解码器解码到 IDR 图像时，立即将参考帧队列清空，将已解码的数据全部输出或抛弃，重新查找参数集，开始一个新的序列。这样，如果前一个序列出现重大错误，在这里可以获得重新同步的机会。IDR图像之后的图像永远不会使用IDR之前的图像的数据来解码。</p>
+<p><strong>GOP</strong>：即Group of picture（<strong>图像组</strong>），指两个I帧之间的距离，两个I帧之间形成一组图片，就是GOP。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/8AC59C17C15A4885A126F0B3B824E20B.png" alt="image"></p>
+<h3 id="为什么需要B帧："><a href="#为什么需要B帧：" class="headerlink" title="==为什么需要B帧：=="></a>==为什么需要B帧：==</h3><p>想要理解B帧的作用，我们需要先理解呈现顺序和编解码顺序的概念。<br>以I帧和P帧为例。如果你只使用了这两种类型的帧，那么每一帧要么参考自身（I帧），要么参考前一帧（P帧）。因此，帧可以以相同的顺序进出编码器。这里，呈现顺序（或显示顺序）与编码、解码顺序相同。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/D7B775D11EB743F094F9802ACDF78DBA.png" alt="image"></p>
+<p>网络上的电影很多都采用了B帧，因为B帧记录的是前后帧的差别，比P帧能节约更多的空间，但这样一来，文件小了，解码器就麻烦了，因为在解码时，不仅要用之前缓存的画面，还要知道下一个I或者P的画面（也就是说要预读预解码），而且，B帧不能简单地丢掉，因为B帧其实也包含了画面信息，如果简单丢掉，并用之前的画面简单重复，就会造成画面卡（其实就是丢帧了），并且由于网络上的电影为了节约空间，往往使用相当多的B帧，B帧用的多，对不支持B帧的播放器就造成更大的困扰，画面也就越卡。</p>
+<p><strong>下图编解码顺序：IPBBPBB…I</strong></p>
+<p><strong>呈现顺序：IBBPBBP…I</strong></p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/B670A19A85B547999C298B6BA314E0F1.png" alt="image"></p>
+<h3 id="8-PTS和DTS"><a href="#8-PTS和DTS" class="headerlink" title="8. PTS和DTS"></a>8. PTS和DTS</h3><p>为什么会有PTS和DTS的概念</p>
+<p>通过上面的解释可以看出：P帧需要参考前面的I帧或P帧才可以生成一张完整的图片，而B帧则需要参考前面的I帧或P帧以及后面的P帧才可以生成一张完整的图片。这样一来就有一个问题：在视频流中，先到来的B帧无法理解解码，需要等待它依赖的后面的P帧先解码完成才行，这样一来播放时间与解码时间就不一致了，所以需要针对这种顺序进行重新排序，这时就引入了另外的两个概念：DTS和PTS。</p>
+<p><strong>DTS（Decoding Time Stamp）</strong>：即<strong>解码时间戳</strong>，这个时间戳的意义在于告诉播放器该在什么时候解码这一帧的数据。</p>
+<p><strong>PTS（Presentation Time Stamp）</strong>：即<strong>显示时间戳</strong>，这个时间戳用来告诉播放器该在什么时候显示这一帧的数据。</p>
+<p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/CBED4F4AC4EC45B78044E27BA0CB6A8B.png" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -339,14 +566,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2024-02-19 13:56:05 / Modified: 15:42:51" itemprop="dateCreated datePublished" datetime="2024-02-19T13:56:05+08:00">2024-02-19</time>
+              <time title="Post created: 2024-02-19 13:56:05 / Updated at: 15:42:51" itemprop="dateCreated datePublished" datetime="2024-02-19T13:56:05+08:00">2024-02-19</time>
             
 
             
@@ -365,7 +592,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -572,14 +799,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-08-11 09:58:16 / Modified: 10:34:31" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:16+08:00">2020-08-11</time>
+              <time title="Post created: 2020-08-11 09:58:16 / Updated at: 10:34:31" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:16+08:00">2020-08-11</time>
             
 
             
@@ -598,7 +825,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -765,14 +992,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-08-11 09:58:03 / Modified: 10:12:24" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:03+08:00">2020-08-11</time>
+              <time title="Post created: 2020-08-11 09:58:03 / Updated at: 10:12:24" itemprop="dateCreated datePublished" datetime="2020-08-11T09:58:03+08:00">2020-08-11</time>
             
 
             
@@ -791,7 +1018,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -952,14 +1179,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-08-09 10:35:08 / Modified: 10:37:09" itemprop="dateCreated datePublished" datetime="2020-08-09T10:35:08+08:00">2020-08-09</time>
+              <time title="Post created: 2020-08-09 10:35:08 / Updated at: 10:37:09" itemprop="dateCreated datePublished" datetime="2020-08-09T10:35:08+08:00">2020-08-09</time>
             
 
             
@@ -978,7 +1205,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1130,14 +1357,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-08-07 14:08:33" itemprop="dateCreated datePublished" datetime="2020-08-07T14:08:33+08:00">2020-08-07</time>
+              <time title="Post created: 2020-08-07 14:08:33" itemprop="dateCreated datePublished" datetime="2020-08-07T14:08:33+08:00">2020-08-07</time>
             
 
             
@@ -1154,7 +1381,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-08-10 15:58:10" itemprop="dateModified" datetime="2020-08-10T15:58:10+08:00">2020-08-10</time>
+                <time title="Updated at: 2020-08-10 15:58:10" itemprop="dateModified" datetime="2020-08-10T15:58:10+08:00">2020-08-10</time>
               
             
           </span>
@@ -1168,7 +1395,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1355,14 +1582,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-08-05 16:11:04 / Modified: 17:32:40" itemprop="dateCreated datePublished" datetime="2020-08-05T16:11:04+08:00">2020-08-05</time>
+              <time title="Post created: 2020-08-05 16:11:04 / Updated at: 17:32:40" itemprop="dateCreated datePublished" datetime="2020-08-05T16:11:04+08:00">2020-08-05</time>
             
 
             
@@ -1381,7 +1608,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1572,14 +1799,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-08-05 14:46:17" itemprop="dateCreated datePublished" datetime="2020-08-05T14:46:17+08:00">2020-08-05</time>
+              <time title="Post created: 2020-08-05 14:46:17" itemprop="dateCreated datePublished" datetime="2020-08-05T14:46:17+08:00">2020-08-05</time>
             
 
             
@@ -1596,7 +1823,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-08-11 10:30:18" itemprop="dateModified" datetime="2020-08-11T10:30:18+08:00">2020-08-11</time>
+                <time title="Updated at: 2020-08-11 10:30:18" itemprop="dateModified" datetime="2020-08-11T10:30:18+08:00">2020-08-11</time>
               
             
           </span>
@@ -1610,7 +1837,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1766,14 +1993,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-07-30 14:13:27 / Modified: 15:11:13" itemprop="dateCreated datePublished" datetime="2020-07-30T14:13:27+08:00">2020-07-30</time>
+              <time title="Post created: 2020-07-30 14:13:27 / Updated at: 15:11:13" itemprop="dateCreated datePublished" datetime="2020-07-30T14:13:27+08:00">2020-07-30</time>
             
 
             
@@ -1792,7 +2019,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1931,14 +2158,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-07-30 10:40:35 / Modified: 16:52:42" itemprop="dateCreated datePublished" datetime="2020-07-30T10:40:35+08:00">2020-07-30</time>
+              <time title="Post created: 2020-07-30 10:40:35 / Updated at: 16:52:42" itemprop="dateCreated datePublished" datetime="2020-07-30T10:40:35+08:00">2020-07-30</time>
             
 
             
@@ -1957,7 +2184,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2134,200 +2361,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/29/Vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9ADep%E4%B8%8EWatcher%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/29/Vue%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9ADep%E4%B8%8EWatcher%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">
-                  Vue数据绑定Dep与Watcher之间的关系
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-11-29 10:54:08 / Modified: 11:16:52" itemprop="dateCreated datePublished" datetime="2019-11-29T10:54:08+08:00">2019-11-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Vue数据绑定dep与Watcher之间的关系"><a href="#Vue数据绑定dep与Watcher之间的关系" class="headerlink" title="Vue数据绑定dep与Watcher之间的关系"></a>Vue数据绑定dep与Watcher之间的关系</h3><ul>
-<li><h5 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a><strong>Dep</strong></h5><ol>
-<li><p>实例创建时机：初始化时，给data的属性进行数据劫持时创建的。</p>
-</li>
-<li><p>个数：与data中的属性一一对应。</p>
-</li>
-<li><p>结构：</p>
-<p>id: 标识</p>
-<p>Subs: [] n个相关的watcher的容器</p>
-</li>
-</ol>
-</li>
-<li><h5 id="Watcher"><a href="#Watcher" class="headerlink" title="Watcher"></a><strong>Watcher</strong></h5><ol>
-<li><p>实例创建的时机：初始化解析大括号表达式/一般指令时创建</p>
-</li>
-<li><p>个数：与模板中表达式（包括一般指令单不包括事件指令）一一对应</p>
-</li>
-<li><p>结构：</p>
-<p>this.cb = cb; // 用于更新界面的回调</p>
-<p>this.vm = vm; // vm</p>
-<p>this.exp = exp; // 对应的表达式</p>
-<p>this.depIds = {depid, dep}; //相关的n个dep的容器对象</p>
-<p>this.value = this.get(); // 当前表达式对应的value</p>
-</li>
-</ol>
-</li>
-<li><h5 id="Dep与Watcher之间的关系"><a href="#Dep与Watcher之间的关系" class="headerlink" title="Dep与Watcher之间的关系"></a><strong>Dep与Watcher之间的关系</strong></h5><ul>
-<li><p>多对多的关系</p>
-<p>data属性 –&gt; Dep –&gt;n个Watcher（模板中有多个表达式使用了此属性： /v-text=”name”）</p>
-<p>表达式 –&gt; Watcher –&gt; n个Dep（多层表达式： a.b.c）</p>
-</li>
-<li><p>什么时候建立</p>
-<p>初始化解析模板中的表达式创建Watcher对象时建立</p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2374,8 +2407,8 @@
                 
                   <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">71</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">72</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -2400,7 +2433,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -2463,7 +2496,7 @@
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -2516,7 +2549,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 
