@@ -217,7 +217,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -241,7 +241,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -284,6 +284,244 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/LeetCode%E7%9B%B8%E5%85%B3%E9%A2%98%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/10/LeetCode%E7%9B%B8%E5%85%B3%E9%A2%98%E7%9B%AE/" itemprop="url">
+                  LeetCode相关题目
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-03-10 22:18:31" itemprop="dateCreated datePublished" datetime="2019-03-10T22:18:31+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="两个数之和"><a href="#两个数之和" class="headerlink" title="两个数之和"></a>两个数之和</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p>示例:</p>
+<p>给定 nums = [2, 7, 11, 15], target = 9</p>
+<p>因为 nums[0] + nums[1] = 2 + 7 = 9</p>
+<p>所以返回 [0, 1]</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> twoSum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 初始化hashMap</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hashMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hashMap<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> diff <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> hashMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span> <span class="token operator">!==</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span> hashMap<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h3><p>反转一个单链表。</p>
+<p>示例:</p>
+<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</p>
+<p>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<p>迭代方法：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">ListNode</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> reverseList <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> q <span class="token operator">=</span> head<span class="token punctuation">;</span>  
+    <span class="token keyword">while</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        p <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        p<span class="token punctuation">.</span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
+        q <span class="token operator">=</span> p<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用来保存下次指针指向的位置</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> q
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>递归方法：</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> q<span class="token punctuation">;</span>
+<span class="token keyword">var</span> reverse <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        p <span class="token operator">=</span> head
+        <span class="token keyword">return</span> head
+    <span class="token punctuation">}</span>
+    q <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    q<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> head
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> reverseList <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> p
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -339,14 +577,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-03-10 22:13:51" itemprop="dateCreated datePublished" datetime="2019-03-10T22:13:51+08:00">2019-03-10</time>
+              <time title="Post created: 2019-03-10 22:13:51" itemprop="dateCreated datePublished" datetime="2019-03-10T22:13:51+08:00">2019-03-10</time>
             
 
             
@@ -363,7 +601,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -377,7 +615,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -512,14 +750,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-03-10 22:10:13" itemprop="dateCreated datePublished" datetime="2019-03-10T22:10:13+08:00">2019-03-10</time>
+              <time title="Post created: 2019-03-10 22:10:13" itemprop="dateCreated datePublished" datetime="2019-03-10T22:10:13+08:00">2019-03-10</time>
             
 
             
@@ -536,7 +774,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -550,7 +788,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -804,14 +1042,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:35:48" itemprop="dateCreated datePublished" datetime="2018-12-09T12:35:48+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:35:48" itemprop="dateCreated datePublished" datetime="2018-12-09T12:35:48+08:00">2018-12-09</time>
             
 
             
@@ -828,7 +1066,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -842,7 +1080,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1034,14 +1272,14 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:32:11" itemprop="dateCreated datePublished" datetime="2018-12-09T12:32:11+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:32:11" itemprop="dateCreated datePublished" datetime="2018-12-09T12:32:11+08:00">2018-12-09</time>
             
 
             
@@ -1058,7 +1296,7 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1072,7 +1310,7 @@ axios<span class="token punctuation">.</span><span class="token function">all</s
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1242,14 +1480,14 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:29:47" itemprop="dateCreated datePublished" datetime="2018-12-09T12:29:47+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:29:47" itemprop="dateCreated datePublished" datetime="2018-12-09T12:29:47+08:00">2018-12-09</time>
             
 
             
@@ -1266,7 +1504,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1280,7 +1518,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1447,14 +1685,14 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:26:17" itemprop="dateCreated datePublished" datetime="2018-12-09T12:26:17+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:26:17" itemprop="dateCreated datePublished" datetime="2018-12-09T12:26:17+08:00">2018-12-09</time>
             
 
             
@@ -1471,7 +1709,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1485,7 +1723,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2023,14 +2261,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:16:43" itemprop="dateCreated datePublished" datetime="2018-12-09T12:16:43+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:16:43" itemprop="dateCreated datePublished" datetime="2018-12-09T12:16:43+08:00">2018-12-09</time>
             
 
             
@@ -2047,7 +2285,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -2061,7 +2299,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2810,14 +3048,14 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:15:07" itemprop="dateCreated datePublished" datetime="2018-12-09T12:15:07+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:15:07" itemprop="dateCreated datePublished" datetime="2018-12-09T12:15:07+08:00">2018-12-09</time>
             
 
             
@@ -2834,7 +3072,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -2848,7 +3086,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2999,14 +3237,14 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-12-09 12:12:08" itemprop="dateCreated datePublished" datetime="2018-12-09T12:12:08+08:00">2018-12-09</time>
+              <time title="Post created: 2018-12-09 12:12:08" itemprop="dateCreated datePublished" datetime="2018-12-09T12:12:08+08:00">2018-12-09</time>
             
 
             
@@ -3023,7 +3261,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -3037,7 +3275,7 @@ methods<span class="token punctuation">:</span> <span class="token punctuation">
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3167,181 +3405,6 @@ exports<span class="token punctuation">.</span>increment<span class="token opera
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/25/%E7%BB%84%E4%BB%B6%E7%BC%96%E5%86%99%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/25/%E7%BB%84%E4%BB%B6%E7%BC%96%E5%86%99%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" itemprop="url">
-                  组件编写命名规范
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-11-25 15:24:57" itemprop="dateCreated datePublished" datetime="2018-11-25T15:24:57+08:00">2018-11-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="组件编写规范"><a href="#组件编写规范" class="headerlink" title="组件编写规范"></a>组件编写规范</h3><p>文件名大写：如果一个文件导出的是一个类，那么这个文件名就用大写字母开头。</p>
-<p>组件的私有方法都用<code>_</code>开头，所有事件监听的方法都用<code>handle</code>开头。</p>
-<p>把事件监听的方法传递给组件的时候，属性名用<code>on</code>开头。例如：</p>
-<pre class="line-numbers language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CommentInput</span>
-  <span class="token attr-name">onSubmit</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>handleSubmitComment<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3388,8 +3451,8 @@ exports<span class="token punctuation">.</span>increment<span class="token opera
                 
                   <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -3414,7 +3477,7 @@ exports<span class="token punctuation">.</span>increment<span class="token opera
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -3477,7 +3540,7 @@ exports<span class="token punctuation">.</span>increment<span class="token opera
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -3530,7 +3593,7 @@ exports<span class="token punctuation">.</span>increment<span class="token opera
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 

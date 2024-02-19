@@ -217,7 +217,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -225,7 +225,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -241,7 +241,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -249,7 +249,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -284,6 +284,275 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/snabbdom%E6%BA%90%E7%A0%81%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pjy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pjy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/30/snabbdom%E6%BA%90%E7%A0%81%E7%AC%94%E8%AE%B0/" itemprop="url">
+                  snabbdom源码笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2020-07-30 10:40:35" itemprop="dateCreated datePublished" datetime="2020-07-30T10:40:35+08:00">2020-07-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Snabbdom源码笔记"><a href="#Snabbdom源码笔记" class="headerlink" title="Snabbdom源码笔记"></a>Snabbdom源码笔记</h3><ul>
+<li><h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a><strong>创建项目</strong></h5><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 创建项目目录</span>
+<span class="token function">mkdir</span> snabbdom-demo
+<span class="token comment" spellcheck="true"># 进入项目</span>
+<span class="token function">cd</span> snabbdom-demo
+<span class="token comment" spellcheck="true"># 创建 package.json</span>
+<span class="token function">npm</span> init -y
+<span class="token comment" spellcheck="true"># 本地安装 parcel</span>
+<span class="token function">npm</span> add parcel-bundler
+<span class="token comment" spellcheck="true"># 安装snabbdom</span>
+<span class="token function">npm</span> i snabbdom
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="配置package-json"><a href="#配置package-json" class="headerlink" title="配置package.json"></a><strong>配置package.json</strong></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token string">"script"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"dev"</span><span class="token punctuation">:</span> <span class="token string">"parcel index.html --open"</span><span class="token punctuation">,</span>
+  <span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"parcel build index.html"</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="创建目录结构"><a href="#创建目录结构" class="headerlink" title="创建目录结构"></a><strong>创建目录结构</strong></h5><pre><code>| index.html
+| package.json
+|-src
+                demo.js
+</code></pre></li>
+<li><h5 id="demo-js"><a href="#demo-js" class="headerlink" title="demo.js"></a><strong>demo.js</strong></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> h<span class="token punctuation">,</span> init <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'snabbdom'</span>
+<span class="token comment" spellcheck="true">// 导入模块</span>
+<span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">'snabbdom/modules/style'</span>
+<span class="token keyword">import</span> eventlisteners <span class="token keyword">from</span> <span class="token string">'snabbdom/modules/eventlisteners'</span>
+
+<span class="token keyword">let</span> patch <span class="token operator">=</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">[</span>style<span class="token punctuation">,</span> eventlisteners<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> vNode <span class="token operator">=</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'div#container'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    style<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        backgroundColor<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    on<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        click<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello word'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    hook<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token function">init</span><span class="token punctuation">(</span>vNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>vNode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">create</span><span class="token punctuation">(</span>emptyVnode<span class="token punctuation">,</span> vNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>emptyVnode<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">,</span> <span class="token string">'Hello World'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span> <span class="token string">'p 标签'</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
+<span class="token function">patch</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> vNode<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h5 id="init函数源码分析"><a href="#init函数源码分析" class="headerlink" title="init函数源码分析"></a><strong>init函数源码分析</strong></h5><ul>
+<li><p>init函数接收一个modules的数组参数和用户自定义的domApi（可选）</p>
+<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">function</span> init <span class="token punctuation">(</span>modules<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>Partial<span class="token operator">&lt;</span>Module<span class="token operator">></span><span class="token operator">></span><span class="token punctuation">,</span> domApi<span class="token operator">?</span><span class="token punctuation">:</span> DOMAPI<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ***</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>初始化cbs（存储回调钩子函数）</p>
+<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">const</span> hooks<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token operator">&lt;</span>keyof Module<span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'create'</span><span class="token punctuation">,</span> <span class="token string">'update'</span><span class="token punctuation">,</span> <span class="token string">'remove'</span><span class="token punctuation">,</span> <span class="token string">'destroy'</span><span class="token punctuation">,</span> <span class="token string">'pre'</span><span class="token punctuation">,</span> <span class="token string">'post'</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> cbs<span class="token punctuation">:</span> ModuleHooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+    create<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    update<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    remove<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    destroy<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    pre<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    post<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 初始化所有的钩子函数结构</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> hooks<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cbs<span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token comment" spellcheck="true">// 将传入模块的钩子函数添加到cbs对应的钩子函数结构中</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> modules<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> hook <span class="token operator">=</span> modules<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>hook <span class="token operator">!==</span> undefined<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span>cbs<span class="token punctuation">[</span>hooks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> as <span class="token keyword">any</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>hook<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>判断domapi</p>
+<pre class="line-numbers language-ts"><code class="language-ts"><span class="token keyword">const</span> api<span class="token punctuation">:</span> DOMAPI <span class="token operator">=</span> domApi <span class="token operator">!==</span> undefined <span class="token operator">?</span> domApi <span class="token punctuation">:</span> htmlDomApi
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>返回patch函数</p>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">return</span> <span class="token keyword">function</span> patch <span class="token punctuation">(</span>oldVnode<span class="token punctuation">:</span> VNode <span class="token operator">|</span> Element<span class="token punctuation">,</span> vnode<span class="token punctuation">:</span> VNode<span class="token punctuation">)</span><span class="token punctuation">:</span> VNode <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ****</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -339,14 +608,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-11-29 10:54:08" itemprop="dateCreated datePublished" datetime="2019-11-29T10:54:08+08:00">2019-11-29</time>
+              <time title="Post created: 2019-11-29 10:54:08" itemprop="dateCreated datePublished" datetime="2019-11-29T10:54:08+08:00">2019-11-29</time>
             
 
             
@@ -363,7 +632,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -377,7 +646,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -545,14 +814,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-29 09:35:46" itemprop="dateCreated datePublished" datetime="2019-06-29T09:35:46+08:00">2019-06-29</time>
+              <time title="Post created: 2019-06-29 09:35:46" itemprop="dateCreated datePublished" datetime="2019-06-29T09:35:46+08:00">2019-06-29</time>
             
 
             
@@ -569,7 +838,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -583,7 +852,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -777,14 +1046,14 @@ methods: {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-08 13:59:34" itemprop="dateCreated datePublished" datetime="2019-06-08T13:59:34+08:00">2019-06-08</time>
+              <time title="Post created: 2019-06-08 13:59:34" itemprop="dateCreated datePublished" datetime="2019-06-08T13:59:34+08:00">2019-06-08</time>
             
 
             
@@ -801,7 +1070,7 @@ methods: {
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -815,7 +1084,7 @@ methods: {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -1135,14 +1404,14 @@ methods: {
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-01 11:52:38" itemprop="dateCreated datePublished" datetime="2019-06-01T11:52:38+08:00">2019-06-01</time>
+              <time title="Post created: 2019-06-01 11:52:38" itemprop="dateCreated datePublished" datetime="2019-06-01T11:52:38+08:00">2019-06-01</time>
             
 
             
@@ -1159,7 +1428,7 @@ methods: {
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1173,7 +1442,7 @@ methods: {
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -1397,14 +1666,14 @@ dojo<span class="token punctuation">.</span><span class="token function">addClas
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-01 11:51:41" itemprop="dateCreated datePublished" datetime="2019-06-01T11:51:41+08:00">2019-06-01</time>
+              <time title="Post created: 2019-06-01 11:51:41" itemprop="dateCreated datePublished" datetime="2019-06-01T11:51:41+08:00">2019-06-01</time>
             
 
             
@@ -1421,7 +1690,7 @@ dojo<span class="token punctuation">.</span><span class="token function">addClas
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1435,7 +1704,7 @@ dojo<span class="token punctuation">.</span><span class="token function">addClas
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -1961,14 +2230,14 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-01 11:49:07" itemprop="dateCreated datePublished" datetime="2019-06-01T11:49:07+08:00">2019-06-01</time>
+              <time title="Post created: 2019-06-01 11:49:07" itemprop="dateCreated datePublished" datetime="2019-06-01T11:49:07+08:00">2019-06-01</time>
             
 
             
@@ -1985,7 +2254,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -1999,7 +2268,7 @@ person1<span class="token punctuation">.</span>name <span class="token operator"
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
@@ -2537,14 +2806,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-01 11:43:04" itemprop="dateCreated datePublished" datetime="2019-06-01T11:43:04+08:00">2019-06-01</time>
+              <time title="Post created: 2019-06-01 11:43:04" itemprop="dateCreated datePublished" datetime="2019-06-01T11:43:04+08:00">2019-06-01</time>
             
 
             
@@ -2561,7 +2830,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -2575,7 +2844,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2749,14 +3018,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-06-01 11:27:05" itemprop="dateCreated datePublished" datetime="2019-06-01T11:27:05+08:00">2019-06-01</time>
+              <time title="Post created: 2019-06-01 11:27:05" itemprop="dateCreated datePublished" datetime="2019-06-01T11:27:05+08:00">2019-06-01</time>
             
 
             
@@ -2773,7 +3042,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -2787,7 +3056,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -2942,14 +3211,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-03 12:09:04" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
+              <time title="Post created: 2019-05-03 12:09:04" itemprop="dateCreated datePublished" datetime="2019-05-03T12:09:04+08:00">2019-05-03</time>
             
 
             
@@ -2966,7 +3235,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
+                <time title="Updated at: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
               
             
           </span>
@@ -2980,7 +3249,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -3136,175 +3405,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/ES7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pjy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pjy">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/01/ES7/" itemprop="url">
-                  ES7
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-01 12:57:19" itemprop="dateCreated datePublished" datetime="2019-05-01T12:57:19+08:00">2019-05-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2024-02-19 15:42:51" itemprop="dateModified" datetime="2024-02-19T15:42:51+08:00">2024-02-19</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="ES7新增语法"><a href="#ES7新增语法" class="headerlink" title="ES7新增语法"></a>ES7新增语法</h3>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3351,8 +3451,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                   <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -3377,7 +3477,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -3440,7 +3540,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -3493,7 +3593,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 

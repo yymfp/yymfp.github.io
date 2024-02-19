@@ -123,7 +123,7 @@
 <meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/B670A19A85B547999C298B6BA314E0F1.png">
 <meta property="og:image" content="http://yoursite.com/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/CBED4F4AC4EC45B78044E27BA0CB6A8B.png">
 <meta property="article:published_time" content="2024-02-19T10:29:15.000Z">
-<meta property="article:modified_time" content="2024-02-19T10:36:40.927Z">
+<meta property="article:modified_time" content="2024-02-19T10:41:54.142Z">
 <meta property="article:author" content="pjy">
 <meta property="article:tag" content="音视频">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -238,7 +238,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
         
         
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -262,7 +262,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -348,14 +348,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2024-02-19 18:29:15 / Modified: 18:36:40" itemprop="dateCreated datePublished" datetime="2024-02-19T18:29:15+08:00">2024-02-19</time>
+              <time title="Post created: 2024-02-19 18:29:15 / Updated at: 18:41:54" itemprop="dateCreated datePublished" datetime="2024-02-19T18:29:15+08:00">2024-02-19</time>
             
 
             
@@ -374,7 +374,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
@@ -470,7 +470,7 @@
 <p><strong>IDR</strong>：即立即刷新图像，是一个序列的第一个图像，IDR图像都是I帧图像。引入 IDR 图像是为了解码的重同步，当解码器解码到 IDR 图像时，立即将参考帧队列清空，将已解码的数据全部输出或抛弃，重新查找参数集，开始一个新的序列。这样，如果前一个序列出现重大错误，在这里可以获得重新同步的机会。IDR图像之后的图像永远不会使用IDR之前的图像的数据来解码。</p>
 <p><strong>GOP</strong>：即Group of picture（<strong>图像组</strong>），指两个I帧之间的距离，两个I帧之间形成一组图片，就是GOP。</p>
 <p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/8AC59C17C15A4885A126F0B3B824E20B.png" alt="image"></p>
-<h3 id="为什么需要B帧："><a href="#为什么需要B帧：" class="headerlink" title="==为什么需要B帧：=="></a>==为什么需要B帧：==</h3><p>想要理解B帧的作用，我们需要先理解呈现顺序和编解码顺序的概念。<br>以I帧和P帧为例。如果你只使用了这两种类型的帧，那么每一帧要么参考自身（I帧），要么参考前一帧（P帧）。因此，帧可以以相同的顺序进出编码器。这里，呈现顺序（或显示顺序）与编码、解码顺序相同。</p>
+<h3 id="为什么需要B帧："><a href="#为什么需要B帧：" class="headerlink" title="为什么需要B帧："></a>为什么需要B帧：</h3><p>想要理解B帧的作用，我们需要先理解呈现顺序和编解码顺序的概念。<br>以I帧和P帧为例。如果你只使用了这两种类型的帧，那么每一帧要么参考自身（I帧），要么参考前一帧（P帧）。因此，帧可以以相同的顺序进出编码器。这里，呈现顺序（或显示顺序）与编码、解码顺序相同。</p>
 <p><img src="/2024/02/19/I%E5%B8%A7%E3%80%81P%E5%B8%A7%E3%80%81B%E5%B8%A7%E3%80%81GOP%E3%80%81IDR-%E5%92%8CPTS-DTS%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/D7B775D11EB743F094F9802ACDF78DBA.png" alt="image"></p>
 <p>网络上的电影很多都采用了B帧，因为B帧记录的是前后帧的差别，比P帧能节约更多的空间，但这样一来，文件小了，解码器就麻烦了，因为在解码时，不仅要用之前缓存的画面，还要知道下一个I或者P的画面（也就是说要预读预解码），而且，B帧不能简单地丢掉，因为B帧其实也包含了画面信息，如果简单丢掉，并用之前的画面简单重复，就会造成画面卡（其实就是丢帧了），并且由于网络上的电影为了节约空间，往往使用相当多的B帧，B帧用的多，对不支持B帧的播放器就造成更大的困扰，画面也就越卡。</p>
 <p><strong>下图编解码顺序：IPBBPBB…I</strong></p>
@@ -524,6 +524,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2024/02/19/HTTP-Live-Streaming-HLS/" rel="prev" title="HTTP Live Streaming (HLS)">
+                HTTP Live Streaming (HLS) <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -570,10 +574,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -593,8 +597,8 @@
                 
                   <a href="/archives/%20%7C%7C%20archive">
                 
-                    <span class="site-state-item-count">72</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -619,7 +623,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -682,7 +686,7 @@
                       
                     
                     <span class="site-state-item-count">25</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">Tags</span>
                   </a>
                 </div>
               
@@ -717,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-视频传输原理"><span class="nav-number">1.</span> <span class="nav-text">1. 视频传输原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-视频播放器原理"><span class="nav-number">2.</span> <span class="nav-text">2. 视频播放器原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-帧内预测和帧间预测"><span class="nav-number">3.</span> <span class="nav-text">3. 帧内预测和帧间预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-I帧"><span class="nav-number">4.</span> <span class="nav-text">4. I帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-P帧"><span class="nav-number">5.</span> <span class="nav-text">5. P帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-B帧"><span class="nav-number">6.</span> <span class="nav-text">6. B帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-GOP（序列）和IDR"><span class="nav-number">7.</span> <span class="nav-text">7. GOP（序列）和IDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要B帧："><span class="nav-number">8.</span> <span class="nav-text">&#x3D;&#x3D;为什么需要B帧：&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-PTS和DTS"><span class="nav-number">9.</span> <span class="nav-text">8. PTS和DTS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-视频传输原理"><span class="nav-number">1.</span> <span class="nav-text">1. 视频传输原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-视频播放器原理"><span class="nav-number">2.</span> <span class="nav-text">2. 视频播放器原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-帧内预测和帧间预测"><span class="nav-number">3.</span> <span class="nav-text">3. 帧内预测和帧间预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-I帧"><span class="nav-number">4.</span> <span class="nav-text">4. I帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-P帧"><span class="nav-number">5.</span> <span class="nav-text">5. P帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-B帧"><span class="nav-number">6.</span> <span class="nav-text">6. B帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-GOP（序列）和IDR"><span class="nav-number">7.</span> <span class="nav-text">7. GOP（序列）和IDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要B帧："><span class="nav-number">8.</span> <span class="nav-text">为什么需要B帧：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-PTS和DTS"><span class="nav-number">9.</span> <span class="nav-text">8. PTS和DTS</span></a></li></ol></div>
             
 
           </div>
@@ -751,7 +755,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.1</div>
 
 
 
