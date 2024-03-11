@@ -108,14 +108,14 @@ host主机访问主机B时在NAT上打了一个洞，此时外 网主机A和C是
 
 #### 打洞举例
 **A B均为完全锥型NAT**
-![image](WebRtc/A%26BFullNat.png)
+![image](WebRtc/ABFullNat.png)
 
 1. A 向 server 发起与 B 的打洞请求，server 向 B 转发打洞请求，同时A向 PB1 直接发送探测包，那么 A 为 B 在 PA1 已经成功打洞，但是 A 的消息无法到达，因为 B 的 NAT 会将不明的地址(PA1) 丢弃/拒绝。
 2. B 收到从 server 转发过来的打洞请求后，向 PA1 直接发送探测包，这时 B 的 NAT 可以放行 PA1 的消息了，也就是 B 为 A 在 PB1 上完成了打洞。
 3. 至此，A 和 B 消息能够互通，打洞成功
 
 **A为对称型 B为端口限制型**
-![image](WebRtc/AS%26BPNat.png)
+![image](WebRtc/ASBPNat.png)
 
 由于 B 收到 server 转发过来的打洞请求后，是向 PA1 发送探测包的，因为 B 只知道 PA1（PA1 是 A 与 server 连接是映射的端口号，server 也只知道 PA1)，但是 A 由于是对称型 NAT，所以会拒绝B往PA1发的消息，同时会从一个新端口 PA2 向 B 发包，但是 B 由于是端口限制型，只允许 PA1 端口的包通过，所以 B 会拒绝 PA2。
 
